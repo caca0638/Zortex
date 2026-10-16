@@ -1,0 +1,11073 @@
+{
+ "aegis_ring": [
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      34,
+      0,
+      17,
+      29.4449
+     ],
+     "t": "polygon",
+     "x": 17,
+     "y": 29.4449
+    },
+    {
+     "closed": false,
+     "pts": [
+      17,
+      29.4449,
+      -17,
+      29.4449
+     ],
+     "t": "polygon",
+     "x": -17,
+     "y": 29.4449
+    },
+    {
+     "closed": false,
+     "pts": [
+      -17,
+      29.4449,
+      -34,
+      0
+     ],
+     "t": "polygon",
+     "x": -34,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      -34,
+      0,
+      -17,
+      -29.4449
+     ],
+     "t": "polygon",
+     "x": -17,
+     "y": -29.4449
+    },
+    {
+     "closed": false,
+     "pts": [
+      -17,
+      -29.4449,
+      17,
+      -29.4449
+     ],
+     "t": "polygon",
+     "x": 17,
+     "y": -29.4449
+    },
+    {
+     "closed": false,
+     "pts": [
+      17,
+      -29.4449,
+      34,
+      -0.0
+     ],
+     "t": "polygon",
+     "x": 34,
+     "y": -0.0
+    },
+    {
+     "closed": false,
+     "pts": [
+      29,
+      0,
+      14.5,
+      25.1147
+     ],
+     "t": "polygon",
+     "x": 14.5,
+     "y": 25.1147
+    },
+    {
+     "radius": 2,
+     "t": "circle",
+     "x": 34,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      14.5,
+      25.1147,
+      -14.5,
+      25.1147
+     ],
+     "t": "polygon",
+     "x": -14.5,
+     "y": 25.1147
+    },
+    {
+     "radius": 2,
+     "t": "circle",
+     "x": 17,
+     "y": 29.4449
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -14.5,
+      25.1147,
+      -29,
+      0
+     ],
+     "t": "polygon",
+     "x": -29,
+     "y": 0
+    },
+    {
+     "radius": 2,
+     "t": "circle",
+     "x": -17,
+     "y": 29.4449
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -29,
+      0,
+      -14.5,
+      -25.1147
+     ],
+     "t": "polygon",
+     "x": -14.5,
+     "y": -25.1147
+    },
+    {
+     "radius": 2,
+     "t": "circle",
+     "x": -34,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -14.5,
+      -25.1147,
+      14.5,
+      -25.1147
+     ],
+     "t": "polygon",
+     "x": 14.5,
+     "y": -25.1147
+    },
+    {
+     "radius": 2,
+     "t": "circle",
+     "x": -17,
+     "y": -29.4449
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      14.5,
+      -25.1147,
+      29,
+      -0.0
+     ],
+     "t": "polygon",
+     "x": 29,
+     "y": -0.0
+    },
+    {
+     "radius": 2,
+     "t": "circle",
+     "x": 17,
+     "y": -29.4449
+    }
+   ]
+  }
+ ],
+ "asteroid_debris": [
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 4674921,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      -7,
+      -4,
+      -2,
+      -7,
+      5,
+      -5,
+      7,
+      2,
+      3,
+      7,
+      -5,
+      5
+     ],
+     "t": "polygon",
+     "x": -5,
+     "y": 5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.45,
+   "color": 9741240,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": -1.5,
+     "y": -1.5
+    }
+   ]
+  }
+ ],
+ "bullet_blaster": [
+  {
+   "a": "fill",
+   "alpha": 0.22,
+   "color": 16777215,
+   "shapes": [
+    {
+     "height": 6.4,
+     "radius": 3.2,
+     "t": "roundedRectangle",
+     "width": 30,
+     "x": -15,
+     "y": -3.2
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.7,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      14,
+      0,
+      9,
+      -2,
+      -12,
+      -1.5,
+      -15,
+      0,
+      -12,
+      1.5,
+      9,
+      2
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": 2
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      13,
+      0,
+      8,
+      -1,
+      -9,
+      -0.7,
+      -11,
+      0,
+      -9,
+      0.7,
+      8,
+      1
+     ],
+     "t": "polygon",
+     "x": 8,
+     "y": 1
+    }
+   ]
+  }
+ ],
+ "bullet_enemy": [
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16711748,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.95,
+   "cap": "butt",
+   "color": 328976,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16729088,
+   "shapes": [
+    {
+     "radius": 5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777181,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "bullet_enemy_boss": [
+  {
+   "a": "fill",
+   "alpha": 0.92,
+   "color": 14239471,
+   "shapes": [
+    {
+     "radius": 15,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 131592,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 15,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 15485081,
+   "shapes": [
+    {
+     "radius": 8.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 4,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "bullet_enemy_heavy": [
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16742144,
+   "shapes": [
+    {
+     "radius": 11,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 131592,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 11,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16763904,
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.8,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "bullet_plasma": [
+  {
+   "a": "fill",
+   "alpha": 0.35,
+   "color": 65484,
+   "shapes": [
+    {
+     "radius": 12,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.85,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 4,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "bullet_railgun": [
+  {
+   "a": "fill",
+   "alpha": 0.4,
+   "color": 62463,
+   "shapes": [
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 64,
+     "x": -32,
+     "y": -4
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 62463,
+   "shapes": [
+    {
+     "height": 5,
+     "t": "rectangle",
+     "width": 48,
+     "x": -24,
+     "y": -2.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "height": 3,
+     "t": "rectangle",
+     "width": 36,
+     "x": -18,
+     "y": -1.5
+    }
+   ]
+  }
+ ],
+ "bullet_spread": [
+  {
+   "a": "fill",
+   "alpha": 0.4,
+   "color": 16742144,
+   "shapes": [
+    {
+     "radius": 8,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 16755200,
+   "shapes": [
+    {
+     "radius": 5.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "casing": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16766720,
+   "shapes": [
+    {
+     "height": 3,
+     "t": "rectangle",
+     "width": 6,
+     "x": -3,
+     "y": -1.5
+    }
+   ]
+  }
+ ],
+ "debris": [
+  {
+   "a": "fill",
+   "alpha": 0.92,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      -3,
+      -4,
+      4,
+      -2,
+      3,
+      4,
+      -4,
+      2
+     ],
+     "t": "polygon",
+     "x": -4,
+     "y": 2
+    }
+   ]
+  }
+ ],
+ "deep_space_gradient": [
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 352,
+     "halfWidth": 480,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.005,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 330,
+     "halfWidth": 450,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0151,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 308,
+     "halfWidth": 420,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0288,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 286,
+     "halfWidth": 390,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0457,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 264,
+     "halfWidth": 360,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0653,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 242,
+     "halfWidth": 330,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0874,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 220,
+     "halfWidth": 300,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1119,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 198,
+     "halfWidth": 270,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1385,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 176,
+     "halfWidth": 240,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1673,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 154,
+     "halfWidth": 210,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.198,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 132,
+     "halfWidth": 180,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.2306,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 110,
+     "halfWidth": 150,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.2651,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 88,
+     "halfWidth": 120,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.3013,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 66,
+     "halfWidth": 90,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.3392,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 44,
+     "halfWidth": 60,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.3788,
+   "color": 396840,
+   "shapes": [
+    {
+     "halfHeight": 22,
+     "halfWidth": 30,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "drop_shadow": [
+  {
+   "a": "fill",
+   "alpha": 0.0343,
+   "color": 5,
+   "shapes": [
+    {
+     "halfHeight": 18.72,
+     "halfWidth": 32.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0857,
+   "color": 5,
+   "shapes": [
+    {
+     "halfHeight": 16.56,
+     "halfWidth": 28.75,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1371,
+   "color": 5,
+   "shapes": [
+    {
+     "halfHeight": 14.4,
+     "halfWidth": 25,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1886,
+   "color": 5,
+   "shapes": [
+    {
+     "halfHeight": 12.24,
+     "halfWidth": 21.25,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.24,
+   "color": 5,
+   "shapes": [
+    {
+     "halfHeight": 10.08,
+     "halfWidth": 17.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.2914,
+   "color": 5,
+   "shapes": [
+    {
+     "halfHeight": 7.92,
+     "halfWidth": 13.75,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.3429,
+   "color": 5,
+   "shapes": [
+    {
+     "halfHeight": 5.76,
+     "halfWidth": 10,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.3943,
+   "color": 5,
+   "shapes": [
+    {
+     "halfHeight": 3.6,
+     "halfWidth": 6.25,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "dust_mote": [
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "elite_ring": [],
+ "enemy_boss": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 787469,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      56,
+      0,
+      34,
+      -30,
+      16,
+      -50,
+      -24,
+      -50,
+      -48,
+      -28,
+      -42,
+      0,
+      -48,
+      28,
+      -24,
+      50,
+      16,
+      50,
+      34,
+      30
+     ],
+     "t": "polygon",
+     "x": 34,
+     "y": 30
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 4982041,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      56,
+      0,
+      34,
+      -30,
+      16,
+      -50,
+      -24,
+      -50,
+      -48,
+      -28,
+      -42,
+      0,
+      -48,
+      28,
+      -24,
+      50,
+      16,
+      50,
+      34,
+      30
+     ],
+     "t": "polygon",
+     "x": 34,
+     "y": 30
+    }
+   ],
+   "width": 3.2
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2622737,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      46,
+      0,
+      26,
+      -22,
+      10,
+      -40,
+      -18,
+      -40,
+      -38,
+      -20,
+      -32,
+      0,
+      -38,
+      20,
+      -18,
+      40,
+      10,
+      40,
+      26,
+      22
+     ],
+     "t": "polygon",
+     "x": 26,
+     "y": 22
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      46,
+      0,
+      26,
+      -22,
+      10,
+      -40,
+      -18,
+      -40,
+      -38,
+      -20,
+      -32,
+      0,
+      -38,
+      20,
+      -18,
+      40,
+      10,
+      40,
+      26,
+      22
+     ],
+     "t": "polygon",
+     "x": 26,
+     "y": 22
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1120295,
+   "shapes": [
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 42,
+     "x": 20,
+     "y": -18
+    },
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 42,
+     "x": 20,
+     "y": 11
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 6583435,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 42,
+     "x": 20,
+     "y": -18
+    },
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 42,
+     "x": 20,
+     "y": 11
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": 60,
+     "y": -14.5
+    },
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": 60,
+     "y": 14.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.6,
+     "t": "circle",
+     "x": 60,
+     "y": -14.5
+    },
+    {
+     "radius": 1.6,
+     "t": "circle",
+     "x": 60,
+     "y": 14.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1967114,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": -32
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": -32
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": -32
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1967114,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": 32
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": 32
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": 32
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1967114,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": -25,
+     "y": -20
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": -25,
+     "y": -20
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": -25,
+     "y": -20
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1967114,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": -25,
+     "y": 20
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": -25,
+     "y": 20
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": -25,
+     "y": 20
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 659485,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      54,
+      0,
+      33,
+      -29,
+      15,
+      -48,
+      -22,
+      -48
+     ],
+     "t": "polygon",
+     "x": -22,
+     "y": -48
+    },
+    {
+     "closed": false,
+     "pts": [
+      44,
+      0,
+      25,
+      -21,
+      9,
+      -38
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": -38
+    },
+    {
+     "closed": true,
+     "pts": [
+      18,
+      0,
+      8,
+      -15,
+      -12,
+      -15,
+      -22,
+      0,
+      -12,
+      15,
+      8,
+      15
+     ],
+     "t": "polygon",
+     "x": 8,
+     "y": 15
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.95,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      54,
+      0,
+      33,
+      -29,
+      15,
+      -48,
+      -22,
+      -48
+     ],
+     "t": "polygon",
+     "x": -22,
+     "y": -48
+    },
+    {
+     "closed": false,
+     "pts": [
+      44,
+      0,
+      25,
+      -21,
+      9,
+      -38
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": -38
+    },
+    {
+     "closed": true,
+     "pts": [
+      18,
+      0,
+      8,
+      -15,
+      -12,
+      -15,
+      -22,
+      0,
+      -12,
+      15,
+      8,
+      15
+     ],
+     "t": "polygon",
+     "x": 8,
+     "y": 15
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 0.6,
+   "color": 16711765,
+   "shapes": [
+    {
+     "radius": 14,
+     "t": "circle",
+     "x": -2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 9,
+     "t": "circle",
+     "x": -2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 4.5,
+     "t": "circle",
+     "x": -2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 988970,
+   "shapes": [
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 9,
+     "x": -52,
+     "y": -22
+    },
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 9,
+     "x": -52,
+     "y": 14
+    },
+    {
+     "height": 10,
+     "t": "rectangle",
+     "width": 8,
+     "x": -46,
+     "y": -5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 4674921,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 9,
+     "x": -52,
+     "y": -22
+    },
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 9,
+     "x": -52,
+     "y": 14
+    },
+    {
+     "height": 10,
+     "t": "rectangle",
+     "width": 8,
+     "x": -46,
+     "y": -5
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16711765,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": -50,
+     "y": -18
+    },
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": -50,
+     "y": 18
+    },
+    {
+     "radius": 3.6,
+     "t": "circle",
+     "x": -44,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "enemy_boss_hive": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 334352,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      50,
+      0,
+      28,
+      -34,
+      -10,
+      -46,
+      -44,
+      -30,
+      -32,
+      0,
+      -44,
+      30,
+      -10,
+      46,
+      28,
+      34
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": 34
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 417606,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      50,
+      0,
+      28,
+      -34,
+      -10,
+      -46,
+      -44,
+      -30,
+      -32,
+      0,
+      -44,
+      30,
+      -10,
+      46,
+      28,
+      34
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": 34
+    }
+   ],
+   "width": 3
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 413243,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      40,
+      0,
+      20,
+      -26,
+      -6,
+      -34,
+      -30,
+      -20,
+      -22,
+      0,
+      -30,
+      20,
+      -6,
+      34,
+      20,
+      26
+     ],
+     "t": "polygon",
+     "x": 20,
+     "y": 26
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 1096065,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      40,
+      0,
+      20,
+      -26,
+      -6,
+      -34,
+      -30,
+      -20,
+      -22,
+      0,
+      -30,
+      20,
+      -6,
+      34,
+      20,
+      26
+     ],
+     "t": "polygon",
+     "x": 20,
+     "y": 26
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1841431,
+   "shapes": [
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 22,
+     "x": -8,
+     "y": -38
+    },
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 22,
+     "x": -8,
+     "y": 30
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16436245,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 22,
+     "x": -8,
+     "y": -38
+    },
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 22,
+     "x": -8,
+     "y": 30
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1096065,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 3,
+     "y": -34
+    },
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 3,
+     "y": 34
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 142370,
+   "shapes": [
+    {
+     "radius": 16,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 3462041,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 16,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2.5
+  },
+  {
+   "a": "fill",
+   "alpha": 0.85,
+   "color": 1096065,
+   "shapes": [
+    {
+     "radius": 11,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16436245,
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "enemy_boss_omega": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 787469,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      56,
+      0,
+      34,
+      -30,
+      16,
+      -50,
+      -24,
+      -50,
+      -48,
+      -28,
+      -42,
+      0,
+      -48,
+      28,
+      -24,
+      50,
+      16,
+      50,
+      34,
+      30
+     ],
+     "t": "polygon",
+     "x": 34,
+     "y": 30
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 4982041,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      56,
+      0,
+      34,
+      -30,
+      16,
+      -50,
+      -24,
+      -50,
+      -48,
+      -28,
+      -42,
+      0,
+      -48,
+      28,
+      -24,
+      50,
+      16,
+      50,
+      34,
+      30
+     ],
+     "t": "polygon",
+     "x": 34,
+     "y": 30
+    }
+   ],
+   "width": 3.2
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2622737,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      46,
+      0,
+      26,
+      -22,
+      10,
+      -40,
+      -18,
+      -40,
+      -38,
+      -20,
+      -32,
+      0,
+      -38,
+      20,
+      -18,
+      40,
+      10,
+      40,
+      26,
+      22
+     ],
+     "t": "polygon",
+     "x": 26,
+     "y": 22
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      46,
+      0,
+      26,
+      -22,
+      10,
+      -40,
+      -18,
+      -40,
+      -38,
+      -20,
+      -32,
+      0,
+      -38,
+      20,
+      -18,
+      40,
+      10,
+      40,
+      26,
+      22
+     ],
+     "t": "polygon",
+     "x": 26,
+     "y": 22
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1120295,
+   "shapes": [
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 42,
+     "x": 20,
+     "y": -18
+    },
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 42,
+     "x": 20,
+     "y": 11
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 6583435,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 42,
+     "x": 20,
+     "y": -18
+    },
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 42,
+     "x": 20,
+     "y": 11
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": 60,
+     "y": -14.5
+    },
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": 60,
+     "y": 14.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.6,
+     "t": "circle",
+     "x": 60,
+     "y": -14.5
+    },
+    {
+     "radius": 1.6,
+     "t": "circle",
+     "x": 60,
+     "y": 14.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1967114,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": -32
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": -32
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": -32
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1967114,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": 32
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": 0,
+     "y": 32
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": 32
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1967114,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": -25,
+     "y": -20
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": -25,
+     "y": -20
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": -25,
+     "y": -20
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1967114,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": -25,
+     "y": 20
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": -25,
+     "y": 20
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": -25,
+     "y": 20
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 659485,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      54,
+      0,
+      33,
+      -29,
+      15,
+      -48,
+      -22,
+      -48
+     ],
+     "t": "polygon",
+     "x": -22,
+     "y": -48
+    },
+    {
+     "closed": false,
+     "pts": [
+      44,
+      0,
+      25,
+      -21,
+      9,
+      -38
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": -38
+    },
+    {
+     "closed": true,
+     "pts": [
+      18,
+      0,
+      8,
+      -15,
+      -12,
+      -15,
+      -22,
+      0,
+      -12,
+      15,
+      8,
+      15
+     ],
+     "t": "polygon",
+     "x": 8,
+     "y": 15
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.95,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      54,
+      0,
+      33,
+      -29,
+      15,
+      -48,
+      -22,
+      -48
+     ],
+     "t": "polygon",
+     "x": -22,
+     "y": -48
+    },
+    {
+     "closed": false,
+     "pts": [
+      44,
+      0,
+      25,
+      -21,
+      9,
+      -38
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": -38
+    },
+    {
+     "closed": true,
+     "pts": [
+      18,
+      0,
+      8,
+      -15,
+      -12,
+      -15,
+      -22,
+      0,
+      -12,
+      15,
+      8,
+      15
+     ],
+     "t": "polygon",
+     "x": 8,
+     "y": 15
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 0.6,
+   "color": 16711765,
+   "shapes": [
+    {
+     "radius": 14,
+     "t": "circle",
+     "x": -2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 9,
+     "t": "circle",
+     "x": -2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 4.5,
+     "t": "circle",
+     "x": -2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 988970,
+   "shapes": [
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 9,
+     "x": -52,
+     "y": -22
+    },
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 9,
+     "x": -52,
+     "y": 14
+    },
+    {
+     "height": 10,
+     "t": "rectangle",
+     "width": 8,
+     "x": -46,
+     "y": -5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 4674921,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 9,
+     "x": -52,
+     "y": -22
+    },
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 9,
+     "x": -52,
+     "y": 14
+    },
+    {
+     "height": 10,
+     "t": "rectangle",
+     "width": 8,
+     "x": -46,
+     "y": -5
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16711765,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": -50,
+     "y": -18
+    },
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": -50,
+     "y": 18
+    },
+    {
+     "radius": 3.6,
+     "t": "circle",
+     "x": -44,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "enemy_boss_reactor": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1838852,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      48,
+      0,
+      32,
+      -32,
+      0,
+      -48,
+      -32,
+      -32,
+      -48,
+      0,
+      -32,
+      32,
+      0,
+      48,
+      32,
+      32
+     ],
+     "t": "polygon",
+     "x": 32,
+     "y": 32
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 8138002,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      48,
+      0,
+      32,
+      -32,
+      0,
+      -48,
+      -32,
+      -32,
+      -48,
+      0,
+      -32,
+      32,
+      0,
+      48,
+      32,
+      32
+     ],
+     "t": "polygon",
+     "x": 32,
+     "y": 32
+    }
+   ],
+   "width": 3.2
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 4396039,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      38,
+      0,
+      24,
+      -24,
+      0,
+      -36,
+      -24,
+      -24,
+      -38,
+      0,
+      -24,
+      24,
+      0,
+      36,
+      24,
+      24
+     ],
+     "t": "polygon",
+     "x": 24,
+     "y": 24
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16347926,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      38,
+      0,
+      24,
+      -24,
+      0,
+      -36,
+      -24,
+      -24,
+      -38,
+      0,
+      -24,
+      24,
+      0,
+      36,
+      24,
+      24
+     ],
+     "t": "polygon",
+     "x": 24,
+     "y": 24
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1579035,
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": 32,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16436245,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": 32,
+     "y": 0
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16726784,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 32,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1579035,
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": 0,
+     "y": 32
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16436245,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": 0,
+     "y": 32
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16726784,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 0,
+     "y": 32
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1579035,
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": -32,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16436245,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": -32,
+     "y": 0
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16726784,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -32,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1579035,
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": -0.0,
+     "y": -32
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16436245,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": -0.0,
+     "y": -32
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16726784,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -0.0,
+     "y": -32
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 15357964,
+   "shapes": [
+    {
+     "radius": 16,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16436245,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 16,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 16638023,
+   "shapes": [
+    {
+     "radius": 10,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "enemy_boss_shadow": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 787991,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      60,
+      0,
+      38,
+      -14,
+      52,
+      -36,
+      12,
+      -28,
+      -24,
+      -42,
+      -44,
+      -14,
+      -30,
+      0,
+      -44,
+      14,
+      -24,
+      42,
+      12,
+      28,
+      52,
+      36,
+      38,
+      14
+     ],
+     "t": "polygon",
+     "x": 38,
+     "y": 14
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 3868516,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      60,
+      0,
+      38,
+      -14,
+      52,
+      -36,
+      12,
+      -28,
+      -24,
+      -42,
+      -44,
+      -14,
+      -30,
+      0,
+      -44,
+      14,
+      -24,
+      42,
+      12,
+      28,
+      52,
+      36,
+      38,
+      14
+     ],
+     "t": "polygon",
+     "x": 38,
+     "y": 14
+    }
+   ],
+   "width": 3
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 3018853,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      48,
+      0,
+      30,
+      -10,
+      40,
+      -26,
+      8,
+      -20,
+      -18,
+      -30,
+      -32,
+      -10,
+      -22,
+      0,
+      -32,
+      10,
+      -18,
+      30,
+      8,
+      20,
+      40,
+      26,
+      30,
+      10
+     ],
+     "t": "polygon",
+     "x": 30,
+     "y": 10
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 11032055,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      48,
+      0,
+      30,
+      -10,
+      40,
+      -26,
+      8,
+      -20,
+      -18,
+      -30,
+      -32,
+      -10,
+      -22,
+      0,
+      -32,
+      10,
+      -18,
+      30,
+      8,
+      20,
+      40,
+      26,
+      30,
+      10
+     ],
+     "t": "polygon",
+     "x": 30,
+     "y": 10
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 0.8,
+   "color": 11032055,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      25,
+      -5,
+      55,
+      0,
+      25,
+      5
+     ],
+     "t": "polygon",
+     "x": 25,
+     "y": 5
+    },
+    {
+     "radius": 13,
+     "t": "circle",
+     "x": -2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 7.5,
+     "t": "circle",
+     "x": -2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": -2,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "enemy_fast": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1120295,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      21,
+      0,
+      -12,
+      -13,
+      -6,
+      0,
+      -12,
+      13
+     ],
+     "t": "polygon",
+     "x": -12,
+     "y": 13
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 4674921,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      21,
+      0,
+      -12,
+      -13,
+      -6,
+      0,
+      -12,
+      13
+     ],
+     "t": "polygon",
+     "x": -12,
+     "y": 13
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 4005893,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      18,
+      0,
+      -9,
+      -10,
+      -4,
+      0,
+      -9,
+      10
+     ],
+     "t": "polygon",
+     "x": -9,
+     "y": 10
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 16498468,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      18,
+      0,
+      -9,
+      -10,
+      -4,
+      0,
+      -9,
+      10
+     ],
+     "t": "polygon",
+     "x": -9,
+     "y": 10
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      10,
+      0,
+      -6,
+      -5
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": -5
+    },
+    {
+     "closed": false,
+     "pts": [
+      10,
+      0,
+      -6,
+      5
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": 5
+    },
+    {
+     "closed": false,
+     "pts": [
+      20,
+      0,
+      -8.5,
+      -11
+     ],
+     "t": "polygon",
+     "x": -8.5,
+     "y": -11
+    },
+    {
+     "closed": false,
+     "pts": [
+      9,
+      0,
+      -4,
+      -4
+     ],
+     "t": "polygon",
+     "x": -4,
+     "y": -4
+    },
+    {
+     "radius": 1.5,
+     "t": "circle",
+     "x": 19,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.45,
+   "color": 16096779,
+   "shapes": [
+    {
+     "halfHeight": 4.6,
+     "halfWidth": 7.5,
+     "t": "ellipse",
+     "x": 2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16498468,
+   "shapes": [
+    {
+     "halfHeight": 2.8,
+     "halfWidth": 4.6,
+     "t": "ellipse",
+     "x": 2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.8,
+     "t": "circle",
+     "x": 2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1976635,
+   "shapes": [
+    {
+     "height": 9,
+     "t": "rectangle",
+     "width": 5,
+     "x": -11,
+     "y": -4.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16096779,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": -10,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.6,
+     "t": "circle",
+     "x": -10,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "enemy_hatchery_pod": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 413243,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      22,
+      0,
+      11,
+      19.0526,
+      -11,
+      19.0526,
+      -22,
+      0,
+      -11,
+      -19.0526,
+      11,
+      -19.0526
+     ],
+     "t": "polygon",
+     "x": 11,
+     "y": -19.0526
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 1096065,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      22,
+      0,
+      11,
+      19.0526,
+      -11,
+      19.0526,
+      -22,
+      0,
+      -11,
+      -19.0526,
+      11,
+      -19.0526
+     ],
+     "t": "polygon",
+     "x": 11,
+     "y": -19.0526
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 142370,
+   "shapes": [
+    {
+     "radius": 11,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16436245,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 11,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 1.5
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 3462041,
+   "shapes": [
+    {
+     "radius": 5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "enemy_heavy": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1841431,
+   "shapes": [
+    {
+     "pts": [
+      -26,
+      -14,
+      -14,
+      -26,
+      14,
+      -26,
+      26,
+      -14,
+      26,
+      14,
+      14,
+      26,
+      -14,
+      26,
+      -26,
+      14
+     ],
+     "t": "polygon",
+     "x": -26,
+     "y": 14
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 4472892,
+   "join": "miter",
+   "shapes": [
+    {
+     "pts": [
+      -26,
+      -14,
+      -14,
+      -26,
+      14,
+      -26,
+      26,
+      -14,
+      26,
+      14,
+      14,
+      26,
+      -14,
+      26,
+      -26,
+      14
+     ],
+     "t": "polygon",
+     "x": -26,
+     "y": 14
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 4528643,
+   "shapes": [
+    {
+     "pts": [
+      -22,
+      -11,
+      -11,
+      -22,
+      11,
+      -22,
+      22,
+      -11,
+      22,
+      11,
+      11,
+      22,
+      -11,
+      22,
+      -22,
+      11
+     ],
+     "t": "polygon",
+     "x": -22,
+     "y": 11
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 16096779,
+   "join": "miter",
+   "shapes": [
+    {
+     "pts": [
+      -22,
+      -11,
+      -11,
+      -22,
+      11,
+      -22,
+      22,
+      -11,
+      22,
+      11,
+      11,
+      22,
+      -11,
+      22,
+      -22,
+      11
+     ],
+     "t": "polygon",
+     "x": -22,
+     "y": 11
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -22,
+      0,
+      -12,
+      0
+     ],
+     "t": "polygon",
+     "x": -12,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      12,
+      0,
+      22,
+      0
+     ],
+     "t": "polygon",
+     "x": 22,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      -22,
+      0,
+      -12
+     ],
+     "t": "polygon",
+     "x": 0,
+     "y": -12
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      12,
+      0,
+      22
+     ],
+     "t": "polygon",
+     "x": 0,
+     "y": 22
+    },
+    {
+     "closed": false,
+     "pts": [
+      -24,
+      -13,
+      -13,
+      -24,
+      13,
+      -24,
+      24,
+      -13
+     ],
+     "t": "polygon",
+     "x": 24,
+     "y": -13
+    },
+    {
+     "closed": false,
+     "pts": [
+      -19,
+      -9,
+      -9,
+      -19,
+      9,
+      -19
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": -19
+    },
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -18,
+     "y": -18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -18,
+     "y": -18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 18,
+     "y": -18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 18,
+     "y": -18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -18,
+     "y": 18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -18,
+     "y": 18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 18,
+     "y": 18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 18,
+     "y": 18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -23,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -23,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 23,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 23,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 0,
+     "y": -23
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 0,
+     "y": -23
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 0,
+     "y": 23
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 0,
+     "y": 23
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2560770,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -16,
+      -9,
+      16,
+      -9
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": -9
+    },
+    {
+     "closed": false,
+     "pts": [
+      -16,
+      9,
+      16,
+      9
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": 9
+    },
+    {
+     "radius": 11.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16755200,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -16,
+      -9,
+      16,
+      -9
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": -9
+    },
+    {
+     "closed": false,
+     "pts": [
+      -16,
+      9,
+      16,
+      9
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": 9
+    },
+    {
+     "radius": 11.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2.2
+  },
+  {
+   "a": "fill",
+   "alpha": 0.45,
+   "color": 16742144,
+   "shapes": [
+    {
+     "radius": 9,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16755200,
+   "shapes": [
+    {
+     "radius": 5.8,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2696484,
+   "shapes": [
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 5,
+     "x": -26,
+     "y": -17
+    },
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 5,
+     "x": -26,
+     "y": 10
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 7877903,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 5,
+     "x": -26,
+     "y": -17
+    },
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 5,
+     "x": -26,
+     "y": 10
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16742144,
+   "shapes": [
+    {
+     "radius": 2.8,
+     "t": "circle",
+     "x": -25,
+     "y": -13.5
+    },
+    {
+     "radius": 2.8,
+     "t": "circle",
+     "x": -25,
+     "y": 13.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.4,
+     "t": "circle",
+     "x": -25,
+     "y": -13.5
+    },
+    {
+     "radius": 1.4,
+     "t": "circle",
+     "x": -25,
+     "y": 13.5
+    }
+   ]
+  }
+ ],
+ "enemy_kamikaze": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2690052,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      24,
+      0,
+      -16,
+      -14,
+      -10,
+      0,
+      -16,
+      14
+     ],
+     "t": "polygon",
+     "x": -16,
+     "y": 14
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 10105874,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      24,
+      0,
+      -16,
+      -14,
+      -10,
+      0,
+      -16,
+      14
+     ],
+     "t": "polygon",
+     "x": -16,
+     "y": 14
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 4526595,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      21,
+      0,
+      -14,
+      -10.5,
+      -8,
+      0,
+      -14,
+      10.5
+     ],
+     "t": "polygon",
+     "x": -14,
+     "y": 10.5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 16726784,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      21,
+      0,
+      -14,
+      -10.5,
+      -8,
+      0,
+      -14,
+      10.5
+     ],
+     "t": "polygon",
+     "x": -14,
+     "y": 10.5
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 0.5,
+   "color": 16726784,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      23,
+      0,
+      -14,
+      -12
+     ],
+     "t": "polygon",
+     "x": -14,
+     "y": -12
+    },
+    {
+     "closed": false,
+     "pts": [
+      11,
+      0,
+      -7,
+      -7
+     ],
+     "t": "polygon",
+     "x": -7,
+     "y": -7
+    },
+    {
+     "closed": false,
+     "pts": [
+      4,
+      -7,
+      4,
+      7
+     ],
+     "t": "polygon",
+     "x": 4,
+     "y": 7
+    },
+    {
+     "closed": false,
+     "pts": [
+      -2,
+      -8,
+      -2,
+      8
+     ],
+     "t": "polygon",
+     "x": -2,
+     "y": 8
+    },
+    {
+     "radius": 9.5,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.92,
+   "color": 16742144,
+   "shapes": [
+    {
+     "radius": 6.5,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16771584,
+   "shapes": [
+    {
+     "radius": 4.2,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.2,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 4396039,
+   "shapes": [
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 5,
+     "x": -16,
+     "y": -7
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 5,
+     "x": -16,
+     "y": 3
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 8138002,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 5,
+     "x": -16,
+     "y": -7
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 5,
+     "x": -16,
+     "y": 3
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16733440,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -14.5,
+     "y": -5
+    },
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -14.5,
+     "y": 5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16771584,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -14.5,
+     "y": -5
+    },
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -14.5,
+     "y": 5
+    }
+   ]
+  }
+ ],
+ "enemy_nemesis": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1705221,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      32,
+      0,
+      16,
+      -14,
+      24,
+      -24,
+      8,
+      -26,
+      -14,
+      -26,
+      -24,
+      -14,
+      -16,
+      0,
+      -24,
+      14,
+      -14,
+      26,
+      8,
+      26,
+      24,
+      24,
+      16,
+      14
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": 14
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 4524554,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      32,
+      0,
+      16,
+      -14,
+      24,
+      -24,
+      8,
+      -26,
+      -14,
+      -26,
+      -24,
+      -14,
+      -16,
+      0,
+      -24,
+      14,
+      -14,
+      26,
+      8,
+      26,
+      24,
+      24,
+      16,
+      14
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": 14
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 6229781,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      28,
+      0,
+      14,
+      -11,
+      20,
+      -18,
+      6,
+      -20,
+      -11,
+      -20,
+      -18,
+      -11,
+      -13,
+      0,
+      -18,
+      11,
+      -11,
+      20,
+      6,
+      20,
+      20,
+      18,
+      14,
+      11
+     ],
+     "t": "polygon",
+     "x": 14,
+     "y": 11
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 14427686,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      28,
+      0,
+      14,
+      -11,
+      20,
+      -18,
+      6,
+      -20,
+      -11,
+      -20,
+      -18,
+      -11,
+      -13,
+      0,
+      -18,
+      11,
+      -11,
+      20,
+      6,
+      20,
+      20,
+      18,
+      14,
+      11
+     ],
+     "t": "polygon",
+     "x": 14,
+     "y": 11
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1967881,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      14,
+      -8,
+      34,
+      -7,
+      28,
+      0
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      14,
+      8,
+      34,
+      7,
+      28,
+      0
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      27,
+      0,
+      13,
+      -11,
+      19,
+      -18,
+      6,
+      -20
+     ],
+     "t": "polygon",
+     "x": 6,
+     "y": -20
+    },
+    {
+     "closed": false,
+     "pts": [
+      10,
+      -5,
+      -8,
+      -12
+     ],
+     "t": "polygon",
+     "x": -8,
+     "y": -12
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 12,
+     "x": 4,
+     "y": -25
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 12,
+     "x": 4,
+     "y": 21
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 8330525,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      14,
+      -8,
+      34,
+      -7,
+      28,
+      0
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      14,
+      8,
+      34,
+      7,
+      28,
+      0
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      27,
+      0,
+      13,
+      -11,
+      19,
+      -18,
+      6,
+      -20
+     ],
+     "t": "polygon",
+     "x": 6,
+     "y": -20
+    },
+    {
+     "closed": false,
+     "pts": [
+      10,
+      -5,
+      -8,
+      -12
+     ],
+     "t": "polygon",
+     "x": -8,
+     "y": -12
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 12,
+     "x": 4,
+     "y": -25
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 12,
+     "x": 4,
+     "y": 21
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16770560,
+   "shapes": [
+    {
+     "radius": 2,
+     "t": "circle",
+     "x": 16,
+     "y": -23
+    },
+    {
+     "radius": 2,
+     "t": "circle",
+     "x": 16,
+     "y": 23
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.45,
+   "color": 14427686,
+   "shapes": [
+    {
+     "radius": 13,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 16711731,
+   "shapes": [
+    {
+     "radius": 8.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16770560,
+   "shapes": [
+    {
+     "radius": 5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1705221,
+   "shapes": [
+    {
+     "height": 6,
+     "t": "rectangle",
+     "width": 6,
+     "x": -23,
+     "y": -11
+    },
+    {
+     "height": 6,
+     "t": "rectangle",
+     "width": 6,
+     "x": -23,
+     "y": 5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 10033947,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 6,
+     "t": "rectangle",
+     "width": 6,
+     "x": -23,
+     "y": -11
+    },
+    {
+     "height": 6,
+     "t": "rectangle",
+     "width": 6,
+     "x": -23,
+     "y": 5
+    }
+   ],
+   "width": 1.6
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 14427686,
+   "shapes": [
+    {
+     "radius": 2.8,
+     "t": "circle",
+     "x": -21,
+     "y": -8
+    },
+    {
+     "radius": 2.8,
+     "t": "circle",
+     "x": -21,
+     "y": 8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16771584,
+   "shapes": [
+    {
+     "radius": 1.4,
+     "t": "circle",
+     "x": -21,
+     "y": -8
+    },
+    {
+     "radius": 1.4,
+     "t": "circle",
+     "x": -21,
+     "y": 8
+    }
+   ]
+  }
+ ],
+ "enemy_phantom": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1247012,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      25,
+      0,
+      4,
+      -21,
+      -18,
+      -15,
+      -8,
+      0,
+      -18,
+      15,
+      4,
+      21
+     ],
+     "t": "polygon",
+     "x": 4,
+     "y": 21
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 5774471,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      25,
+      0,
+      4,
+      -21,
+      -18,
+      -15,
+      -8,
+      0,
+      -18,
+      15,
+      4,
+      21
+     ],
+     "t": "polygon",
+     "x": 4,
+     "y": 21
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2625094,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      21,
+      0,
+      2,
+      -18,
+      -15,
+      -12,
+      -6,
+      0,
+      -15,
+      12,
+      2,
+      18
+     ],
+     "t": "polygon",
+     "x": 2,
+     "y": 18
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 11534591,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      21,
+      0,
+      2,
+      -18,
+      -15,
+      -12,
+      -6,
+      0,
+      -15,
+      12,
+      2,
+      18
+     ],
+     "t": "polygon",
+     "x": 2,
+     "y": 18
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 0.45,
+   "color": 9647082,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      23,
+      0,
+      3,
+      -20,
+      -16,
+      -13.5
+     ],
+     "t": "polygon",
+     "x": -16,
+     "y": -13.5
+    },
+    {
+     "closed": false,
+     "pts": [
+      11,
+      0,
+      0,
+      -11
+     ],
+     "t": "polygon",
+     "x": 0,
+     "y": -11
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      -16,
+      -11,
+      -9
+     ],
+     "t": "polygon",
+     "x": -11,
+     "y": -9
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      16,
+      -11,
+      9
+     ],
+     "t": "polygon",
+     "x": -11,
+     "y": 9
+    },
+    {
+     "radius": 8.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 11534591,
+   "shapes": [
+    {
+     "radius": 5.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1970229,
+   "shapes": [
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 4.5,
+     "x": -16,
+     "y": -9
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 4.5,
+     "x": -16,
+     "y": 5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 4988309,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 4.5,
+     "x": -16,
+     "y": -9
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 4.5,
+     "x": -16,
+     "y": 5
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 11534591,
+   "shapes": [
+    {
+     "radius": 2.2,
+     "t": "circle",
+     "x": -14.5,
+     "y": -7
+    },
+    {
+     "radius": 2.2,
+     "t": "circle",
+     "x": -14.5,
+     "y": 7
+    }
+   ]
+  }
+ ],
+ "enemy_scout": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1252142,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      25,
+      0,
+      9,
+      -7,
+      -14,
+      -18,
+      -18,
+      -15,
+      -11,
+      -6,
+      -17,
+      0,
+      -11,
+      6,
+      -18,
+      15,
+      -14,
+      18,
+      9,
+      7
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": 7
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.95,
+   "cap": "butt",
+   "color": 3359061,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      25,
+      0,
+      9,
+      -7,
+      -14,
+      -18,
+      -18,
+      -15,
+      -11,
+      -6,
+      -17,
+      0,
+      -11,
+      6,
+      -18,
+      15,
+      -14,
+      18,
+      9,
+      7
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": 7
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 4982041,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      22,
+      0,
+      7,
+      -5.5,
+      -11,
+      -14.5,
+      -14,
+      -12,
+      -9,
+      -4.5,
+      -13,
+      0,
+      -9,
+      4.5,
+      -14,
+      12,
+      -11,
+      14.5,
+      7,
+      5.5
+     ],
+     "t": "polygon",
+     "x": 7,
+     "y": 5.5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 16711765,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      22,
+      0,
+      7,
+      -5.5,
+      -11,
+      -14.5,
+      -14,
+      -12,
+      -9,
+      -4.5,
+      -13,
+      0,
+      -9,
+      4.5,
+      -14,
+      12,
+      -11,
+      14.5,
+      7,
+      5.5
+     ],
+     "t": "polygon",
+     "x": 7,
+     "y": 5.5
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1976635,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      14,
+      0,
+      -5,
+      -7
+     ],
+     "t": "polygon",
+     "x": -5,
+     "y": -7
+    },
+    {
+     "closed": false,
+     "pts": [
+      14,
+      0,
+      -5,
+      7
+     ],
+     "t": "polygon",
+     "x": -5,
+     "y": 7
+    },
+    {
+     "closed": false,
+     "pts": [
+      3,
+      0,
+      -9,
+      -10
+     ],
+     "t": "polygon",
+     "x": -9,
+     "y": -10
+    },
+    {
+     "closed": false,
+     "pts": [
+      3,
+      0,
+      -9,
+      10
+     ],
+     "t": "polygon",
+     "x": -9,
+     "y": 10
+    },
+    {
+     "closed": false,
+     "pts": [
+      24,
+      0,
+      8,
+      -6,
+      -13,
+      -16.5
+     ],
+     "t": "polygon",
+     "x": -13,
+     "y": -16.5
+    },
+    {
+     "closed": false,
+     "pts": [
+      7,
+      -5,
+      -7,
+      -4
+     ],
+     "t": "polygon",
+     "x": -7,
+     "y": -4
+    },
+    {
+     "height": 3,
+     "t": "rectangle",
+     "width": 9,
+     "x": 6,
+     "y": -11
+    },
+    {
+     "height": 3,
+     "t": "rectangle",
+     "width": 9,
+     "x": 6,
+     "y": 8
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 6583435,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      14,
+      0,
+      -5,
+      -7
+     ],
+     "t": "polygon",
+     "x": -5,
+     "y": -7
+    },
+    {
+     "closed": false,
+     "pts": [
+      14,
+      0,
+      -5,
+      7
+     ],
+     "t": "polygon",
+     "x": -5,
+     "y": 7
+    },
+    {
+     "closed": false,
+     "pts": [
+      3,
+      0,
+      -9,
+      -10
+     ],
+     "t": "polygon",
+     "x": -9,
+     "y": -10
+    },
+    {
+     "closed": false,
+     "pts": [
+      3,
+      0,
+      -9,
+      10
+     ],
+     "t": "polygon",
+     "x": -9,
+     "y": 10
+    },
+    {
+     "closed": false,
+     "pts": [
+      24,
+      0,
+      8,
+      -6,
+      -13,
+      -16.5
+     ],
+     "t": "polygon",
+     "x": -13,
+     "y": -16.5
+    },
+    {
+     "closed": false,
+     "pts": [
+      7,
+      -5,
+      -7,
+      -4
+     ],
+     "t": "polygon",
+     "x": -7,
+     "y": -4
+    },
+    {
+     "height": 3,
+     "t": "rectangle",
+     "width": 9,
+     "x": 6,
+     "y": -11
+    },
+    {
+     "height": 3,
+     "t": "rectangle",
+     "width": 9,
+     "x": 6,
+     "y": 8
+    }
+   ],
+   "width": 1.6
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 1.8,
+     "t": "circle",
+     "x": 15,
+     "y": -9.5
+    },
+    {
+     "radius": 1.8,
+     "t": "circle",
+     "x": 15,
+     "y": 9.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.6,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": 22,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.6,
+     "t": "circle",
+     "x": 22,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.4,
+   "color": 16711765,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      0,
+      0,
+      -7,
+      -6
+     ],
+     "t": "polygon",
+     "x": -7,
+     "y": -6
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      0,
+      -7,
+      6
+     ],
+     "t": "polygon",
+     "x": -7,
+     "y": 6
+    },
+    {
+     "radius": 8.5,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16711765,
+   "shapes": [
+    {
+     "radius": 5.2,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 988970,
+   "shapes": [
+    {
+     "height": 4.5,
+     "t": "rectangle",
+     "width": 5,
+     "x": -16,
+     "y": -9.5
+    },
+    {
+     "height": 4.5,
+     "t": "rectangle",
+     "width": 5,
+     "x": -16,
+     "y": 5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 4674921,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 4.5,
+     "t": "rectangle",
+     "width": 5,
+     "x": -16,
+     "y": -9.5
+    },
+    {
+     "height": 4.5,
+     "t": "rectangle",
+     "width": 5,
+     "x": -16,
+     "y": 5
+    }
+   ],
+   "width": 1.6
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16711765,
+   "shapes": [
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": -15,
+     "y": -7.25
+    },
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": -15,
+     "y": 7.25
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -15,
+     "y": -7.25
+    },
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -15,
+     "y": 7.25
+    }
+   ]
+  }
+ ],
+ "enemy_shadow_clone": [
+  {
+   "a": "fill",
+   "alpha": 0.75,
+   "color": 3018853,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      22,
+      0,
+      -14,
+      -14,
+      -6,
+      0,
+      -14,
+      14
+     ],
+     "t": "polygon",
+     "x": -14,
+     "y": 14
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.95,
+   "cap": "butt",
+   "color": 12616956,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      22,
+      0,
+      -14,
+      -14,
+      -6,
+      0,
+      -14,
+      14
+     ],
+     "t": "polygon",
+     "x": -14,
+     "y": 14
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": 2,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "enemy_shooter": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1247531,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      26,
+      0,
+      11,
+      -19,
+      -16,
+      -19,
+      -9,
+      0,
+      -16,
+      19,
+      11,
+      19
+     ],
+     "t": "polygon",
+     "x": 11,
+     "y": 19
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 5774471,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      26,
+      0,
+      11,
+      -19,
+      -16,
+      -19,
+      -9,
+      0,
+      -16,
+      19,
+      11,
+      19
+     ],
+     "t": "polygon",
+     "x": 11,
+     "y": 19
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 3018853,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      22,
+      0,
+      9,
+      -15,
+      -12,
+      -15,
+      -6,
+      0,
+      -12,
+      15,
+      9,
+      15
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": 15
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 11032055,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      22,
+      0,
+      9,
+      -15,
+      -12,
+      -15,
+      -6,
+      0,
+      -12,
+      15,
+      9,
+      15
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": 15
+    }
+   ],
+   "width": 2.6
+  },
+  {
+   "a": "fill",
+   "alpha": 0.45,
+   "color": 11032055,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      24,
+      0,
+      10,
+      -17,
+      -14,
+      -17
+     ],
+     "t": "polygon",
+     "x": -14,
+     "y": -17
+    },
+    {
+     "closed": false,
+     "pts": [
+      9,
+      -13,
+      -9,
+      -13
+     ],
+     "t": "polygon",
+     "x": -9,
+     "y": -13
+    },
+    {
+     "closed": false,
+     "pts": [
+      11,
+      -9,
+      29,
+      -9
+     ],
+     "t": "polygon",
+     "x": 29,
+     "y": -9
+    },
+    {
+     "closed": false,
+     "pts": [
+      11,
+      9,
+      29,
+      9
+     ],
+     "t": "polygon",
+     "x": 29,
+     "y": 9
+    },
+    {
+     "closed": false,
+     "pts": [
+      17,
+      -10.5,
+      17,
+      -7.5
+     ],
+     "t": "polygon",
+     "x": 17,
+     "y": -7.5
+    },
+    {
+     "closed": false,
+     "pts": [
+      23,
+      -10.5,
+      23,
+      -7.5
+     ],
+     "t": "polygon",
+     "x": 23,
+     "y": -7.5
+    },
+    {
+     "closed": false,
+     "pts": [
+      17,
+      7.5,
+      17,
+      10.5
+     ],
+     "t": "polygon",
+     "x": 17,
+     "y": 10.5
+    },
+    {
+     "closed": false,
+     "pts": [
+      23,
+      7.5,
+      23,
+      10.5
+     ],
+     "t": "polygon",
+     "x": 23,
+     "y": 10.5
+    },
+    {
+     "radius": 8.5,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 11032055,
+   "shapes": [
+    {
+     "radius": 5.5,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.6,
+     "t": "circle",
+     "x": 1,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1973067,
+   "shapes": [
+    {
+     "height": 4.5,
+     "t": "rectangle",
+     "width": 4,
+     "x": -16,
+     "y": -9
+    },
+    {
+     "height": 4.5,
+     "t": "rectangle",
+     "width": 4,
+     "x": -16,
+     "y": 4.5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 4405450,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 4.5,
+     "t": "rectangle",
+     "width": 4,
+     "x": -16,
+     "y": -9
+    },
+    {
+     "height": 4.5,
+     "t": "rectangle",
+     "width": 4,
+     "x": -16,
+     "y": 4.5
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 12616956,
+   "shapes": [
+    {
+     "radius": 2.2,
+     "t": "circle",
+     "x": -14.5,
+     "y": -6.75
+    },
+    {
+     "radius": 2.2,
+     "t": "circle",
+     "x": -14.5,
+     "y": 6.75
+    }
+   ]
+  }
+ ],
+ "enemy_swarm": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1120295,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      21,
+      0,
+      -12,
+      -13,
+      -6,
+      0,
+      -12,
+      13
+     ],
+     "t": "polygon",
+     "x": -12,
+     "y": 13
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 4674921,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      21,
+      0,
+      -12,
+      -13,
+      -6,
+      0,
+      -12,
+      13
+     ],
+     "t": "polygon",
+     "x": -12,
+     "y": 13
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 4005893,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      18,
+      0,
+      -9,
+      -10,
+      -4,
+      0,
+      -9,
+      10
+     ],
+     "t": "polygon",
+     "x": -9,
+     "y": 10
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 16498468,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      18,
+      0,
+      -9,
+      -10,
+      -4,
+      0,
+      -9,
+      10
+     ],
+     "t": "polygon",
+     "x": -9,
+     "y": 10
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      10,
+      0,
+      -6,
+      -5
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": -5
+    },
+    {
+     "closed": false,
+     "pts": [
+      10,
+      0,
+      -6,
+      5
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": 5
+    },
+    {
+     "closed": false,
+     "pts": [
+      20,
+      0,
+      -8.5,
+      -11
+     ],
+     "t": "polygon",
+     "x": -8.5,
+     "y": -11
+    },
+    {
+     "closed": false,
+     "pts": [
+      9,
+      0,
+      -4,
+      -4
+     ],
+     "t": "polygon",
+     "x": -4,
+     "y": -4
+    },
+    {
+     "radius": 1.5,
+     "t": "circle",
+     "x": 19,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.45,
+   "color": 16096779,
+   "shapes": [
+    {
+     "halfHeight": 4.6,
+     "halfWidth": 7.5,
+     "t": "ellipse",
+     "x": 2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16498468,
+   "shapes": [
+    {
+     "halfHeight": 2.8,
+     "halfWidth": 4.6,
+     "t": "ellipse",
+     "x": 2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.8,
+     "t": "circle",
+     "x": 2,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1976635,
+   "shapes": [
+    {
+     "height": 9,
+     "t": "rectangle",
+     "width": 5,
+     "x": -11,
+     "y": -4.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16096779,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": -10,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.6,
+     "t": "circle",
+     "x": -10,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "enemy_tank": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 1841431,
+   "shapes": [
+    {
+     "pts": [
+      -26,
+      -14,
+      -14,
+      -26,
+      14,
+      -26,
+      26,
+      -14,
+      26,
+      14,
+      14,
+      26,
+      -14,
+      26,
+      -26,
+      14
+     ],
+     "t": "polygon",
+     "x": -26,
+     "y": 14
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 4472892,
+   "join": "miter",
+   "shapes": [
+    {
+     "pts": [
+      -26,
+      -14,
+      -14,
+      -26,
+      14,
+      -26,
+      26,
+      -14,
+      26,
+      14,
+      14,
+      26,
+      -14,
+      26,
+      -26,
+      14
+     ],
+     "t": "polygon",
+     "x": -26,
+     "y": 14
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 4528643,
+   "shapes": [
+    {
+     "pts": [
+      -22,
+      -11,
+      -11,
+      -22,
+      11,
+      -22,
+      22,
+      -11,
+      22,
+      11,
+      11,
+      22,
+      -11,
+      22,
+      -22,
+      11
+     ],
+     "t": "polygon",
+     "x": -22,
+     "y": 11
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.98,
+   "cap": "butt",
+   "color": 16096779,
+   "join": "miter",
+   "shapes": [
+    {
+     "pts": [
+      -22,
+      -11,
+      -11,
+      -22,
+      11,
+      -22,
+      22,
+      -11,
+      22,
+      11,
+      11,
+      22,
+      -11,
+      22,
+      -22,
+      11
+     ],
+     "t": "polygon",
+     "x": -22,
+     "y": 11
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -22,
+      0,
+      -12,
+      0
+     ],
+     "t": "polygon",
+     "x": -12,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      12,
+      0,
+      22,
+      0
+     ],
+     "t": "polygon",
+     "x": 22,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      -22,
+      0,
+      -12
+     ],
+     "t": "polygon",
+     "x": 0,
+     "y": -12
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      12,
+      0,
+      22
+     ],
+     "t": "polygon",
+     "x": 0,
+     "y": 22
+    },
+    {
+     "closed": false,
+     "pts": [
+      -24,
+      -13,
+      -13,
+      -24,
+      13,
+      -24,
+      24,
+      -13
+     ],
+     "t": "polygon",
+     "x": 24,
+     "y": -13
+    },
+    {
+     "closed": false,
+     "pts": [
+      -19,
+      -9,
+      -9,
+      -19,
+      9,
+      -19
+     ],
+     "t": "polygon",
+     "x": 9,
+     "y": -19
+    },
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -18,
+     "y": -18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -18,
+     "y": -18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 18,
+     "y": -18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 18,
+     "y": -18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -18,
+     "y": 18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -18,
+     "y": 18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 18,
+     "y": 18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 18,
+     "y": 18
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": -23,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -23,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 23,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 23,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 0,
+     "y": -23
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 0,
+     "y": -23
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 7877903,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 0,
+     "y": 23
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16639626,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 0,
+     "y": 23
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2560770,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -16,
+      -9,
+      16,
+      -9
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": -9
+    },
+    {
+     "closed": false,
+     "pts": [
+      -16,
+      9,
+      16,
+      9
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": 9
+    },
+    {
+     "radius": 11.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16755200,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -16,
+      -9,
+      16,
+      -9
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": -9
+    },
+    {
+     "closed": false,
+     "pts": [
+      -16,
+      9,
+      16,
+      9
+     ],
+     "t": "polygon",
+     "x": 16,
+     "y": 9
+    },
+    {
+     "radius": 11.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2.2
+  },
+  {
+   "a": "fill",
+   "alpha": 0.45,
+   "color": 16742144,
+   "shapes": [
+    {
+     "radius": 9,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16755200,
+   "shapes": [
+    {
+     "radius": 5.8,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2696484,
+   "shapes": [
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 5,
+     "x": -26,
+     "y": -17
+    },
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 5,
+     "x": -26,
+     "y": 10
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 7877903,
+   "join": "miter",
+   "shapes": [
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 5,
+     "x": -26,
+     "y": -17
+    },
+    {
+     "height": 7,
+     "t": "rectangle",
+     "width": 5,
+     "x": -26,
+     "y": 10
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16742144,
+   "shapes": [
+    {
+     "radius": 2.8,
+     "t": "circle",
+     "x": -25,
+     "y": -13.5
+    },
+    {
+     "radius": 2.8,
+     "t": "circle",
+     "x": -25,
+     "y": 13.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.4,
+     "t": "circle",
+     "x": -25,
+     "y": -13.5
+    },
+    {
+     "radius": 1.4,
+     "t": "circle",
+     "x": -25,
+     "y": 13.5
+    }
+   ]
+  }
+ ],
+ "glowing_mote": [
+  {
+   "a": "fill",
+   "alpha": 0.4,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 9,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 3.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "light_scorch": [
+  {
+   "a": "fill",
+   "alpha": 0.0269,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 24,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0808,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 20,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1346,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 16,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1885,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 12,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.2423,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 8,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.2962,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 4,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "nebula_cloud_1": [
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 12616956,
+   "shapes": [
+    {
+     "halfHeight": 130.5,
+     "halfWidth": 195.75,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0039,
+   "color": 12616956,
+   "shapes": [
+    {
+     "halfHeight": 121.1786,
+     "halfWidth": 181.7679,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0107,
+   "color": 12616956,
+   "shapes": [
+    {
+     "halfHeight": 111.8571,
+     "halfWidth": 167.7857,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0193,
+   "color": 12616956,
+   "shapes": [
+    {
+     "halfHeight": 102.5357,
+     "halfWidth": 153.8036,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0293,
+   "color": 9647082,
+   "shapes": [
+    {
+     "halfHeight": 93.2143,
+     "halfWidth": 139.8214,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0404,
+   "color": 9647082,
+   "shapes": [
+    {
+     "halfHeight": 83.8929,
+     "halfWidth": 125.8393,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0527,
+   "color": 9647082,
+   "shapes": [
+    {
+     "halfHeight": 74.5714,
+     "halfWidth": 111.8571,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0659,
+   "color": 9647082,
+   "shapes": [
+    {
+     "halfHeight": 65.25,
+     "halfWidth": 97.875,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.08,
+   "color": 7020968,
+   "shapes": [
+    {
+     "halfHeight": 55.9286,
+     "halfWidth": 83.8929,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0949,
+   "color": 7020968,
+   "shapes": [
+    {
+     "halfHeight": 46.6071,
+     "halfWidth": 69.9107,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1105,
+   "color": 7020968,
+   "shapes": [
+    {
+     "halfHeight": 37.2857,
+     "halfWidth": 55.9286,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1269,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 27.9643,
+     "halfWidth": 41.9464,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1439,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 18.6429,
+     "halfWidth": 27.9643,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1617,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 9.3214,
+     "halfWidth": 13.9821,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 12616956,
+   "shapes": [
+    {
+     "halfHeight": 120.06,
+     "halfWidth": 99.18,
+     "t": "ellipse",
+     "x": 60.9,
+     "y": -31.9
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.008,
+   "color": 12616956,
+   "shapes": [
+    {
+     "halfHeight": 105.0525,
+     "halfWidth": 86.7825,
+     "t": "ellipse",
+     "x": 60.9,
+     "y": -31.9
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0198,
+   "color": 12616956,
+   "shapes": [
+    {
+     "halfHeight": 90.045,
+     "halfWidth": 74.385,
+     "t": "ellipse",
+     "x": 60.9,
+     "y": -31.9
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0335,
+   "color": 9647082,
+   "shapes": [
+    {
+     "halfHeight": 75.0375,
+     "halfWidth": 61.9875,
+     "t": "ellipse",
+     "x": 60.9,
+     "y": -31.9
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0487,
+   "color": 9647082,
+   "shapes": [
+    {
+     "halfHeight": 60.03,
+     "halfWidth": 49.59,
+     "t": "ellipse",
+     "x": 60.9,
+     "y": -31.9
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0651,
+   "color": 7020968,
+   "shapes": [
+    {
+     "halfHeight": 45.0225,
+     "halfWidth": 37.1925,
+     "t": "ellipse",
+     "x": 60.9,
+     "y": -31.9
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0826,
+   "color": 7020968,
+   "shapes": [
+    {
+     "halfHeight": 30.015,
+     "halfWidth": 24.795,
+     "t": "ellipse",
+     "x": 60.9,
+     "y": -31.9
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1009,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 15.0075,
+     "halfWidth": 12.3975,
+     "t": "ellipse",
+     "x": 60.9,
+     "y": -31.9
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 73.95,
+     "halfWidth": 95.7,
+     "t": "ellipse",
+     "x": -55.1,
+     "y": 40.6
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.008,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 63.3857,
+     "halfWidth": 82.0286,
+     "t": "ellipse",
+     "x": -55.1,
+     "y": 40.6
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0196,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 52.8214,
+     "halfWidth": 68.3571,
+     "t": "ellipse",
+     "x": -55.1,
+     "y": 40.6
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0332,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 42.2571,
+     "halfWidth": 54.6857,
+     "t": "ellipse",
+     "x": -55.1,
+     "y": 40.6
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0483,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 31.6929,
+     "halfWidth": 41.0143,
+     "t": "ellipse",
+     "x": -55.1,
+     "y": 40.6
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0646,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 21.1286,
+     "halfWidth": 27.3429,
+     "t": "ellipse",
+     "x": -55.1,
+     "y": 40.6
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0818,
+   "color": 3868516,
+   "shapes": [
+    {
+     "halfHeight": 10.5643,
+     "halfWidth": 13.6714,
+     "t": "ellipse",
+     "x": -55.1,
+     "y": 40.6
+    }
+   ]
+  }
+ ],
+ "nebula_cloud_2": [
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 3718648,
+   "shapes": [
+    {
+     "halfHeight": 135,
+     "halfWidth": 202.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0039,
+   "color": 3718648,
+   "shapes": [
+    {
+     "halfHeight": 125.3571,
+     "halfWidth": 188.0357,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0107,
+   "color": 3718648,
+   "shapes": [
+    {
+     "halfHeight": 115.7143,
+     "halfWidth": 173.5714,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0193,
+   "color": 3718648,
+   "shapes": [
+    {
+     "halfHeight": 106.0714,
+     "halfWidth": 159.1071,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0293,
+   "color": 440020,
+   "shapes": [
+    {
+     "halfHeight": 96.4286,
+     "halfWidth": 144.6429,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0404,
+   "color": 440020,
+   "shapes": [
+    {
+     "halfHeight": 86.7857,
+     "halfWidth": 130.1786,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0527,
+   "color": 440020,
+   "shapes": [
+    {
+     "halfHeight": 77.1429,
+     "halfWidth": 115.7143,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0659,
+   "color": 440020,
+   "shapes": [
+    {
+     "halfHeight": 67.5,
+     "halfWidth": 101.25,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.08,
+   "color": 947344,
+   "shapes": [
+    {
+     "halfHeight": 57.8571,
+     "halfWidth": 86.7857,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0949,
+   "color": 947344,
+   "shapes": [
+    {
+     "halfHeight": 48.2143,
+     "halfWidth": 72.3214,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1105,
+   "color": 947344,
+   "shapes": [
+    {
+     "halfHeight": 38.5714,
+     "halfWidth": 57.8571,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1269,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 28.9286,
+     "halfWidth": 43.3929,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1439,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 19.2857,
+     "halfWidth": 28.9286,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1617,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 9.6429,
+     "halfWidth": 14.4643,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 3718648,
+   "shapes": [
+    {
+     "halfHeight": 124.2,
+     "halfWidth": 102.6,
+     "t": "ellipse",
+     "x": 63,
+     "y": -33
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.008,
+   "color": 3718648,
+   "shapes": [
+    {
+     "halfHeight": 108.675,
+     "halfWidth": 89.775,
+     "t": "ellipse",
+     "x": 63,
+     "y": -33
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0198,
+   "color": 3718648,
+   "shapes": [
+    {
+     "halfHeight": 93.15,
+     "halfWidth": 76.95,
+     "t": "ellipse",
+     "x": 63,
+     "y": -33
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0335,
+   "color": 440020,
+   "shapes": [
+    {
+     "halfHeight": 77.625,
+     "halfWidth": 64.125,
+     "t": "ellipse",
+     "x": 63,
+     "y": -33
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0487,
+   "color": 440020,
+   "shapes": [
+    {
+     "halfHeight": 62.1,
+     "halfWidth": 51.3,
+     "t": "ellipse",
+     "x": 63,
+     "y": -33
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0651,
+   "color": 947344,
+   "shapes": [
+    {
+     "halfHeight": 46.575,
+     "halfWidth": 38.475,
+     "t": "ellipse",
+     "x": 63,
+     "y": -33
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0826,
+   "color": 947344,
+   "shapes": [
+    {
+     "halfHeight": 31.05,
+     "halfWidth": 25.65,
+     "t": "ellipse",
+     "x": 63,
+     "y": -33
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1009,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 15.525,
+     "halfWidth": 12.825,
+     "t": "ellipse",
+     "x": 63,
+     "y": -33
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 76.5,
+     "halfWidth": 99,
+     "t": "ellipse",
+     "x": -57,
+     "y": 42
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.008,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 65.5714,
+     "halfWidth": 84.8571,
+     "t": "ellipse",
+     "x": -57,
+     "y": 42
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0196,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 54.6429,
+     "halfWidth": 70.7143,
+     "t": "ellipse",
+     "x": -57,
+     "y": 42
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0332,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 43.7143,
+     "halfWidth": 56.5714,
+     "t": "ellipse",
+     "x": -57,
+     "y": 42
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0483,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 32.7857,
+     "halfWidth": 42.4286,
+     "t": "ellipse",
+     "x": -57,
+     "y": 42
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0646,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 21.8571,
+     "halfWidth": 28.2857,
+     "t": "ellipse",
+     "x": -57,
+     "y": 42
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0818,
+   "color": 536393,
+   "shapes": [
+    {
+     "halfHeight": 10.9286,
+     "halfWidth": 14.1429,
+     "t": "ellipse",
+     "x": -57,
+     "y": 42
+    }
+   ]
+  }
+ ],
+ "nebula_cloud_3": [
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 16478597,
+   "shapes": [
+    {
+     "halfHeight": 121.5,
+     "halfWidth": 182.25,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0039,
+   "color": 16478597,
+   "shapes": [
+    {
+     "halfHeight": 112.8214,
+     "halfWidth": 169.2321,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0107,
+   "color": 16478597,
+   "shapes": [
+    {
+     "halfHeight": 104.1429,
+     "halfWidth": 156.2143,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0193,
+   "color": 16478597,
+   "shapes": [
+    {
+     "halfHeight": 95.4643,
+     "halfWidth": 143.1964,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0293,
+   "color": 14753096,
+   "shapes": [
+    {
+     "halfHeight": 86.7857,
+     "halfWidth": 130.1786,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0404,
+   "color": 14753096,
+   "shapes": [
+    {
+     "halfHeight": 78.1071,
+     "halfWidth": 117.1607,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0527,
+   "color": 14753096,
+   "shapes": [
+    {
+     "halfHeight": 69.4286,
+     "halfWidth": 104.1429,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0659,
+   "color": 14753096,
+   "shapes": [
+    {
+     "halfHeight": 60.75,
+     "halfWidth": 91.125,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.08,
+   "color": 10424889,
+   "shapes": [
+    {
+     "halfHeight": 52.0714,
+     "halfWidth": 78.1071,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0949,
+   "color": 10424889,
+   "shapes": [
+    {
+     "halfHeight": 43.3929,
+     "halfWidth": 65.0893,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1105,
+   "color": 10424889,
+   "shapes": [
+    {
+     "halfHeight": 34.7143,
+     "halfWidth": 52.0714,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1269,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 26.0357,
+     "halfWidth": 39.0536,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1439,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 17.3571,
+     "halfWidth": 26.0357,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1617,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 8.6786,
+     "halfWidth": 13.0179,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 16478597,
+   "shapes": [
+    {
+     "halfHeight": 111.78,
+     "halfWidth": 92.34,
+     "t": "ellipse",
+     "x": 56.7,
+     "y": -29.7
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.008,
+   "color": 16478597,
+   "shapes": [
+    {
+     "halfHeight": 97.8075,
+     "halfWidth": 80.7975,
+     "t": "ellipse",
+     "x": 56.7,
+     "y": -29.7
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0198,
+   "color": 16478597,
+   "shapes": [
+    {
+     "halfHeight": 83.835,
+     "halfWidth": 69.255,
+     "t": "ellipse",
+     "x": 56.7,
+     "y": -29.7
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0335,
+   "color": 14753096,
+   "shapes": [
+    {
+     "halfHeight": 69.8625,
+     "halfWidth": 57.7125,
+     "t": "ellipse",
+     "x": 56.7,
+     "y": -29.7
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0487,
+   "color": 14753096,
+   "shapes": [
+    {
+     "halfHeight": 55.89,
+     "halfWidth": 46.17,
+     "t": "ellipse",
+     "x": 56.7,
+     "y": -29.7
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0651,
+   "color": 10424889,
+   "shapes": [
+    {
+     "halfHeight": 41.9175,
+     "halfWidth": 34.6275,
+     "t": "ellipse",
+     "x": 56.7,
+     "y": -29.7
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0826,
+   "color": 10424889,
+   "shapes": [
+    {
+     "halfHeight": 27.945,
+     "halfWidth": 23.085,
+     "t": "ellipse",
+     "x": 56.7,
+     "y": -29.7
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1009,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 13.9725,
+     "halfWidth": 11.5425,
+     "t": "ellipse",
+     "x": 56.7,
+     "y": -29.7
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 68.85,
+     "halfWidth": 89.1,
+     "t": "ellipse",
+     "x": -51.3,
+     "y": 37.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.008,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 59.0143,
+     "halfWidth": 76.3714,
+     "t": "ellipse",
+     "x": -51.3,
+     "y": 37.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0196,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 49.1786,
+     "halfWidth": 63.6429,
+     "t": "ellipse",
+     "x": -51.3,
+     "y": 37.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0332,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 39.3429,
+     "halfWidth": 50.9143,
+     "t": "ellipse",
+     "x": -51.3,
+     "y": 37.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0483,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 29.5071,
+     "halfWidth": 38.1857,
+     "t": "ellipse",
+     "x": -51.3,
+     "y": 37.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0646,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 19.6714,
+     "halfWidth": 25.4571,
+     "t": "ellipse",
+     "x": -51.3,
+     "y": 37.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0818,
+   "color": 4982041,
+   "shapes": [
+    {
+     "halfHeight": 9.8357,
+     "halfWidth": 12.7286,
+     "t": "ellipse",
+     "x": -51.3,
+     "y": 37.8
+    }
+   ]
+  }
+ ],
+ "nebula_cloud_4": [
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 16638023,
+   "shapes": [
+    {
+     "halfHeight": 126,
+     "halfWidth": 189,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0039,
+   "color": 16638023,
+   "shapes": [
+    {
+     "halfHeight": 117,
+     "halfWidth": 175.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0107,
+   "color": 16638023,
+   "shapes": [
+    {
+     "halfHeight": 108,
+     "halfWidth": 162,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0193,
+   "color": 16638023,
+   "shapes": [
+    {
+     "halfHeight": 99,
+     "halfWidth": 148.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0293,
+   "color": 14251782,
+   "shapes": [
+    {
+     "halfHeight": 90,
+     "halfWidth": 135,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0404,
+   "color": 14251782,
+   "shapes": [
+    {
+     "halfHeight": 81,
+     "halfWidth": 121.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0527,
+   "color": 14251782,
+   "shapes": [
+    {
+     "halfHeight": 72,
+     "halfWidth": 108,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0659,
+   "color": 14251782,
+   "shapes": [
+    {
+     "halfHeight": 63,
+     "halfWidth": 94.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.08,
+   "color": 9584654,
+   "shapes": [
+    {
+     "halfHeight": 54,
+     "halfWidth": 81,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0949,
+   "color": 9584654,
+   "shapes": [
+    {
+     "halfHeight": 45,
+     "halfWidth": 67.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1105,
+   "color": 9584654,
+   "shapes": [
+    {
+     "halfHeight": 36,
+     "halfWidth": 54,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1269,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 27,
+     "halfWidth": 40.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1439,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 18,
+     "halfWidth": 27,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1617,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 9,
+     "halfWidth": 13.5,
+     "t": "ellipse",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 16638023,
+   "shapes": [
+    {
+     "halfHeight": 115.92,
+     "halfWidth": 95.76,
+     "t": "ellipse",
+     "x": 58.8,
+     "y": -30.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.008,
+   "color": 16638023,
+   "shapes": [
+    {
+     "halfHeight": 101.43,
+     "halfWidth": 83.79,
+     "t": "ellipse",
+     "x": 58.8,
+     "y": -30.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0198,
+   "color": 16638023,
+   "shapes": [
+    {
+     "halfHeight": 86.94,
+     "halfWidth": 71.82,
+     "t": "ellipse",
+     "x": 58.8,
+     "y": -30.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0335,
+   "color": 14251782,
+   "shapes": [
+    {
+     "halfHeight": 72.45,
+     "halfWidth": 59.85,
+     "t": "ellipse",
+     "x": 58.8,
+     "y": -30.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0487,
+   "color": 14251782,
+   "shapes": [
+    {
+     "halfHeight": 57.96,
+     "halfWidth": 47.88,
+     "t": "ellipse",
+     "x": 58.8,
+     "y": -30.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0651,
+   "color": 9584654,
+   "shapes": [
+    {
+     "halfHeight": 43.47,
+     "halfWidth": 35.91,
+     "t": "ellipse",
+     "x": 58.8,
+     "y": -30.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0826,
+   "color": 9584654,
+   "shapes": [
+    {
+     "halfHeight": 28.98,
+     "halfWidth": 23.94,
+     "t": "ellipse",
+     "x": 58.8,
+     "y": -30.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1009,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 14.49,
+     "halfWidth": 11.97,
+     "t": "ellipse",
+     "x": 58.8,
+     "y": -30.8
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 71.4,
+     "halfWidth": 92.4,
+     "t": "ellipse",
+     "x": -53.2,
+     "y": 39.2
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.008,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 61.2,
+     "halfWidth": 79.2,
+     "t": "ellipse",
+     "x": -53.2,
+     "y": 39.2
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0196,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 51,
+     "halfWidth": 66,
+     "t": "ellipse",
+     "x": -53.2,
+     "y": 39.2
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0332,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 40.8,
+     "halfWidth": 52.8,
+     "t": "ellipse",
+     "x": -53.2,
+     "y": 39.2
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0483,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 30.6,
+     "halfWidth": 39.6,
+     "t": "ellipse",
+     "x": -53.2,
+     "y": 39.2
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0646,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 20.4,
+     "halfWidth": 26.4,
+     "t": "ellipse",
+     "x": -53.2,
+     "y": 39.2
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0818,
+   "color": 4528643,
+   "shapes": [
+    {
+     "halfHeight": 10.2,
+     "halfWidth": 13.2,
+     "t": "ellipse",
+     "x": -53.2,
+     "y": 39.2
+    }
+   ]
+  }
+ ],
+ "particle": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "height": 8,
+     "t": "rectangle",
+     "width": 8,
+     "x": -4,
+     "y": -4
+    }
+   ]
+  }
+ ],
+ "plasma": [
+  {
+   "a": "fill",
+   "alpha": 0.4,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 7,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 3.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "radial_point_light": [
+  {
+   "a": "fill",
+   "alpha": 0,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 64,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.001,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 60,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0046,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 56,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0113,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 52,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0213,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 48,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0348,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 44,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.052,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 40,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.073,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 36,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.0979,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 32,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1269,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 28,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.16,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 24,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.1973,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 20,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.239,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 16,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.285,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 12,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.3355,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 8,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.3904,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 4,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.75,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 12.8,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "scrap": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16757504,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      8.5,
+      0,
+      4.25,
+      7.3612,
+      -4.25,
+      7.3612,
+      -8.5,
+      0,
+      -4.25,
+      -7.3612,
+      4.25,
+      -7.3612
+     ],
+     "t": "polygon",
+     "x": 4.25,
+     "y": -7.3612
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16774084,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      8.5,
+      0,
+      4.25,
+      7.3612,
+      -4.25,
+      7.3612,
+      -8.5,
+      0,
+      -4.25,
+      -7.3612,
+      4.25,
+      -7.3612
+     ],
+     "t": "polygon",
+     "x": 4.25,
+     "y": -7.3612
+    }
+   ],
+   "width": 1.5
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 3809792,
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16774084,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 3,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 1.5
+  }
+ ],
+ "shield_bubble": [
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 32,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.0817,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 33.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.1456,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 35,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.1778,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 36.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.1712,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 38,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.1273,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 39.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.0556,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 41,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.35,
+   "cap": "butt",
+   "color": 10875900,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 41,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 1.4
+  }
+ ],
+ "shield_ring": [
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.85,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 40,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": 40,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 40,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.7,
+   "cap": "butt",
+   "color": 3718648,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      36,
+      0,
+      43,
+      0
+     ],
+     "t": "polygon",
+     "x": 43,
+     "y": 0
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": 20,
+     "y": 34.641
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 20,
+     "y": 34.641
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.7,
+   "cap": "butt",
+   "color": 3718648,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      18,
+      31.1769,
+      21.5,
+      37.2391
+     ],
+     "t": "polygon",
+     "x": 21.5,
+     "y": 37.2391
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": -20,
+     "y": 34.641
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -20,
+     "y": 34.641
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.7,
+   "cap": "butt",
+   "color": 3718648,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -18,
+      31.1769,
+      -21.5,
+      37.2391
+     ],
+     "t": "polygon",
+     "x": -21.5,
+     "y": 37.2391
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": -40,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -40,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.7,
+   "cap": "butt",
+   "color": 3718648,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -36,
+      0,
+      -43,
+      0
+     ],
+     "t": "polygon",
+     "x": -43,
+     "y": 0
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": -20,
+     "y": -34.641
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": -20,
+     "y": -34.641
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.7,
+   "cap": "butt",
+   "color": 3718648,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      -18,
+      -31.1769,
+      -21.5,
+      -37.2391
+     ],
+     "t": "polygon",
+     "x": -21.5,
+     "y": -37.2391
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 2.4,
+     "t": "circle",
+     "x": 20,
+     "y": -34.641
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 20,
+     "y": -34.641
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.7,
+   "cap": "butt",
+   "color": 3718648,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      18,
+      -31.1769,
+      21.5,
+      -37.2391
+     ],
+     "t": "polygon",
+     "x": 21.5,
+     "y": -37.2391
+    }
+   ],
+   "width": 1.4
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.25,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "radius": 35,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ],
+   "width": 1
+  }
+ ],
+ "ship_interceptor": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 132631,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      32,
+      0,
+      14,
+      -8,
+      -10,
+      -26,
+      -22,
+      -23,
+      -16,
+      -8,
+      -24,
+      0,
+      -16,
+      8,
+      -22,
+      23,
+      -10,
+      26,
+      14,
+      8
+     ],
+     "t": "polygon",
+     "x": 14,
+     "y": 8
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16777215,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      32,
+      0,
+      14,
+      -8,
+      -10,
+      -26,
+      -22,
+      -23,
+      -16,
+      -8,
+      -24,
+      0,
+      -16,
+      8,
+      -22,
+      23,
+      -10,
+      26,
+      14,
+      8
+     ],
+     "t": "polygon",
+     "x": 14,
+     "y": 8
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 596782,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      29,
+      0,
+      12,
+      -7,
+      -8,
+      -23,
+      -18,
+      -20,
+      -13,
+      -7,
+      -20,
+      0,
+      -13,
+      7,
+      -18,
+      20,
+      -8,
+      23,
+      12,
+      7
+     ],
+     "t": "polygon",
+     "x": 12,
+     "y": 7
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      29,
+      0,
+      12,
+      -7,
+      -8,
+      -23,
+      -18,
+      -20,
+      -13,
+      -7,
+      -20,
+      0,
+      -13,
+      7,
+      -18,
+      20,
+      -8,
+      23,
+      12,
+      7
+     ],
+     "t": "polygon",
+     "x": 12,
+     "y": 7
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 165063,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      28,
+      0,
+      10,
+      -6,
+      -6,
+      -20
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": -20
+    },
+    {
+     "closed": false,
+     "pts": [
+      28,
+      0,
+      10,
+      6,
+      -6,
+      20
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": 20
+    },
+    {
+     "closed": false,
+     "pts": [
+      10,
+      0,
+      -6,
+      -14
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": -14
+    },
+    {
+     "closed": false,
+     "pts": [
+      10,
+      0,
+      -6,
+      14
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": 14
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      -8,
+      -16,
+      -8
+     ],
+     "t": "polygon",
+     "x": -16,
+     "y": -8
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      8,
+      -16,
+      8
+     ],
+     "t": "polygon",
+     "x": -16,
+     "y": 8
+    },
+    {
+     "height": 5,
+     "t": "rectangle",
+     "width": 7,
+     "x": -20,
+     "y": -11
+    },
+    {
+     "height": 5,
+     "t": "rectangle",
+     "width": 7,
+     "x": -20,
+     "y": 6
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 223649,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      28,
+      0,
+      10,
+      -6,
+      -6,
+      -20
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": -20
+    },
+    {
+     "closed": false,
+     "pts": [
+      28,
+      0,
+      10,
+      6,
+      -6,
+      20
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": 20
+    },
+    {
+     "closed": false,
+     "pts": [
+      10,
+      0,
+      -6,
+      -14
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": -14
+    },
+    {
+     "closed": false,
+     "pts": [
+      10,
+      0,
+      -6,
+      14
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": 14
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      -8,
+      -16,
+      -8
+     ],
+     "t": "polygon",
+     "x": -16,
+     "y": -8
+    },
+    {
+     "closed": false,
+     "pts": [
+      0,
+      8,
+      -16,
+      8
+     ],
+     "t": "polygon",
+     "x": -16,
+     "y": 8
+    },
+    {
+     "height": 5,
+     "t": "rectangle",
+     "width": 7,
+     "x": -20,
+     "y": -11
+    },
+    {
+     "height": 5,
+     "t": "rectangle",
+     "width": 7,
+     "x": -20,
+     "y": 6
+    }
+   ],
+   "width": 1.6
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 3718648,
+   "shapes": [
+    {
+     "height": 3,
+     "t": "rectangle",
+     "width": 3,
+     "x": -22,
+     "y": -10
+    },
+    {
+     "height": 3,
+     "t": "rectangle",
+     "width": 3,
+     "x": -22,
+     "y": 7
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.4,
+     "t": "circle",
+     "x": -21,
+     "y": -8.5
+    },
+    {
+     "radius": 1.4,
+     "t": "circle",
+     "x": -21,
+     "y": 8.5
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 268587,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      17,
+      0,
+      5,
+      -5,
+      -5,
+      -4,
+      -8,
+      0,
+      -5,
+      4,
+      5,
+      5
+     ],
+     "t": "polygon",
+     "x": 5,
+     "y": 5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      17,
+      0,
+      5,
+      -5,
+      -5,
+      -4,
+      -8,
+      0,
+      -5,
+      4,
+      5,
+      5
+     ],
+     "t": "polygon",
+     "x": 5,
+     "y": 5
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 62463,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      13,
+      0,
+      4,
+      -3,
+      -3,
+      0,
+      4,
+      3
+     ],
+     "t": "polygon",
+     "x": 4,
+     "y": 3
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 62463,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      13,
+      0,
+      4,
+      -3,
+      -3,
+      0,
+      4,
+      3
+     ],
+     "t": "polygon",
+     "x": 4,
+     "y": 3
+    }
+   ],
+   "width": 1.8
+  }
+ ],
+ "ship_spectre": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 393484,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      35,
+      0,
+      18,
+      -10,
+      9,
+      -27,
+      -23,
+      -25,
+      -10,
+      -6,
+      -25,
+      0,
+      -10,
+      6,
+      -23,
+      25,
+      9,
+      27,
+      18,
+      10
+     ],
+     "t": "polygon",
+     "x": 18,
+     "y": 10
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16777215,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      35,
+      0,
+      18,
+      -10,
+      9,
+      -27,
+      -23,
+      -25,
+      -10,
+      -6,
+      -25,
+      0,
+      -10,
+      6,
+      -23,
+      25,
+      9,
+      27,
+      18,
+      10
+     ],
+     "t": "polygon",
+     "x": 18,
+     "y": 10
+    }
+   ],
+   "width": 2.8
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2165563,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      32,
+      0,
+      15,
+      -9,
+      7,
+      -24,
+      -19,
+      -21,
+      -8,
+      -5,
+      -21,
+      0,
+      -8,
+      5,
+      -19,
+      21,
+      7,
+      24,
+      15,
+      9
+     ],
+     "t": "polygon",
+     "x": 15,
+     "y": 9
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 14239471,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      32,
+      0,
+      15,
+      -9,
+      7,
+      -24,
+      -19,
+      -21,
+      -8,
+      -5,
+      -21,
+      0,
+      -8,
+      5,
+      -19,
+      21,
+      7,
+      24,
+      15,
+      9
+     ],
+     "t": "polygon",
+     "x": 15,
+     "y": 9
+    }
+   ],
+   "width": 2.2
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 3868516,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      31,
+      0,
+      13,
+      -8,
+      6,
+      -22
+     ],
+     "t": "polygon",
+     "x": 6,
+     "y": -22
+    },
+    {
+     "closed": false,
+     "pts": [
+      15,
+      0,
+      3,
+      -15,
+      -13,
+      -15
+     ],
+     "t": "polygon",
+     "x": -13,
+     "y": -15
+    },
+    {
+     "closed": false,
+     "pts": [
+      15,
+      0,
+      3,
+      15,
+      -13,
+      15
+     ],
+     "t": "polygon",
+     "x": -13,
+     "y": 15
+    },
+    {
+     "pts": [
+      8,
+      0,
+      1,
+      -5,
+      -8,
+      0,
+      1,
+      5
+     ],
+     "t": "polygon",
+     "x": 1,
+     "y": 5
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 14239471,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      31,
+      0,
+      13,
+      -8,
+      6,
+      -22
+     ],
+     "t": "polygon",
+     "x": 6,
+     "y": -22
+    },
+    {
+     "closed": false,
+     "pts": [
+      15,
+      0,
+      3,
+      -15,
+      -13,
+      -15
+     ],
+     "t": "polygon",
+     "x": -13,
+     "y": -15
+    },
+    {
+     "closed": false,
+     "pts": [
+      15,
+      0,
+      3,
+      15,
+      -13,
+      15
+     ],
+     "t": "polygon",
+     "x": -13,
+     "y": 15
+    },
+    {
+     "pts": [
+      8,
+      0,
+      1,
+      -5,
+      -8,
+      0,
+      1,
+      5
+     ],
+     "t": "polygon",
+     "x": 1,
+     "y": 5
+    }
+   ],
+   "width": 1.8
+  },
+  {
+   "a": "fill",
+   "alpha": 0.9,
+   "color": 11032055,
+   "shapes": [
+    {
+     "radius": 4.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.2,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 14239471,
+   "shapes": [
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 4,
+     "x": -21,
+     "y": -8
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 4,
+     "x": -21,
+     "y": 4
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "height": 2,
+     "t": "rectangle",
+     "width": 2,
+     "x": -22,
+     "y": -7
+    },
+    {
+     "height": 2,
+     "t": "rectangle",
+     "width": 2,
+     "x": -22,
+     "y": 5
+    }
+   ]
+  }
+ ],
+ "ship_titan": [
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 788226,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      31,
+      0,
+      22,
+      -15,
+      10,
+      -29,
+      -10,
+      -32,
+      -25,
+      -23,
+      -20,
+      -12,
+      -27,
+      0,
+      -20,
+      12,
+      -25,
+      23,
+      -10,
+      32,
+      10,
+      29,
+      22,
+      15
+     ],
+     "t": "polygon",
+     "x": 22,
+     "y": 15
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16777215,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      31,
+      0,
+      22,
+      -15,
+      10,
+      -29,
+      -10,
+      -32,
+      -25,
+      -23,
+      -20,
+      -12,
+      -27,
+      0,
+      -20,
+      12,
+      -25,
+      23,
+      -10,
+      32,
+      10,
+      29,
+      22,
+      15
+     ],
+     "t": "polygon",
+     "x": 22,
+     "y": 15
+    }
+   ],
+   "width": 3
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 2758918,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      27,
+      0,
+      19,
+      -13,
+      8,
+      -25,
+      -8,
+      -28,
+      -21,
+      -19,
+      -16,
+      -10,
+      -22,
+      0,
+      -16,
+      10,
+      -21,
+      19,
+      -8,
+      28,
+      8,
+      25,
+      19,
+      13
+     ],
+     "t": "polygon",
+     "x": 19,
+     "y": 13
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16758528,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      27,
+      0,
+      19,
+      -13,
+      8,
+      -25,
+      -8,
+      -28,
+      -21,
+      -19,
+      -16,
+      -10,
+      -22,
+      0,
+      -16,
+      10,
+      -21,
+      19,
+      -8,
+      28,
+      8,
+      25,
+      19,
+      13
+     ],
+     "t": "polygon",
+     "x": 19,
+     "y": 13
+    }
+   ],
+   "width": 2.4
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 4528643,
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      26,
+      0,
+      18,
+      -12,
+      6,
+      -24,
+      -6,
+      -26
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": -26
+    },
+    {
+     "closed": false,
+     "pts": [
+      8,
+      -13,
+      -15,
+      -13
+     ],
+     "t": "polygon",
+     "x": -15,
+     "y": -13
+    },
+    {
+     "closed": false,
+     "pts": [
+      8,
+      13,
+      -15,
+      13
+     ],
+     "t": "polygon",
+     "x": -15,
+     "y": 13
+    },
+    {
+     "closed": false,
+     "pts": [
+      15,
+      0,
+      -6,
+      0
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      12,
+      -20,
+      28,
+      -20
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": -20
+    },
+    {
+     "closed": false,
+     "pts": [
+      12,
+      20,
+      28,
+      20
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": 20
+    },
+    {
+     "pts": [
+      -7,
+      -11,
+      7,
+      -11,
+      12,
+      0,
+      7,
+      11,
+      -7,
+      11,
+      -12,
+      0
+     ],
+     "t": "polygon",
+     "x": -12,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 1,
+   "cap": "butt",
+   "color": 16771584,
+   "join": "miter",
+   "shapes": [
+    {
+     "closed": false,
+     "pts": [
+      26,
+      0,
+      18,
+      -12,
+      6,
+      -24,
+      -6,
+      -26
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": -26
+    },
+    {
+     "closed": false,
+     "pts": [
+      8,
+      -13,
+      -15,
+      -13
+     ],
+     "t": "polygon",
+     "x": -15,
+     "y": -13
+    },
+    {
+     "closed": false,
+     "pts": [
+      8,
+      13,
+      -15,
+      13
+     ],
+     "t": "polygon",
+     "x": -15,
+     "y": 13
+    },
+    {
+     "closed": false,
+     "pts": [
+      15,
+      0,
+      -6,
+      0
+     ],
+     "t": "polygon",
+     "x": -6,
+     "y": 0
+    },
+    {
+     "closed": false,
+     "pts": [
+      12,
+      -20,
+      28,
+      -20
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": -20
+    },
+    {
+     "closed": false,
+     "pts": [
+      12,
+      20,
+      28,
+      20
+     ],
+     "t": "polygon",
+     "x": 28,
+     "y": 20
+    },
+    {
+     "pts": [
+      -7,
+      -11,
+      7,
+      -11,
+      12,
+      0,
+      7,
+      11,
+      -7,
+      11,
+      -12,
+      0
+     ],
+     "t": "polygon",
+     "x": -12,
+     "y": 0
+    }
+   ],
+   "width": 2
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16758528,
+   "shapes": [
+    {
+     "radius": 6.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 3.2,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16733440,
+   "shapes": [
+    {
+     "height": 5,
+     "t": "rectangle",
+     "width": 5,
+     "x": -23,
+     "y": -18
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 5,
+     "x": -23,
+     "y": -8
+    },
+    {
+     "height": 4,
+     "t": "rectangle",
+     "width": 5,
+     "x": -23,
+     "y": 4
+    },
+    {
+     "height": 5,
+     "t": "rectangle",
+     "width": 5,
+     "x": -23,
+     "y": 13
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "height": 2,
+     "t": "rectangle",
+     "width": 2,
+     "x": -24,
+     "y": -16
+    },
+    {
+     "height": 2,
+     "t": "rectangle",
+     "width": 2,
+     "x": -24,
+     "y": 14
+    }
+   ]
+  }
+ ],
+ "smoke": [
+  {
+   "a": "fill",
+   "alpha": 0.05,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 8,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.15,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 6,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.25,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 4,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.35,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "spark": [
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "closed": true,
+     "pts": [
+      0,
+      -7,
+      2.2,
+      0,
+      0,
+      7,
+      -2.2,
+      0
+     ],
+     "t": "polygon",
+     "x": -2.2,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "star": [
+  {
+   "a": "fill",
+   "alpha": 0.25,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 4,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.65,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 1.2,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ],
+ "trail_ribbon": [
+  {
+   "a": "fill",
+   "alpha": 0.45,
+   "color": 62463,
+   "shapes": [
+    {
+     "height": 32,
+     "radius": 16,
+     "t": "roundedRectangle",
+     "width": 128,
+     "x": -64,
+     "y": -16
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 16777215,
+   "shapes": [
+    {
+     "height": 12,
+     "radius": 6,
+     "t": "roundedRectangle",
+     "width": 112,
+     "x": -56,
+     "y": -6
+    }
+   ]
+  }
+ ],
+ "viewport_vignette": [],
+ "xpGem": [
+  {
+   "a": "fill",
+   "alpha": 0.16,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 14,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.38,
+   "color": 62463,
+   "shapes": [
+    {
+     "radius": 9,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "fill",
+   "alpha": 0.95,
+   "color": 62463,
+   "shapes": [
+    {
+     "pts": [
+      0,
+      -9,
+      8,
+      0,
+      0,
+      9,
+      -8,
+      0
+     ],
+     "t": "polygon",
+     "x": -8,
+     "y": 0
+    }
+   ]
+  },
+  {
+   "a": "stroke",
+   "alignment": 0.5,
+   "alpha": 0.9,
+   "cap": "butt",
+   "color": 10875900,
+   "join": "miter",
+   "shapes": [
+    {
+     "pts": [
+      0,
+      -9,
+      8,
+      0,
+      0,
+      9,
+      -8,
+      0
+     ],
+     "t": "polygon",
+     "x": -8,
+     "y": 0
+    }
+   ],
+   "width": 1.2
+  },
+  {
+   "a": "fill",
+   "alpha": 1,
+   "color": 16777215,
+   "shapes": [
+    {
+     "radius": 2.5,
+     "t": "circle",
+     "x": 0,
+     "y": 0
+    }
+   ]
+  }
+ ]
+}

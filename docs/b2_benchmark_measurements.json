@@ -1,0 +1,51 @@
+{
+  "50_baseline": {
+    "mode": "baseline",
+    "numEnemies": 50,
+    "avgFrameMs": 1.48,
+    "maxFrameMs": 3.7,
+    "minFrameMs": 0.9
+  },
+  "50_unbaked_flames": {
+    "mode": "unbaked_cpu_flames",
+    "numEnemies": 50,
+    "avgFrameMs": 1.49,
+    "maxFrameMs": 2.4,
+    "minFrameMs": 0.8
+  },
+  "50_baked_flames": {
+    "mode": "baked_sprite_flames",
+    "numEnemies": 50,
+    "avgFrameMs": 0.99,
+    "maxFrameMs": 1.9,
+    "minFrameMs": 0.6
+  },
+  "200_baseline": {
+    "mode": "baseline",
+    "numEnemies": 200,
+    "avgFrameMs": 2.22,
+    "maxFrameMs": 3.3,
+    "minFrameMs": 1.5
+  },
+  "200_unbaked_flames": {
+    "mode": "unbaked_cpu_flames",
+    "numEnemies": 200,
+    "avgFrameMs": 2.19,
+    "maxFrameMs": 3.2,
+    "minFrameMs": 1.4
+  },
+  "200_baked_flames": {
+    "mode": "baked_sprite_flames",
+    "numEnemies": 200,
+    "avgFrameMs": 1.89,
+    "maxFrameMs": 2.8,
+    "minFrameMs": 1.2
+  },
+  "grid_unbaked_lines": {
+    "mode": "unbaked_grid_lines",
+    "numEnemies": 50,
+    "avgFrameMs": 1.65,
+    "maxFrameMs": 2.6,
+    "minFrameMs": 1.2
+  }
+}

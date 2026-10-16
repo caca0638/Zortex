@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Test/browser profiles (headless runs) - real profile lives in %APPDATA%\ZortexCyberSurvivor
+.app_profile*/
+app_profile_*/
+.test_cm/
+
+# Scratch & snapshots
+scratch/
+/scratch_*.png
+/scratch_*.json
+.git_snapshot/
+*.bak*
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+
+# Verification screenshots (root) and generated doc images
+/phase*_verified.png
+docs/probe_*.png
+docs/blackhole_*.png
+docs/b2_*.png
+
+# Logs & test outputs
+*.log
+
+# Skill secrets
+.agents/skills/**/.env
+
+

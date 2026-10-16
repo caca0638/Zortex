@@ -1,0 +1,32 @@
+{
+  "name": "zortex-cyber-survivor",
+  "version": "2.5.0",
+  "description": "2.5D Retro Arcade Space Combat Rogue-Lite powered by PixiJS v8",
+  "type": "module",
+  "main": "src/core/Game.js",
+  "scripts": {
+    "start": "python app.py",
+    "dev": "python app.py",
+    "update-map": "node scripts/update_codebase_map.mjs",
+    "watch-map": "node scripts/update_codebase_map.mjs --watch"
+  },
+  "dependencies": {
+    "pixi.js": "^8.6.6"
+  },
+  "keywords": [
+    "pixijs",
+    "pixijs-v8",
+    "webgl",
+    "pseudo-3d",
+    "arcade",
+    "retro",
+    "roguelite"
+  ],
+  "author": "ZORTEX Team",
+  "license": "MIT",
+  "devDependencies": {
+    "pixi-filters": "^6.1.5",
+    "tweakpane": "^4.0.5",
+    "esbuild": "^0.28.2"
+  }
+}
