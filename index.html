@@ -4844,46 +4844,49 @@
       // Scout (Öncü Avcı - "Apex Delta Interceptor")
       const ges = new PIXI.Graphics();
       // Katman 1: Karbon-Grafit Alt Şasi Tabanı (Görünür Koyu Çelik Derinlik)
-      ges.beginFill(0x131b2e); ges.lineStyle(2.6, 0x334155, 0.95);
       ges.moveTo(25, 0); ges.lineTo(9, -7); ges.lineTo(-14, -18); ges.lineTo(-18, -15);
       ges.lineTo(-11, -6); ges.lineTo(-17, 0); ges.lineTo(-11, 6); ges.lineTo(-18, 15);
-      ges.lineTo(-14, 18); ges.lineTo(9, 7); ges.closePath(); ges.endFill();
+      ges.lineTo(-14, 18); ges.lineTo(9, 7); ges.closePath();
+      ges.fill({ color: 0x131b2e, alpha: 1.0 });
+      ges.stroke({ width: 2.6, color: 0x334155, alpha: 0.95 });
       // Katman 2: Fasetli Titanyum-Yakut Üst Zırh Plakaları (Zengin Crimson-Fuşya Gövde)
-      ges.beginFill(0x4c0519); ges.lineStyle(2.4, 0xff0055, 0.98);
       ges.moveTo(22, 0); ges.lineTo(7, -5.5); ges.lineTo(-11, -14.5); ges.lineTo(-14, -12);
       ges.lineTo(-9, -4.5); ges.lineTo(-13, 0); ges.lineTo(-9, 4.5); ges.lineTo(-14, 12);
-      ges.lineTo(-11, 14.5); ges.lineTo(7, 5.5); ges.closePath(); ges.endFill();
+      ges.lineTo(-11, 14.5); ges.lineTo(7, 5.5); ges.closePath();
+      ges.fill({ color: 0x4c0519, alpha: 1.0 });
+      ges.stroke({ width: 2.4, color: 0xff0055, alpha: 0.98 });
       // İç Zırh Kaburgaları (Aerodinamik Derinlik Çizgileri)
-      ges.lineStyle(1.8, 0xbe123c, 0.9);
       ges.moveTo(14, 0); ges.lineTo(-5, -7); ges.moveTo(14, 0); ges.lineTo(-5, 7);
       ges.moveTo(3, 0); ges.lineTo(-9, -10); ges.moveTo(3, 0); ges.lineTo(-9, 10);
+      ges.stroke({ width: 1.8, color: 0xbe123c, alpha: 0.9 });
       // Katman 3: Yönlü Speküler Rim Işığı & Tepe Pahı (3D Hacim İllüzyonu)
-      ges.lineStyle(2.2, 0xffffff, 0.98);
       ges.moveTo(24, 0); ges.lineTo(8, -6); ges.lineTo(-13, -16.5);
-      ges.lineStyle(1.4, 0xfecdd3, 0.85);
+      ges.stroke({ width: 2.2, color: 0xffffff, alpha: 0.98 });
       ges.moveTo(7, -5); ges.lineTo(-7, -4);
+      ges.stroke({ width: 1.4, color: 0xfecdd3, alpha: 0.85 });
       // Katman 4: Kanat Ucu Ağır Lazer Namluları
-      ges.lineStyle(1.6, 0x64748b); ges.beginFill(0x1e293b);
-      ges.drawRect(6, -11, 9, 3); ges.drawRect(6, 8, 9, 3); ges.endFill();
-      ges.lineStyle(0); ges.beginFill(0x00f3ff);
-      ges.drawCircle(15, -9.5, 1.8); ges.drawCircle(15, 9.5, 1.8); ges.endFill();
+      ges.rect(6, -11, 9, 3); ges.rect(6, 8, 9, 3);
+      ges.fill({ color: 0x1e293b, alpha: 1.0 });
+      ges.stroke({ width: 1.6, color: 0x64748b, alpha: 1.0 });
+      ges.circle(15, -9.5, 1.8); ges.circle(15, 9.5, 1.8);
+      ges.fill({ color: 0x00f3ff, alpha: 1.0 });
       // Katman 5: Burun Kiklop Optik Sensörü (Oyuncuya Kilitlenen Göz)
-      ges.beginFill(0x00f3ff, 0.6); ges.drawCircle(22, 0, 3.2); ges.endFill();
-      ges.beginFill(0xffffff, 1.0); ges.drawCircle(22, 0, 1.6); ges.endFill();
+      ges.circle(22, 0, 3.2); ges.fill({ color: 0x00f3ff, alpha: 0.6 });
+      ges.circle(22, 0, 1.6); ges.fill({ color: 0xffffff, alpha: 1.0 });
       // Katman 6: Çok Kademeli Yüksek Yoğunluklu Plazma Reaktörü
-      ges.lineStyle(1.2, 0xff0055, 0.85);
       ges.moveTo(0, 0); ges.lineTo(-7, -6); ges.moveTo(0, 0); ges.lineTo(-7, 6);
-      ges.lineStyle(0);
-      ges.beginFill(0xff0055, 0.40); ges.drawCircle(1, 0, 8.5); ges.endFill();
-      ges.beginFill(0xff0055, 0.95); ges.drawCircle(1, 0, 5.2); ges.endFill();
-      ges.beginFill(0xffffff, 1.0);  ges.drawCircle(1, 0, 2.5); ges.endFill();
+      ges.stroke({ width: 1.2, color: 0xff0055, alpha: 0.85 });
+      ges.circle(1, 0, 8.5); ges.fill({ color: 0xff0055, alpha: 0.40 });
+      ges.circle(1, 0, 5.2); ges.fill({ color: 0xff0055, alpha: 0.95 });
+      ges.circle(1, 0, 2.5); ges.fill({ color: 0xffffff, alpha: 1.0 });
       // Katman 7: Çift Arka İyon İtici Nozul Kovanları
-      ges.beginFill(0x0f172a); ges.lineStyle(1.6, 0x475569);
-      ges.drawRect(-16, -9.5, 5, 4.5); ges.drawRect(-16, 5, 5, 4.5); ges.endFill();
-      ges.lineStyle(0); ges.beginFill(0xff0055);
-      ges.drawCircle(-15, -7.25, 2.4); ges.drawCircle(-15, 7.25, 2.4); ges.endFill();
-      ges.beginFill(0xffffff);
-      ges.drawCircle(-15, -7.25, 1.2); ges.drawCircle(-15, 7.25, 1.2); ges.endFill();
+      ges.rect(-16, -9.5, 5, 4.5); ges.rect(-16, 5, 5, 4.5);
+      ges.fill({ color: 0x0f172a, alpha: 1.0 });
+      ges.stroke({ width: 1.6, color: 0x475569, alpha: 1.0 });
+      ges.circle(-15, -7.25, 2.4); ges.circle(-15, 7.25, 2.4);
+      ges.fill({ color: 0xff0055, alpha: 1.0 });
+      ges.circle(-15, -7.25, 1.2); ges.circle(-15, 7.25, 1.2);
+      ges.fill({ color: 0xffffff, alpha: 1.0 });
       pixiTextures.enemy_scout = app.renderer.generateTexture({ target: ges, resolution: 2 });
 
       // Fast / Swarm (Akıncı - "Stiletto Razor Drone")
