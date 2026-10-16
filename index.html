@@ -4733,44 +4733,45 @@
       // Titan (Ağır Zırhlı Tank - Ağır Obsidyen & Altın Dreadnought Kruvazörü)
       const gstt = new PIXI.Graphics();
       // Katman 1: Koyu Dış Hat / Ağır Karbon Şasi (Heavy Silhouette Outline)
-      gstt.beginFill(0x0c0702);
-      gstt.lineStyle(3.0, 0x000000, 1.0);
       gstt.moveTo(31, 0); gstt.lineTo(22, -15); gstt.lineTo(10, -29); gstt.lineTo(-10, -32);
       gstt.lineTo(-25, -23); gstt.lineTo(-20, -12); gstt.lineTo(-27, 0); gstt.lineTo(-20, 12);
       gstt.lineTo(-25, 23); gstt.lineTo(-10, 32); gstt.lineTo(10, 29); gstt.lineTo(22, 15);
-      gstt.closePath(); gstt.endFill();
+      gstt.closePath();
+      gstt.fill({ color: 0x0c0702, alpha: 1.0 });
+      gstt.stroke({ width: 3.0, color: 0xffffff, alpha: 1.0 });
 
       // Katman 2: Güçlendirilmiş Altın Zırh Panelleri
-      gstt.beginFill(0x2a1906);
-      gstt.lineStyle(2.4, 0xffb700, 1.0);
       gstt.moveTo(27, 0); gstt.lineTo(19, -13); gstt.lineTo(8, -25); gstt.lineTo(-8, -28);
       gstt.lineTo(-21, -19); gstt.lineTo(-16, -10); gstt.lineTo(-22, 0); gstt.lineTo(-16, 10);
       gstt.lineTo(-21, 19); gstt.lineTo(-8, 28); gstt.lineTo(8, 25); gstt.lineTo(19, 13);
-      gstt.closePath(); gstt.endFill();
+      gstt.closePath();
+      gstt.fill({ color: 0x2a1906, alpha: 1.0 });
+      gstt.stroke({ width: 2.4, color: 0xffb700, alpha: 1.0 });
 
       // Katman 3: 3D Metalik Pah & Zırh Kaburgaları
-      gstt.lineStyle(2.2, 0xfef08a, 0.95);
       gstt.moveTo(26, 0); gstt.lineTo(18, -12); gstt.lineTo(6, -24); gstt.lineTo(-6, -26);
-      gstt.lineStyle(1.8, 0xf59e0b, 0.85);
+      gstt.stroke({ width: 2.2, color: 0xfef08a, alpha: 0.95 });
       gstt.moveTo(8, -13); gstt.lineTo(-15, -13);
       gstt.moveTo(8, 13); gstt.lineTo(-15, 13);
       gstt.moveTo(15, 0); gstt.lineTo(-6, 0);
-      gstt.lineStyle(2.2, 0xffd000);
+      gstt.stroke({ width: 1.8, color: 0xf59e0b, alpha: 0.85 });
       gstt.moveTo(12, -20); gstt.lineTo(28, -20);
       gstt.moveTo(12, 20); gstt.lineTo(28, 20);
+      gstt.stroke({ width: 2.2, color: 0xffd000, alpha: 1.0 });
 
       // Katman 4: Ağır Termal Reaktör Çekirdeği
-      gstt.lineStyle(2.0, 0xffea00); gstt.beginFill(0x451a03);
-      gstt.drawPolygon([-7, -11, 7, -11, 12, 0, 7, 11, -7, 11, -12, 0]); gstt.endFill();
-      gstt.lineStyle(0); gstt.beginFill(0xffb700, 0.95); gstt.drawCircle(0, 0, 6.5); gstt.endFill();
-      gstt.beginFill(0xffffff, 1.0); gstt.drawCircle(0, 0, 3.2); gstt.endFill();
+      gstt.poly([-7, -11, 7, -11, 12, 0, 7, 11, -7, 11, -12, 0]);
+      gstt.fill({ color: 0x451a03, alpha: 1.0 });
+      gstt.stroke({ width: 2.0, color: 0xffea00, alpha: 1.0 });
+      gstt.circle(0, 0, 6.5); gstt.fill({ color: 0xffb700, alpha: 0.95 });
+      gstt.circle(0, 0, 3.2); gstt.fill({ color: 0xffffff, alpha: 1.0 });
 
       // Katman 5: Dörtlü Ağır İtici Nozulları
-      gstt.beginFill(0xff5500);
-      gstt.drawRect(-23, -18, 5, 5); gstt.drawRect(-23, -8, 5, 4);
-      gstt.drawRect(-23, 4, 5, 4); gstt.drawRect(-23, 13, 5, 5); gstt.endFill();
-      gstt.beginFill(0xffffff);
-      gstt.drawRect(-24, -16, 2, 2); gstt.drawRect(-24, 14, 2, 2); gstt.endFill();
+      gstt.rect(-23, -18, 5, 5); gstt.rect(-23, -8, 5, 4);
+      gstt.rect(-23, 4, 5, 4); gstt.rect(-23, 13, 5, 5);
+      gstt.fill({ color: 0xff5500, alpha: 1.0 });
+      gstt.rect(-24, -16, 2, 2); gstt.rect(-24, 14, 2, 2);
+      gstt.fill({ color: 0xffffff, alpha: 1.0 });
       pixiTextures.ship_titan = app.renderer.generateTexture({ target: gstt, resolution: 2 });
 
       // Spectre (Siber Hacker - İleri Açılı Hayalet Suikastçı)
