@@ -4919,42 +4919,46 @@
       // Heavy / Tank (Ağır Tank - "Aegis Bastion Cruiser")
       const geh = new PIXI.Graphics();
       // Katman 1: Sekizgen Döküm Tungsten-Karbon Ağır Taban
-      geh.beginFill(0x1c1917); geh.lineStyle(2.8, 0x44403c);
-      geh.drawPolygon([-26, -14, -14, -26, 14, -26, 26, -14, 26, 14, 14, 26, -14, 26, -26, 14]); geh.endFill();
+      geh.poly([-26, -14, -14, -26, 14, -26, 26, -14, 26, 14, 14, 26, -14, 26, -26, 14]);
+      geh.fill({ color: 0x1c1917, alpha: 1.0 });
+      geh.stroke({ width: 2.8, color: 0x44403c, alpha: 1.0 });
       // Katman 2: Fasetli Endüstriyel Kehribar Zırh Blokları
-      geh.beginFill(0x451a03); geh.lineStyle(2.8, 0xf59e0b, 0.98);
-      geh.drawPolygon([-22, -11, -11, -22, 11, -22, 22, -11, 22, 11, 11, 22, -11, 22, -22, 11]); geh.endFill();
+      geh.poly([-22, -11, -11, -22, 11, -22, 22, -11, 22, 11, 11, 22, -11, 22, -22, 11]);
+      geh.fill({ color: 0x451a03, alpha: 1.0 });
+      geh.stroke({ width: 2.8, color: 0xf59e0b, alpha: 0.98 });
       // İç Faset Zırh Segmentleri (Derinlikli Bölmeler)
-      geh.lineStyle(2.0, 0x78350f);
       geh.moveTo(-22, 0); geh.lineTo(-12, 0); geh.moveTo(12, 0); geh.lineTo(22, 0);
       geh.moveTo(0, -22); geh.lineTo(0, -12); geh.moveTo(0, 12); geh.lineTo(0, 22);
+      geh.stroke({ width: 2.0, color: 0x78350f, alpha: 1.0 });
       // Katman 3: Yönlü Speküler Rim Işığı (Üst Metalik Pah)
-      geh.lineStyle(2.6, 0xffffff, 0.98);
       geh.moveTo(-24, -13); geh.lineTo(-13, -24); geh.lineTo(13, -24); geh.lineTo(24, -13);
-      geh.lineStyle(1.8, 0xfde68a, 0.85);
+      geh.stroke({ width: 2.6, color: 0xffffff, alpha: 0.98 });
       geh.moveTo(-19, -9); geh.lineTo(-9, -19); geh.lineTo(9, -19);
+      geh.stroke({ width: 1.8, color: 0xfde68a, alpha: 0.85 });
       // Katman 4: 8 Köşe Titanyum Perçinleri
       const rivetCoords = [[-18, -18], [18, -18], [-18, 18], [18, 18], [-23, 0], [23, 0], [0, -23], [0, 23]];
       for (const [rx, ry] of rivetCoords) {
-        geh.lineStyle(0); geh.beginFill(0x78350f); geh.drawCircle(rx, ry, 2.5); geh.endFill();
-        geh.beginFill(0xfde68a); geh.drawCircle(rx, ry, 1.2); geh.endFill();
+        geh.circle(rx, ry, 2.5); geh.fill({ color: 0x78350f, alpha: 1.0 });
+        geh.circle(rx, ry, 1.2); geh.fill({ color: 0xfde68a, alpha: 1.0 });
       }
       // Katman 5: Termal Soğutma Izgaraları (Cyan / Amber Isı Tahliyesi)
-      geh.lineStyle(2.0, 0x00f3ff, 0.85);
       geh.moveTo(-16, -9); geh.lineTo(16, -9); geh.moveTo(-16, 9); geh.lineTo(16, 9);
+      geh.stroke({ width: 2.0, color: 0x00f3ff, alpha: 0.85 });
       // Katman 6: Ağır Termonükleer Füzyon Reaktörü (Çift Manyetik Halka)
-      geh.lineStyle(2.2, 0xffaa00); geh.beginFill(0x271302); geh.drawCircle(0, 0, 11.5); geh.endFill();
-      geh.lineStyle(0);
-      geh.beginFill(0xff7700, 0.45);  geh.drawCircle(0, 0, 9.0); geh.endFill();
-      geh.beginFill(0xffaa00, 0.95);  geh.drawCircle(0, 0, 5.8); geh.endFill();
-      geh.beginFill(0xffffff, 1.0);   geh.drawCircle(0, 0, 3.0); geh.endFill();
+      geh.circle(0, 0, 11.5);
+      geh.fill({ color: 0x271302, alpha: 1.0 });
+      geh.stroke({ width: 2.2, color: 0xffaa00, alpha: 1.0 });
+      geh.circle(0, 0, 9.0); geh.fill({ color: 0xff7700, alpha: 0.45 });
+      geh.circle(0, 0, 5.8); geh.fill({ color: 0xffaa00, alpha: 0.95 });
+      geh.circle(0, 0, 3.0); geh.fill({ color: 0xffffff, alpha: 1.0 });
       // Katman 7: Dörtlü Arka Ağır İtici Nozulları
-      geh.beginFill(0x292524); geh.lineStyle(1.4, 0x78350f);
-      geh.drawRect(-26, -17, 5, 7); geh.drawRect(-26, 10, 5, 7); geh.endFill();
-      geh.lineStyle(0); geh.beginFill(0xff7700);
-      geh.drawCircle(-25, -13.5, 2.8); geh.drawCircle(-25, 13.5, 2.8); geh.endFill();
-      geh.beginFill(0xffffff);
-      geh.drawCircle(-25, -13.5, 1.4); geh.drawCircle(-25, 13.5, 1.4); geh.endFill();
+      geh.rect(-26, -17, 5, 7); geh.rect(-26, 10, 5, 7);
+      geh.fill({ color: 0x292524, alpha: 1.0 });
+      geh.stroke({ width: 1.4, color: 0x78350f, alpha: 1.0 });
+      geh.circle(-25, -13.5, 2.8); geh.circle(-25, 13.5, 2.8);
+      geh.fill({ color: 0xff7700, alpha: 1.0 });
+      geh.circle(-25, -13.5, 1.4); geh.circle(-25, 13.5, 1.4);
+      geh.fill({ color: 0xffffff, alpha: 1.0 });
       pixiTextures.enemy_heavy = app.renderer.generateTexture({ target: geh, resolution: 2 });
       pixiTextures.enemy_tank = pixiTextures.enemy_heavy;
 
