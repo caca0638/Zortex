@@ -4686,45 +4686,48 @@
       // Interceptor (Seri Avcı - Deltakanat İleri-Süpersonik Avcı)
       const gsi = new PIXI.Graphics();
       // Katman 1: Koyu Dış Hat / Karbon Gövde Şasisi (High-Contrast Silhouette Outline)
-      gsi.beginFill(0x020617);
-      gsi.lineStyle(2.8, 0x000000, 1.0);
       gsi.moveTo(32, 0); gsi.lineTo(14, -8); gsi.lineTo(-10, -26); gsi.lineTo(-22, -23);
       gsi.lineTo(-16, -8); gsi.lineTo(-24, 0); gsi.lineTo(-16, 8); gsi.lineTo(-22, 23);
-      gsi.lineTo(-10, 26); gsi.lineTo(14, 8); gsi.closePath(); gsi.endFill();
+      gsi.lineTo(-10, 26); gsi.lineTo(14, 8); gsi.closePath();
+      gsi.fill({ color: 0x020617, alpha: 1.0 });
+      gsi.stroke({ width: 2.8, color: 0xffffff, alpha: 1.0 });
 
       // Katman 2: Titanyum & Kobalt Zırh Plakaları (Vibrant Metallic Hull Plating)
-      gsi.beginFill(0x091b2e);
-      gsi.lineStyle(2.0, 0x00f3ff, 1.0);
       gsi.moveTo(29, 0); gsi.lineTo(12, -7); gsi.lineTo(-8, -23); gsi.lineTo(-18, -20);
       gsi.lineTo(-13, -7); gsi.lineTo(-20, 0); gsi.lineTo(-13, 7); gsi.lineTo(-18, 20);
-      gsi.lineTo(-8, 23); gsi.lineTo(12, 7); gsi.closePath(); gsi.endFill();
+      gsi.lineTo(-8, 23); gsi.lineTo(12, 7); gsi.closePath();
+      gsi.fill({ color: 0x091b2e, alpha: 1.0 });
+      gsi.stroke({ width: 2.0, color: 0x00f3ff, alpha: 1.0 });
 
       // Katman 3: 3D Metalik Pah & Işık Hatları (Specular Rim Highlights)
-      gsi.lineStyle(2.0, 0xe0f2fe, 0.95);
       gsi.moveTo(28, 0); gsi.lineTo(10, -6); gsi.lineTo(-6, -20);
       gsi.moveTo(28, 0); gsi.lineTo(10, 6); gsi.lineTo(-6, 20);
-      gsi.lineStyle(1.6, 0x38bdf8, 0.85);
+      gsi.stroke({ width: 2.0, color: 0xe0f2fe, alpha: 0.95 });
       gsi.moveTo(10, 0); gsi.lineTo(-6, -14);
       gsi.moveTo(10, 0); gsi.lineTo(-6, 14);
       gsi.moveTo(0, -8); gsi.lineTo(-16, -8);
       gsi.moveTo(0, 8); gsi.lineTo(-16, 8);
+      gsi.stroke({ width: 1.6, color: 0x38bdf8, alpha: 0.85 });
 
       // Katman 4: İkiz İyon İtici Nozzle Yuvaları & Akkor İtici Noktaları
-      gsi.lineStyle(1.6, 0x0369a1); gsi.beginFill(0x0284c7);
-      gsi.drawRect(-20, -11, 7, 5); gsi.drawRect(-20, 6, 7, 5); gsi.endFill();
-      gsi.lineStyle(0); gsi.beginFill(0x38bdf8);
-      gsi.drawRect(-22, -10, 3, 3); gsi.drawRect(-22, 7, 3, 3); gsi.endFill();
-      gsi.beginFill(0xffffff);
-      gsi.drawCircle(-21, -8.5, 1.4); gsi.drawCircle(-21, 8.5, 1.4); gsi.endFill();
+      gsi.rect(-20, -11, 7, 5); gsi.rect(-20, 6, 7, 5);
+      gsi.fill({ color: 0x0284c7, alpha: 1.0 });
+      gsi.stroke({ width: 1.6, color: 0x0369a1, alpha: 1.0 });
+      gsi.rect(-22, -10, 3, 3); gsi.rect(-22, 7, 3, 3);
+      gsi.fill({ color: 0x38bdf8, alpha: 1.0 });
+      gsi.circle(-21, -8.5, 1.4); gsi.circle(-21, 8.5, 1.4);
+      gsi.fill({ color: 0xffffff, alpha: 1.0 });
 
       // Katman 5: Fütüristik Kokpit Kanopisi & Cam Yansıması
-      gsi.lineStyle(1.8, 0x00f3ff); gsi.beginFill(0x04192b);
       gsi.moveTo(17, 0); gsi.lineTo(5, -5); gsi.lineTo(-5, -4); gsi.lineTo(-8, 0);
-      gsi.lineTo(-5, 4); gsi.lineTo(5, 5); gsi.closePath(); gsi.endFill();
-      gsi.beginFill(0x00f3ff, 0.90);
-      gsi.moveTo(13, 0); gsi.lineTo(4, -3); gsi.lineTo(-3, 0); gsi.lineTo(4, 3); gsi.closePath(); gsi.endFill();
-      gsi.lineStyle(1.6, 0xffffff, 1.0);
+      gsi.lineTo(-5, 4); gsi.lineTo(5, 5); gsi.closePath();
+      gsi.fill({ color: 0x04192b, alpha: 1.0 });
+      gsi.stroke({ width: 1.8, color: 0x00f3ff, alpha: 1.0 });
+      gsi.moveTo(13, 0); gsi.lineTo(4, -3); gsi.lineTo(-3, 0); gsi.lineTo(4, 3); gsi.closePath();
+      gsi.fill({ color: 0x00f3ff, alpha: 0.90 });
+      gsi.stroke({ width: 1.8, color: 0x00f3ff, alpha: 1.0 });
       gsi.moveTo(11, -1.8); gsi.lineTo(2, 2.5);
+      gsi.stroke({ width: 1.6, color: 0xffffff, alpha: 1.0 });
       pixiTextures.ship_interceptor = app.renderer.generateTexture({ target: gsi, resolution: 2 });
 
       // Titan (Ağır Zırhlı Tank - Ağır Obsidyen & Altın Dreadnought Kruvazörü)
