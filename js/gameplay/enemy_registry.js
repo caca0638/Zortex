@@ -124,9 +124,9 @@
         gc.endFill();
 
         // Mor biyo-mekanik enerji omurgası
-        gc.lineStyle(1.8, 0xc084fc, 0.9);
         gc.moveTo(14, 0);
         gc.lineTo(-8, 0);
+        gc.stroke({ width: 1.8, color: 0xc084fc, alpha: 0.9 });
         window.pixiTextures.enemy_carrier = targetApp.renderer.generateTexture({ target: gc, resolution: 2 });
 
         // D) VOID SIPHON (XP ve Hurda Çeken Enerji Hortumu - #ec4899 & #8b5cf6)

@@ -3,7 +3,7 @@
 > **AUTO-GENERATED**: Run `node scripts/update_codebase_map.mjs` after code changes.
 > **TOKEN OPTIMIZATION RULE**: Never load the entire file into context. Use the exact line ranges below with `view_file` (e.g. `StartLine=9844, EndLine=11637`).
 
-*Last Generated:* `2026-10-16T18:22:41.673Z` | *index.html Lines:* **18.991** | *zortex_fx.js Lines:* **2.367**
+*Last Generated:* `2026-10-16T19:53:53.060Z` | *index.html Lines:* **18.991** | *zortex_fx.js Lines:* **2.367**
 
 ---
 

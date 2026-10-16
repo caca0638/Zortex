@@ -5242,22 +5242,21 @@
       pixiTextures.enemy_nemesis = app.renderer.generateTexture({ target: genem, resolution: 2 });
 
       // Elite Ring (Holografik Çentikli Tehdit Halesi)
+      // Elite Ring (Holografik Çentikli Tehdit Halesi - PixiJS v8)
       const gelite = new PIXI.Graphics();
-      gelite.lineStyle(2.2, 0xffd000, 0.9);
-      gelite.drawCircle(0, 0, 30);
+      gelite.circle(0, 0, 30).stroke({ width: 2.2, color: 0xffd000, alpha: 0.9 });
       // 12 Radyal Enerji Çentiği
-      gelite.lineStyle(2.0, 0xffffff, 0.95);
       for (let i = 0; i < 12; i++) {
         const ang = (i * Math.PI * 2) / 12;
         const c = Math.cos(ang), s = Math.sin(ang);
         gelite.moveTo(c * 27, s * 27);
         gelite.lineTo(c * 33, s * 33);
       }
-      pixiTextures.elite_ring = app.renderer.generateTexture(gelite);
+      gelite.stroke({ width: 2.0, color: 0xffffff, alpha: 0.95 });
+      pixiTextures.elite_ring = app.renderer.generateTexture({ target: gelite, resolution: 2 });
 
-      // Aegis Ring (Altıgen Enerji Bariyeri Kalkan Halesi)
+      // Aegis Ring (Altıgen Enerji Bariyeri Kalkan Halesi - PixiJS v8)
       const gaegis = new PIXI.Graphics();
-      gaegis.lineStyle(2.5, 0x00f3ff, 0.9);
       // Dış Altıgen
       for (let i = 0; i < 6; i++) {
         const a1 = (i * Math.PI) / 3;
@@ -5265,20 +5264,21 @@
         gaegis.moveTo(Math.cos(a1) * 34, Math.sin(a1) * 34);
         gaegis.lineTo(Math.cos(a2) * 34, Math.sin(a2) * 34);
       }
+      gaegis.stroke({ width: 2.5, color: 0x00f3ff, alpha: 0.9 });
       // İç Altıgen & Düğüm Noktaları
-      gaegis.lineStyle(1.5, 0x38bdf8, 0.7);
       for (let i = 0; i < 6; i++) {
         const a1 = (i * Math.PI) / 3;
         const a2 = ((i + 1) * Math.PI) / 3;
         gaegis.moveTo(Math.cos(a1) * 29, Math.sin(a1) * 29);
         gaegis.lineTo(Math.cos(a2) * 29, Math.sin(a2) * 29);
-        gaegis.lineStyle(0);
-        gaegis.beginFill(0xffffff, 0.95);
-        gaegis.drawCircle(Math.cos(a1) * 34, Math.sin(a1) * 34, 2.0);
-        gaegis.endFill();
-        gaegis.lineStyle(1.5, 0x38bdf8, 0.7);
       }
-      pixiTextures.aegis_ring = app.renderer.generateTexture(gaegis);
+      gaegis.stroke({ width: 1.5, color: 0x38bdf8, alpha: 0.7 });
+      for (let i = 0; i < 6; i++) {
+        const a1 = (i * Math.PI) / 3;
+        gaegis.circle(Math.cos(a1) * 34, Math.sin(a1) * 34, 2.0);
+      }
+      gaegis.fill({ color: 0xffffff, alpha: 0.95 });
+      pixiTextures.aegis_ring = app.renderer.generateTexture({ target: gaegis, resolution: 2 });
     }
     window.initPixiTextures = initPixiTextures;
 
