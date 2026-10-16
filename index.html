@@ -4776,37 +4776,38 @@
       // Spectre (Siber Hacker - İleri Açılı Hayalet Suikastçı)
       const gss = new PIXI.Graphics();
       // Katman 1: Koyu Dış Hat / Boşluk Şasisi (Stealth Silhouette Outline)
-      gss.beginFill(0x06010c);
-      gss.lineStyle(2.8, 0x000000, 1.0);
       gss.moveTo(35, 0); gss.lineTo(18, -10); gss.lineTo(9, -27); gss.lineTo(-23, -25);
       gss.lineTo(-10, -6); gss.lineTo(-25, 0); gss.lineTo(-10, 6); gss.lineTo(-23, 25);
-      gss.lineTo(9, 27); gss.lineTo(18, 10); gss.closePath(); gss.endFill();
+      gss.lineTo(9, 27); gss.lineTo(18, 10); gss.closePath();
+      gss.fill({ color: 0x06010c, alpha: 1.0 });
+      gss.stroke({ width: 2.8, color: 0xffffff, alpha: 1.0 });
 
       // Katman 2: Boşluk Magenta Zırh Yüzeyleri
-      gss.beginFill(0x210b3b);
-      gss.lineStyle(2.2, 0xd946ef, 1.0);
       gss.moveTo(32, 0); gss.lineTo(15, -9); gss.lineTo(7, -24); gss.lineTo(-19, -21);
       gss.lineTo(-8, -5); gss.lineTo(-21, 0); gss.lineTo(-8, 5); gss.lineTo(-19, 21);
-      gss.lineTo(7, 24); gss.lineTo(15, 9); gss.closePath(); gss.endFill();
+      gss.lineTo(7, 24); gss.lineTo(15, 9); gss.closePath();
+      gss.fill({ color: 0x210b3b, alpha: 1.0 });
+      gss.stroke({ width: 2.2, color: 0xd946ef, alpha: 1.0 });
 
       // Katman 3: Neon Lavanta Pah Çizgileri & Yansıma
-      gss.lineStyle(2.0, 0xf5d0fe, 0.95);
       gss.moveTo(31, 0); gss.lineTo(13, -8); gss.lineTo(6, -22);
-      gss.lineStyle(1.8, 0xa855f7, 0.85);
+      gss.stroke({ width: 2.0, color: 0xf5d0fe, alpha: 0.95 });
       gss.moveTo(15, 0); gss.lineTo(3, -15); gss.lineTo(-13, -15);
       gss.moveTo(15, 0); gss.lineTo(3, 15); gss.lineTo(-13, 15);
+      gss.stroke({ width: 1.8, color: 0xa855f7, alpha: 0.85 });
 
       // Katman 4: Boşluk Tekilliği Çekirdeği (Void Singularity Core)
-      gss.lineStyle(1.8, 0xd946ef); gss.beginFill(0x3b0764);
-      gss.drawPolygon([8, 0, 1, -5, -8, 0, 1, 5]); gss.endFill();
-      gss.lineStyle(0); gss.beginFill(0xa855f7, 0.9); gss.drawCircle(0, 0, 4.5); gss.endFill();
-      gss.beginFill(0xffffff, 1.0); gss.drawCircle(0, 0, 2.2); gss.endFill();
+      gss.poly([8, 0, 1, -5, -8, 0, 1, 5]);
+      gss.fill({ color: 0x3b0764, alpha: 1.0 });
+      gss.stroke({ width: 1.8, color: 0xd946ef, alpha: 1.0 });
+      gss.circle(0, 0, 4.5); gss.fill({ color: 0xa855f7, alpha: 0.9 });
+      gss.circle(0, 0, 2.2); gss.fill({ color: 0xffffff, alpha: 1.0 });
 
       // Katman 5: Gizli Plazma Nozulları
-      gss.beginFill(0xd946ef);
-      gss.drawRect(-21, -8, 4, 4); gss.drawRect(-21, 4, 4, 4); gss.endFill();
-      gss.beginFill(0xffffff);
-      gss.drawRect(-22, -7, 2, 2); gss.drawRect(-22, 5, 2, 2); gss.endFill();
+      gss.rect(-21, -8, 4, 4); gss.rect(-21, 4, 4, 4);
+      gss.fill({ color: 0xd946ef, alpha: 1.0 });
+      gss.rect(-22, -7, 2, 2); gss.rect(-22, 5, 2, 2);
+      gss.fill({ color: 0xffffff, alpha: 1.0 });
       pixiTextures.ship_spectre = app.renderer.generateTexture({ target: gss, resolution: 2 });
 
       // Phase 9: Saydam Merkezli Kalkan Enerji Balonu (Hollow Corona - Crystal Clear Center - PixiJS v8)
