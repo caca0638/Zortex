@@ -5390,7 +5390,7 @@
     let pixiStarsContainer = null;
     let pixiShadowsContainer = null;
     let pixiLightsContainer = null;
-    let pixiInfiniteGridGraphics = null;
+
     let pixiHazardsBelow = null;
     let pixiGemsContainer = null;
     let pixiScrapsContainer = null;
@@ -5606,9 +5606,7 @@
         overlayTextLayer.label = 'overlayTextLayer';
 
         // 1. Arka Plan Katmanı (Nebula, Parallaks Yıldızlar, Gölge/Işık altlıkları)
-        pixiInfiniteGridGraphics = new PIXI.Graphics();
-        backgroundLayer.addChild(pixiInfiniteGridGraphics);
-        window.pixiInfiniteGridGraphics = pixiInfiniteGridGraphics;
+
         backgroundLayer.addChild(pixiNebulaContainer);
         backgroundLayer.addChild(pixiStarsContainer);
         backgroundLayer.addChild(pixiShadowsContainer);
@@ -9121,54 +9119,7 @@
           window.ZortexFX.updateNebula(dt, curWave, isBossActive, curCamX, curCamY);
         }
 
-        // [SONSUZ HARİTA] Holo-Siber Izgara Güncellemesi (Her 160px sonsuz döngü)
-        if (pixiInfiniteGridGraphics) {
-          pixiInfiniteGridGraphics.clear();
-          const camZoom = (window.ZortexCamera && window.ZortexCamera.zoom) ? window.ZortexCamera.zoom : 1.0;
-          const zClamped = Math.max(0.4, camZoom);
-          const halfW = (W * 0.5) / zClamped + 180;
-          const halfH = (H * 0.5) / zClamped + 180;
-          const step = 160;
-          const startX = Math.floor((curCamX - halfW) / step) * step;
-          const endX = curCamX + halfW;
-          const startY = Math.floor((curCamY - halfH) / step) * step;
-          const endY = curCamY + halfH;
 
-          let hasMajor = false, hasMinor = false;
-          // 1. Ana Koordinat Çizgileri (Major Axis - 800px periyot, opaklık 0.10)
-          for (let x = startX; x <= endX; x += step) {
-            if (Math.abs(Math.round(x)) % 800 === 0) {
-              pixiInfiniteGridGraphics.moveTo(x, startY).lineTo(x, endY);
-              hasMajor = true;
-            }
-          }
-          for (let y = startY; y <= endY; y += step) {
-            if (Math.abs(Math.round(y)) % 800 === 0) {
-              pixiInfiniteGridGraphics.moveTo(startX, y).lineTo(endX, y);
-              hasMajor = true;
-            }
-          }
-          if (hasMajor) {
-            pixiInfiniteGridGraphics.stroke({ width: 1.0, color: 0x00f3ff, alpha: 0.10 });
-          }
-
-          // 2. Alt Siber Izgara Çizgileri (Minor Grid - 160px periyot, opaklık 0.05)
-          for (let x = startX; x <= endX; x += step) {
-            if (Math.abs(Math.round(x)) % 800 !== 0) {
-              pixiInfiniteGridGraphics.moveTo(x, startY).lineTo(x, endY);
-              hasMinor = true;
-            }
-          }
-          for (let y = startY; y <= endY; y += step) {
-            if (Math.abs(Math.round(y)) % 800 !== 0) {
-              pixiInfiniteGridGraphics.moveTo(startX, y).lineTo(endX, y);
-              hasMinor = true;
-            }
-          }
-          if (hasMinor) {
-            pixiInfiniteGridGraphics.stroke({ width: 1.0, color: 0x0284c7, alpha: 0.05 });
-          }
-        }
 
         // Katman 0/Fallback: Derin Uzay Sonsuzluk Gradyanı (Paralaks: 0.05 - Modulo Sarmalama)
         const bgSpanX = W + 1200;
