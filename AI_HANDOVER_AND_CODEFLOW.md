@@ -1,7 +1,7 @@
 # ZORTEX: CYBER SURVIVOR — GENEL PROJE RAPORU, KOD AKIŞI VE AI DEVİR KILAVUZU
 > **Hedef Kitle:** Başka bir Yapay Zeka (AI / LLM) veya Geliştirici.  
-> **Tarih:** 14 Ekim 2026  
-> **Durum:** Kararlı, 144 FPS Doğrulandı, Sıfır Konsol Hatası.
+> **Tarih:** 17 Ekim 2026  
+> **Durum:** Kararlı, 144 FPS Doğrulandı, Sıfır Konsol Hatası, PixiJS v8 Yerel Doku Göçü (T1 + T2) Tamamlandı, sim_gate 10/10 Dalga PASS.
 
 ---
 
@@ -213,6 +213,14 @@ flowchart TD
 - **Sorun:** Kodda `player.speed = (player.baseSpeed || 320) * ship.speedMod` kullanılmıştı. Oysa oyun motoru `this.x += moveX * curSpeed * dtNorm` formülüyle piksel/kare ölçeğinde (~4.2 px/frame) çalışır. Tanımsız `baseSpeed` nedeniyle 320 atandığında gemi 76 kat aşırı hızlanarak kontrol edilemez hale geliyordu.
 - **Çözüm:** Taban hız `const baseSpeed = 4.2; player.baseSpeed = baseSpeed;` olarak normalize edildi. Titan (`3.57 px/frame`) ve Interceptor (`5.25 px/frame`) dahil tüm gemiler yumuşak ve akıcı hareket dinamiklerine kavuştu.
 
+### H. PixiJS v8 Yerel Doku Göçü (T1 ve T2 Grupları)
+- **Sorun:** PixiJS v7 köprü shim'inde (`lineStyle` + `moveTo/lineTo`) `endFill()` çağrılmadığında yolların ekrana çizilmemesi ve açık kalan primitive'lerin sonraki `beginFill` bloklarına sızarak geometride siyah/istenmeyen üçgen poligonlar oluşturması. Ayrıca v7 shim'deki `color = color || 0xffffff` hatası nedeniyle `0x000000` siyah konturların parlak beyaza dönmesi.
+- **Çözüm:** 
+  - **T1:** `elite_ring`, `aegis_ring`, `enemy_carrier` omurga ve kanatları native v8 `.stroke(...)` ve `.fill(...)` API'sine taşındı, çözünürlük 2x yapıldı.
+  - **T2:** `enemy_heavy` (`enemy_tank` alias), `enemy_scout`, `ship_interceptor`, `ship_spectre`, `ship_titan` native v8 API'sine geçirildi.
+  - **Tasarım Kararı:** Oyuncu gemisi dış konturlarında topluluk/oyuncu alışkanlığı olan beyaz vurgu (`color: 0xffffff`) korunarak netleştirildi.
+  - **Arka Plan:** `pixiInfiniteGridGraphics` holo-ızgara çizimleri kaldırıldı; 2.5D çok katmanlı yıldız alanı ve nebulalar hız hissini temiz bir şekilde vermeye devam ediyor.
+
 ---
 
 ## 5. GELİŞTİRİCİ / YAPAY ZEKA İÇİN ALTIN KURALLAR (STRICT CONSTRAINTS)
@@ -220,8 +228,7 @@ flowchart TD
 Bu projeyi düzenleyecek bir sonraki yapay zekanın uyması gereken **kesin kurallar**:
 
 1. **CRLF Satır Sonu Disiplini:**
-   - Projedeki tüm dosyalar (özellikle 19.000+ satırlık `index.html`) kesinlikle **CRLF (`
-`)** satır sonuna sahiptir.
+   - Projedeki tüm dosyalar (özellikle 19.000+ satırlık `index.html`) kesinlikle **CRLF (`\r\n`)** satır sonuna sahiptir.
    - Değişiklik yaparken LF karmaşası yaratılmamalı, CRLF biçimi %100 korunmalıdır.
 
 2. **Monolitik Dosya Kuralı (index.html):**
@@ -230,20 +237,23 @@ Bu projeyi düzenleyecek bir sonraki yapay zekanın uyması gereken **kesin kura
 
 3. **PixiJS v8 Sentaks Zorunluluğu:**
    - Proje **PixiJS v8** kullanır. PixiJS v7 API'leri (`new Filter(vert, frag)`, `lineStyle(0)`, açık bırakılan stroke yolları) batch sızıntılarına veya çökmelere yol açar.
-   - Çizimlerde açık yol bırakmayın: Her zaman `g.circle(x, y, r); g.stroke({...}); g.closePath(); g.endFill();` yapısını kullanın.
+   - Çizimlerde açık yol bırakmayın: Her zaman `g.circle(x, y, r); g.fill({...}); g.stroke({...});` yapısını kullanın.
 
 4. **Zero-GC & 144 FPS Bütçesi:**
    - Saniyede yüzlerce mermi, parçacık ve hasar metni üretilir.
    - `update()` veya `draw()` fonksiyonlarında `new Array()`, `new Object()` gibi çöp toplayıcıyı (Garbage Collector) tetikleyecek tahsisler yapmayın. `ObjectPool` kullanın.
 
 5. **Gerileme Testi (Regression Testing):**
-   - Herhangi bir sistem değişikliğinden sonra `python scripts/verify_zortex_overhaul.py` ve `python scripts/run_full_regression.py` çalıştırılarak tüm testler %100 başarılı doğrulanmalıdır.
+   - Herhangi bir sistem değişikliğinden sonra `python scripts/sim_gate.py` çalıştırılarak tüm 10 dalga %100 hatasız (`RESULT: PASS`) doğrulanmalıdır.
 
 ---
 
 ## 6. TEST VE DOĞRULAMA KILAVUZU
 
 Proje kök dizininde hazır çalışan test otomasyonları:
+- `python scripts/sim_gate.py` : **Kanonik Kabul Kapısı.** Headless Playwright ile gerçek CDP üzerinden 10 dalgalık tam oyun simülasyonu çalıştırır. Bellek sızıntılarını, JS heap büyümesini ve tüm konsol hatalarını doğrular.
+- `python scripts/count_v7.py` : `index.html` içindeki eski PixiJS v7 çizim metotlarını regex ile sayarak v8 göç ilerlemesini raporlar.
 - `python scripts/verify_zortex_overhaul.py` : 10 adımlı tam kapsamlı doğrulama (10 Gemi, 13 Silah, 16 Çip, Dalga 1 Boss Ölümü, Sandık Düşüşü, Dalga 2 Geçişi, Sıralı Donatım Sihirbazı UX).
-- `python scripts/run_full_regression.py` : Ana menü, hangar, kart yükseltme modali, duraklatma menüsü ve 7 dalgalık savaş simülasyonunu çalıştırır; FPS ve konsol hatalarını doğrular.
+- `python scripts/run_full_regression.py` : Ana menü, hangar, kart yükseltme modali, duraklatma menüsü ve 7 dalgalık savaş simülasyonunu çalıştırır.
 - `oyna.bat` : Yerel Python HTTP sunucusu açar ve varsayılan tarayıcıda oyunu başlatır.
+

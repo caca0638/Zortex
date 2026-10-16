@@ -4,8 +4,9 @@ import zipfile
 import time
 
 src_dir = r"c:\Users\user\Desktop\zort"
-target_zip = r"c:\Users\user\Desktop\zortex_oyun_ve_kod_akisi.zip"
-temp_zip = r"c:\Users\user\Desktop\zortex_oyun_ve_kod_akisi_temp.zip"
+target_zip = r"c:\Users\user\Desktop\zort\zortex_oyun_ve_kod_akisi.zip"
+desktop_target_zip = r"c:\Users\user\Desktop\zortex_oyun_ve_kod_akisi.zip"
+temp_zip = r"c:\Users\user\Desktop\zort\zortex_oyun_ve_kod_akisi_temp.zip"
 
 print(f"[*] Packaging project from: {src_dir}")
 print(f"[*] Target zip: {target_zip}")
@@ -15,6 +16,7 @@ top_level_files = [
     "AI_HANDOVER_AND_CODEFLOW.md",
     "AUDIO_CREDITS.md",
     "CHANGELOG_FX.md",
+    "PROJECT_REVIEW_AND_ACTION_PLAN.md",
     "README.md",
     "app.py",
     "index.html",
@@ -100,6 +102,13 @@ if os.path.exists(target_zip):
         os.remove(backup_zip)
 else:
     os.replace(temp_zip, target_zip)
+
+import shutil
+try:
+    shutil.copy2(target_zip, desktop_target_zip)
+    print(f"  [+] Synced to desktop: {desktop_target_zip}")
+except Exception as e:
+    print(f"  [-] Note: Could not copy to desktop: {e}")
 
 duration = time.time() - start_time
 size_mb = os.path.getsize(target_zip) / (1024 * 1024)

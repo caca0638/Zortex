@@ -1,9 +1,9 @@
 # ZORTEX: CYBER SURVIVOR - DYNAMIC CODEBASE MAP
 
 > **AUTO-GENERATED**: Run `node scripts/update_codebase_map.mjs` after code changes.
-> **TOKEN OPTIMIZATION RULE**: Never load the entire file into context. Use the exact line ranges below with `view_file` (e.g. `StartLine=9844, EndLine=11637`).
+> **TOKEN OPTIMIZATION RULE**: Never load the entire file into context. Use the exact line ranges below with `view_file` (e.g. `StartLine=9807, EndLine=11600`).
 
-*Last Generated:* `2026-10-16T19:53:53.060Z` | *index.html Lines:* **18.991** | *zortex_fx.js Lines:* **2.367**
+*Last Generated:* `2026-10-16T21:59:17.853Z` | *index.html Lines:* **18.954** | *zortex_fx.js Lines:* **2.367**
 
 ---
 
@@ -13,30 +13,30 @@
 | :--- | :--- | :--- | :--- |
 | **HTML Shell, CSS Styling & HUD Dock** | `1 - 3.359` | 3359 l | DOM markup, CRT filters, chamfered HUD slots, styles. |
 | **Audio Engine & Retro SFX** | `3.360 - 4.374` | 1015 l | Web Audio synthesizer, retro procedural laser & explosion sounds. |
-| **Pixi Procedural Textures** | `4.375 - 5.536` | 1162 l | 2x resolution canvas textures for player ships & enemies. |
-| **Scene Containers & Layer Hierarchy** | `5.537 - 5.821` | 285 l | 5-layer setup (background, entities, player, emissive, text). |
-| **Viewport & Screen Scaling** | `5.822 - 6.097` | 276 l | Responsive canvas sizing and DPR limits. |
-| **Gamepad, Input & Rumble Haptics** | `6.098 - 6.646` | 549 l | Gamepad polling, vibration effects, keyboard/mouse hooks. |
-| **Hit-Stop & Screen Shake** | `6.647 - 6.890` | 244 l | Zero-jank micro freezes for heavy impacts and evolutions. |
-| **Spatial Grid Partitioning** | `6.891 - 7.489` | 599 l | 2D spatial hash grid for high-speed collision lookups. |
-| **Settings & Graphics Presets** | `7.490 - 7.621` | 132 l | Graphics tiers, reduceFlashing, audio and bloom toggles. |
-| **Profiles & Meta Save System** | `7.622 - 8.025` | 404 l | localStorage & save_data.json persistence, scrap banking. |
-| **Achievements & Badges** | `8.026 - 8.390` | 365 l | Unlock criteria, toast alerts, reward tracking. |
-| **Tech Tree & Progression Upgrades** | `8.391 - 8.967` | 577 l | Meta upgrade nodes, stat multipliers, scrap costs. |
-| **Starfield & Parallax Layers** | `8.968 - 9.278` | 311 l | Multi-layer 2.5D stars and warp hyperspace streaks. |
-| **Particle System (Pooled)** | `9.279 - 9.677` | 399 l | Zero-GC smoke, spark, burst, and ring emitter pools. |
-| **Damage Floating Text (BitmapFont)** | `9.678 - 9.843` | 166 l | Pooled damage numbers with dark contrast outline. |
-| **Player Ship Architecture** | `9.844 - 11.637` | 1794 l | Ship body layer, shield corona, dash mechanics, weapons. |
-| **Projectiles & Bullet Pooling** | `11.638 - 11.915` | 278 l | High-speed bullets, penetration, hit detection. |
-| **Weapons & Evolution Logic** | `11.916 - 12.545` | 630 l | Weapon slots, cooldown timers, levelup evolutions. |
-| **Enemy Hierarchy & AI States** | `12.546 - 13.971` | 1426 l | Enemy types (Scout, Swarm, Phantom, Aegis, Boss) & behaviors. |
-| **Wave Spawner & Progression** | `13.972 - 14.198` | 227 l | Wave progression, spawn timer pacing, boss phases. |
-| **Pickups, XP Gems & Black Holes** | `14.199 - 14.620` | 422 l | Gems, scrap, magnet physics, gravitational vortex. |
-| **Turrets, Area Hazards & Decoys** | `14.621 - 15.668` | 1048 l | Environmental hazards, laser turrets, hack zones. |
-| **HUD Rendering & Indicators** | `15.669 - 15.872` | 204 l | Real-time HP/Shield bars, combo meters, weapon slots. |
-| **Main Game Loop (144Hz Physics)** | `15.873 - 17.339` | 1467 l | Delta timing, spatial queries, collision & render dispatch. |
-| **Game State & Session Management** | `17.340 - 17.816` | 477 l | Run starts, game over flow, card selection, pause. |
-| **Hangar, Tech Tree & Meta Menus** | `17.817 - 18.991` | 1175 l | Hangar ship selector, tech tree view, settings menu. |
+| **Pixi Procedural Textures** | `4.375 - 5.548` | 1174 l | 2x resolution canvas textures for player ships & enemies. |
+| **Scene Containers & Layer Hierarchy** | `5.549 - 5.831` | 283 l | 5-layer setup (background, entities, player, emissive, text). |
+| **Viewport & Screen Scaling** | `5.832 - 6.107` | 276 l | Responsive canvas sizing and DPR limits. |
+| **Gamepad, Input & Rumble Haptics** | `6.108 - 6.656` | 549 l | Gamepad polling, vibration effects, keyboard/mouse hooks. |
+| **Hit-Stop & Screen Shake** | `6.657 - 6.900` | 244 l | Zero-jank micro freezes for heavy impacts and evolutions. |
+| **Spatial Grid Partitioning** | `6.901 - 7.499` | 599 l | 2D spatial hash grid for high-speed collision lookups. |
+| **Settings & Graphics Presets** | `7.500 - 7.631` | 132 l | Graphics tiers, reduceFlashing, audio and bloom toggles. |
+| **Profiles & Meta Save System** | `7.632 - 8.035` | 404 l | localStorage & save_data.json persistence, scrap banking. |
+| **Achievements & Badges** | `8.036 - 8.400` | 365 l | Unlock criteria, toast alerts, reward tracking. |
+| **Tech Tree & Progression Upgrades** | `8.401 - 8.977` | 577 l | Meta upgrade nodes, stat multipliers, scrap costs. |
+| **Starfield & Parallax Layers** | `8.978 - 9.241` | 264 l | Multi-layer 2.5D stars and warp hyperspace streaks. |
+| **Particle System (Pooled)** | `9.242 - 9.640` | 399 l | Zero-GC smoke, spark, burst, and ring emitter pools. |
+| **Damage Floating Text (BitmapFont)** | `9.641 - 9.806` | 166 l | Pooled damage numbers with dark contrast outline. |
+| **Player Ship Architecture** | `9.807 - 11.600` | 1794 l | Ship body layer, shield corona, dash mechanics, weapons. |
+| **Projectiles & Bullet Pooling** | `11.601 - 11.878` | 278 l | High-speed bullets, penetration, hit detection. |
+| **Weapons & Evolution Logic** | `11.879 - 12.508` | 630 l | Weapon slots, cooldown timers, levelup evolutions. |
+| **Enemy Hierarchy & AI States** | `12.509 - 13.934` | 1426 l | Enemy types (Scout, Swarm, Phantom, Aegis, Boss) & behaviors. |
+| **Wave Spawner & Progression** | `13.935 - 14.161` | 227 l | Wave progression, spawn timer pacing, boss phases. |
+| **Pickups, XP Gems & Black Holes** | `14.162 - 14.583` | 422 l | Gems, scrap, magnet physics, gravitational vortex. |
+| **Turrets, Area Hazards & Decoys** | `14.584 - 15.631` | 1048 l | Environmental hazards, laser turrets, hack zones. |
+| **HUD Rendering & Indicators** | `15.632 - 15.835` | 204 l | Real-time HP/Shield bars, combo meters, weapon slots. |
+| **Main Game Loop (144Hz Physics)** | `15.836 - 17.302` | 1467 l | Delta timing, spatial queries, collision & render dispatch. |
+| **Game State & Session Management** | `17.303 - 17.779` | 477 l | Run starts, game over flow, card selection, pause. |
+| **Hangar, Tech Tree & Meta Menus** | `17.780 - 18.954` | 1175 l | Hangar ship selector, tech tree view, settings menu. |
 
 ---
 
@@ -46,45 +46,45 @@
 | :--- | :--- | :--- | :--- | :--- |
 | `CameraTraumaSystem` | `-` | `3.212 - 3.354` | 143 | [Line 3212](file:///index.html#L3212) |
 | `AudioEngine` | `-` | `3.360 - 4.267` | 908 | [Line 3360](file:///index.html#L3360) |
-| `RelicPickup` | `-` | `6.578 - 6.635` | 58 | [Line 6578](file:///index.html#L6578) |
-| `SpatialGrid` | `-` | `6.891 - 6.958` | 68 | [Line 6891](file:///index.html#L6891) |
-| `Starfield` | `-` | `8.968 - 9.267` | 300 | [Line 8968](file:///index.html#L8968) |
-| `ParticleSystem` | `-` | `9.279 - 9.674` | 396 | [Line 9279](file:///index.html#L9279) |
-| `TextManager` | `-` | `9.678 - 9.841` | 164 | [Line 9678](file:///index.html#L9678) |
-| `Player` | `-` | `9.844 - 11.607` | 1764 | [Line 9844](file:///index.html#L9844) |
-| `Bullet` | `-` | `11.638 - 11.862` | 225 | [Line 11638](file:///index.html#L11638) |
-| `EnemyBullet` | `extends Bullet` | `11.865 - 11.909` | 45 | [Line 11865](file:///index.html#L11865) |
-| `WeaponBase` | `-` | `11.916 - 11.930` | 15 | [Line 11916](file:///index.html#L11916) |
-| `BlasterWeapon` | `extends WeaponBase` | `11.933 - 11.994` | 62 | [Line 11933](file:///index.html#L11933) |
-| `SpreadShotWeapon` | `extends WeaponBase` | `11.997 - 12.055` | 59 | [Line 11997](file:///index.html#L11997) |
-| `PlasmaBeamWeapon` | `extends WeaponBase` | `12.058 - 12.092` | 35 | [Line 12058](file:///index.html#L12058) |
-| `RailgunWeapon` | `extends WeaponBase` | `12.095 - 12.149` | 55 | [Line 12095](file:///index.html#L12095) |
-| `HomingMissilesWeapon` | `extends WeaponBase` | `12.152 - 12.178` | 27 | [Line 12152](file:///index.html#L12152) |
-| `TeslaCoilWeapon` | `extends WeaponBase` | `12.181 - 12.205` | 25 | [Line 12181](file:///index.html#L12181) |
-| `OrbitBladesWeapon` | `extends WeaponBase` | `12.208 - 12.233` | 26 | [Line 12208](file:///index.html#L12208) |
-| `GravityCannonWeapon` | `extends WeaponBase` | `12.236 - 12.258` | 23 | [Line 12236](file:///index.html#L12236) |
-| `MineLayerWeapon` | `extends WeaponBase` | `12.261 - 12.281` | 21 | [Line 12261](file:///index.html#L12261) |
-| `OrbitalSatelliteWeapon` | `extends WeaponBase` | `12.284 - 12.306` | 23 | [Line 12284](file:///index.html#L12284) |
-| `HologramPrismWeapon` | `extends WeaponBase` | `12.309 - 12.331` | 23 | [Line 12309](file:///index.html#L12309) |
-| `ShadowCloneWeapon` | `extends WeaponBase` | `12.334 - 12.353` | 20 | [Line 12334](file:///index.html#L12334) |
-| `GatlingVulcanWeapon` | `extends WeaponBase` | `12.356 - 12.376` | 21 | [Line 12356](file:///index.html#L12356) |
-| `WeaponManager` | `-` | `12.379 - 12.532` | 154 | [Line 12379](file:///index.html#L12379) |
-| `EnemyBase` | `-` | `12.546 - 13.355` | 810 | [Line 12546](file:///index.html#L12546) |
-| `Enemy` | `extends EnemyBase` | `13.358 - 13.701` | 344 | [Line 13358](file:///index.html#L13358) |
-| `SwarmDroneEnemy` | `extends Enemy` | `13.704 - 13.783` | 80 | [Line 13704](file:///index.html#L13704) |
-| `KamikazeEnemy` | `extends Enemy` | `13.786 - 13.812` | 27 | [Line 13786](file:///index.html#L13786) |
-| `PhantomEnemy` | `extends Enemy` | `13.815 - 13.864` | 50 | [Line 13815](file:///index.html#L13815) |
-| `AegisHeavyEnemy` | `extends Enemy` | `13.867 - 13.872` | 6 | [Line 13867](file:///index.html#L13867) |
-| `BossEnemy` | `extends Enemy` | `13.875 - 13.880` | 6 | [Line 13875](file:///index.html#L13875) |
-| `WaveManager` | `-` | `13.972 - 14.178` | 207 | [Line 13972](file:///index.html#L13972) |
-| `XpGem` | `-` | `14.199 - 14.267` | 69 | [Line 14199](file:///index.html#L14199) |
-| `ScrapPickup` | `-` | `14.341 - 14.424` | 84 | [Line 14341](file:///index.html#L14341) |
-| `BlackHole` | `-` | `14.435 - 14.600` | 166 | [Line 14435](file:///index.html#L14435) |
-| `LaserTurret` | `-` | `14.621 - 14.707` | 87 | [Line 14621](file:///index.html#L14621) |
-| `HackZone` | `-` | `14.811 - 14.932` | 122 | [Line 14811](file:///index.html#L14811) |
-| `HoloDecoy` | `-` | `14.937 - 15.026` | 90 | [Line 14937](file:///index.html#L14937) |
-| `GravityAnchor` | `-` | `15.031 - 15.142` | 112 | [Line 15031](file:///index.html#L15031) |
-| `SentryTurret` | `-` | `15.147 - 15.258` | 112 | [Line 15147](file:///index.html#L15147) |
+| `RelicPickup` | `-` | `6.588 - 6.645` | 58 | [Line 6588](file:///index.html#L6588) |
+| `SpatialGrid` | `-` | `6.901 - 6.968` | 68 | [Line 6901](file:///index.html#L6901) |
+| `Starfield` | `-` | `8.978 - 9.230` | 253 | [Line 8978](file:///index.html#L8978) |
+| `ParticleSystem` | `-` | `9.242 - 9.637` | 396 | [Line 9242](file:///index.html#L9242) |
+| `TextManager` | `-` | `9.641 - 9.804` | 164 | [Line 9641](file:///index.html#L9641) |
+| `Player` | `-` | `9.807 - 11.570` | 1764 | [Line 9807](file:///index.html#L9807) |
+| `Bullet` | `-` | `11.601 - 11.825` | 225 | [Line 11601](file:///index.html#L11601) |
+| `EnemyBullet` | `extends Bullet` | `11.828 - 11.872` | 45 | [Line 11828](file:///index.html#L11828) |
+| `WeaponBase` | `-` | `11.879 - 11.893` | 15 | [Line 11879](file:///index.html#L11879) |
+| `BlasterWeapon` | `extends WeaponBase` | `11.896 - 11.957` | 62 | [Line 11896](file:///index.html#L11896) |
+| `SpreadShotWeapon` | `extends WeaponBase` | `11.960 - 12.018` | 59 | [Line 11960](file:///index.html#L11960) |
+| `PlasmaBeamWeapon` | `extends WeaponBase` | `12.021 - 12.055` | 35 | [Line 12021](file:///index.html#L12021) |
+| `RailgunWeapon` | `extends WeaponBase` | `12.058 - 12.112` | 55 | [Line 12058](file:///index.html#L12058) |
+| `HomingMissilesWeapon` | `extends WeaponBase` | `12.115 - 12.141` | 27 | [Line 12115](file:///index.html#L12115) |
+| `TeslaCoilWeapon` | `extends WeaponBase` | `12.144 - 12.168` | 25 | [Line 12144](file:///index.html#L12144) |
+| `OrbitBladesWeapon` | `extends WeaponBase` | `12.171 - 12.196` | 26 | [Line 12171](file:///index.html#L12171) |
+| `GravityCannonWeapon` | `extends WeaponBase` | `12.199 - 12.221` | 23 | [Line 12199](file:///index.html#L12199) |
+| `MineLayerWeapon` | `extends WeaponBase` | `12.224 - 12.244` | 21 | [Line 12224](file:///index.html#L12224) |
+| `OrbitalSatelliteWeapon` | `extends WeaponBase` | `12.247 - 12.269` | 23 | [Line 12247](file:///index.html#L12247) |
+| `HologramPrismWeapon` | `extends WeaponBase` | `12.272 - 12.294` | 23 | [Line 12272](file:///index.html#L12272) |
+| `ShadowCloneWeapon` | `extends WeaponBase` | `12.297 - 12.316` | 20 | [Line 12297](file:///index.html#L12297) |
+| `GatlingVulcanWeapon` | `extends WeaponBase` | `12.319 - 12.339` | 21 | [Line 12319](file:///index.html#L12319) |
+| `WeaponManager` | `-` | `12.342 - 12.495` | 154 | [Line 12342](file:///index.html#L12342) |
+| `EnemyBase` | `-` | `12.509 - 13.318` | 810 | [Line 12509](file:///index.html#L12509) |
+| `Enemy` | `extends EnemyBase` | `13.321 - 13.664` | 344 | [Line 13321](file:///index.html#L13321) |
+| `SwarmDroneEnemy` | `extends Enemy` | `13.667 - 13.746` | 80 | [Line 13667](file:///index.html#L13667) |
+| `KamikazeEnemy` | `extends Enemy` | `13.749 - 13.775` | 27 | [Line 13749](file:///index.html#L13749) |
+| `PhantomEnemy` | `extends Enemy` | `13.778 - 13.827` | 50 | [Line 13778](file:///index.html#L13778) |
+| `AegisHeavyEnemy` | `extends Enemy` | `13.830 - 13.835` | 6 | [Line 13830](file:///index.html#L13830) |
+| `BossEnemy` | `extends Enemy` | `13.838 - 13.843` | 6 | [Line 13838](file:///index.html#L13838) |
+| `WaveManager` | `-` | `13.935 - 14.141` | 207 | [Line 13935](file:///index.html#L13935) |
+| `XpGem` | `-` | `14.162 - 14.230` | 69 | [Line 14162](file:///index.html#L14162) |
+| `ScrapPickup` | `-` | `14.304 - 14.387` | 84 | [Line 14304](file:///index.html#L14304) |
+| `BlackHole` | `-` | `14.398 - 14.563` | 166 | [Line 14398](file:///index.html#L14398) |
+| `LaserTurret` | `-` | `14.584 - 14.670` | 87 | [Line 14584](file:///index.html#L14584) |
+| `HackZone` | `-` | `14.774 - 14.895` | 122 | [Line 14774](file:///index.html#L14774) |
+| `HoloDecoy` | `-` | `14.900 - 14.989` | 90 | [Line 14900](file:///index.html#L14900) |
+| `GravityAnchor` | `-` | `14.994 - 15.105` | 112 | [Line 14994](file:///index.html#L14994) |
+| `SentryTurret` | `-` | `15.110 - 15.221` | 112 | [Line 15110](file:///index.html#L15110) |
 
 ---
 
@@ -92,27 +92,27 @@
 
 | Function | Exact Range | Span | Context |
 | :--- | :--- | :--- | :--- |
-| `initPixiTextures()` | `4.375 - 5.282` | 908 l | Core Engine |
-| `setupPixiContainers()` | `5.537 - 5.773` | 237 l | Core Engine |
-| `clearEntityContainers()` | `5.777 - 5.817` | 41 l | Core Engine |
-| `resize()` | `5.822 - 5.837` | 16 l | Core Engine |
-| `triggerRumble()` | `6.098 - 6.129` | 32 l | Core Engine |
-| `updateGamepad()` | `6.423 - 6.541` | 119 l | Core Engine |
-| `triggerHitStop()` | `6.647 - 6.650` | 4 l | Core Engine |
-| `resetRunStats()` | `6.721 - 6.757` | 37 l | Core Engine |
-| `loadSettings()` | `7.490 - 7.503` | 14 l | Core Engine |
-| `saveSettings()` | `7.505 - 7.511` | 7 l | Core Engine |
-| `applyGraphicsPreset()` | `7.513 - 7.554` | 42 l | Core Engine |
-| `loadAllProfiles()` | `7.668 - 7.706` | 39 l | Core Engine |
-| `saveAllProfiles()` | `7.708 - 7.730` | 23 l | Core Engine |
-| `checkAchievements()` | `8.348 - 8.354` | 7 l | Core Engine |
-| `updateDOMHUD()` | `15.669 - 15.843` | 175 l | Core Engine |
-| `drawHUD()` | `15.844 - 15.844` | 1 l | Core Engine |
-| `gameLoop()` | `15.873 - 17.329` | 1457 l | Core Engine |
-| `startGame()` | `17.340 - 17.452` | 113 l | Core Engine |
-| `renderHangar()` | `17.817 - 17.930` | 114 l | Core Engine |
-| `renderTechTree()` | `18.287 - 18.355` | 69 l | Core Engine |
-| `gameOver()` | `18.757 - 18.839` | 83 l | Core Engine |
+| `initPixiTextures()` | `4.375 - 5.294` | 920 l | Core Engine |
+| `setupPixiContainers()` | `5.549 - 5.783` | 235 l | Core Engine |
+| `clearEntityContainers()` | `5.787 - 5.827` | 41 l | Core Engine |
+| `resize()` | `5.832 - 5.847` | 16 l | Core Engine |
+| `triggerRumble()` | `6.108 - 6.139` | 32 l | Core Engine |
+| `updateGamepad()` | `6.433 - 6.551` | 119 l | Core Engine |
+| `triggerHitStop()` | `6.657 - 6.660` | 4 l | Core Engine |
+| `resetRunStats()` | `6.731 - 6.767` | 37 l | Core Engine |
+| `loadSettings()` | `7.500 - 7.513` | 14 l | Core Engine |
+| `saveSettings()` | `7.515 - 7.521` | 7 l | Core Engine |
+| `applyGraphicsPreset()` | `7.523 - 7.564` | 42 l | Core Engine |
+| `loadAllProfiles()` | `7.678 - 7.716` | 39 l | Core Engine |
+| `saveAllProfiles()` | `7.718 - 7.740` | 23 l | Core Engine |
+| `checkAchievements()` | `8.358 - 8.364` | 7 l | Core Engine |
+| `updateDOMHUD()` | `15.632 - 15.806` | 175 l | Core Engine |
+| `drawHUD()` | `15.807 - 15.807` | 1 l | Core Engine |
+| `gameLoop()` | `15.836 - 17.292` | 1457 l | Core Engine |
+| `startGame()` | `17.303 - 17.415` | 113 l | Core Engine |
+| `renderHangar()` | `17.780 - 17.893` | 114 l | Core Engine |
+| `renderTechTree()` | `18.250 - 18.318` | 69 l | Core Engine |
+| `gameOver()` | `18.720 - 18.802` | 83 l | Core Engine |
 
 ---
 
