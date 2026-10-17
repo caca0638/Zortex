@@ -19,27 +19,27 @@
       // Dil ve Arayüz
       lang_code: 'TR',
       lang_name: 'TÜRKÇE',
-      lang_toggle_badge: '🌐 DİL: <b>TR</b>',
-      crt_filter_on: '📺 RETRO FİLTRE: AÇIK',
-      crt_filter_off: '📺 RETRO FİLTRE: KAPALI',
+      lang_toggle_badge: 'DİL: <b>TR</b>',
+      crt_filter_on: 'RETRO FİLTRE: AÇIK',
+      crt_filter_off: 'RETRO FİLTRE: KAPALI',
 
       // Ana Menü & Butonlar
-      start_game: '🚀 SEFERE BAŞLA (LOADOUT)',
-      hangar: '🛠️ HANGAR',
-      codex: '📜 FÜZYON KODEKSİ',
-      tech_tree: '🧬 YETENEK AĞACI',
-      achievements: '🏆 BAŞARIMLAR',
-      settings: '⚙️ AYARLAR',
-      retry: '🔄 TEKRAR DENE',
-      main_menu: '🏠 ANA MENÜ / HANGAR',
-      switch_pilot: '👤 AKTİF PİLOT:',
+      start_game: 'SEFERE BAŞLA (LOADOUT)',
+      hangar: 'HANGAR',
+      codex: 'FÜZYON KODEKSİ',
+      tech_tree: 'YETENEK AĞACI',
+      achievements: 'BAŞARIMLAR',
+      settings: 'AYARLAR',
+      retry: 'TEKRAR DENE',
+      main_menu: 'ANA MENÜ / HANGAR',
+      switch_pilot: 'AKTİF PİLOT:',
       change: '[DEĞİŞTİR]',
       menu_tagline: 'Sonsuz sibernetik uzayda hayatta kal! Düşman filolarını yok et, enerji kristalleri topla, gemini geliştir ve devasa boss mekanizmalarını alt et!',
-      high_score_lbl: '🏆 En Yüksek Skor:',
-      scrap_lbl: '🔩 Hurda:',
-      heat_pacts_btn: '🔥 PAKT DETAYLARI',
+      high_score_lbl: 'En Yüksek Skor:',
+      scrap_lbl: 'Hurda:',
+      heat_pacts_btn: 'PAKT DETAYLARI',
       menu_showcase_title: 'SİBER UZAY SAHASI',
-      menu_showcase_hint: '🎯 Meteora tıkla • Parçala & Hurda Topla',
+      menu_showcase_hint: 'Meteora tıkla • Parçala & Hurda Topla',
 
       // Kontroller İpuçları
       ctrl_move: '<span class="key-badge">WASD / Oklar</span> Hareket',
@@ -91,18 +91,20 @@
       pilot_select_subtitle: 'BİR PİLOT KAYDI SEÇ YA DA YENİ SİBER AJAN OLUŞTUR',
       new_pilot_placeholder: 'Yeni Pilot Adı (örn: Ajan Beta)',
       new_pilot_btn: '➕ YENİ PROFİL',
+      no_profiles_found: 'Kayıtlı pilot profili bulunamadı.',
+      create_new_pilot_hint: 'Aşağıdaki alana isim girip "YENİ PROFİL" butonuna basarak bir pilot oluşturun.',
       gp_profile_select: 'Profil Seç',
       gp_login: 'Giriş Yap',
       gp_main_menu: 'Ana Menü',
 
       // Modlar & Heat
-      mode_campaign_btn: '🎯 MOD: <b>SEFER (10 DALGA)</b>',
-      mode_endless_btn: '♾️ MOD: <b>SONSUZ HAYATTA KALMA</b>',
-      mode_daily_prefix: '📅 MOD: <b>GÜNLÜK KOŞU</b>',
+      mode_campaign_btn: 'MOD: <b>SEFER (10 DALGA)</b>',
+      mode_endless_btn: 'MOD: <b>SONSUZ HAYATTA KALMA</b>',
+      mode_daily_prefix: 'MOD: <b>GÜNLÜK KOŞU</b>',
       mode_hud_campaign: 'SEFER',
       mode_hud_endless: 'SONSUZ',
       mode_hud_daily: 'GÜNLÜK',
-      heat_label: '⚠️ SİBER TEHLİKE:',
+      heat_label: 'SİBER TEHLİKE:',
       heat_badge_0: 'NORMAL',
       heat_badge_1: 'HEAT I (+25%)',
       heat_badge_2: 'HEAT II (+50%)',
@@ -424,27 +426,27 @@
       // Language and Interface
       lang_code: 'EN',
       lang_name: 'ENGLISH',
-      lang_toggle_badge: '🌐 LANG: <b>EN</b>',
-      crt_filter_on: '📺 CRT FILTER: ON',
-      crt_filter_off: '📺 CRT FILTER: OFF',
+      lang_toggle_badge: 'LANG: <b>EN</b>',
+      crt_filter_on: 'CRT FILTER: ON',
+      crt_filter_off: 'CRT FILTER: OFF',
 
       // Main Menu & Buttons
-      start_game: '🚀 LAUNCH RUN (LOADOUT)',
-      hangar: '🛠️ HANGAR',
-      codex: '📜 FUSION CODEX',
-      tech_tree: '🧬 TECH TREE',
-      achievements: '🏆 ACHIEVEMENTS',
-      settings: '⚙️ SETTINGS',
-      retry: '🔄 RETRY',
-      main_menu: '🏠 MAIN MENU / HANGAR',
-      switch_pilot: '👤 ACTIVE PILOT:',
+      start_game: 'LAUNCH RUN (LOADOUT)',
+      hangar: 'HANGAR',
+      codex: 'FUSION CODEX',
+      tech_tree: 'TECH TREE',
+      achievements: 'ACHIEVEMENTS',
+      settings: 'SETTINGS',
+      retry: 'RETRY',
+      main_menu: 'MAIN MENU / HANGAR',
+      switch_pilot: 'ACTIVE PILOT:',
       change: '[CHANGE]',
       menu_tagline: 'Survive in infinite cybernetic space! Annihilate enemy fleets, harvest energy crystals, upgrade your ship, and conquer colossal boss mechs!',
-      high_score_lbl: '🏆 High Score:',
-      scrap_lbl: '🔩 Scrap:',
-      heat_pacts_btn: '🔥 PACT DETAILS',
+      high_score_lbl: 'High Score:',
+      scrap_lbl: 'Scrap:',
+      heat_pacts_btn: 'PACT DETAILS',
       menu_showcase_title: 'CYBERSPACE SECTOR',
-      menu_showcase_hint: '🎯 Click asteroid • Shatter & Collect Scrap',
+      menu_showcase_hint: 'Click asteroid • Shatter & Collect Scrap',
 
       // Controls Hints
       ctrl_move: '<span class="key-badge">WASD / Arrows</span> Movement',
@@ -496,18 +498,20 @@
       pilot_select_subtitle: 'SELECT A PILOT RECORD OR CREATE A NEW CYBER AGENT',
       new_pilot_placeholder: 'New Pilot Name (e.g. Agent Beta)',
       new_pilot_btn: '➕ NEW PROFILE',
+      no_profiles_found: 'No saved pilot records found.',
+      create_new_pilot_hint: 'Enter a name below and click "NEW PROFILE" to create a pilot.',
       gp_profile_select: 'Select Pilot',
       gp_login: 'Log In',
       gp_main_menu: 'Main Menu',
 
       // Modes & Cyber Heat
-      mode_campaign_btn: '🎯 MODE: <b>CAMPAIGN (10 WAVES)</b>',
-      mode_endless_btn: '♾️ MODE: <b>ENDLESS SURVIVAL</b>',
-      mode_daily_prefix: '📅 MODE: <b>DAILY RUN</b>',
+      mode_campaign_btn: 'MODE: <b>CAMPAIGN (10 WAVES)</b>',
+      mode_endless_btn: 'MODE: <b>ENDLESS SURVIVAL</b>',
+      mode_daily_prefix: 'MODE: <b>DAILY RUN</b>',
       mode_hud_campaign: 'CAMPAIGN',
       mode_hud_endless: 'ENDLESS',
       mode_hud_daily: 'DAILY',
-      heat_label: '⚠️ CYBER HEAT:',
+      heat_label: 'CYBER HEAT:',
       heat_badge_0: 'NORMAL',
       heat_badge_1: 'HEAT I (+25%)',
       heat_badge_2: 'HEAT II (+50%)',
@@ -829,27 +833,27 @@
       // Idioma e Interfaz
       lang_code: 'ES',
       lang_name: 'ESPAÑOL',
-      lang_toggle_badge: '🌐 IDIOMA: <b>ES</b>',
-      crt_filter_on: '📺 FILTRO RETRO: ACTIVADO',
-      crt_filter_off: '📺 FILTRO RETRO: DESACTIVADO',
+      lang_toggle_badge: 'IDIOMA: <b>ES</b>',
+      crt_filter_on: 'FILTRO RETRO: ACTIVADO',
+      crt_filter_off: 'FILTRO RETRO: DESACTIVADO',
 
       // Menú Principal y Botones
-      start_game: '🚀 INICIAR SEFER (LOADOUT)',
-      hangar: '🛠️ HANGAR',
-      codex: '📜 CÓDICE DE FUSIÓN',
-      tech_tree: '🧬 ÁRBOL TECNOLÓGICO',
-      achievements: '🏆 LOGROS',
-      settings: '⚙️ AJUSTES',
-      retry: '🔄 REINTENTAR',
-      main_menu: '🏠 MENÚ PRINCIPAL / HANGAR',
-      switch_pilot: '👤 PILOTO ACTIVO:',
+      start_game: 'INICIAR SEFER (LOADOUT)',
+      hangar: 'HANGAR',
+      codex: 'CÓDICE DE FUSIÓN',
+      tech_tree: 'ÁRBOL TECNOLÓGICO',
+      achievements: 'LOGROS',
+      settings: 'AJUSTES',
+      retry: 'REINTENTAR',
+      main_menu: 'MENÚ PRINCIPAL / HANGAR',
+      switch_pilot: 'PILOTO ACTIVO:',
       change: '[CAMBIAR]',
       menu_tagline: '¡Sobrevive en el espacio cibernético infinito! Aniquila flotas enemigas, recolecta cristales de energía, mejora tu nave y derrota colosales mechas jefes.',
-      high_score_lbl: '🏆 Récord Máximo:',
-      scrap_lbl: '🔩 Chatarra:',
-      heat_pacts_btn: '🔥 DETALLES DEL PACTO',
+      high_score_lbl: 'Récord Máximo:',
+      scrap_lbl: 'Chatarra:',
+      heat_pacts_btn: 'DETALLES DEL PACTO',
       menu_showcase_title: 'SECTOR CIBERESPACIAL',
-      menu_showcase_hint: '🎯 Clic en asteroide • Destruye y recolecta chatarra',
+      menu_showcase_hint: 'Clic en asteroide • Destruye y recolecta chatarra',
 
       // Consejos de Control
       ctrl_move: '<span class="key-badge">WASD / Flechas</span> Moverse',
@@ -901,18 +905,20 @@
       pilot_select_subtitle: 'ELIGE UN PERFIL DE PILOTO O CREA UN NUEVO AGENTE CIBERNÉTICO',
       new_pilot_placeholder: 'Nombre del Piloto (ej. Agente Beta)',
       new_pilot_btn: '➕ NUEVO PERFIL',
+      no_profiles_found: 'No se encontraron perfiles de piloto guardados.',
+      create_new_pilot_hint: 'Introduce un nombre abajo y pulsa "NUEVO PERFIL" para crear un piloto.',
       gp_profile_select: 'Elegir Piloto',
       gp_login: 'Iniciar Sesión',
       gp_main_menu: 'Menú Principal',
 
       // Modos y Peligro Cibernético
-      mode_campaign_btn: '🎯 MODO: <b>CAMPAÑA (10 OLEADAS)</b>',
-      mode_endless_btn: '♾️ MODO: <b>SUPERVIVENCIA INFINITA</b>',
-      mode_daily_prefix: '📅 MODO: <b>MISIÓN DIARIA</b>',
+      mode_campaign_btn: 'MODO: <b>CAMPAÑA (10 OLEADAS)</b>',
+      mode_endless_btn: 'MODO: <b>SUPERVIVENCIA INFINITA</b>',
+      mode_daily_prefix: 'MODO: <b>MISIÓN DIARIA</b>',
       mode_hud_campaign: 'CAMPAÑA',
       mode_hud_endless: 'INFINITO',
       mode_hud_daily: 'DIARIO',
-      heat_label: '⚠️ PELIGRO CIBERNÉTICO:',
+      heat_label: 'PELIGRO CIBERNÉTICO:',
       heat_badge_0: 'NORMAL',
       heat_badge_1: 'HEAT I (+25%)',
       heat_badge_2: 'HEAT II (+50%)',
@@ -1234,27 +1240,27 @@
       // Sprache und Oberfläche
       lang_code: 'DE',
       lang_name: 'DEUTSCH',
-      lang_toggle_badge: '🌐 SPRACHE: <b>DE</b>',
-      crt_filter_on: '📺 CRT-FILTER: AN',
-      crt_filter_off: '📺 CRT-FILTER: AUS',
+      lang_toggle_badge: 'SPRACHE: <b>DE</b>',
+      crt_filter_on: 'CRT-FILTER: AN',
+      crt_filter_off: 'CRT-FILTER: AUS',
 
       // Hauptmenü und Schaltflächen
-      start_game: '🚀 EXPEDITION STARTEN (LOADOUT)',
-      hangar: '🛠️ HANGAR',
-      codex: '📜 FUSIONS-KODEX',
-      tech_tree: '🧬 TECH-BAUM',
-      achievements: '🏆 ERFOLGE',
-      settings: '⚙️ EINSTELLUNGEN',
-      retry: '🔄 ERNEUT VERSUCHEN',
-      main_menu: '🏠 HAUPTMENÜ / HANGAR',
-      switch_pilot: '👤 AKTIVER PILOT:',
+      start_game: 'EXPEDITION STARTEN (LOADOUT)',
+      hangar: 'HANGAR',
+      codex: 'FUSIONS-KODEX',
+      tech_tree: 'TECH-BAUM',
+      achievements: 'ERFOLGE',
+      settings: 'EINSTELLUNGEN',
+      retry: 'ERNEUT VERSUCHEN',
+      main_menu: 'HAUPTMENÜ / HANGAR',
+      switch_pilot: 'AKTIVER PILOT:',
       change: '[ÄNDERN]',
       menu_tagline: 'Überlebe im endlosen kybernetischen Weltraum! Vernichte feindliche Flotten, sammle Energiekristalle, verbessere dein Schiff und besiege kolossale Boss-Mechs!',
-      high_score_lbl: '🏆 Höchstpunktzahl:',
-      scrap_lbl: '🔩 Schrott:',
-      heat_pacts_btn: '🔥 PAKT-DETAILS',
+      high_score_lbl: 'Höchstpunktzahl:',
+      scrap_lbl: 'Schrott:',
+      heat_pacts_btn: 'PAKT-DETAILS',
       menu_showcase_title: 'CYBERRAUM-SEKTOR',
-      menu_showcase_hint: '🎯 Klicke Meteorit • Zerstöre & Sammle Schrott',
+      menu_showcase_hint: 'Klicke Meteorit • Zerstöre & Sammle Schrott',
 
       // Steuerungshinweise
       ctrl_move: '<span class="key-badge">WASD / Pfeile</span> Bewegung',
@@ -1306,18 +1312,20 @@
       pilot_select_subtitle: 'WÄHLE EIN PROFIL ODER ERSTELLE EINEN NEUEN AGENTEN',
       new_pilot_placeholder: 'Neuer Pilotname (z. B. Agent Beta)',
       new_pilot_btn: '➕ NEUES PROFIL',
+      no_profiles_found: 'Keine gespeicherten Pilotenprofile gefunden.',
+      create_new_pilot_hint: 'Gib unten einen Namen ein und drücke "NEUES PROFIL", um einen Piloten zu erstellen.',
       gp_profile_select: 'Pilot Wählen',
       gp_login: 'Anmelden',
       gp_main_menu: 'Hauptmenü',
 
       // Modi und Cyber-Hitze
-      mode_campaign_btn: '🎯 MODUS: <b>KAMPAGNE (10 WELLEN)</b>',
-      mode_endless_btn: '♾️ MODUS: <b>ENDLOSES ÜBERLEBEN</b>',
-      mode_daily_prefix: '📅 MODUS: <b>TÄGLICHE MISSION</b>',
+      mode_campaign_btn: 'MODUS: <b>KAMPAGNE (10 WELLEN)</b>',
+      mode_endless_btn: 'MODUS: <b>ENDLOSES ÜBERLEBEN</b>',
+      mode_daily_prefix: 'MODUS: <b>TÄGLICHE MISSION</b>',
       mode_hud_campaign: 'KAMPAGNE',
       mode_hud_endless: 'ENDLOS',
       mode_hud_daily: 'TÄGLICH',
-      heat_label: '⚠️ CYBER-HITZE:',
+      heat_label: 'CYBER-HITZE:',
       heat_badge_0: 'NORMAL',
       heat_badge_1: 'HEAT I (+25%)',
       heat_badge_2: 'HEAT II (+50%)',
@@ -1712,7 +1720,10 @@
       // 2. Ana Menü Temel Butonları
       const updateEl = (id, key) => {
         const el = document.getElementById(id);
-        if (el) el.innerHTML = this.t(key);
+        if (el) {
+          const target = el.querySelector('.btn-label') || el;
+          target.innerHTML = this.t(key);
+        }
       };
 
       updateEl('startBtn', 'start_game');
@@ -1743,14 +1754,16 @@
       // 3. Dil Değiştirme Butonu Rozeti
       const langBtn = document.getElementById('langToggleBtn');
       if (langBtn) {
-        langBtn.innerHTML = this.t('lang_toggle_badge');
+        const target = langBtn.querySelector('.btn-label') || langBtn;
+        target.innerHTML = this.t('lang_toggle_badge');
       }
 
       // 4. CRT Retro Filtre Butonu
       const crtBtn = document.getElementById('crtToggleBtn');
       if (crtBtn) {
         const isOn = (typeof window.crtEnabled !== 'undefined') ? window.crtEnabled : (window.gameSettings && window.gameSettings.crtEnabled);
-        crtBtn.innerHTML = isOn ? this.t('crt_filter_on') : this.t('crt_filter_off');
+        const target = crtBtn.querySelector('.btn-label') || crtBtn;
+        target.innerHTML = isOn ? this.t('crt_filter_on') : this.t('crt_filter_off');
       }
 
       // 5. Ana Menü Tanıtım Metni (Tagline) & Kontroller

@@ -456,14 +456,15 @@
 
       const modeBtn = document.getElementById('gameModeBtn');
       if (modeBtn) {
+        const target = modeBtn.querySelector('.btn-label') || modeBtn;
         if (this.mode === 'campaign') {
-          modeBtn.innerHTML = getT('mode_campaign_btn', '🎯 MOD: <b>SEFER (10 DALGA)</b>');
+          target.innerHTML = getT('mode_campaign_btn', 'MOD: <b>SEFER</b>');
         } else if (this.mode === 'endless') {
-          modeBtn.innerHTML = getT('mode_endless_btn', '♾️ MOD: <b>SONSUZ HAYATTA KALMA</b>');
+          target.innerHTML = getT('mode_endless_btn', 'MOD: <b>SONSUZ</b>');
         } else if (this.mode === 'daily') {
           const dateStr = window.ZortexDailyRun ? window.ZortexDailyRun.getTodaySeed() : '';
-          const dailyPrefix = getT('mode_daily_prefix', '📅 MOD: <b>GÜNLÜK KOŞU</b>');
-          modeBtn.innerHTML = `${dailyPrefix} (#${dateStr})`;
+          const dailyPrefix = getT('mode_daily_prefix', 'MOD: <b>GÜNLÜK</b>');
+          target.innerHTML = `${dailyPrefix} (#${dateStr})`;
         }
       }
 
@@ -472,9 +473,10 @@
         const h = this.currentHeat;
         heatBtn.style.borderColor = h.color;
         heatBtn.style.color = h.color;
-        const heatLbl = getT('heat_label', '⚠️ SİBER TEHLİKE:');
+        const heatLbl = getT('heat_label', 'TEHLİKE:');
         const badgeText = getT('heat_badge_' + h.level, h.badge);
-        heatBtn.innerHTML = `${heatLbl} <b>${badgeText}</b>`;
+        const target = heatBtn.querySelector('.btn-label') || heatBtn;
+        target.innerHTML = `${heatLbl} <b>${badgeText}</b>`;
       }
 
       // HUD Rozetleri

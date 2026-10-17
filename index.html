@@ -14,7 +14,53 @@
       user-select: none;
       -webkit-user-select: none;
     }
+    @font-face {
+      font-family: 'Oxanium';
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url('assets/fonts/oxanium-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'Oxanium';
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url('assets/fonts/oxanium-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('assets/fonts/jetbrains-mono-latin-ext.woff2') format('woff2');
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: url('assets/fonts/jetbrains-mono-latin.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
     :root {
+      /* Nova Drift Geometric Cyber Palette */
+      --bg: #030712;
+      --panel: rgba(4, 9, 24, 0.78);
+      --line: rgba(0, 243, 255, 0.22);
+      --line-dim: rgba(255, 255, 255, 0.08);
+      --accent: #00f3ff;
+      --accent-danger: #ef4444;
+      --accent-warn: #f59e0b;
+      --text: #e2e8f0;
+      --text-dim: #94a3b8;
+      --corner-cut: 8px;
+      --border-width: 1px;
+
+      /* Legacy In-Game Compatibility Variables */
       --primary-neon: #00f3ff;
       --secondary-neon: #ff007f;
       --accent-neon: #ffe600;
@@ -410,27 +456,30 @@
       cursor: crosshair;
       pointer-events: auto;
     }
+    /* Nova Drift Geometric Cyberpunk Dock */
     .main-menu-dock {
       position: relative;
       z-index: 10;
-      width: 480px;
-      max-width: 480px;
+      width: clamp(380px, 27vw, 490px);
+      max-width: 90vw;
       height: 100%;
       box-sizing: border-box;
-      padding: 18px 28px;
-      background: linear-gradient(90deg, rgba(3, 7, 18, 0.98) 0%, rgba(3, 7, 18, 0.92) 82%, rgba(3, 7, 18, 0.65) 100%);
-      backdrop-filter: blur(16px);
-      border-right: 1px solid rgba(0, 243, 255, 0.28);
-      box-shadow: 18px 0 55px rgba(0, 0, 0, 0.94), inset 1px 0 0 rgba(0, 243, 255, 0.15);
-      border-left: none;
-      border-top: none;
-      border-bottom: none;
+      padding: clamp(14px, 2vh, 22px) clamp(16px, 1.8vw, 26px);
+      background: linear-gradient(135deg, rgba(3, 7, 18, 0.88) 0%, rgba(4, 9, 24, 0.72) 100%);
+      backdrop-filter: blur(8px);
+      border-right: var(--border-width) solid var(--line);
+      box-shadow: 18px 0 45px rgba(0, 0, 0, 0.85);
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      gap: 2px;
+      gap: 6px;
       overflow-y: auto;
       scrollbar-width: none;
+      font-family: 'Oxanium', 'Segoe UI', sans-serif;
+    }
+    .main-menu-dock::-webkit-scrollbar {
+      display: none;
     }
     @media (max-width: 960px) {
       #menuOverlay {
@@ -442,10 +491,281 @@
         width: 100%;
         max-width: 100%;
         height: 100%;
-        background: rgba(3, 7, 18, 0.95);
+        clip-path: none;
         border-right: none;
-        padding: 16px 20px;
+        padding: 14px 18px;
       }
+    }
+
+    /* Nova Drift SVG Icon Standards */
+    .menu-icon {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
+      transition: transform 0.15s ease, stroke 0.15s ease;
+    }
+    .menu-icon-lg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.0;
+    }
+
+    /* Pilot & Scrap Header Strip */
+    .menu-pilot-scrap-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 8px 0 10px 0;
+      padding: 6px 12px;
+      background: rgba(0, 243, 255, 0.03);
+      border: var(--border-width) solid var(--line);
+      clip-path: polygon(var(--corner-cut) 0, 100% 0, 100% calc(100% - var(--corner-cut)), calc(100% - var(--corner-cut)) 100%, 0 100%, 0 var(--corner-cut));
+    }
+    .menu-pilot-btn {
+      background: transparent;
+      border: none;
+      color: var(--accent);
+      font-family: 'Oxanium', sans-serif;
+      font-size: clamp(12px, 0.9vw, 13px);
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.8px;
+      transition: color 0.15s ease;
+    }
+    .menu-pilot-btn:hover {
+      color: #ffffff;
+    }
+    .menu-pilot-name {
+      color: #ffffff;
+      font-weight: 800;
+      text-shadow: 0 0 6px rgba(0, 243, 255, 0.4);
+    }
+    .menu-pilot-change {
+      color: var(--text-dim);
+      font-size: 11px;
+      opacity: 0.75;
+    }
+    .menu-scrap-indicator {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(12px, 0.9vw, 13px);
+      font-weight: 700;
+      color: #ffb300;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* 1 Ana Düğme: SEFERE BAŞLA */
+    .menu-start-primary-btn {
+      width: 100%;
+      padding: clamp(11px, 1.5vh, 15px) 18px;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, rgba(0, 243, 255, 0.22) 0%, rgba(0, 102, 255, 0.35) 100%), #040c1e;
+      border: var(--border-width) solid var(--accent);
+      clip-path: polygon(var(--corner-cut) 0, 100% 0, 100% calc(100% - var(--corner-cut)), calc(100% - var(--corner-cut)) 100%, 0 100%, 0 var(--corner-cut));
+      color: #ffffff;
+      font-family: 'Oxanium', sans-serif;
+      font-size: clamp(15px, 1.2vw, 18px);
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 0 16px rgba(0, 243, 255, 0.35), inset 0 0 10px rgba(0, 243, 255, 0.15);
+      text-shadow: 0 0 8px rgba(0, 243, 255, 0.75);
+      transition: all 0.15s ease;
+    }
+    .menu-start-primary-btn:hover {
+      background: linear-gradient(135deg, rgba(0, 243, 255, 0.38) 0%, rgba(0, 102, 255, 0.55) 100%), #081736;
+      box-shadow: 0 0 24px rgba(0, 243, 255, 0.65), inset 0 0 14px rgba(0, 243, 255, 0.30);
+      transform: translateY(-1px);
+    }
+    .menu-start-primary-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+    }
+    .menu-start-primary-btn .start-btn-sub {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Altı İkincil Menü Düğmesi (Çerçevesiz, Aynı Boyut, Köşe Reticle & Sol Vurgu) */
+    .menu-secondary-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 4px;
+    }
+    .menu-line-btn {
+      width: 100%;
+      height: clamp(36px, 4.2vh, 42px);
+      background: transparent;
+      border: none;
+      border-left: 2px solid rgba(0, 243, 255, 0.12);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      color: var(--text-dim);
+      font-family: 'Oxanium', sans-serif;
+      font-size: clamp(13px, 1.0vw, 15px);
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.14s ease;
+      position: relative;
+    }
+    .menu-line-btn .line-btn-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .menu-line-btn .line-btn-corner {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: transparent;
+      letter-spacing: 1px;
+      transition: color 0.14s ease;
+    }
+    .menu-line-btn:hover {
+      background: linear-gradient(90deg, rgba(0, 243, 255, 0.08) 0%, rgba(0, 243, 255, 0.01) 100%);
+      border-left: 2px solid var(--accent);
+      color: #ffffff;
+      padding-left: 16px;
+    }
+    .menu-line-btn:hover .line-btn-corner {
+      color: var(--accent);
+    }
+    .menu-line-btn:hover .menu-icon {
+      stroke: var(--accent);
+      transform: scale(1.1);
+    }
+    .menu-line-btn:active {
+      transform: translateX(1px);
+    }
+
+    /* Alt Şerit Çipleri (Oyun Parametreleri & Sistem Ayarları - 2 Satırlı Geniş Düzen) */
+    .menu-bottom-chips-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+    .menu-chips-row {
+      display: grid;
+      gap: 5px;
+      width: 100%;
+    }
+    .menu-chips-row-top {
+      grid-template-columns: 1fr 1fr;
+    }
+    .menu-chips-row-bottom {
+      grid-template-columns: 1fr 1.35fr 0.9fr;
+    }
+    .menu-chip-btn {
+      background: rgba(3, 7, 18, 0.65);
+      border: var(--border-width) solid var(--line-dim);
+      color: var(--text-dim);
+      font-family: 'Oxanium', sans-serif;
+      font-size: clamp(9.5px, 0.72vw, 11px);
+      font-weight: 700;
+      padding: 5px 6px;
+      min-height: 32px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.12s ease;
+      border-radius: 2px;
+      text-align: center;
+      box-sizing: border-box;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .menu-chip-btn:hover {
+      border-color: var(--accent);
+      color: #ffffff;
+      background: rgba(0, 243, 255, 0.08);
+    }
+    .menu-chip-btn .menu-icon {
+      flex-shrink: 0;
+      width: 14px;
+      height: 14px;
+    }
+    .menu-chip-btn .btn-label {
+      font-size: clamp(9.5px, 0.72vw, 11px);
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .menu-chip-btn.menu-chip-warn {
+      border-color: rgba(245, 158, 11, 0.25);
+      color: var(--accent-warn);
+    }
+    .menu-chip-btn.menu-chip-warn:hover {
+      border-color: var(--accent-warn);
+      background: rgba(245, 158, 11, 0.10);
+      color: #fff;
+    }
+
+    /* Telemetri & Gamepad Alt Satırı */
+    .menu-telemetry-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: clamp(11px, 0.85vw, 12px);
+      color: var(--text-dim);
+      margin-top: 4px;
+      padding-top: 6px;
+      border-top: var(--border-width) solid var(--line-dim);
+    }
+    .menu-telemetry-footer .gamepad-prompt-bar {
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+    }
+    .menu-score-display {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Oxanium', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.8px;
+    }
+    .menu-score-display .score-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #ffb300;
+      font-size: 12px;
     }
     h1.title {
       font-size: 42px;
@@ -2890,49 +3210,114 @@
           <span class="logo-sub-bracket">\\\</span>
         </div>
       </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; margin: 16px 0 14px; padding: 6px 14px; background: rgba(0, 243, 255, 0.05); border: 1px solid rgba(0, 243, 255, 0.18); border-radius: 8px;">
-        <button id="switchProfileBtn" class="btn btn-secondary btn-small" style="font-size: 11px; padding: 4px 10px; border-color: var(--accent-neon); color: var(--accent-neon); display: inline-flex; align-items: center; gap: 6px;">
-          <span id="lblActivePilot" data-i18n="switch_pilot">👤 PİLOT:</span>
-          <span id="menuActiveProfileName" style="color: #fff; font-weight: 800;">Ajan Alpha</span>
-          <span id="lblChangePilot" data-i18n="change" style="opacity: 0.7; font-size: 10px;">[DEĞİŞTİR]</span>
+      <!-- Pilot ve Hurda Bilgi Şeridi -->
+      <div class="menu-pilot-scrap-strip">
+        <button id="switchProfileBtn" class="menu-pilot-btn" type="button">
+          <svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+          <span id="lblActivePilot" class="btn-label" data-i18n="switch_pilot">PİLOT:</span>
+          <span id="menuActiveProfileName" class="menu-pilot-name">Ajan Alpha</span>
+          <span id="lblChangePilot" class="menu-pilot-change" data-i18n="change">[DEĞİŞTİR]</span>
         </button>
-        <div style="font-size: 13px; font-weight: 800; color: #ffb300; display: flex; align-items: center; gap: 6px;">
-          <span>🔩</span>
+        <div class="menu-scrap-indicator">
+          <svg class="menu-icon" viewBox="0 0 24 24"><path d="M12 2l7 4v6l-7 4-7-4V6z"/><circle cx="12" cy="10" r="2.5"/></svg>
           <span id="menuScrap">0</span> <span data-i18n="scrap_lbl">HURDA</span>
         </div>
       </div>
 
-      <button id="startBtn" class="btn" style="width: 100%; font-size: 17px; padding: 14px 24px; letter-spacing: 2px; margin-bottom: 12px; box-shadow: 4px 4px 0 #00f3ff;" data-i18n="start_game">
-        🚀 SEFERE BAŞLA (LOADOUT)
+      <!-- 1 Ana Düğme: SEFERE BAŞLA -->
+      <button id="startBtn" class="menu-start-primary-btn" type="button">
+        <svg class="menu-icon menu-icon-lg" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+        <span class="btn-label" data-i18n="start_game">SEFERE BAŞLA</span>
+        <span class="start-btn-sub">// LOADOUT</span>
       </button>
 
-      <div class="menu-grid-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px;">
-        <button id="neuralMatrixBtn" class="btn btn-secondary btn-small" onclick="if(window.ZortexMetaProgression) { window.ZortexMetaProgression.openRunSetup(); setTimeout(() => document.querySelector('[data-tab=\'chips\']')?.click(), 50); }" style="border-color: #ef4444; color: #ef4444;">🧬 NÖRAL YONGA MATRİSİ</button>
-        <button id="hangarBtn" class="btn btn-secondary btn-small" data-i18n="hangar">🛠️ HANGAR & ATÖLYE</button>
-        <button id="codexBtn" class="btn btn-secondary btn-small" data-i18n="codex">📜 FÜZYON KODEKSİ</button>
-        <button id="techTreeBtn" class="btn btn-secondary btn-small" data-i18n="tech_tree">🧬 YETENEK AĞACI</button>
-        <button id="achievementsBtn" class="btn btn-secondary btn-small" data-i18n="achievements">🏆 BAŞARIMLAR</button>
-        <button id="settingsBtn" class="btn btn-secondary btn-small" data-i18n="settings">⚙️ AYARLAR</button>
+      <!-- Altı İkincil Menü Düğmesi (Aynı Boyutta, Çerçevesiz Metin Satırı, Hover Reticle & Sol Vurgu) -->
+      <nav class="menu-secondary-list" aria-label="İkincil Menü">
+        <button id="neuralMatrixBtn" class="menu-line-btn" type="button" onclick="if(window.ZortexMetaProgression) { window.ZortexMetaProgression.openRunSetup(); setTimeout(() => document.querySelector('[data-tab=\'chips\']')?.click(), 50); }">
+          <span class="line-btn-left">
+            <svg class="menu-icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>
+            <span class="btn-label">NÖRAL YONGA MATRİSİ</span>
+          </span>
+          <span class="line-btn-corner">[ 01 ]</span>
+        </button>
+        <button id="hangarBtn" class="menu-line-btn" type="button">
+          <span class="line-btn-left">
+            <svg class="menu-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <span class="btn-label" data-i18n="hangar">HANGAR & ATÖLYE</span>
+          </span>
+          <span class="line-btn-corner">[ 02 ]</span>
+        </button>
+        <button id="codexBtn" class="menu-line-btn" type="button">
+          <span class="line-btn-left">
+            <svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z"/><path d="M6 6h10M6 10h10M6 14h6"/></svg>
+            <span class="btn-label" data-i18n="codex">FÜZYON KODEKSİ</span>
+          </span>
+          <span class="line-btn-corner">[ 03 ]</span>
+        </button>
+        <button id="techTreeBtn" class="menu-line-btn" type="button">
+          <span class="line-btn-left">
+            <svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M12 7.5v5M12 12.5l-6 4M12 12.5l6 4"/></svg>
+            <span class="btn-label" data-i18n="tech_tree">YETENEK AĞACI</span>
+          </span>
+          <span class="line-btn-corner">[ 04 ]</span>
+        </button>
+        <button id="achievementsBtn" class="menu-line-btn" type="button">
+          <span class="line-btn-left">
+            <svg class="menu-icon" viewBox="0 0 24 24"><path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/><path d="M6 3h12v7a6 6 0 0 1-12 0V3z"/><path d="M12 16v5M8 21h8"/></svg>
+            <span class="btn-label" data-i18n="achievements">BAŞARIMLAR</span>
+          </span>
+          <span class="line-btn-corner">[ 05 ]</span>
+        </button>
+        <button id="settingsBtn" class="menu-line-btn" type="button">
+          <span class="line-btn-left">
+            <svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span class="btn-label" data-i18n="settings">AYARLAR</span>
+          </span>
+          <span class="line-btn-corner">[ 06 ]</span>
+        </button>
+      </nav>
+
+      <!-- Alt Şerit Çipleri (Oyun Parametreleri & Sistem Ayarları - 2 Satırlı Geniş Düzen) -->
+      <div class="menu-bottom-chips-strip">
+        <div class="menu-chips-row menu-chips-row-top">
+          <button id="gameModeBtn" class="menu-chip-btn menu-chip-wide" type="button" title="Oyun Modu">
+            <svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+            <span class="btn-label">MOD: <b>SEFER (10 DALGA)</b></span>
+          </button>
+          <button id="heatLevelBtn" class="menu-chip-btn menu-chip-wide menu-chip-warn" type="button" title="Siber Tehlike Derecesi">
+            <svg class="menu-icon" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span class="btn-label">SİBER TEHLİKE: <b>NORMAL</b></span>
+          </button>
+        </div>
+        <div class="menu-chips-row menu-chips-row-bottom">
+          <button id="controlsModalBtn" class="menu-chip-btn" type="button" onclick="document.getElementById('controlsHintModal').classList.remove('hidden');" title="Siber Kontroller">
+            <svg class="menu-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"/></svg>
+            <span class="btn-label">KONTROL</span>
+          </button>
+          <button id="crtToggleBtn" class="menu-chip-btn" type="button" title="Retro CRT Tarama Çizgileri">
+            <svg class="menu-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            <span class="btn-label">RETRO: <b>AÇIK</b></span>
+          </button>
+          <button id="langToggleBtn" class="menu-chip-btn" type="button" onclick="if(window.ZortexI18n) window.ZortexI18n.toggleLanguage();" title="Dil Seçimi">
+            <svg class="menu-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="btn-label">DİL: <b>TR</b></span>
+          </button>
+        </div>
       </div>
 
-      <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 10px;">
-        <button id="controlsModalBtn" class="btn btn-secondary btn-small" onclick="document.getElementById('controlsHintModal').classList.remove('hidden');" style="font-size: 11px; padding: 4px 10px; opacity: 0.9;">⌨️ KONTROLLER</button>
-        <button id="gameModeBtn" class="btn btn-secondary btn-small" style="font-size: 11px; padding: 4px 10px; border-color: #00f3ff; color: #00f3ff;">🎯 MOD: <b>SEFER</b></button>
-        <button id="heatLevelBtn" class="btn btn-secondary btn-small" style="font-size: 11px; padding: 4px 10px; border-color: #f97316; color: #f97316;">⚠️ TEHLİKE: <b>NORMAL</b></button>
-        <button id="crtToggleBtn" class="btn btn-secondary btn-small" style="font-size: 11px; padding: 4px 10px; opacity: 0.85;">📺 RETRO: AÇIK</button>
-        <button id="langToggleBtn" class="btn btn-secondary btn-small" onclick="if(window.ZortexI18n) window.ZortexI18n.toggleLanguage();" style="font-size: 11px; padding: 4px 10px; opacity: 0.85; border-color: #00f3ff; color: #00f3ff;">🌐 DİL: <b>TR</b></button>
-      </div>
-
-      <!-- Konsol / Gamepad Arayüz İpuçları -->
-      <div class="gamepad-prompt-bar" style="margin-top: 4px;">
-        <span>🎮</span>
-        <span class="gp-badge">A</span> <span data-i18n="gp_select_start">Seç / Başla</span>
-        <span class="gp-badge purp">Y</span> <span data-i18n="gp_hangar">Hangar</span>
-        <span class="gp-badge">X</span> <span data-i18n="gp_tech_tree">Yetenek Ağacı</span>
-      </div>
-
-      <div style="margin-top: 10px; font-size: 12px; color: #6a7c9f;">
-        <span data-i18n="high_score_lbl">🏆 En Yüksek Skor:</span> <span id="menuHighScore" style="color: #ffe600; font-weight: bold;">0</span>
+      <!-- Telemetri & Gamepad Alt Satırı -->
+      <div class="menu-telemetry-footer">
+        <div class="gamepad-prompt-bar">
+          <svg class="menu-icon" viewBox="0 0 24 24"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+          <span class="gp-badge">A</span> <span data-i18n="gp_select_start">Başla</span>
+          <span class="gp-badge purp">Y</span> <span data-i18n="gp_hangar">Hangar</span>
+          <span class="gp-badge">X</span> <span data-i18n="gp_tech_tree">Ağaç</span>
+        </div>
+        <div class="menu-score-display">
+          <svg class="menu-icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span data-i18n="high_score_lbl">EN YÜKSEK:</span>
+          <span id="menuHighScore" class="score-mono">0</span>
+        </div>
       </div>
     </aside>
   </div>
@@ -7791,14 +8176,16 @@
 
     function loadAllProfiles() {
       let profiles = null;
+      let raw = null;
       try {
-        profiles = JSON.parse(localStorage.getItem('zortex_profiles'));
+        raw = localStorage.getItem('zortex_profiles');
+        profiles = JSON.parse(raw);
       } catch (e) {
         profiles = null;
       }
 
-      // Eski tekil kayıttan modüler yapıya göç (Migration)
-      if (!profiles || typeof profiles !== 'object' || Object.keys(profiles).length === 0) {
+      // Sadece localStorage'da zortex_profiles anahtarı hiç yoksa (ilk açılış) varsayılan profili oluştur
+      if (raw === null || profiles === null || typeof profiles !== 'object') {
         profiles = {};
         const legacyMeta = loadLegacyMeta();
         const legacyHighScore = parseInt(localStorage.getItem('zortex_highscore') || '0', 10);
@@ -7823,8 +8210,13 @@
       if (savedActive && allProfiles[savedActive]) {
         activeProfileName = savedActive;
       } else {
-        activeProfileName = Object.keys(allProfiles)[0] || 'Ajan Alpha';
-        localStorage.setItem('zortex_active_profile', activeProfileName);
+        const firstKey = Object.keys(allProfiles)[0];
+        activeProfileName = firstKey || '';
+        if (activeProfileName) {
+          localStorage.setItem('zortex_active_profile', activeProfileName);
+        } else {
+          localStorage.removeItem('zortex_active_profile');
+        }
       }
       return allProfiles;
     }
@@ -7894,8 +8286,13 @@
     }
 
     function getActiveProfile() {
-      if (!allProfiles[activeProfileName]) {
-        allProfiles[activeProfileName] = createDefaultProfileData(activeProfileName);
+      if (!activeProfileName || !allProfiles[activeProfileName]) {
+        const keys = Object.keys(allProfiles);
+        if (keys.length > 0) {
+          activeProfileName = keys[0];
+        } else {
+          return createDefaultProfileData('Geçici Pilot');
+        }
       }
       return allProfiles[activeProfileName];
     }
@@ -7921,6 +8318,7 @@
     }
 
     function saveMeta() {
+      if (!activeProfileName || !allProfiles[activeProfileName]) return;
       const prof = getActiveProfile();
       prof.meta = meta;
       prof.lastPlayed = Date.now();
@@ -7931,14 +8329,17 @@
     function saveHighScore(newScore) {
       if (newScore > highScore) {
         highScore = newScore;
-        const prof = getActiveProfile();
-        prof.highScore = highScore;
-        saveAllProfiles();
+        if (activeProfileName && allProfiles[activeProfileName]) {
+          const prof = getActiveProfile();
+          prof.highScore = highScore;
+          saveAllProfiles();
+        }
         localStorage.setItem('zortex_highscore', highScore.toString());
       }
     }
 
     function selectProfile(name) {
+      if (Object.keys(allProfiles).length === 0) return;
       if (!name || !allProfiles[name]) {
         if (activeProfileName && allProfiles[activeProfileName]) {
           name = activeProfileName;
@@ -7947,14 +8348,14 @@
           if (available.length > 0) {
             name = available[0];
           } else {
-            name = 'Ajan Alpha';
-            allProfiles[name] = createDefaultProfileData(name);
+            return;
           }
         }
       }
       activeProfileName = name;
       localStorage.setItem('zortex_active_profile', activeProfileName);
       const prof = allProfiles[name];
+      if (!prof) return;
       prof.lastPlayed = Date.now();
       meta = loadMeta();
       highScore = prof.highScore || 0;
@@ -7990,21 +8391,40 @@
     }
 
     function deleteProfile(name, skipConfirm = false) {
-      const keys = Object.keys(allProfiles);
-      if (keys.length <= 1) {
-        if (!skipConfirm) alert("En az bir pilot profili bulunmalıdır!");
-        return;
-      }
       const isHeadless = typeof navigator !== 'undefined' && (navigator.webdriver || window.__automatedTest);
       if (!skipConfirm && !isHeadless && typeof confirm === 'function' && !confirm(`"${name}" adlı pilot kaydını kalıcı olarak silmek istediğinize emin misiniz?`)) {
         return;
       }
       delete allProfiles[name];
-      if (activeProfileName === name) {
-        activeProfileName = Object.keys(allProfiles)[0];
+      const remaining = Object.keys(allProfiles);
+      if (remaining.length > 0) {
+        if (activeProfileName === name || !allProfiles[activeProfileName]) {
+          activeProfileName = remaining[0];
+          localStorage.setItem('zortex_active_profile', activeProfileName);
+          const prof = allProfiles[activeProfileName];
+          if (prof) {
+            prof.lastPlayed = Date.now();
+            meta = loadMeta();
+            highScore = prof.highScore || 0;
+            selectedShipClass = prof.selectedShip || 'interceptor';
+            const menuHs = document.getElementById('menuHighScore');
+            if (menuHs) menuHs.textContent = highScore;
+            updateMenuScrapDisplay();
+            updateShipSelectorUI();
+            updateActiveProfileUI();
+          }
+        }
+        saveAllProfiles();
+      } else {
+        activeProfileName = '';
+        allProfiles = {};
+        saveAllProfiles();
+        localStorage.removeItem('zortex_active_profile');
+        const menuHs = document.getElementById('menuHighScore');
+        if (menuHs) menuHs.textContent = 0;
+        const profileEl = document.getElementById('menuActiveProfileName');
+        if (profileEl) profileEl.textContent = '---';
       }
-      saveAllProfiles();
-      selectProfile(activeProfileName);
       renderProfileList();
       if (audio && audio.ctx) audio.playCancel();
     }
@@ -8015,6 +8435,19 @@
       container.innerHTML = '';
 
       const names = Object.keys(allProfiles);
+      const i18n = window.ZortexI18n;
+
+      if (names.length === 0) {
+        container.innerHTML = `
+          <div class="empty-profile-state" style="padding: 24px 16px; text-align: center; color: #94a3b8; font-size: 14px; border: 1px dashed rgba(0, 243, 255, 0.25); border-radius: 8px; margin: 10px 0;">
+            <div style="font-size: 26px; margin-bottom: 8px;">👨‍🚀</div>
+            <div style="font-weight: 600; color: #00f3ff; margin-bottom: 4px;">${i18n ? i18n.t('no_profiles_found', 'Kayıtlı pilot profili bulunamadı.') : 'Kayıtlı pilot profili bulunamadı.'}</div>
+            <div style="font-size: 12px; opacity: 0.75;">${i18n ? i18n.t('create_new_pilot_hint', 'Aşağıdaki alana isim girip "YENİ PROFİL" butonuna basarak bir pilot oluşturun.') : 'Aşağıdaki alana isim girip "YENİ PROFİL" butonuna basarak bir pilot oluşturun.'}</div>
+          </div>
+        `;
+        return;
+      }
+
       names.forEach(name => {
         const prof = allProfiles[name];
         const isActive = name === activeProfileName;
@@ -8029,7 +8462,6 @@
         const tpVal = prof.meta ? (prof.meta.techPoints || 0) : 0;
         const scrapVal = prof.meta ? (prof.meta.scrap || 0) : 0;
 
-        const i18n = window.ZortexI18n;
         const activeWord = i18n ? i18n.t('val_active', 'AKTİF') : 'AKTİF';
         const loginWord = i18n ? i18n.t('gp_login', 'GİRİŞ YAP') : 'GİRİŞ YAP';
         const selectWord = i18n ? i18n.t('pact_select', 'SEÇ') : 'SEÇ';
@@ -8054,11 +8486,9 @@
             <button class="btn btn-small btn-select-profile" style="padding: 7px 14px; font-size: 11px;">
               ${isActive ? loginWord : selectWord}
             </button>
-            ${names.length > 1 ? `
-              <button class="icon-btn btn-delete-profile" title="${i18n ? i18n.t('delete_profile', 'Profili Sil') : 'Profili Sil'}" style="color: #ff3355; border-color: #551122; font-size: 13px;">
-                🗑️
-              </button>
-            ` : ''}
+            <button class="icon-btn btn-delete-profile" title="${i18n ? i18n.t('delete_profile', 'Profili Sil') : 'Profili Sil'}" style="color: #ff3355; border-color: #551122; font-size: 13px;">
+              🗑️
+            </button>
           </div>
         `;
 
@@ -8092,6 +8522,12 @@
     }
 
     function closeProfileMenu() {
+      if (Object.keys(allProfiles).length === 0) {
+        if (typeof audio !== 'undefined' && audio && audio.playCancel) audio.playCancel();
+        const input = document.getElementById('newProfileNameInput');
+        if (input) input.focus();
+        return;
+      }
       gameState = 'MENU';
       GamepadUI.focusIndex = 0;
       document.getElementById('profileOverlay').classList.add('hidden');
@@ -8101,7 +8537,7 @@
 
     function updateActiveProfileUI() {
       const el = document.getElementById('menuActiveProfileName');
-      if (el) el.textContent = activeProfileName;
+      if (el) el.textContent = activeProfileName || '---';
     }
 
     // Bir hangar yükseltmesinin toplam bonusunu döndürür (seviye × seviye başı değer)
