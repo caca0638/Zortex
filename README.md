@@ -1,128 +1,155 @@
-# 🚀 ZORTEX: CYBER SURVIVOR - DESKTOP & CONSOLE EDITION
+# ZORTEX: CYBER SURVIVOR - DESKTOP & CONSOLE EDITION
 
-Neon Cyberpunk temalı, ultra akıcı 144Hz (144 FPS) mekaniklere, %100 Gamepad / Oyun Kolu desteğine, bağımsız masaüstü uygulama mimarisine, prosedürel Web Audio ses sentezleyicisine, rogue-lite siber kalıntılara (Relics), elit affikslere ve arcade hissine ("Game Juice") sahip gelişmiş 2D uzay savaşı oyunu.
+Neon Cyberpunk temalı, 144Hz (144 FPS) mekaniklere, tam Gamepad / Oyun Kolu desteğine, bağımsız masaüstü uygulama mimarisine, prosedürel Web Audio ses sentezleyicisine, rogue-lite siber kalıntılara (Relics), elit affikslere ve arcade hissine sahip 2D uzay savaşı oyunu.
 
 ---
 
-## 🎮 Nasıl Başlatılır? (Bağımsız Masaüstü Uygulaması)
+## Nasil Baslatilir? (Bagimsiz Masaustu Uygulamasi)
 
-Zortex, harici ağır framework'lere (Electron vb.) ihtiyaç duymadan **doğrudan bağımsız bir yerel masaüstü uygulaması (Standalone Desktop App)** olarak çalışacak şekilde optimize edilmiştir:
+Zortex, harici framework'lere (Electron vb.) ihtiyaç duymadan dogrudan bagimsiz bir yerel masaustu uygulamasi (Standalone Desktop App) olarak calisacak sekilde optimize edilmistir:
 
-1. **🚀 1-Tıkla Masaüstü Başlatıcı (Önerilen):**
-   - Masaüstünüzdeki `zort` klasöründe yer alan [`oyna.bat`](file:///C:/Users/user/Desktop/zort/oyna.bat) dosyasına çift tıklayın.
-   - Bilgisayarınızda Python varsa [`app.py`](file:///C:/Users/user/Desktop/zort/app.py) üzerinden yerel bir çekirdek kurarak tarayıcı çubukları, sekmeler ve menüler olmadan tam ekran bir pencerede başlatır.
-   - Python yoksa doğrudan Microsoft Edge Uygulama Modu (`--app`) ile başlatılır.
-2. **🐍 Python Launcher ile:**
+1. **1-Tikla Masaustu Baslatici (Onerilen):**
+   - Masaustunuzdeki `zort` klasorunde yer alan [`oyna.bat`](file:///C:/Users/user/Desktop/zort/oyna.bat) dosyasina cift tiklayin.
+   - Bilgisayarinizda Python varsa [`app.py`](file:///C:/Users/user/Desktop/zort/app.py) uzerinden yerel bir cekirdek kurarak tarayici cubuklari, sekmeler ve menuler olmadan tam ekran bir pencerede baslatir.
+   - Python yoksa dogrudan Microsoft Edge Uygulama Modu (`--app`) ile baslatilir.
+2. **Python Launcher ile:**
    ```bash
    python app.py
    ```
-3. **🌐 Bağımsız Tek Dosya (Offline):**
-   - [`index.html`](file:///C:/Users/user/Desktop/zort/index.html) dosyasını herhangi bir web tarayıcısında açmanız yeterlidir (sıfır internet / sıfır harici dosya bağımlılığı).
+3. **Bagimsiz Tek Dosya (Offline):**
+   - [`index.html`](file:///C:/Users/user/Desktop/zort/index.html) dosyasini herhangi bir web tarayicisinda acmaniz yeterlidir (sifir internet / sifir harici dosya bagimliligi).
 
 ---
 
-## 🕹️ Konsol & Gamepad Deneyimi (100% Kol ile Kontrol)
+## Konsol & Gamepad Deneyimi (%100 Kol ile Kontrol)
 
-Oyun sadece oynanış esnasında değil; **Ana Menü, Hangar Yükseltmeleri, Seviye Atlama Kartları, Duraklatma Menüsü ve Oyun Sonu Savaş Raporu dahil tüm arayüzlerde** fareye veya klavyeye dokunmadan yalnızca oyun koluyla kontrol edilebilir (Steam Deck / Big Picture deneyimi).
+Oyun sadece oynanis esnasinda degil; Ana Menu, Hangar Yukseltmeleri, Seviye Atlama Kartlari, Duraklatma Menusu ve Oyun Sonu Savas Raporu dahil tum arayuzlerde fareye veya klavyeye dokunmadan yalnizca oyun koluyla kontrol edilebilir.
 
-### 🎯 Konsol Arayüz Gezinmesi (Virtual Focus & Haptics)
-- **D-Pad (Yön Tuşları) / Sol Analog:** Menü butonları ve yükseltme kartları arasında gezinir (neon odak çerçevesi ve prosedürel sesli odak tıkları).
-- **(A) / Cross (X):** Seçili öğeyi onayla / tıkla / yükseltmeyi satın al.
-- **(B) / Circle (O):** Geri dön / Menüyü kapat / Duraklatmayı devam ettir / Ana menüye dön.
-- **(Y) / Triangle (Δ):** Menüde anında **Hangar** ekranını açma kısayolu.
-- **(X) / Square (□):** Menüde anında **Retro CRT Filtresini** açma/kapama kısayolu.
-- **(LB) & (RB) / L1 & R1:** Ana menüde gemi sınıfları arasında (Interceptor ⟷ Titan ⟷ Spectre) anında döngüsel geçiş.
-- **📳 Dual-Rumble Haptik Titreşim:** Web Gamepad API titreşim motoru ile D-pad tıkları (`tick`), silah geri tepmesi (`recoil`), orta darbeler (`medium`) ve ölümcül patlamalar/eser alımları (`heavy`) kolda gerçek zamanlı hissedilir.
+### Konsol Arayuz Gezinmesi (Virtual Focus & Haptics)
+- **D-Pad (Yon Tuslari) / Sol Analog:** Menu butonlari ve yukseltme kartlari arasinda gezinir (odak cercevesi ve prosedurel sesli odak tiklari).
+- **(A) / Cross (X):** Secili ogeyi onayla / tikla / yukseltmeyi satin al.
+- **(B) / Circle (O):** Geri don / Menuyu kapat / Duraklatmayi devam ettir / Ana menuye don.
+- **(Y) / Triangle:** Menude aninda Hangar ekranini acma kisayolu.
+- **(X) / Square:** Menude aninda Retro CRT Filtresini acma/kapama kisayolu.
+- **(LB) & (RB) / L1 & R1:** Ana menude gemi siniflari arasinda (Interceptor <-> Titan <-> Spectre) aninda dongusel gecis.
+- **Dual-Rumble Haptik Titresim:** Web Gamepad API titresim motoru ile D-pad tiklari (`tick`), silah geri tepmesi (`recoil`), orta darbeler (`medium`) ve olumcul patlamalar/eser alimlari (`heavy`) kolda gercek zamanli hissedilir.
 
-### ⚔️ Savaş Alanı Kontrolleri
+### Savas Alani Kontrolleri
 
 | Eylem | Gamepad (Xbox / PS / Kol) | Klavye & Fare |
 | :--- | :--- | :--- |
-| **Gemi Hareketi (360°)** | **Sol Analog Çubuk / D-Pad** | **W, A, S, D / Yön Tuşları** |
-| **Nişan Alma & Otomatik Ateş** | **Sağ Analog Çubuk (Twin-Stick)** | **Fare İmleci + Sol Tık** |
-| **Manuel Ateşleme** | **Sağ Tetik (RT / R2)** | **Sol Tık** (Basılı Tutma) |
-| **Siber Dash** | **Sağ Omuz (RB / R1) veya RT** | **Space** veya **Sağ Tık** |
-| **Taktiksel Holo-Decoy** | **Sol Omuz (LB / L1) veya LT** | **C Tuşu** |
-| **Overdrive / Ultimate Lazer** | **Sol Analog Basma (L3) veya Y** | **E / Q Tuşları** |
-| **Duraklat / Menü** | **Start / Options Butonu** | **P / ESC Tuşları** |
+| **Gemi Hareketi (360°)** | **Sol Analog Cubuk / D-Pad** | **W, A, S, D / Yon Tuslari** |
+| **Nisan Alma & Otomatik Ates** | **Sag Analog Cubuk (Twin-Stick)** | **Fare Imleci + Sol Tik** |
+| **Manuel Atesleme** | **Sag Tetik (RT / R2)** | **Sol Tik (Basili Tutma)** |
+| **Siber Dash** | **Sag Omuz (RB / R1) veya RT** | **Space veya Sag Tik** |
+| **Taktiksel Holo-Decoy** | **Sol Omuz (LB / L1) veya LT** | **C Tusu** |
+| **Overdrive / Ultimate Lazer** | **Sol Analog Basma (L3) veya Y** | **E / Q Tuslari** |
+| **Duraklat / Menu** | **Start / Options Butonu** | **P / ESC Tuslari** |
 
 ---
 
-## 💎 Siber Kalıntılar (Relics & Artifacts System)
+## Cephanelik: Silah Evrimleri ve Sinerji Sistemi
 
-Elit düşmanlardan (%16 ihtimal) ve Boss'lardan (%100 garanti) düşen altın altıgen biçimindeki efsanevi siber eserler:
+Oyunda 13 adet farkli silah sistemi yer alir. Seviye 8'e ulasan ana silahlar ve modul silahlari, gerekli pasif bilesenlerle birlestiginde sandiklardan veya seviye atlamalardan evrim gecirir.
 
-1. **🌀 Tekillik Çekirdeği (Singularity Core - Efsanevi):** Kara deliklerin yuttuğu her düşman oyuncunun mermi hasarını kalıcı olarak +%3 artırır.
-2. **⚡ Aşırı Yükleme Reaktörü (Overclock Reactor - Destansı):** Ateş hızını %25 artırır, Dash bekleme süresini %10 uzatır.
-3. **🩸 Vampirik Nanitler (Vampiric Nanites - Efsanevi):** Kritik vuruşla öldürülen her düşman oyuncuya 2 can yeniler.
-4. **🛡️ Kuantum Saptırıcı (Quantum Deflector - Destansı):** Kalkan kırıldığında 1.5 saniyelik hasarsız faz kayması tetikler ve düşmanları savurur.
+### 1. Dört Cekirdek Ana Silah (Iki Dalli Evrim)
 
----
+| Ana Silah | Evrim Dali A (Gereksinim) | Evrim Dali B (Gereksinim) |
+| :--- | :--- | :--- |
+| **Blaster** | **Gatling Lazer** (Cekirdek Sogutucu)<br>Araliksiz kesintisiz foton isini. | **Kaos Salvosu** (Katliam Sayaci)<br>Mermiler duvardan/hedeften sekip ikiye ayrilir. |
+| **Sacilma (Spread)** | **Spektrum Isini** (Optik Mercek)<br>Prizmatik kirilan genis konik lazer dalgasi. | **Supernova Cekirdegi** (Yanik Muhur)<br>Patlayip alev alani birakan termonukleer mermiler. |
+| **Plazma Isini** | **Nova Hatti** (Lanetli Cip)<br>Ekran boyu delen, her hedefte katlanan hiper isin. | **Firtina Girdabi** (Tempest Rezonansi)<br>Hedefler arasinda sicrayan zincirleme elektrik firtinasi. |
+| **Railgun** | **Hayalet Ray** (Hayalet Plaka)<br>Engelleri delen, arkasinda iyonik hasar izi birakan atis. | **Buzul Mizragi** (Kriyo Kalbi)<br>Hedefleri donduran ve kirilma aninda buz sarapneli sacan mizrak. |
 
-## 🔥 Kombo Sayacı & Siber Adrenalin (Adrenaline Rush)
+### 2. Modul Silahlari (Tek Dalli Evrimler)
 
-Düşmanları arka arkaya imha ettikçe kombo sayacı yükselir:
-- **Skor Çarpanı:** Her 10 komboda skor kazanımı artar (maksimum 4.0x çarpan).
-- **25x Adrenaline Rush:** Gemi hızı +%18, ateş hızı +%22 artar, neon sarı aura parlar.
-- **50x Cyber Frenzy:** Gemi hızı +%32, ateş hızı +%47 artar; gemi arkasında gökkuşağı renginde parçacıklar fışkırır.
+| Modul Silahi | Evrim (Gereken Pasif Ortak) | Aciklama |
+| :--- | :--- | :--- |
+| **Yorunge Bicaklari** | **Kesim Firtinasi** (Asiri Yuk Kondansatoru) | Donen 8 devasa plazma testeresi temas eden her seyi bicer. |
+| **Mayin Birakici** | **Cekim Mayini** (Kuantum Miknatis) | Infilak ettiginde dusmanlari icine ceken mini tekillikler acar. |
+| **Gudumlu Fuze Surusu** | **Kiyamet Salvosu** (Kritik Matris) | Kume bombasi birakan nukleer mikro fuzeler firlatir. |
+| **Tesla Bobini** | **Faraday Kafesi** (Reaktif Kalkan) | Gemi cevresinde kesintisiz donen yuksek voltaj plazma bariyeri. |
+| **Golge Klonu** | **Zaman Kaymasi** (Atalet Sonumleyici) | Iki golge klon olusturur ve zamani yavaslatirken cift atis yapar. |
+| **Hologram Prizma** | **Kristal Kafes** (Yansitici Plaka) | 3 prizma olusturarak dusman mermilerini emip lazer olarak geri yansitir. |
+| **Yercekimi Topu** | **Tekillik Cekirdegi** (Yercekimi Kaymasi) | Ekrandaki kucuk dusmanlari yutan devasa tekillik yaratir. |
+| **Orbital Lazer Uydusu**| **Gunes Topu** (Evrim Odak Lensi) | Yeryuzunu eriten devasa termonukleer solar patlama sutunu indirir. |
 
----
+### 3. Efsanevi Cift-Silah Fuzyonlari (Mythic Fusions)
 
-## 👾 Sevk ve Seviye: 4 Seçkin Düşman Affiksi (Elite Affixes)
-
-Dalga 2'den itibaren ortaya çıkan seçkin düşmanlar özel affikslere sahiptir:
-- **💥 Volatile (Patlayıcı):** Öldüğünde 8 yöne yüksek hızlı mermi saçar.
-- **❄️ Frostbite (Buzul Aura):** Yaklaştığında oyuncuyu dondurarak hızını %35 keser.
-- **⚡ Tempest (Fırtına Arkı):** Belirli aralıklarla oyuncuya doğru ölümcül şimşek arkları fırlatır.
-- **🛡️ Aegis (Enerji Kalkanı):** Kendisini saran döner bariyer ile ilk 80 hasarı soğurur.
-
----
-
-## 🔱 Silah Evrimi (Synergy) - Gatling Lazer
-
-- Oyuncu hem **"Hızlı Tetik" (fire_rate)** hem de **"Çoklu Plazma" (multi_shot)** yükseltmelerine sahip olduğunda, sonraki seviye atlama ekranında efsanevi **Gatling Lazer** garanti çıkar. Mermiler kesintisiz bir plazma ışınına dönüşür ve atış bekleme süresi sıfırlanır.
+- **Mutlak Sifir (Absolute Zero):** Gatling Lazer + Buzul Mizragi birlestiginde acilir. Delici supersonik lazer tum ekrani dondurur, olen dusmanlar buz sarapneli sacar.
+- **Klaster Supernova (Cluster Nova):** Supernova Cekirdegi + Sacilma Atisi birlestiginde acilir. Her bomba 3 alt-cekirdege ayrilarak zincirleme termonukleer sok dalgalari sacar.
+- **Tekillik Firtinasi (Void Tempest):** Firtina Girdabi + Railgun Manyetik Rezonans birlestiginde acilir. Yildirim arklarinin carptigi yerlerde mini yercekimi tekillikleri acilir.
 
 ---
 
-## 📡 Taktiksel Decoy (Holo-Kopya) & Dinamik Hack Bölgesi
+## Siber Kalintilar (Relics & Artifacts System)
 
-- **Holo-Decoy (C Tuşu / LB):** 5 saniye boyunca haritadaki tüm düşmanların dikkatini üzerine çeken siber hologram bırakır. Süre bitiminde 350 hasarlı devasa EMP patlamasıyla infilak eder.
-- **Dinamik Hack Alanı (Risk-Reward Zone):** Her 45 saniyede bir çıkan yeşil hack çemberinde kalındığında düşman spawn hızı x2 olur. 8 saniye hayatta kalındığında can tamamen dolar ve efsanevi bir yükseltme hediye edilir.
-- **Near-Miss Bullet Time:** Düşman mermisi gövdeyi teğet geçtiğinde zaman 0.5 saniyeliğine %50 yavaşlar ve siber zaman bükülmesi sesi çalar.
+Elit dusmanlardan (%16 ihtimal) ve Boss'lardan (%100 garanti) dusen altin altigen bicimindeki siber eserler:
 
----
-
-## 🛠️ Meta-Progression (Hangar Sistemi)
-
-Düşmanlardan toplanan hurdalar (🔩) yerel hafızaya kaydedilir:
-- **❤️ Gövde Takviyesi:** Başlangıç Maksimum Canını kalıcı artırır.
-- **🛡️ Kalkan Jeneratörü:** Başlangıç Enerji Kalkanını kalıcı artırır.
-- **⚡ İyon İticileri:** Taban gemi hızını kalıcı artırır.
+1. **Tekillik Cekirdegi (Singularity Core - Efsanevi):** Kara deliklerin yuttugu her dusman oyuncunun mermi hasarini kalici olarak +%3 artirir.
+2. **Asiri Yukleme Reaktoru (Overclock Reactor - Destansi):** Ates hizini %25 artirir, Dash bekleme suresini %10 uzatir.
+3. **Vampirik Nanitler (Vampiric Nanites - Efsanevi):** Kritik vurusla oldurulen her dusman oyuncuya 2 can yeniler.
+4. **Kuantum Saptirici (Quantum Deflector - Destansi):** Kalkan kirildiginda 1.5 saniyelik hasarsiz faz kaymasi tetikler ve dusmanlari savurur.
 
 ---
 
-## 📁 Proje Dosya Yapısı
+## Kombo Sayaci & Siber Adrenalin (Adrenaline Rush)
+
+Dusmanlari arka arkaya imha ettikce kombo sayaci yukselir:
+- **Skor Carpani:** Her 10 komboda skor kazanimi artar (maksimum 4.0x carpan).
+- **25x Adrenaline Rush:** Gemi hizi +%18, ates hizi +%22 artar, neon sari aura parlar.
+- **50x Cyber Frenzy:** Gemi hizi +%32, ates hizi +%47 artar; gemi arkasinda gokkusagi renginde parcaciklar fiskirir.
+
+---
+
+## Sevk ve Seviye: 4 Seckin Dusman Affiksi (Elite Affixes)
+
+Dalga 2'den itibaren ortaya cikan seckin dusmanlar ozel affikslere sahiptir:
+- **Volatile (Patlayici):** Oldugunde 8 yone yuksek hizli mermi sacar.
+- **Frostbite (Buzul Aura):** Yaklastiginda oyuncuyu dondurarak hizini %35 keser.
+- **Tempest (Firtina Arki):** Belirli araliklarla oyuncuya dogru olumcul simsek arklari firlatir.
+- **Aegis (Enerji Kalkani):** Kendisini saran doner bariyer ile ilk 80 hasari sogurur.
+
+---
+
+## Taktiksel Decoy (Holo-Kopya) & Dinamik Hack Bolgesi
+
+- **Holo-Decoy (C Tusu / LB):** 5 saniye boyunca haritadaki tum dusmanlarin dikkatini uzerine ceken siber hologram birakir. Sure bitiminde 350 hasarli devasa EMP patlamasiyla infilak eder.
+- **Dinamik Hack Alani (Risk-Reward Zone):** Her 45 saniyede bir cikan hack cemberinde kalindiginda dusman spawn hizi x2 olur. 8 saniye hayatta kalindiginda can tamamen dolar ve efsanevi bir yukseltme hediye edilir.
+- **Near-Miss Bullet Time:** Dusman mermisi govdeyi teget gectiginde zaman 0.5 saniyeligne %50 yavaslar ve siber zaman bukulmesi sesi calar.
+
+---
+
+## Meta-Progression (Hangar Sistemi)
+
+Dusmanlardan toplanan hurdalar yerel hafizaya kaydedilir:
+- **Govde Takviyesi:** Baslangic Maksimum Canini kalici artirir.
+- **Kalkan Jeneratoru:** Baslangic Enerji Kalkanini kalici artirir.
+- **Iyon Iticileri:** Taban gemi hizini kalici artirir.
+
+---
+
+## Proje Dosya Yapisi
 
 ```
 c:/Users/user/Desktop/zort/
-├── index.html          # Bağımsız çekirdek oyun (19.038 satır)
-├── js/                 # 18 modüler alt sistem (audio, core, fx, gameplay)
-│   ├── fx/zortex_fx.js # GPU Post-Process efekt motoru (2.367 satır)
-│   ├── audio/          # Prosedürel Web Audio motoru ve broker
-│   ├── core/           # Kamera, havuz, i18n (4 dil), profilleyici, günlük RNG
-│   └── gameplay/       # Boss'lar, düşmanlar, silah füzyonları, meta gelişim
-├── app.py              # Yerel REST API ve masaüstü sunucu başlatıcısı
-├── oyna.bat            # Çift tıklamalı 1-tık masaüstü başlatıcı
-├── vendor/             # Çevrimdışı kütüphaneler (PixiJS v8, tweakpane, filters)
-├── assets/             # SFX ve sprite dokuları
-├── docs/               # Mimari ve test dokümanları (CODEBASE_MAP.md, RUNBOOK vb.)
-├── scripts/            # Kanonik test paketi (sim_gate.py, gfx_probe.py, bench_b2.py)
-├── src/                # [Arşiv İskeleti] Eski modüler deneme (kullanılmıyor)
-└── README.md           # Kapsamlı sistem ve kullanım kılavuzu
+├── index.html          # Bagimsiz cekirdek oyun ve arayuzler
+├── js/                 # Moduler alt sistemler (audio, core, fx, gameplay)
+│   ├── fx/zortex_fx.js # GPU Post-Process efekt motoru
+│   ├── audio/          # Prosedurel Web Audio motoru ve broker
+│   ├── core/           # Kamera, havuz, i18n (4 dil), profilleyici, gunluk RNG
+│   └── gameplay/       # Boss'lar, dusmanlar, silah fuzyonlari, meta gelisim
+├── app.py              # Yerel REST API ve masaustu sunucu baslaticisi
+├── oyna.bat            # Cift tiklamali 1-tik masaustu baslatici
+├── vendor/             # Cevrimdisi kutuphaneler (PixiJS v8, tweakpane, filters)
+├── assets/             # SFX ve sprite dokulari
+├── docs/               # Mimari ve test dokumanlari (CODEBASE_MAP.md, RUNBOOK vb.)
+├── scripts/            # Kanonik test paketi (sim_gate.py, verify_zortex_overhaul.py)
+└── README.md           # Kapsamli sistem ve kullanim kilavuzu
 ```
 
 ---
 
-## 🧪 Kalite ve Güvenilirlik Testleri
+## Kalite ve Guvenilirlik Testleri
 
-Tüm oyun mekanikleri headless Playwright/Chromium CDP üzerinde kanonik regresyon kapısı (`scripts/sim_gate.py`) ile 10 dalga boyunca otomatik olarak simüle edilir; 0 konsol hatası ve 0 runtime exception doğrulaması sağlanır. Performans kriterleri (`scripts/bench_b2.py`) ile 144 FPS / ~6.94 ms kare bütçesi kontrol edilir.
+Tum oyun mekanikleri headless Chromium CDP uzerinde kanonik regresyon kapisi (`scripts/sim_gate.py`) ile 10 dalga boyunca otomatik olarak simule edilir; 0 konsol hatasi ve 0 runtime exception dogrulamasi saglanir. Arayuz, silah atesleme ve boss asamalarinin dogrulamasi `scripts/verify_zortex_overhaul.py` ile yapilir.
