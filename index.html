@@ -7801,6 +7801,12 @@
             updateMenuScrapDisplay();
             if (typeof updateActiveProfileUI === 'function') updateActiveProfileUI();
             if (typeof updateShipSelectorUI === 'function') updateShipSelectorUI();
+            if (typeof renderProfileList === 'function') {
+              const profOverlay = document.getElementById('profileOverlay');
+              if (profOverlay && !profOverlay.classList.contains('hidden')) {
+                renderProfileList();
+              }
+            }
           }
         }
       } catch (e) {}
@@ -7852,7 +7858,19 @@
     }
 
     function selectProfile(name) {
-      if (!allProfiles[name]) return;
+      if (!name || !allProfiles[name]) {
+        if (activeProfileName && allProfiles[activeProfileName]) {
+          name = activeProfileName;
+        } else {
+          const available = Object.keys(allProfiles);
+          if (available.length > 0) {
+            name = available[0];
+          } else {
+            name = 'Ajan Alpha';
+            allProfiles[name] = createDefaultProfileData(name);
+          }
+        }
+      }
       activeProfileName = name;
       localStorage.setItem('zortex_active_profile', activeProfileName);
       const prof = allProfiles[name];
