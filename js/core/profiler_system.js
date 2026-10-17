@@ -290,7 +290,7 @@
     setupKeyListeners() {
       if (typeof window === 'undefined') return;
       window.addEventListener('keydown', (e) => {
-        if (e.key === 'F3' || e.code === 'F3') {
+        if ((e.key === 'F3' || e.code === 'F3') && !e.altKey && !e.ctrlKey) {
           e.preventDefault();
           this.toggle();
         }

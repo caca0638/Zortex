@@ -1982,10 +1982,10 @@
       this.createDomHUD();
 
       window.addEventListener('keydown', (e) => {
-        if (e.key === 'F2') {
+        if ((e.key === 'F2' || e.code === 'F2') && !e.altKey && !e.ctrlKey) {
           e.preventDefault();
           this.toggleTweakpane();
-        } else if (e.key === 'F4' || e.code === 'F4') {
+        } else if ((e.key === 'F8' || e.code === 'F8') && !e.altKey && !e.ctrlKey) {
           e.preventDefault();
           this.toggleDomHUD();
         }
@@ -2025,7 +2025,7 @@
           'transition: bottom 0.2s ease, opacity 0.2s ease',
           `display: ${this.hudVisible ? 'block' : 'none'}`
         ].join(';');
-        stats.title = 'Zortex FX & FPS HUD (F4 ile aç/kapat, tıkla kapat)';
+        stats.title = 'Zortex FX & FPS HUD (F8 ile aç/kapat, tıkla kapat)';
         stats.innerText = 'FX: INIT | E: 0 | B: 0 | P: 0';
         stats.addEventListener('click', () => this.toggleDomHUD(false));
         document.body.appendChild(stats);
@@ -2042,7 +2042,7 @@
         localStorage.setItem('zortex_show_fps_hud', this.hudVisible ? 'true' : 'false');
       } catch (_) {}
       if (typeof window.textManager !== 'undefined' && window.textManager && window.textManager.add && window.gameState === 'PLAYING') {
-        window.textManager.add(`⚡ FX/FPS HUD: ${this.hudVisible ? 'AÇIK' : 'KAPALI'} (F4)`, window.W / 2, window.H / 3, '#00f3ff', 16, 1.2);
+        window.textManager.add(`⚡ FX/FPS HUD: ${this.hudVisible ? 'AÇIK' : 'KAPALI'} (F8)`, window.W / 2, window.H / 3, '#00f3ff', 16, 1.2);
       }
       return this.hudVisible;
     }
@@ -2090,7 +2090,7 @@
             window.ZortexFX.quality.isAdaptive = ev.value;
           });
 
-          qFolder.addBinding(params, 'showFpsHud', { label: 'Telemetri HUD (F4)' }).on('change', (ev) => {
+          qFolder.addBinding(params, 'showFpsHud', { label: 'Telemetri HUD (F8)' }).on('change', (ev) => {
             this.toggleDomHUD(ev.value);
           });
 

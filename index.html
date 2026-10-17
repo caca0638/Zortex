@@ -5927,6 +5927,15 @@
         return;
       }
 
+      // Alt+F4 ile Uygulamayı Kapatma Desteği (Native Desktop)
+      if (e.altKey && (e.code === 'F4' || e.key === 'F4')) {
+        if (window.ZortexNative && typeof window.ZortexNative.quitGame === 'function') {
+          e.preventDefault();
+          window.ZortexNative.quitGame();
+          return;
+        }
+      }
+
       keys[e.code] = true;
 
       // 1. Sefer Hazırlığı (RUN_SETUP / Loadout Bay) Klavye Kısayolları
@@ -18707,7 +18716,7 @@
         },
         {
           key: 'debugTelemetry',
-          name: getT('setting_debug_telemetry_name', '⚡ Geliştirici Telemetri / FX HUD (F4)'),
+          name: getT('setting_debug_telemetry_name', '⚡ Geliştirici Telemetri / FX HUD (F8)'),
           desc: getT('setting_debug_telemetry_desc', 'Köşede parçacık, mermi, düşman sayısı ve kare süresi gecikme istatistiklerini gösterir.'),
           getVal: () => (window.ZortexFX && window.ZortexFX.debug && window.ZortexFX.debug.hudVisible) ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
           toggle: () => {

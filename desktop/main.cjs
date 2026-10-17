@@ -287,6 +287,9 @@ async function createGameWindow() {
       if (input.key === 'F11' || (input.alt && input.key === 'Enter')) {
         event.preventDefault();
         mainWindow.setFullScreen(!mainWindow.isFullScreen());
+      } else if (input.alt && (input.key === 'F4' || input.code === 'F4')) {
+        event.preventDefault();
+        mainWindow.close();
       } else if (input.control && input.shift && input.key.toLowerCase() === 'i') {
         event.preventDefault();
         mainWindow.webContents.toggleDevTools();
