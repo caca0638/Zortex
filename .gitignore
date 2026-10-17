@@ -1,18 +1,26 @@
-# Dependencies
+# Dependencies & Environments
 node_modules/
+.venv/
+env/
 
 # Test/browser profiles (headless runs) - real profile lives in %APPDATA%\ZortexCyberSurvivor
 .app_profile*/
 app_profile_*/
 .test_cm/
 
-# Scratch & snapshots
+# Archive, Scratch & Snapshots
+_archive/
 scratch/
 /scratch_*.png
 /scratch_*.json
 .git_snapshot/
 *.bak*
 *.zip
+
+# Vendor dev packages
+vendor/**/*.tgz
+vendor/pixi-filters/package/
+vendor/tweakpane/package/
 
 # Python
 __pycache__/
@@ -24,10 +32,16 @@ docs/probe_*.png
 docs/blackhole_*.png
 docs/b2_*.png
 
-# Logs & test outputs
+# Logs, test outputs & temporary agent artifacts
 *.log
+.DS_Store
+Thumbs.db
+desktop.ini
+**/Kenney.url
+**/Patreon.url
 
 # Skill secrets
 .agents/skills/**/.env
+
 
 

@@ -47,7 +47,30 @@
       ctrl_decoy: '<span class="key-badge">C</span> Holo-Kopya (Hedef Şaşırtma)',
       ctrl_gamepad: '<span class="key-badge">🎮 Gamepad</span> Sol/Sağ Analog (Twin-Stick)',
       ctrl_autofire: '<span class="key-badge">F</span> Otomatik Ateş Aç/Kapat',
+      ctrl_switch_weapon: '<span class="key-badge">1 - 4</span> Silah Değiştir (Açık Silahlar Arasında)',
       ctrl_pause: '<span class="key-badge">P / ESC</span> Oyunu Duraklat',
+      ctrl_modal_title: '⌨️ SİBER KONTROLLER',
+      close_btn: 'KAPAT',
+
+      // Silah Evrimi Bannerı
+      evo_banner_tag: '⚡ SİLAH EVRİMİ ⚡',
+      evo_banner_sub: 'KESİNTİSİZ HİPER DELİCİ PLAZMA IŞINI',
+
+      // Sefer Hazırlığı (Loadout Bay)
+      rso_title: '🚀 SEFER HAZIRLIĞI',
+      scrap_text: 'HURDA',
+      rso_tab_ships: '🛸 1. GEMİ SEÇİMİ',
+      rso_tab_weapons: '🔫 2. BAŞLANGIÇ SİLAHI',
+      rso_tab_chips: '🧬 3. NÖRAL YONGA MATRİSİ',
+      rso_back_btn: '◀ ANA MENÜ',
+      rso_pill_ship: 'Gemi:',
+      rso_pill_weapon: 'Silah:',
+      rso_pill_chips: 'Yongalar:',
+      rso_launch_btn: '🚀 SEFERİ BAŞLAT',
+
+      // Profil Yedekleme
+      export_profiles_btn: '📥 YEDEĞİ İNDİR (JSON)',
+      import_profiles_btn: '📤 YEDEK YÜKLE',
 
       // Gemi Sınıfı Seçimi
       ship_select_title: '⚡ SAVAŞ GEMİSİ SINIFI SEÇ:',
@@ -201,6 +224,8 @@
       setting_fps_desc: 'OTOMATİK: Monitörünüzün en yüksek hızını kullanır. İsteğe göre FPS sınırlandırılabilir.',
       setting_showfps_name: '📊 Canlı FPS Sayacı (HUD)',
       setting_showfps_desc: 'Oyun esnasında ekranın üst köşesinde anlık kare hızını gösterir.',
+      setting_debug_telemetry_name: '⚡ Geliştirici Telemetri / FX HUD (F4)',
+      setting_debug_telemetry_desc: 'Köşede parçacık, mermi, düşman sayısı ve kare süresi gecikme istatistiklerini gösterir.',
       setting_fullscreen_name: '🖥️ Tam Ekran Modu (Fullscreen)',
       setting_fullscreen_desc: 'Tarayıcı pencerelerini gizleyerek tam ekran pencereli modda çalıştırır.',
       setting_graphics_name: '🖥️ Grafik Kalitesi',
@@ -425,7 +450,30 @@
       ctrl_decoy: '<span class="key-badge">C</span> Holo-Decoy (Diversion)',
       ctrl_gamepad: '<span class="key-badge">🎮 Gamepad</span> Twin-Stick Analog',
       ctrl_autofire: '<span class="key-badge">F</span> Toggle Auto-Fire',
+      ctrl_switch_weapon: '<span class="key-badge">1 - 4</span> Switch Weapon (Among Unlocked Weapons)',
       ctrl_pause: '<span class="key-badge">P / ESC</span> Pause Game',
+      ctrl_modal_title: '⌨️ CYBER CONTROLS',
+      close_btn: 'CLOSE',
+
+      // Weapon Evolution Banner
+      evo_banner_tag: '⚡ WEAPON EVOLUTION ⚡',
+      evo_banner_sub: 'CONTINUOUS HYPER PIERCING PLASMA BEAM',
+
+      // Run Setup (Loadout Bay)
+      rso_title: '🚀 EXPEDITION LOADOUT',
+      scrap_text: 'SCRAP',
+      rso_tab_ships: '🛸 1. SHIP SELECTION',
+      rso_tab_weapons: '🔫 2. PRIMARY WEAPON',
+      rso_tab_chips: '🧬 3. NEURAL MATRIX',
+      rso_back_btn: '◀ MAIN MENU',
+      rso_pill_ship: 'Ship:',
+      rso_pill_weapon: 'Weapon:',
+      rso_pill_chips: 'Chips:',
+      rso_launch_btn: '🚀 LAUNCH EXPEDITION',
+
+      // Profile Backup
+      export_profiles_btn: '📥 DOWNLOAD BACKUP (JSON)',
+      import_profiles_btn: '📤 LOAD BACKUP',
 
       // Warship Class Selection
       ship_select_title: '⚡ SELECT WARSHIP CLASS:',
@@ -579,6 +627,8 @@
       setting_fps_desc: 'AUTO: Uses native monitor refresh rate. Can be capped manually to save battery.',
       setting_showfps_name: '📊 Real-Time FPS Counter (HUD)',
       setting_showfps_desc: 'Displays instantaneous frame rates at the top corner of the screen.',
+      setting_debug_telemetry_name: '⚡ Developer Telemetry / FX HUD (F4)',
+      setting_debug_telemetry_desc: 'Displays particle, projectile, enemy counters and frame latency histograms in the corner.',
       setting_fullscreen_name: '🖥️ Fullscreen Mode',
       setting_fullscreen_desc: 'Hides browser interface for immersive borderless full-window mode.',
       setting_graphics_name: '🖥️ Graphics Quality',
@@ -803,7 +853,30 @@
       ctrl_decoy: '<span class="key-badge">C</span> Señuelo Holográfico (Distracción)',
       ctrl_gamepad: '<span class="key-badge">🎮 Mando</span> Dos Palancas (Twin-Stick)',
       ctrl_autofire: '<span class="key-badge">F</span> Alternar Disparo Automático',
+      ctrl_switch_weapon: '<span class="key-badge">1 - 4</span> Cambiar Arma (Entre Armas Desbloqueadas)',
       ctrl_pause: '<span class="key-badge">P / ESC</span> Pausar Juego',
+      ctrl_modal_title: '⌨️ CONTROLES CIBERNÉTICOS',
+      close_btn: 'CERRAR',
+
+      // Pancarta de Evolución de Arma
+      evo_banner_tag: '⚡ EVOLUCIÓN DE ARMA ⚡',
+      evo_banner_sub: 'RAYO DE PLASMA HIPERPERFORANTE CONTINUO',
+
+      // Preparación de Expedición (Loadout Bay)
+      rso_title: '🚀 PREPARACIÓN DE EXPEDICIÓN',
+      scrap_text: 'CHATARRA',
+      rso_tab_ships: '🛸 1. SELECCIÓN DE NAVE',
+      rso_tab_weapons: '🔫 2. ARMA PRINCIPAL',
+      rso_tab_chips: '🧬 3. MATRIZ NEURONAL',
+      rso_back_btn: '◀ MENÚ PRINCIPAL',
+      rso_pill_ship: 'Nave:',
+      rso_pill_weapon: 'Arma:',
+      rso_pill_chips: 'Chips:',
+      rso_launch_btn: '🚀 INICIAR EXPEDICIÓN',
+
+      // Respaldo de Perfiles
+      export_profiles_btn: '📥 DESCARGAR COPIA (JSON)',
+      import_profiles_btn: '📤 CARGAR COPIA',
 
       // Selección de Clase de Nave
       ship_select_title: '⚡ ELIGE CLASE DE NAVE DE GUERRA:',
@@ -957,6 +1030,8 @@
       setting_fps_desc: 'AUTO: Usa la tasa nativa de tu monitor. Se puede limitar para ahorrar energía.',
       setting_showfps_name: '📊 Contador de FPS en Vivo (HUD)',
       setting_showfps_desc: 'Muestra la tasa instantánea de cuadros en la esquina superior.',
+      setting_debug_telemetry_name: '⚡ Telemetría de Desarrollador / HUD FX (F4)',
+      setting_debug_telemetry_desc: 'Muestra contadores de partículas, proyectiles, enemigos e histograma de latencia.',
       setting_fullscreen_name: '🖥️ Modo Pantalla Completa',
       setting_fullscreen_desc: 'Oculta la interfaz del navegador para una experiencia inmersiva.',
       setting_graphics_name: '🖥️ Calidad Gráfica',
@@ -1181,7 +1256,30 @@
       ctrl_decoy: '<span class="key-badge">C</span> Holo-Täuschkörper (Ablenkung)',
       ctrl_gamepad: '<span class="key-badge">🎮 Gamepad</span> Twin-Stick-Analog',
       ctrl_autofire: '<span class="key-badge">F</span> Dauerfeuer Umschalten',
+      ctrl_switch_weapon: '<span class="key-badge">1 - 4</span> Waffe Wechseln (Aus Freigeschalteten Waffen)',
       ctrl_pause: '<span class="key-badge">P / ESC</span> Spiel Pausieren',
+      ctrl_modal_title: '⌨️ CYBER-STEUERUNG',
+      close_btn: 'SCHLIESSEN',
+
+      // Waffen-Evolutions-Banner
+      evo_banner_tag: '⚡ WAFFEN-EVOLUTION ⚡',
+      evo_banner_sub: 'KONTINUIERLICHER HYPER-DURCHDRINGENDER PLASMABRAHL',
+
+      // Expeditions-Vorbereitung (Loadout Bay)
+      rso_title: '🚀 EXPEDITIONS-VORBEREITUNG',
+      scrap_text: 'SCHROTT',
+      rso_tab_ships: '🛸 1. SCHIFFSAUSWAHL',
+      rso_tab_weapons: '🔫 2. PRIMÄRWAFFE',
+      rso_tab_chips: '🧬 3. NEURALE MATRIX',
+      rso_back_btn: '◀ HAUPTMENÜ',
+      rso_pill_ship: 'Schiff:',
+      rso_pill_weapon: 'Waffe:',
+      rso_pill_chips: 'Chips:',
+      rso_launch_btn: '🚀 EXPEDITION STARTEN',
+
+      // Profil-Sicherung
+      export_profiles_btn: '📥 BACKUP HERUNTERLADEN (JSON)',
+      import_profiles_btn: '📤 BACKUP LADEN',
 
       // Kriegsschiff-Klasse
       ship_select_title: '⚡ KRIEGSSCHIFF-KLASSE WÄHLEN:',
@@ -1335,6 +1433,8 @@
       setting_fps_desc: 'AUTO: Verwendet die Bildwiederholrate deines Monitors. Kann manuell begrenzt werden.',
       setting_showfps_name: '📊 Echtzeit-FPS-Zähler (HUD)',
       setting_showfps_desc: 'Zeigt die aktuelle Bildrate in der oberen Ecke des Bildschirms an.',
+      setting_debug_telemetry_name: '⚡ Entwickler-Telemetrie / FX HUD (F4)',
+      setting_debug_telemetry_desc: 'Zeigt Partikel-, Geschoss-, Feindzähler und Latenz-Histogramme in der Ecke an.',
       setting_fullscreen_name: '🖥️ Vollbildmodus',
       setting_fullscreen_desc: 'Blendet die Browser-Leisten für rahmenlosen Vollbildmodus aus.',
       setting_graphics_name: '🖥️ Grafikqualität',

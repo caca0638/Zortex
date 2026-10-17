@@ -715,6 +715,7 @@
       this.unifiedFilter = null;
       this.rgbSplitFilter = null;
       this.activeShockwaves = [];
+      this.shockwavePool = [];
 
       this.time = 0;
       this.enabled = true;
@@ -777,10 +778,20 @@
         const warmupFilters = [];
         if (this.unifiedFilter) warmupFilters.push(this.unifiedFilter);
         if (this.rgbSplitFilter) warmupFilters.push(this.rgbSplitFilter);
-        if (typeof PIXI.filters !== 'undefined' && PIXI.filters.ShockwaveFilter) {
+        const SwClass = (window.PIXI_FILTERS && window.PIXI_FILTERS.ShockwaveFilter) || (typeof PIXI.filters !== 'undefined' && PIXI.filters.ShockwaveFilter);
+        if (SwClass) {
           try {
-            const swWarm = new PIXI.filters.ShockwaveFilter();
-            warmupFilters.push(swWarm);
+            while (this.shockwavePool.length < 2) {
+              const swWarm = new SwClass({
+                center: [0, 0],
+                radius: 10,
+                wavelength: 90,
+                amplitude: 20,
+                speed: 500
+              });
+              this.shockwavePool.push(swWarm);
+              warmupFilters.push(swWarm);
+            }
           } catch (e) {}
         }
         scratchContainer.filters = warmupFilters;
@@ -968,7 +979,8 @@
     }
 
     triggerShockwave(worldX, worldY, maxRadius = 300, duration = 0.55) {
-      if (!window.PIXI_FILTERS || !window.PIXI_FILTERS.ShockwaveFilter) return;
+      const SwClass = (window.PIXI_FILTERS && window.PIXI_FILTERS.ShockwaveFilter) || (typeof PIXI.filters !== 'undefined' && PIXI.filters.ShockwaveFilter);
+      if (!SwClass) return;
       const q = window.ZortexFX ? window.ZortexFX.quality.currentTier : 'high';
       if (q === 'low') return;
 
@@ -979,17 +991,30 @@
 
       // Max 2 simultaneous shockwaves to prevent fill-rate bottleneck
       if (this.activeShockwaves.length >= 2) {
-        this.activeShockwaves.shift();
+        const recycled = this.activeShockwaves.shift();
+        if (recycled && recycled.filter && this.shockwavePool.length < 2) {
+          this.shockwavePool.push(recycled.filter);
+        }
       }
 
       try {
-        const sw = new window.PIXI_FILTERS.ShockwaveFilter({
-          center: [worldX, worldY],
-          radius: 10,
-          wavelength: 90,
-          amplitude: reduce ? 8 : 28,
-          speed: maxRadius / duration
-        });
+        let sw = this.shockwavePool.pop();
+        if (!sw) {
+          sw = new SwClass({
+            center: [worldX, worldY],
+            radius: 10,
+            wavelength: 90,
+            amplitude: reduce ? 8 : 28,
+            speed: maxRadius / duration
+          });
+        } else {
+          sw.center = [worldX, worldY];
+          sw.radius = 10;
+          sw.wavelength = 90;
+          sw.amplitude = reduce ? 8 : 28;
+          sw.speed = maxRadius / duration;
+          sw.time = 0;
+        }
 
         this.activeShockwaves.push({
           filter: sw,
@@ -1046,6 +1071,9 @@
           sw.time += dt;
 
           if (sw.time >= sw.duration) {
+            if (sw.filter && this.shockwavePool.length < 2) {
+              this.shockwavePool.push(sw.filter);
+            }
             this.activeShockwaves.splice(i, 1);
             filtersChanged = true;
           } else {
@@ -1892,6 +1920,7 @@
       this.pane = null;
       this.isVisible = false;
       this.domStats = null;
+      this.hudVisible = false;
       this.frameTimes = [];
       this.maxHistory = 600;
       this.spikes20 = 0;
@@ -1956,9 +1985,13 @@
         if (e.key === 'F2') {
           e.preventDefault();
           this.toggleTweakpane();
+        } else if (e.key === 'F4' || e.code === 'F4') {
+          e.preventDefault();
+          this.toggleDomHUD();
         }
       });
       window.__frameStats = () => this.getHistogram();
+      window.__toggleFpsHud = (force) => this.toggleDomHUD(force);
     }
 
     createDomHUD() {
@@ -1966,32 +1999,64 @@
       if (!stats) {
         stats = document.createElement('div');
         stats.id = 'zortex-fx-stats';
+        let savedState = false;
+        try {
+          savedState = localStorage.getItem('zortex_show_fps_hud') === 'true';
+        } catch (_) {}
+        this.hudVisible = savedState;
+
         stats.style.cssText = [
           'position: fixed',
           'bottom: 12px',
-          'left: 12px',
-          'font-family: monospace',
+          'right: 16px',
+          'font-family: Consolas, monospace',
           'font-size: 11px',
           'color: #00f3ff',
-          'background: rgba(5, 7, 17, 0.75)',
-          'padding: 4px 8px',
-          'border: 1px solid rgba(0, 243, 255, 0.3)',
-          'border-radius: 4px',
-          'z-index: 9999',
-          'pointer-events: none',
-          'text-shadow: 0 0 4px #00f3ff'
+          'background: rgba(4, 7, 18, 0.88)',
+          'padding: 5px 10px',
+          'border: 1px solid rgba(0, 243, 255, 0.35)',
+          'border-radius: 6px',
+          'box-shadow: 0 0 12px rgba(0, 243, 255, 0.2)',
+          'z-index: 99999',
+          'pointer-events: auto',
+          'cursor: pointer',
+          'user-select: none',
+          'text-shadow: 0 0 4px #00f3ff',
+          'transition: bottom 0.2s ease, opacity 0.2s ease',
+          `display: ${this.hudVisible ? 'block' : 'none'}`
         ].join(';');
+        stats.title = 'Zortex FX & FPS HUD (F4 ile aç/kapat, tıkla kapat)';
         stats.innerText = 'FX: INIT | E: 0 | B: 0 | P: 0';
+        stats.addEventListener('click', () => this.toggleDomHUD(false));
         document.body.appendChild(stats);
       }
       this.domStats = stats;
     }
 
-    updateDomHUD(metrics, quality) {
+    toggleDomHUD(forceState) {
+      this.hudVisible = (typeof forceState === 'boolean') ? forceState : !this.hudVisible;
       if (this.domStats) {
-        const hist = this.getHistogram();
-        this.domStats.innerText = `[${quality.toUpperCase()}] E: ${metrics.enemyCount} | B: ${metrics.bulletCount} | P: ${metrics.particleCount} | ${metrics.fps} FPS | ms: ${hist.median}/${hist.p95}/${hist.p99} | >20ms: ${hist.spikes20} | >33ms: ${hist.spikes33}`;
+        this.domStats.style.display = this.hudVisible ? 'block' : 'none';
       }
+      try {
+        localStorage.setItem('zortex_show_fps_hud', this.hudVisible ? 'true' : 'false');
+      } catch (_) {}
+      if (typeof window.textManager !== 'undefined' && window.textManager && window.textManager.add && window.gameState === 'PLAYING') {
+        window.textManager.add(`⚡ FX/FPS HUD: ${this.hudVisible ? 'AÇIK' : 'KAPALI'} (F4)`, window.W / 2, window.H / 3, '#00f3ff', 16, 1.2);
+      }
+      return this.hudVisible;
+    }
+
+    updateDomHUD(metrics, quality) {
+      if (!this.hudVisible || !this.domStats) return;
+      const rso = document.getElementById('runSetupOverlay');
+      if (rso && !rso.classList.contains('hidden')) {
+        this.domStats.style.bottom = '78px';
+      } else {
+        this.domStats.style.bottom = '12px';
+      }
+      const hist = this.getHistogram();
+      this.domStats.innerText = `[${quality.toUpperCase()}] E: ${metrics.enemyCount} | B: ${metrics.bulletCount} | P: ${metrics.particleCount} | ${metrics.fps} FPS | ms: ${hist.median}/${hist.p95}/${hist.p99} | >20ms: ${hist.spikes20} | >33ms: ${hist.spikes33}`;
     }
 
     toggleTweakpane() {
@@ -2008,6 +2073,7 @@
           const params = {
             tier: window.ZortexFX.quality.currentTier,
             adaptive: window.ZortexFX.quality.isAdaptive,
+            showFpsHud: this.hudVisible,
             bloom: window.ZortexFX.quality.config.bloom,
             bloomThreshold: window.ZortexFX.quality.config.bloomThreshold,
             bloomScale: window.ZortexFX.quality.config.bloomScale,
@@ -2022,6 +2088,10 @@
 
           qFolder.addBinding(params, 'adaptive').on('change', (ev) => {
             window.ZortexFX.quality.isAdaptive = ev.value;
+          });
+
+          qFolder.addBinding(params, 'showFpsHud', { label: 'Telemetri HUD (F4)' }).on('change', (ev) => {
+            this.toggleDomHUD(ev.value);
           });
 
           const bloomFolder = this.pane.addFolder({ title: 'Bloom Parametreleri', expanded: true });

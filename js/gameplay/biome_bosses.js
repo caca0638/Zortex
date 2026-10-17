@@ -455,7 +455,7 @@
 
     triggerBossIntro(bossName, subtitle = 'SEKTÖR ABLUKA PROTOKOLÜ DEVREDE') {
       try {
-        if (typeof window.triggerHitStop === 'function') window.triggerHitStop(0.22);
+        // Not: 144Hz kesintisiz akıcılık için yapay hitStop dondurması kaldırılmıştır (0 micro-stutter)
         if (typeof window.triggerCameraZoom === 'function') window.triggerCameraZoom(0.08);
         if (typeof window.screenShake !== 'undefined') window.screenShake = Math.max(window.screenShake || 0, 24);
         if (window.audio && typeof window.audio.playExplosion === 'function') window.audio.playExplosion(2.4);

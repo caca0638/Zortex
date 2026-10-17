@@ -598,7 +598,6 @@
             if (window.textManager && typeof window.textManager.add === 'function') {
               window.textManager.add(`💥 ${this.label.toUpperCase()} İMHA EDİLDİ! (-${shockDmg})`, this.x, this.y - 25, '#ffe600', 16, 1.8);
             }
-            if (typeof window.triggerHitStop === 'function') window.triggerHitStop(0.12);
             if (typeof window.triggerTrauma === 'function') window.triggerTrauma(0.18);
             if (typeof window.screenShake !== 'undefined') window.screenShake = 0;
             if (typeof window.addShockwave === 'function') window.addShockwave(this.x, this.y, 220, 0.4);
@@ -708,7 +707,7 @@
      */
     triggerBossIntro(bossName = 'OMEGA DREADNOUGHT') {
       try {
-        if (typeof window.triggerHitStop === 'function') window.triggerHitStop(0.22);
+        // Not: 144Hz kesintisiz akıcılık için yapay hitStop dondurması kaldırılmıştır (0 micro-stutter)
         if (typeof window.triggerCameraZoom === 'function') window.triggerCameraZoom(0.08);
         if (typeof window.screenShake !== 'undefined') window.screenShake = Math.max(window.screenShake || 0, 24);
         if (window.audio && typeof window.audio.playExplosion === 'function') window.audio.playExplosion(2.4);

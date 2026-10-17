@@ -368,10 +368,10 @@
       pointer-events: none;
     }
     .neon-box {
-      background: var(--panel-bg);
+      background: #060913;
       border: 2px solid var(--primary-neon);
-      border-radius: 12px;
-      box-shadow: 0 0 25px var(--box-glow-1), inset 0 0 15px rgba(0, 243, 255, 0.15);
+      border-radius: 0;
+      box-shadow: 4px 4px 0 rgba(0, 243, 255, 0.28), inset 0 0 30px rgba(0, 0, 0, 0.85);
       padding: 22px 36px;
       text-align: center;
       max-width: 600px;
@@ -379,12 +379,7 @@
       max-height: 94vh;
       overflow-y: auto;
       margin: auto;
-      animation: boxGlow 3s infinite alternate;
       box-sizing: border-box;
-    }
-    @keyframes boxGlow {
-      from { box-shadow: 0 0 20px var(--box-glow-1); border-color: var(--primary-neon); }
-      to { box-shadow: 0 0 35px var(--box-glow-2); border-color: var(--secondary-neon); }
     }
     h1.title {
       font-size: 42px;
@@ -508,37 +503,51 @@
       92% { transform: translate(2.5px, 2px); opacity: 0.85; }
     }
     .btn {
-      background: var(--btn-gradient);
-      color: #010a17;
-      border: none;
-      padding: 14px 38px;
-      font-size: 18px;
+      background: #0d111a;
+      color: #ffffff;
+      border: 2px solid #ff0055;
+      padding: 13px 34px;
+      font-size: 16px;
       font-weight: 800;
       letter-spacing: 2px;
-      border-radius: 8px;
+      border-radius: 0;
       cursor: pointer;
       text-transform: uppercase;
-      transition: all 0.2s ease;
-      box-shadow: 0 0 20px var(--box-glow-1);
+      transition: all 0.15s ease;
+      box-shadow: 3px 3px 0 rgba(255, 0, 85, 0.45);
       margin: 10px 5px;
+      position: relative;
     }
     .btn:hover {
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 0 30px var(--box-glow-2);
-      background: linear-gradient(135deg, var(--secondary-neon), var(--primary-neon));
-      color: #fff;
+      background: #ff0055;
+      color: #ffffff;
+      border-color: #ff0055;
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 #00f3ff;
+    }
+    .btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 #00f3ff;
     }
     .btn-secondary {
-      background: transparent;
-      border: 2px solid #3d5178;
-      color: #8fa0c7;
+      background: #060912;
+      border: 1.5px solid #334155;
+      border-left: 3px solid #00f3ff;
+      color: #94a3b8;
+      border-radius: 0;
       box-shadow: none;
     }
     .btn-secondary:hover {
-      border-color: var(--primary-neon);
-      color: var(--primary-neon);
-      background: rgba(0, 243, 255, 0.1);
-      box-shadow: 0 0 15px var(--box-glow-1);
+      border-color: #00f3ff;
+      border-left-color: #ff0055;
+      color: #ffffff;
+      background: #0f172a;
+      box-shadow: 3px 3px 0 rgba(0, 243, 255, 0.45);
+      transform: translate(-1px, -1px);
+    }
+    .btn-secondary:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 rgba(0, 243, 255, 0.45);
     }
     .controls-hint {
       display: grid;
@@ -575,12 +584,13 @@
       perspective: 1000px;
     }
     .upgrade-card {
-      background: rgba(12, 19, 41, 0.95);
-      border: 2px solid #233763;
-      border-radius: 12px;
+      background: #080c18;
+      border: 2px solid #1e293b;
+      border-top: 3px solid #00f3ff;
+      border-radius: 0;
       padding: 22px 18px;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.18s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -606,17 +616,18 @@
     }
     .upgrade-card:hover {
       border-color: #00f3ff;
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(0, 243, 255, 0.35);
-      background: rgba(18, 30, 64, 0.95);
+      border-top-color: #ff0055;
+      transform: translate(-3px, -3px);
+      box-shadow: 5px 5px 0 #ff0055;
+      background: #0d1527;
     }
     .card-icon {
       font-size: 40px;
       margin-bottom: 12px;
-      text-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+      text-shadow: 0 0 14px rgba(0, 243, 255, 0.5);
     }
     .card-title {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 800;
       color: #00f3ff;
       margin-bottom: 8px;
@@ -631,20 +642,21 @@
     .card-rarity {
       position: absolute;
       top: 8px;
-      right: 10px;
-      font-size: 10px;
+      right: 8px;
+      font-size: 9.5px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1px;
       padding: 2px 6px;
-      border-radius: 4px;
+      border-radius: 0;
+      font-family: 'Consolas', monospace;
     }
-    .rarity-common { color: #8fa0c7; background: #16233d; }
-    .rarity-rare { color: #00f3ff; background: rgba(0, 243, 255, 0.2); }
-    .rarity-epic { color: #ff00ea; background: rgba(255, 0, 234, 0.2); }
-    .rarity-legendary { color: #ffe600; background: rgba(255, 230, 0, 0.2); }
-    .rarity-evolution { color: #ffe600; background: linear-gradient(90deg, rgba(255, 230, 0, 0.35), rgba(0, 243, 255, 0.35)); border: 1px solid #ffe600; text-shadow: 0 0 8px #ffe600; }
-    .rarity-fusion { color: #ff00ea; background: linear-gradient(90deg, rgba(255, 0, 234, 0.35), rgba(0, 243, 255, 0.35)); border: 1px solid #ff00ea; text-shadow: 0 0 10px #ff00ea, 0 0 16px #00f3ff; }
+    .rarity-common { color: #94a3b8; background: #0f172a; border: 1px solid #334155; }
+    .rarity-rare { color: #00f3ff; background: rgba(0, 243, 255, 0.12); border: 1px solid #00f3ff; }
+    .rarity-epic { color: #ff00ea; background: rgba(255, 0, 234, 0.12); border: 1px solid #ff00ea; }
+    .rarity-legendary { color: #ffb300; background: rgba(255, 179, 0, 0.15); border: 1px solid #ffb300; }
+    .rarity-evolution { color: #ffe600; background: #1a1602; border: 1.5px solid #ffe600; }
+    .rarity-fusion { color: #ff00ea; background: #1a0418; border: 1.5px solid #ff00ea; }
     .evolution-card {
       border: 2px solid #ffe600 !important;
       background: linear-gradient(135deg, rgba(20, 28, 60, 0.95), rgba(40, 25, 60, 0.95)) !important;
@@ -1208,9 +1220,9 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      background: rgba(5, 11, 28, 0.75);
-      border: 1px solid #1c2b4c;
-      border-radius: 10px;
+      background: #060914;
+      border: 1.5px solid #1c2b4c;
+      border-radius: 0;
       padding: 14px 16px;
     }
     .hangar-icon {
@@ -1241,18 +1253,19 @@
     .pip {
       width: 18px;
       height: 6px;
-      border-radius: 2px;
+      border-radius: 0;
       background: #1a2745;
     }
     .pip.on {
       background: #00f3ff;
-      box-shadow: 0 0 6px #00f3ff;
+      box-shadow: 1px 1px 0 #fff;
     }
     .hangar-buy {
       margin: 0;
       padding: 10px 16px;
       font-size: 14px;
       min-width: 96px;
+      border-radius: 0;
     }
 
     /* ===== YENİ: Gemi Sınıfı Seçim Kartları ===== */
@@ -1271,23 +1284,24 @@
       margin-bottom: 18px;
     }
     .ship-card {
-      background: rgba(8, 16, 36, 0.7);
+      background: #060914;
       border: 1.5px solid #1c2b4c;
-      border-radius: 8px;
+      border-radius: 0;
       padding: 10px 8px;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
       text-align: center;
     }
     .ship-card:hover {
       border-color: #00f3ff;
-      transform: translateY(-2px);
-      background: rgba(0, 243, 255, 0.08);
+      transform: translate(-2px, -2px);
+      box-shadow: 3px 3px 0 #00f3ff;
+      background: #0b1426;
     }
     .ship-card.active {
-      border-color: #ffe600;
-      background: rgba(255, 230, 0, 0.1);
-      box-shadow: 0 0 15px rgba(255, 230, 0, 0.35);
+      border-color: #00f3ff;
+      background: rgba(0, 243, 255, 0.08);
+      box-shadow: 3px 3px 0 #ff0055;
     }
     .ship-card-icon {
       font-size: 22px;
@@ -1701,26 +1715,34 @@
     }
     .settings-toggle-btn {
       padding: 7px 16px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 800;
-      border-radius: 6px;
+      border-radius: 0;
       cursor: pointer;
-      border: 1px solid #00f3ff;
-      background: rgba(0, 243, 255, 0.12);
-      color: #00f3ff;
+      border: 1px solid #1e293b;
+      background: #090e1a;
+      color: #94a3b8;
       min-width: 110px;
       text-align: center;
       transition: all 0.15s ease;
+      font-family: 'Consolas', monospace;
+    }
+    .settings-toggle-btn:hover {
+      border-color: #00f3ff;
+      color: #ffffff;
+      transform: translate(-1px, -1px);
+      box-shadow: 2px 2px 0 rgba(0, 243, 255, 0.4);
     }
     .settings-toggle-btn.active {
       background: #00f3ff;
       color: #020813;
-      box-shadow: 0 0 12px rgba(0, 243, 255, 0.5);
+      border-color: #00f3ff;
+      box-shadow: 2px 2px 0 #ff0055;
     }
     .settings-toggle-btn.off {
-      border-color: #5a6d8c;
-      background: rgba(255, 255, 255, 0.05);
-      color: #8fa0c7;
+      border-color: #1e293b;
+      background: #050811;
+      color: #64748b;
     }
 
     /* ===== HOLOGRAPHIC SCI-FI BAŞARIM BİLDİRİMİ TOAST ===== */
@@ -2124,35 +2146,37 @@
     }
     .rso-tabs {
       display: flex;
-      gap: 8px;
-      background: rgba(0, 0, 0, 0.4);
+      gap: 6px;
+      background: #050812;
       padding: 4px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0;
+      border: 1px solid #1e293b;
     }
     .rso-tab-btn {
       background: transparent;
       border: none;
       color: #94a3b8;
       padding: 8px 18px;
-      border-radius: 8px;
-      font-size: 13px;
+      border-radius: 0;
+      font-size: 12px;
       font-weight: 800;
       letter-spacing: 1px;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
       display: flex;
       align-items: center;
       gap: 8px;
+      font-family: 'Consolas', monospace;
     }
     .rso-tab-btn:hover {
       color: #fff;
-      background: rgba(255, 255, 255, 0.05);
+      background: #0f172a;
     }
     .rso-tab-btn.active {
-      color: #00f3ff;
-      background: rgba(0, 243, 255, 0.15);
-      box-shadow: 0 0 12px rgba(0, 243, 255, 0.3);
+      color: #020813;
+      background: #00f3ff;
+      font-weight: 900;
+      box-shadow: 2px 2px 0 #ff0055;
     }
     .rso-body {
       flex: 1;
@@ -2171,7 +2195,7 @@
     }
     .rso-left-pane::-webkit-scrollbar-thumb {
       background: rgba(0, 243, 255, 0.3);
-      border-radius: 4px;
+      border-radius: 0;
     }
     .rso-grid-2col {
       display: grid;
@@ -2179,12 +2203,12 @@
       gap: 14px;
     }
     .rso-card {
-      background: rgba(10, 18, 36, 0.7);
-      border: 1px solid rgba(0, 243, 255, 0.2);
-      border-radius: 10px;
+      background: #060914;
+      border: 1.5px solid #1e293b;
+      border-radius: 0;
       padding: 14px;
       cursor: pointer;
-      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.15s ease;
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -2193,22 +2217,23 @@
     }
     .rso-card:hover {
       border-color: #00f3ff;
-      transform: translateY(-2px);
-      background: rgba(15, 28, 55, 0.85);
-      box-shadow: 0 4px 18px rgba(0, 243, 255, 0.25);
+      transform: translate(-2px, -2px);
+      background: #0c1426;
+      box-shadow: 3px 3px 0 #00f3ff;
     }
     .rso-card.selected {
       border-color: #00f3ff;
       border-width: 2px;
-      background: rgba(0, 243, 255, 0.12);
-      box-shadow: 0 0 20px rgba(0, 243, 255, 0.35);
+      background: rgba(0, 243, 255, 0.08);
+      box-shadow: 4px 4px 0 #ff0055;
     }
     .rso-card.locked {
-      opacity: 0.82;
-      border-color: rgba(255, 255, 255, 0.12);
+      opacity: 0.65;
+      border-color: #1a2234;
+      background: #04060d;
     }
     .rso-card.inspecting {
-      outline: 2px solid #ffe600;
+      outline: 2px solid #ffb300;
     }
     .rso-card-header {
       display: flex;
@@ -2216,29 +2241,31 @@
       align-items: center;
     }
     .rso-card-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
       letter-spacing: 1px;
       color: #fff;
     }
     .rso-card-badge {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 6px;
+      padding: 2px 7px;
+      border-radius: 0;
       text-transform: uppercase;
+      font-family: 'Consolas', monospace;
     }
     .rso-badge-active {
       background: #00f3ff;
       color: #000;
+      box-shadow: 2px 2px 0 #ff0055;
     }
     .rso-badge-unlocked {
-      background: rgba(34, 197, 94, 0.2);
+      background: rgba(34, 197, 94, 0.15);
       color: #4ade80;
       border: 1px solid #22c55e;
     }
     .rso-badge-cost {
-      background: rgba(255, 179, 0, 0.18);
+      background: rgba(255, 179, 0, 0.15);
       color: #ffb300;
       border: 1px solid #ffb300;
     }
@@ -2343,41 +2370,54 @@
       gap: 8px;
     }
     .rso-btn-select {
-      background: linear-gradient(135deg, #00f3ff, #0088ff);
-      border: none;
+      background: #00f3ff;
+      border: 2px solid #00f3ff;
       color: #000;
       font-weight: 900;
       letter-spacing: 1.5px;
-      padding: 12px;
-      border-radius: 8px;
+      padding: 11px 20px;
+      border-radius: 0;
       cursor: pointer;
-      font-size: 15px;
-      transition: all 0.2s ease;
-      box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+      font-size: 14px;
+      transition: all 0.15s ease;
+      box-shadow: 3px 3px 0 #ff00ea;
+      font-family: 'Consolas', monospace;
     }
     .rso-btn-select:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(0, 243, 255, 0.7);
+      background: #50f7ff;
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 #ff00ea;
+    }
+    .rso-btn-select:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 #ff00ea;
     }
     .rso-btn-buy {
-      background: linear-gradient(135deg, #ffb300, #ff7700);
-      border: none;
+      background: #ffb300;
+      border: 2px solid #ffb300;
       color: #000;
       font-weight: 900;
       letter-spacing: 1.5px;
-      padding: 12px;
-      border-radius: 8px;
+      padding: 11px 20px;
+      border-radius: 0;
       cursor: pointer;
-      font-size: 15px;
-      transition: all 0.2s ease;
-      box-shadow: 0 0 15px rgba(255, 179, 0, 0.4);
+      font-size: 14px;
+      transition: all 0.15s ease;
+      box-shadow: 3px 3px 0 #ffffff;
+      font-family: 'Consolas', monospace;
     }
     .rso-btn-buy:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(255, 179, 0, 0.7);
+      background: #ffd000;
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 #ffffff;
+    }
+    .rso-btn-buy:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 #ffffff;
     }
     .rso-btn-disabled {
-      background: rgba(255, 255, 255, 0.1) !important;
+      background: #111827 !important;
+      border-color: #374151 !important;
       color: #64748b !important;
       cursor: not-allowed !important;
       box-shadow: none !important;
@@ -2388,62 +2428,76 @@
       justify-content: space-between;
       align-items: center;
       padding: 16px 32px;
-      background: rgba(2, 6, 18, 0.9);
-      border-top: 1px solid rgba(0, 243, 255, 0.2);
+      background: #050812;
+      border-top: 2px solid #1e293b;
     }
     .rso-btn-back {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #cbd5e1;
+      background: #080c16;
+      border: 1.5px solid #334155;
+      border-left: 3px solid #00f3ff;
+      color: #94a3b8;
       padding: 10px 22px;
-      border-radius: 8px;
+      border-radius: 0;
       font-size: 14px;
       font-weight: 800;
       letter-spacing: 1px;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
+      box-shadow: none;
+      font-family: 'Consolas', monospace;
     }
     .rso-btn-back:hover {
-      border-color: #ff0055;
-      color: #ff0055;
-      background: rgba(255, 0, 85, 0.08);
+      border-color: #00f3ff;
+      border-left-color: #ff0055;
+      color: #ffffff;
+      background: #0f172a;
+      box-shadow: 3px 3px 0 rgba(0, 243, 255, 0.45);
+      transform: translate(-1px, -1px);
+    }
+    .rso-btn-back:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 rgba(0, 243, 255, 0.45);
     }
     .rso-summary-pills {
       display: flex;
       gap: 12px;
     }
     .rso-pill {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #080d1a;
+      border: 1px solid #1e293b;
+      border-left: 2px solid #00f3ff;
       padding: 6px 14px;
-      border-radius: 6px;
+      border-radius: 0;
       font-size: 12px;
       font-weight: 700;
+      font-family: 'Consolas', monospace;
     }
     .rso-pill span {
       color: #00f3ff;
     }
     .rso-btn-launch {
-      background: linear-gradient(135deg, #ff0055, #ff00aa);
-      border: none;
-      color: #fff;
-      padding: 14px 38px;
-      border-radius: 8px;
-      font-size: 17px;
+      background: #0d111a;
+      border: 2px solid #ff0055;
+      color: #ffffff;
+      padding: 13px 36px;
+      border-radius: 0;
+      font-size: 16px;
       font-weight: 900;
       letter-spacing: 2px;
       cursor: pointer;
-      transition: all 0.22s ease;
-      box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
-      animation: rsoPulse 2s infinite alternate;
+      transition: all 0.15s ease;
+      box-shadow: 4px 4px 0 #00f3ff;
+      position: relative;
     }
     .rso-btn-launch:hover {
-      transform: scale(1.04);
-      box-shadow: 0 0 35px rgba(255, 0, 85, 0.9);
+      background: #ff0055;
+      color: #ffffff;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 #00f3ff;
     }
-    @keyframes rsoPulse {
-      0% { box-shadow: 0 0 15px rgba(255, 0, 85, 0.4); }
-      100% { box-shadow: 0 0 30px rgba(255, 0, 85, 0.8); }
+    .rso-btn-launch:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 #00f3ff;
     }
     .rso-chips-container {
       display: flex;
@@ -2453,9 +2507,9 @@
     }
     .rso-chip-col {
       flex: 1;
-      background: rgba(8, 14, 30, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
+      background: #060914;
+      border: 1.5px solid #1e293b;
+      border-radius: 0;
       padding: 18px;
       display: flex;
       flex-direction: column;
@@ -2463,21 +2517,21 @@
       overflow-y: auto;
     }
     .rso-chip-col-header {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 900;
       letter-spacing: 1.5px;
       padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1.5px solid #1e293b;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .rso-col-offense { border-color: rgba(239, 68, 68, 0.35); }
-    .rso-col-defense { border-color: rgba(56, 189, 248, 0.35); }
+    .rso-col-offense { border-top: 3px solid #ef4444; }
+    .rso-col-defense { border-top: 3px solid #00f3ff; }
     .rso-chip-tier-box {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px dashed rgba(255, 255, 255, 0.15);
-      border-radius: 8px;
+      background: #03050a;
+      border: 1px solid #1e293b;
+      border-radius: 0;
       padding: 10px;
       display: flex;
       flex-direction: column;
@@ -2488,32 +2542,36 @@
       font-weight: 800;
       color: #94a3b8;
       letter-spacing: 1px;
+      font-family: 'Consolas', monospace;
     }
     .rso-chip-item {
       display: flex;
       align-items: center;
       gap: 12px;
       padding: 10px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
+      background: #080d1a;
+      border: 1px solid #1e293b;
+      border-radius: 0;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
     }
     .rso-chip-item:hover {
-      background: rgba(255, 255, 255, 0.07);
-      border-color: rgba(0, 243, 255, 0.5);
+      background: #0f172a;
+      border-color: #00f3ff;
+      transform: translate(-1px, -1px);
+      box-shadow: 2px 2px 0 #00f3ff;
     }
     .rso-chip-item.unlocked {
-      border-color: rgba(0, 243, 255, 0.25);
+      border-color: #334155;
     }
     .rso-chip-item.equipped {
-      background: rgba(0, 243, 255, 0.14);
+      background: rgba(0, 243, 255, 0.08);
       border-color: #00f3ff;
-      box-shadow: 0 0 12px rgba(0, 243, 255, 0.3);
+      box-shadow: 2px 2px 0 #ff0055;
     }
     .rso-chip-item.locked {
-      opacity: 0.65;
+      opacity: 0.55;
+      background: #04060c;
     }
     .rso-chip-icon {
       font-size: 26px;
@@ -2580,9 +2638,9 @@
   <!-- [FX] FAZ 9: Ekran Flaş Katmanı & Silah Evrimi Bannerı -->
   <div id="screenFlashOverlay"></div>
   <div id="weaponEvolutionBanner" class="weapon-evo-banner hidden">
-    <div class="evo-banner-tag">⚡ SİLAH EVRİMİ ⚡</div>
+    <div class="evo-banner-tag" data-i18n="evo_banner_tag">⚡ SİLAH EVRİMİ ⚡</div>
     <div class="evo-banner-title"><span id="evoBannerIcon">🔱</span> <span id="evoBannerName">GATLING LAZER</span></div>
-    <div class="evo-banner-sub" id="evoBannerSub">KESİNTİSİZ HİPER DELİCİ PLAZMA IŞINI</div>
+    <div class="evo-banner-sub" id="evoBannerSub" data-i18n="evo_banner_sub">KESİNTİSİZ HİPER DELİCİ PLAZMA IŞINI</div>
   </div>
 
   <div id="canvas-container">
@@ -2702,6 +2760,12 @@
         <button id="createNewProfileBtn" class="btn btn-secondary btn-small" data-i18n="new_pilot_btn" style="padding: 9px 18px; margin: 0;">➕ YENİ PROFİL</button>
       </div>
 
+      <div class="profile-backup-bar" style="margin-top: 10px; display: flex; gap: 8px; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <button id="exportProfilesBtn" class="btn btn-secondary btn-small" data-i18n="export_profiles_btn" style="font-size: 11px; padding: 6px 14px; border-color: #00f3ff; color: #00f3ff;">📥 YEDEĞİ İNDİR (JSON)</button>
+        <button id="importProfilesBtn" class="btn btn-secondary btn-small" data-i18n="import_profiles_btn" style="font-size: 11px; padding: 6px 14px; border-color: #10b981; color: #10b981;">📤 YEDEK YÜKLE</button>
+        <input type="file" id="importProfileFileInput" accept=".json" style="display: none;">
+      </div>
+
       <div class="gamepad-prompt-bar" style="margin-top: 16px;">
         <span>🎮</span>
         <span class="gp-badge">▲ / ▼</span> <span data-i18n="gp_profile_select">Profil Seç</span>
@@ -2768,7 +2832,7 @@
         </div>
       </div>
 
-      <button id="startBtn" class="btn" style="width: 100%; font-size: 18px; padding: 14px 24px; letter-spacing: 2px; margin-bottom: 12px; background: linear-gradient(135deg, #00f3ff, #ff00ea); box-shadow: 0 0 25px rgba(0, 243, 255, 0.45);" data-i18n="start_game">
+      <button id="startBtn" class="btn" style="width: 100%; font-size: 17px; padding: 14px 24px; letter-spacing: 2px; margin-bottom: 12px; box-shadow: 4px 4px 0 #00f3ff;" data-i18n="start_game">
         🚀 SEFERE BAŞLA (LOADOUT)
       </button>
 
@@ -2806,20 +2870,20 @@
   <!-- Ayrı Siber Kontroller Modalı -->
   <div id="controlsHintModal" class="overlay hidden" onclick="if(event.target === this) this.classList.add('hidden');" style="z-index: 10001;">
     <div class="neon-box" style="max-width: 480px; width: 90%; text-align: left;">
-      <h2 style="font-size: 20px; color: #00f3ff; margin-bottom: 12px; text-align: center;">⌨️ SİBER KONTROLLER</h2>
+      <h2 style="font-size: 20px; color: #00f3ff; margin-bottom: 12px; text-align: center;" data-i18n="ctrl_modal_title">⌨️ SİBER KONTROLLER</h2>
       <div class="controls-hint" style="display: grid; grid-template-columns: 1fr; gap: 8px;">
-        <div><span class="key-badge">WASD / Oklar</span> Hareket</div>
-        <div><span class="key-badge">Mouse Sol Tık</span> Hedef Al & Ateş</div>
-        <div><span class="key-badge">Space / Sağ Tık</span> Siber Dash (Hızlı Kaçış)</div>
-        <div><span class="key-badge">E / Q</span> Overdrive / Ultimate Saldırı</div>
-        <div><span class="key-badge">C</span> Holo-Kopya (Hedef Şaşırtma)</div>
-        <div><span class="key-badge">F</span> Otomatik Ateş Aç/Kapat</div>
-        <div><span class="key-badge">1 - 4</span> Silah Değiştir (Açık Silahlar Arasında)</div>
-        <div><span class="key-badge">P / ESC</span> Duraklat / Menü</div>
-        <div><span class="key-badge">🎮 Gamepad</span> Sol/Sağ Analog (Twin-Stick)</div>
+        <div data-i18n="ctrl_move"><span class="key-badge">WASD / Oklar</span> Hareket</div>
+        <div data-i18n="ctrl_aim"><span class="key-badge">Mouse Sol Tık</span> Hedef Al & Ateş</div>
+        <div data-i18n="ctrl_dash"><span class="key-badge">Space / Sağ Tık</span> Siber Dash (Hızlı Kaçış)</div>
+        <div data-i18n="ctrl_overdrive"><span class="key-badge">E / Q</span> Overdrive / Ultimate Saldırı</div>
+        <div data-i18n="ctrl_decoy"><span class="key-badge">C</span> Holo-Kopya (Hedef Şaşırtma)</div>
+        <div data-i18n="ctrl_autofire"><span class="key-badge">F</span> Otomatik Ateş Aç/Kapat</div>
+        <div data-i18n="ctrl_switch_weapon"><span class="key-badge">1 - 4</span> Silah Değiştir (Açık Silahlar Arasında)</div>
+        <div data-i18n="ctrl_pause"><span class="key-badge">P / ESC</span> Duraklat / Menü</div>
+        <div data-i18n="ctrl_gamepad"><span class="key-badge">🎮 Gamepad</span> Sol/Sağ Analog (Twin-Stick)</div>
       </div>
       <div style="text-align: center; margin-top: 16px;">
-        <button class="btn btn-secondary btn-small" onclick="document.getElementById('controlsHintModal').classList.add('hidden');">KAPAT</button>
+        <button class="btn btn-secondary btn-small" onclick="document.getElementById('controlsHintModal').classList.add('hidden');" data-i18n="close_btn">KAPAT</button>
       </div>
     </div>
   </div>
@@ -2858,17 +2922,17 @@
     <!-- Üst Başlık & Sekmeler -->
     <div class="rso-header">
       <div class="rso-title-group">
-        <div class="rso-title">🚀 SEFER HAZIRLIĞI</div>
+        <div class="rso-title" data-i18n="rso_title">🚀 SEFER HAZIRLIĞI</div>
         <div class="rso-scrap-badge">
           <span>🔩</span>
-          <span id="runSetupScrapValue">0</span> HURDA
+          <span id="runSetupScrapValue">0</span> <span data-i18n="scrap_text">HURDA</span>
         </div>
       </div>
 
       <div class="rso-tabs">
-        <button class="rso-tab-btn active" data-tab="ships">🛸 1. GEMİ SEÇİMİ</button>
-        <button class="rso-tab-btn" data-tab="weapons">🔫 2. BAŞLANGIÇ SİLAHI</button>
-        <button class="rso-tab-btn" data-tab="chips">🧬 3. NÖRAL YONGA MATRİSİ</button>
+        <button class="rso-tab-btn active" data-tab="ships" data-i18n="rso_tab_ships">🛸 1. GEMİ SEÇİMİ</button>
+        <button class="rso-tab-btn" data-tab="weapons" data-i18n="rso_tab_weapons">🔫 2. BAŞLANGIÇ SİLAHI</button>
+        <button class="rso-tab-btn" data-tab="chips" data-i18n="rso_tab_chips">🧬 3. NÖRAL YONGA MATRİSİ</button>
       </div>
     </div>
 
@@ -2879,15 +2943,15 @@
 
     <!-- Alt Gezinme & Başlat -->
     <div class="rso-footer">
-      <button class="rso-btn-back" id="runSetupBackBtn">◀ ANA MENÜ</button>
+      <button class="rso-btn-back" id="runSetupBackBtn" data-i18n="rso_back_btn">◀ ANA MENÜ</button>
 
       <div class="rso-summary-pills">
-        <div class="rso-pill">Gemi: <span id="rsoSumShip">INTERCEPTOR</span></div>
-        <div class="rso-pill">Silah: <span id="rsoSumWeapon">Pulse Blaster</span></div>
-        <div class="rso-pill">Yongalar: <span id="rsoSumChips">0/8</span></div>
+        <div class="rso-pill"><span data-i18n="rso_pill_ship">Gemi:</span> <span id="rsoSumShip">INTERCEPTOR</span></div>
+        <div class="rso-pill"><span data-i18n="rso_pill_weapon">Silah:</span> <span id="rsoSumWeapon">Pulse Blaster</span></div>
+        <div class="rso-pill"><span data-i18n="rso_pill_chips">Yongalar:</span> <span id="rsoSumChips">0/8</span></div>
       </div>
 
-      <button class="rso-btn-launch" id="runSetupLaunchBtn">🚀 SEFERİ BAŞLAT</button>
+      <button class="rso-btn-launch" id="runSetupLaunchBtn" data-i18n="rso_launch_btn">🚀 SEFERİ BAŞLAT</button>
     </div>
   </div>
 
@@ -3154,7 +3218,7 @@
       </div>
 
       <div style="margin-top: 20px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-        <button id="vicContinueEndlessBtn" class="btn" data-i18n="continue_endless" style="background: linear-gradient(135deg, #00f3ff, #10b981); color: #020b18;">♾️ SONSUZ MODDA DEVAM ET</button>
+        <button id="vicContinueEndlessBtn" class="btn" data-i18n="continue_endless" style="background: #00f3ff; color: #020b18; border-color: #00f3ff; box-shadow: 3px 3px 0 #10b981;">♾️ SONSUZ MODDA DEVAM ET</button>
         <button id="vicReturnMenuBtn" class="btn btn-secondary" data-i18n="main_menu">🏠 ANA MENÜ / HANGAR</button>
       </div>
       <div class="gamepad-prompt-bar" style="margin-top: 14px;">
@@ -4897,30 +4961,25 @@
       // Fast / Swarm (Akıncı - "Stiletto Razor Drone")
       const gef = new PIXI.Graphics();
       // Katman 1: Aerodinamik Keskin İğne Şasisi
-      gef.beginFill(0x111827); gef.lineStyle(2.4, 0x475569);
-      gef.moveTo(21, 0); gef.lineTo(-12, -13); gef.lineTo(-6, 0); gef.lineTo(-12, 13); gef.closePath(); gef.endFill();
+      gef.poly([21, 0, -12, -13, -6, 0, -12, 13]).fill({ color: 0x111827 }).stroke({ width: 2.4, color: 0x475569 });
       // Katman 2: Elektrik Altını & Amber Kompozit Zırh Fasetleri
-      gef.beginFill(0x3d2005); gef.lineStyle(2.4, 0xfbbf24, 0.98);
-      gef.moveTo(18, 0); gef.lineTo(-9, -10); gef.lineTo(-4, 0); gef.lineTo(-9, 10); gef.closePath(); gef.endFill();
+      gef.poly([18, 0, -9, -10, -4, 0, -9, 10]).fill({ color: 0x3d2005 }).stroke({ width: 2.4, color: 0xfbbf24, alpha: 0.98 });
       // Yan Zırh Hatları
-      gef.lineStyle(1.8, 0xf59e0b, 0.9);
-      gef.moveTo(10, 0); gef.lineTo(-6, -5); gef.moveTo(10, 0); gef.lineTo(-6, 5);
+      gef.moveTo(10, 0).lineTo(-6, -5).stroke({ width: 1.8, color: 0xf59e0b, alpha: 0.9 });
+      gef.moveTo(10, 0).lineTo(-6, 5).stroke({ width: 1.8, color: 0xf59e0b, alpha: 0.9 });
       // Katman 3: Yönlü Speküler Rim Işığı
-      gef.lineStyle(2.2, 0xffffff, 0.98);
-      gef.moveTo(20, 0); gef.lineTo(-8.5, -11);
-      gef.lineStyle(1.4, 0xfef08a, 0.85);
-      gef.moveTo(9, 0); gef.lineTo(-4, -4);
+      gef.moveTo(20, 0).lineTo(-8.5, -11).stroke({ width: 2.2, color: 0xffffff, alpha: 0.98 });
+      gef.moveTo(9, 0).lineTo(-4, -4).stroke({ width: 1.4, color: 0xfef08a, alpha: 0.85 });
       // Katman 4: Burun Lazer Kılavuzu
-      gef.lineStyle(0);
-      gef.beginFill(0xffffff); gef.drawCircle(19, 0, 1.5); gef.endFill();
+      gef.circle(19, 0, 1.5).fill({ color: 0xffffff });
       // Katman 5: Yüksek Frekanslı Nabız Reaktörü
-      gef.beginFill(0xf59e0b, 0.45); gef.drawEllipse(2, 0, 7.5, 4.6); gef.endFill();
-      gef.beginFill(0xfbbf24, 0.95); gef.drawEllipse(2, 0, 4.6, 2.8); gef.endFill();
-      gef.beginFill(0xffffff, 1.0);  gef.drawCircle(2, 0, 1.8); gef.endFill();
+      gef.ellipse(2, 0, 7.5, 4.6).fill({ color: 0xf59e0b, alpha: 0.45 });
+      gef.ellipse(2, 0, 4.6, 2.8).fill({ color: 0xfbbf24, alpha: 0.95 });
+      gef.circle(2, 0, 1.8).fill({ color: 0xffffff, alpha: 1.0 });
       // Katman 6: Merkez İyon İtici Nozulu
-      gef.beginFill(0x1e293b); gef.drawRect(-11, -4.5, 5, 9); gef.endFill();
-      gef.beginFill(0xf59e0b); gef.drawCircle(-10, 0, 3.2); gef.endFill();
-      gef.beginFill(0xffffff); gef.drawCircle(-10, 0, 1.6); gef.endFill();
+      gef.rect(-11, -4.5, 5, 9).fill({ color: 0x1e293b });
+      gef.circle(-10, 0, 3.2).fill({ color: 0xf59e0b });
+      gef.circle(-10, 0, 1.6).fill({ color: 0xffffff });
       pixiTextures.enemy_fast = app.renderer.generateTexture({ target: gef, resolution: 2 });
       pixiTextures.enemy_swarm = pixiTextures.enemy_fast;
 
@@ -4973,284 +5032,207 @@
       // Shooter (Keskin Nişancı - "Vortex Rail Hunter")
       const gesh = new PIXI.Graphics();
       // Katman 1: Obsidiyen Şasi
-      gesh.beginFill(0x13092b); gesh.lineStyle(2.4, 0x581c87);
-      gesh.moveTo(26, 0); gesh.lineTo(11, -19); gesh.lineTo(-16, -19); gesh.lineTo(-9, 0);
-      gesh.lineTo(-16, 19); gesh.lineTo(11, 19); gesh.closePath(); gesh.endFill();
+      gesh.poly([26, 0, 11, -19, -16, -19, -9, 0, -16, 19, 11, 19]).fill({ color: 0x13092b }).stroke({ width: 2.4, color: 0x581c87 });
       // Katman 2: Mor Titanyum Kondansatör Muhafazası
-      gesh.beginFill(0x2e1065); gesh.lineStyle(2.6, 0xa855f7, 0.98);
-      gesh.moveTo(22, 0); gesh.lineTo(9, -15); gesh.lineTo(-12, -15); gesh.lineTo(-6, 0);
-      gesh.lineTo(-12, 15); gesh.lineTo(9, 15); gesh.closePath(); gesh.endFill();
+      gesh.poly([22, 0, 9, -15, -12, -15, -6, 0, -12, 15, 9, 15]).fill({ color: 0x2e1065 }).stroke({ width: 2.6, color: 0xa855f7, alpha: 0.98 });
       // Katman 3: Yönlü Speküler Rim Işığı
-      gesh.lineStyle(2.4, 0xffffff, 0.98);
-      gesh.moveTo(24, 0); gesh.lineTo(10, -17); gesh.lineTo(-14, -17);
-      gesh.lineStyle(1.6, 0xe9d5ff, 0.85);
-      gesh.moveTo(9, -13); gesh.lineTo(-9, -13);
+      gesh.moveTo(24, 0).lineTo(10, -17).lineTo(-14, -17).stroke({ width: 2.4, color: 0xffffff, alpha: 0.98 });
+      gesh.moveTo(9, -13).lineTo(-9, -13).stroke({ width: 1.6, color: 0xe9d5ff, alpha: 0.85 });
       // Katman 4: İkiz Manyetik Railgun Hızlandırıcı Çatalları
-      gesh.lineStyle(2.8, 0xc084fc);
-      gesh.moveTo(11, -9); gesh.lineTo(29, -9);
-      gesh.moveTo(11, 9);  gesh.lineTo(29, 9);
+      gesh.moveTo(11, -9).lineTo(29, -9).stroke({ width: 2.8, color: 0xc084fc });
+      gesh.moveTo(11, 9).lineTo(29, 9).stroke({ width: 2.8, color: 0xc084fc });
       // Manyetik Boğum Bobinleri
-      gesh.lineStyle(1.8, 0xffffff);
-      gesh.moveTo(17, -10.5); gesh.lineTo(17, -7.5); gesh.moveTo(23, -10.5); gesh.lineTo(23, -7.5);
-      gesh.moveTo(17, 7.5);   gesh.lineTo(17, 10.5);  gesh.moveTo(23, 7.5);   gesh.lineTo(23, 10.5);
+      gesh.moveTo(17, -10.5).lineTo(17, -7.5).stroke({ width: 1.8, color: 0xffffff });
+      gesh.moveTo(23, -10.5).lineTo(23, -7.5).stroke({ width: 1.8, color: 0xffffff });
+      gesh.moveTo(17, 7.5).lineTo(17, 10.5).stroke({ width: 1.8, color: 0xffffff });
+      gesh.moveTo(23, 7.5).lineTo(23, 10.5).stroke({ width: 1.8, color: 0xffffff });
       // Katman 5: Mor Yüksek Voltaj Çekirdeği
-      gesh.lineStyle(0);
-      gesh.beginFill(0xa855f7, 0.45); gesh.drawCircle(1, 0, 8.5); gesh.endFill();
-      gesh.beginFill(0xa855f7, 0.95); gesh.drawCircle(1, 0, 5.5); gesh.endFill();
-      gesh.beginFill(0xffffff, 1.0);  gesh.drawCircle(1, 0, 2.6); gesh.endFill();
+      gesh.circle(1, 0, 8.5).fill({ color: 0xa855f7, alpha: 0.45 });
+      gesh.circle(1, 0, 5.5).fill({ color: 0xa855f7, alpha: 0.95 });
+      gesh.circle(1, 0, 2.6).fill({ color: 0xffffff, alpha: 1.0 });
       // Katman 6: Arka İyon Nozulları
-      gesh.beginFill(0x1e1b4b); gesh.lineStyle(1.4, 0x4338ca);
-      gesh.drawRect(-16, -9, 4, 4.5); gesh.drawRect(-16, 4.5, 4, 4.5); gesh.endFill();
-      gesh.lineStyle(0); gesh.beginFill(0xc084fc);
-      gesh.drawCircle(-14.5, -6.75, 2.2); gesh.drawCircle(-14.5, 6.75, 2.2); gesh.endFill();
+      gesh.rect(-16, -9, 4, 4.5).fill({ color: 0x1e1b4b }).stroke({ width: 1.4, color: 0x4338ca });
+      gesh.rect(-16, 4.5, 4, 4.5).fill({ color: 0x1e1b4b }).stroke({ width: 1.4, color: 0x4338ca });
+      gesh.circle(-14.5, -6.75, 2.2).fill({ color: 0xc084fc });
+      gesh.circle(-14.5, 6.75, 2.2).fill({ color: 0xc084fc });
       pixiTextures.enemy_shooter = app.renderer.generateTexture({ target: gesh, resolution: 2 });
 
       // Kamikaze (İntihar Saldırganı - "Overcharge Inferno Dart")
       const gek = new PIXI.Graphics();
       // Katman 1: Yanmış Karbon Isı Kalkanı Şasisi
-      gek.beginFill(0x290c04); gek.lineStyle(2.4, 0x9a3412);
-      gek.moveTo(24, 0); gek.lineTo(-16, -14); gek.lineTo(-10, 0); gek.lineTo(-16, 14); gek.closePath(); gek.endFill();
+      gek.poly([24, 0, -16, -14, -10, 0, -16, 14]).fill({ color: 0x290c04 }).stroke({ width: 2.4, color: 0x9a3412 });
       // Katman 2: Akkor Seramik Termal Karoları
-      gek.beginFill(0x451203); gek.lineStyle(2.6, 0xff3b00, 0.98);
-      gek.moveTo(21, 0); gek.lineTo(-14, -10.5); gek.lineTo(-8, 0); gek.lineTo(-14, 10.5); gek.closePath(); gek.endFill();
+      gek.poly([21, 0, -14, -10.5, -8, 0, -14, 10.5]).fill({ color: 0x451203 }).stroke({ width: 2.6, color: 0xff3b00, alpha: 0.98 });
       // Katman 3: Yönlü Speküler Rim Işığı
-      gek.lineStyle(2.4, 0xffffff, 0.98);
-      gek.moveTo(23, 0); gek.lineTo(-14, -12);
-      gek.lineStyle(1.5, 0xfed7aa, 0.85);
-      gek.moveTo(11, 0); gek.lineTo(-7, -7);
+      gek.moveTo(23, 0).lineTo(-14, -12).stroke({ width: 2.4, color: 0xffffff, alpha: 0.98 });
+      gek.moveTo(11, 0).lineTo(-7, -7).stroke({ width: 1.5, color: 0xfed7aa, alpha: 0.85 });
       // Katman 4: Radyasyon İkaz Kaburgaları
-      gek.lineStyle(1.8, 0xffea00);
-      gek.moveTo(4, -7); gek.lineTo(4, 7); gek.moveTo(-2, -8); gek.lineTo(-2, 8);
+      gek.moveTo(4, -7).lineTo(4, 7).stroke({ width: 1.8, color: 0xffea00 });
+      gek.moveTo(-2, -8).lineTo(-2, 8).stroke({ width: 1.8, color: 0xffea00 });
       // Katman 5: Aşırı Yüklenmiş Süper Kararsız Reaktör
-      gek.lineStyle(0);
-      gek.beginFill(0xff3b00, 0.50); gek.drawCircle(1, 0, 9.5); gek.endFill();
-      gek.beginFill(0xff7700, 0.92); gek.drawCircle(1, 0, 6.5); gek.endFill();
-      gek.beginFill(0xffea00, 1.0);  gek.drawCircle(1, 0, 4.2); gek.endFill();
-      gek.beginFill(0xffffff, 1.0);  gek.drawCircle(1, 0, 2.2); gek.endFill();
+      gek.circle(1, 0, 9.5).fill({ color: 0xff3b00, alpha: 0.50 });
+      gek.circle(1, 0, 6.5).fill({ color: 0xff7700, alpha: 0.92 });
+      gek.circle(1, 0, 4.2).fill({ color: 0xffea00, alpha: 1.0 });
+      gek.circle(1, 0, 2.2).fill({ color: 0xffffff, alpha: 1.0 });
       // Katman 6: Çift Alevli Art Yakıcı
-      gek.beginFill(0x431407); gek.lineStyle(1.4, 0x7c2d12);
-      gek.drawRect(-16, -7, 5, 4); gek.drawRect(-16, 3, 5, 4); gek.endFill();
-      gek.lineStyle(0); gek.beginFill(0xff5500);
-      gek.drawCircle(-14.5, -5, 2.5); gek.drawCircle(-14.5, 5, 2.5); gek.endFill();
-      gek.beginFill(0xffea00);
-      gek.drawCircle(-14.5, -5, 1.2); gek.drawCircle(-14.5, 5, 1.2); gek.endFill();
+      gek.rect(-16, -7, 5, 4).fill({ color: 0x431407 }).stroke({ width: 1.4, color: 0x7c2d12 });
+      gek.rect(-16, 3, 5, 4).fill({ color: 0x431407 }).stroke({ width: 1.4, color: 0x7c2d12 });
+      gek.circle(-14.5, -5, 2.5).fill({ color: 0xff5500 });
+      gek.circle(-14.5, 5, 2.5).fill({ color: 0xff5500 });
+      gek.circle(-14.5, -5, 1.2).fill({ color: 0xffea00 });
+      gek.circle(-14.5, 5, 1.2).fill({ color: 0xffea00 });
       pixiTextures.enemy_kamikaze = app.renderer.generateTexture({ target: gek, resolution: 2 });
 
       // Phantom (Hayalet - "Void Spectre Infiltrator")
       const gep = new PIXI.Graphics();
       // Katman 1: Fasetli Obsidiyen Hayalet Gövde
-      gep.beginFill(0x130724); gep.lineStyle(2.4, 0x581c87);
-      gep.moveTo(25, 0); gep.lineTo(4, -21); gep.lineTo(-18, -15); gep.lineTo(-8, 0);
-      gep.lineTo(-18, 15); gep.lineTo(4, 21); gep.closePath(); gep.endFill();
+      gep.poly([25, 0, 4, -21, -18, -15, -8, 0, -18, 15, 4, 21]).fill({ color: 0x130724 }).stroke({ width: 2.4, color: 0x581c87 });
       // Katman 2: Koyu Mor Metamalzeme Zırh Fasetleri
-      gep.beginFill(0x280e46); gep.lineStyle(2.6, 0xb000ff, 0.98);
-      gep.moveTo(21, 0); gep.lineTo(2, -18); gep.lineTo(-15, -12); gep.lineTo(-6, 0);
-      gep.lineTo(-15, 12); gep.lineTo(2, 18); gep.closePath(); gep.endFill();
+      gep.poly([21, 0, 2, -18, -15, -12, -6, 0, -15, 12, 2, 18]).fill({ color: 0x280e46 }).stroke({ width: 2.6, color: 0xb000ff, alpha: 0.98 });
       // Katman 3: Yönlü Speküler Rim Işığı
-      gep.lineStyle(2.4, 0xffffff, 0.98);
-      gep.moveTo(23, 0); gep.lineTo(3, -20); gep.lineTo(-16, -13.5);
-      gep.lineStyle(1.5, 0xf0abfc, 0.85);
-      gep.moveTo(11, 0); gep.lineTo(0, -11);
+      gep.moveTo(23, 0).lineTo(3, -20).lineTo(-16, -13.5).stroke({ width: 2.4, color: 0xffffff, alpha: 0.98 });
+      gep.moveTo(11, 0).lineTo(0, -11).stroke({ width: 1.5, color: 0xf0abfc, alpha: 0.85 });
       // Katman 4: Faz Rezonans İletim Kanalları
-      gep.lineStyle(1.8, 0xd946ef, 0.90);
-      gep.moveTo(0, -16); gep.lineTo(-11, -9);
-      gep.moveTo(0, 16);  gep.lineTo(-11, 9);
+      gep.moveTo(0, -16).lineTo(-11, -9).stroke({ width: 1.8, color: 0xd946ef, alpha: 0.90 });
+      gep.moveTo(0, 16).lineTo(-11, 9).stroke({ width: 1.8, color: 0xd946ef, alpha: 0.90 });
       // Katman 5: Boşluk Tekillik Çekirdeği
-      gep.lineStyle(0);
-      gep.beginFill(0x9333ea, 0.45); gep.drawCircle(0, 0, 8.5); gep.endFill();
-      gep.beginFill(0xb000ff, 0.95); gep.drawCircle(0, 0, 5.5); gep.endFill();
-      gep.beginFill(0xffffff, 1.0);  gep.drawCircle(0, 0, 2.4); gep.endFill();
+      gep.circle(0, 0, 8.5).fill({ color: 0x9333ea, alpha: 0.45 });
+      gep.circle(0, 0, 5.5).fill({ color: 0xb000ff, alpha: 0.95 });
+      gep.circle(0, 0, 2.4).fill({ color: 0xffffff, alpha: 1.0 });
       // Katman 6: Boşluk Tahrik İticileri
-      gep.beginFill(0x1e1035); gep.lineStyle(1.4, 0x4c1d95);
-      gep.drawRect(-16, -9, 4.5, 4); gep.drawRect(-16, 5, 4.5, 4); gep.endFill();
-      gep.lineStyle(0); gep.beginFill(0xb000ff);
-      gep.drawCircle(-14.5, -7, 2.2); gep.drawCircle(-14.5, 7, 2.2); gep.endFill();
+      gep.rect(-16, -9, 4.5, 4).fill({ color: 0x1e1035 }).stroke({ width: 1.4, color: 0x4c1d95 });
+      gep.rect(-16, 5, 4.5, 4).fill({ color: 0x1e1035 }).stroke({ width: 1.4, color: 0x4c1d95 });
+      gep.circle(-14.5, -7, 2.2).fill({ color: 0xb000ff });
+      gep.circle(-14.5, 7, 2.2).fill({ color: 0xb000ff });
       pixiTextures.enemy_phantom = app.renderer.generateTexture({ target: gep, resolution: 2 });
 
       // 1. Boss (Omega Dreadnought - Devasa Fasetli Titan Savaş Kalesi)
       const geboss = new PIXI.Graphics();
       // Katman 1: Kolosal Zırhlı Şasi
-      geboss.beginFill(0x0c040d); geboss.lineStyle(3.2, 0x4c0519, 0.98);
-      geboss.moveTo(56, 0); geboss.lineTo(34, -30); geboss.lineTo(16, -50); geboss.lineTo(-24, -50);
-      geboss.lineTo(-48, -28); geboss.lineTo(-42, 0); geboss.lineTo(-48, 28); geboss.lineTo(-24, 50);
-      geboss.lineTo(16, 50); geboss.lineTo(34, 30); geboss.closePath(); geboss.endFill();
+      geboss.poly([56, 0, 34, -30, 16, -50, -24, -50, -48, -28, -42, 0, -48, 28, -24, 50, 16, 50, 34, 30]).fill({ color: 0x0c040d }).stroke({ width: 3.2, color: 0x4c0519, alpha: 0.98 });
       // Katman 2: Fasetli Kızıl Savaş Zırh Plakaları
-      geboss.beginFill(0x280511); geboss.lineStyle(2.8, 0xff0055, 1.0);
-      geboss.moveTo(46, 0); geboss.lineTo(26, -22); geboss.lineTo(10, -40); geboss.lineTo(-18, -40);
-      geboss.lineTo(-38, -20); geboss.lineTo(-32, 0); geboss.lineTo(-38, 20); geboss.lineTo(-18, 40);
-      geboss.lineTo(10, 40); geboss.lineTo(26, 22); geboss.closePath(); geboss.endFill();
+      geboss.poly([46, 0, 26, -22, 10, -40, -18, -40, -38, -20, -32, 0, -38, 20, -18, 40, 10, 40, 26, 22]).fill({ color: 0x280511 }).stroke({ width: 2.8, color: 0xff0055, alpha: 1.0 });
       // Katman 3: Çift İleri Ağır Railgun Namluları
-      geboss.lineStyle(2.0, 0x64748b); geboss.beginFill(0x111827);
-      geboss.drawRect(20, -18, 42, 7); geboss.drawRect(20, 11, 42, 7); geboss.endFill();
-      geboss.lineStyle(0); geboss.beginFill(0x00f3ff);
-      geboss.drawCircle(60, -14.5, 3.2); geboss.drawCircle(60, 14.5, 3.2); geboss.endFill();
-      geboss.beginFill(0xffffff);
-      geboss.drawCircle(60, -14.5, 1.6); geboss.drawCircle(60, 14.5, 1.6); geboss.endFill();
+      geboss.rect(20, -18, 42, 7).fill({ color: 0x111827 }).stroke({ width: 2.0, color: 0x64748b });
+      geboss.rect(20, 11, 42, 7).fill({ color: 0x111827 }).stroke({ width: 2.0, color: 0x64748b });
+      geboss.circle(60, -14.5, 3.2).fill({ color: 0x00f3ff });
+      geboss.circle(60, 14.5, 3.2).fill({ color: 0x00f3ff });
+      geboss.circle(60, -14.5, 1.6).fill({ color: 0xffffff });
+      geboss.circle(60, 14.5, 1.6).fill({ color: 0xffffff });
       // Katman 4: Yan Savunma Taret Sponsonları
       for (const [sy, sx] of [[-32, 0], [32, 0], [-20, -25], [20, -25]]) {
-        geboss.lineStyle(1.8, 0xff0055); geboss.beginFill(0x1e040a);
-        geboss.drawCircle(sx, sy, 7.5); geboss.endFill();
-        geboss.lineStyle(0); geboss.beginFill(0x00f3ff);
-        geboss.drawCircle(sx, sy, 3.0); geboss.endFill();
+        geboss.circle(sx, sy, 7.5).fill({ color: 0x1e040a }).stroke({ width: 1.8, color: 0xff0055 });
+        geboss.circle(sx, sy, 3.0).fill({ color: 0x00f3ff });
       }
       // Katman 5: Yönlü Speküler Rim Pah Işığı
-      geboss.lineStyle(2.4, 0xffffff, 0.95);
-      geboss.moveTo(54, 0); geboss.lineTo(33, -29); geboss.lineTo(15, -48); geboss.lineTo(-22, -48);
-      geboss.lineStyle(1.6, 0xfca5a5, 0.8);
-      geboss.moveTo(44, 0); geboss.lineTo(25, -21); geboss.lineTo(9, -38);
+      geboss.moveTo(54, 0).lineTo(33, -29).lineTo(15, -48).lineTo(-22, -48).stroke({ width: 2.4, color: 0xffffff, alpha: 0.95 });
+      geboss.moveTo(44, 0).lineTo(25, -21).lineTo(9, -38).stroke({ width: 1.6, color: 0xfca5a5, alpha: 0.8 });
       // Katman 6: Merkez Titanyum Kuantum Reaktörü
-      geboss.lineStyle(2.6, 0x00f3ff, 0.95); geboss.beginFill(0x0a101d);
-      geboss.moveTo(18, 0); geboss.lineTo(8, -15); geboss.lineTo(-12, -15);
-      geboss.lineTo(-22, 0); geboss.lineTo(-12, 15); geboss.lineTo(8, 15); geboss.closePath(); geboss.endFill();
-      geboss.lineStyle(0);
-      geboss.beginFill(0xff0055, 0.6); geboss.drawCircle(-2, 0, 14); geboss.endFill();
-      geboss.beginFill(0x00f3ff, 0.9); geboss.drawCircle(-2, 0, 9); geboss.endFill();
-      geboss.beginFill(0xffffff, 1.0); geboss.drawCircle(-2, 0, 4.5); geboss.endFill();
+      geboss.poly([18, 0, 8, -15, -12, -15, -22, 0, -12, 15, 8, 15]).fill({ color: 0x0a101d }).stroke({ width: 2.6, color: 0x00f3ff, alpha: 0.95 });
+      geboss.circle(-2, 0, 14).fill({ color: 0xff0055, alpha: 0.6 });
+      geboss.circle(-2, 0, 9).fill({ color: 0x00f3ff, alpha: 0.9 });
+      geboss.circle(-2, 0, 4.5).fill({ color: 0xffffff, alpha: 1.0 });
       // Katman 7: Üçlü Ağır İyon İtici Nozulları
-      geboss.lineStyle(1.8, 0x475569); geboss.beginFill(0x0f172a);
-      geboss.drawRect(-52, -22, 9, 8); geboss.drawRect(-52, 14, 9, 8); geboss.drawRect(-46, -5, 8, 10); geboss.endFill();
-      geboss.lineStyle(0); geboss.beginFill(0xff0055);
-      geboss.drawCircle(-50, -18, 3.2); geboss.drawCircle(-50, 18, 3.2); geboss.drawCircle(-44, 0, 3.6); geboss.endFill();
+      geboss.rect(-52, -22, 9, 8).fill({ color: 0x0f172a }).stroke({ width: 1.8, color: 0x475569 });
+      geboss.rect(-52, 14, 9, 8).fill({ color: 0x0f172a }).stroke({ width: 1.8, color: 0x475569 });
+      geboss.rect(-46, -5, 8, 10).fill({ color: 0x0f172a }).stroke({ width: 1.8, color: 0x475569 });
+      geboss.circle(-50, -18, 3.2).fill({ color: 0xff0055 });
+      geboss.circle(-50, 18, 3.2).fill({ color: 0xff0055 });
+      geboss.circle(-44, 0, 3.6).fill({ color: 0xff0055 });
       pixiTextures.enemy_boss = app.renderer.generateTexture({ target: geboss, resolution: 2 });
       pixiTextures.enemy_boss_omega = pixiTextures.enemy_boss;
 
       // 2. Boss (Hive Mothership - Zümrüt & Sarı Biyo-Sibernetik Taşıyıcı)
       const gehive = new PIXI.Graphics();
-      gehive.beginFill(0x051a10); gehive.lineStyle(3.0, 0x065f46, 0.98);
-      gehive.moveTo(50, 0); gehive.lineTo(28, -34); gehive.lineTo(-10, -46); gehive.lineTo(-44, -30);
-      gehive.lineTo(-32, 0); gehive.lineTo(-44, 30); gehive.lineTo(-10, 46); gehive.lineTo(28, 34);
-      gehive.closePath(); gehive.endFill();
-      gehive.beginFill(0x064e3b); gehive.lineStyle(2.6, 0x10b981, 1.0);
-      gehive.moveTo(40, 0); gehive.lineTo(20, -26); gehive.lineTo(-6, -34); gehive.lineTo(-30, -20);
-      gehive.lineTo(-22, 0); gehive.lineTo(-30, 20); gehive.lineTo(-6, 34); gehive.lineTo(20, 26);
-      gehive.closePath(); gehive.endFill();
+      gehive.poly([50, 0, 28, -34, -10, -46, -44, -30, -32, 0, -44, 30, -10, 46, 28, 34]).fill({ color: 0x051a10 }).stroke({ width: 3.0, color: 0x065f46, alpha: 0.98 });
+      gehive.poly([40, 0, 20, -26, -6, -34, -30, -20, -22, 0, -30, 20, -6, 34, 20, 26]).fill({ color: 0x064e3b }).stroke({ width: 2.6, color: 0x10b981, alpha: 1.0 });
       // Kovan Drone Çıkış Hangarları
-      gehive.lineStyle(1.8, 0xfacc15); gehive.beginFill(0x1c1917);
-      gehive.drawRect(-8, -38, 22, 8); gehive.drawRect(-8, 30, 22, 8); gehive.endFill();
-      gehive.lineStyle(0); gehive.beginFill(0x10b981);
-      gehive.drawCircle(3, -34, 3); gehive.drawCircle(3, 34, 3); gehive.endFill();
+      gehive.rect(-8, -38, 22, 8).fill({ color: 0x1c1917 }).stroke({ width: 1.8, color: 0xfacc15 });
+      gehive.rect(-8, 30, 22, 8).fill({ color: 0x1c1917 }).stroke({ width: 1.8, color: 0xfacc15 });
+      gehive.circle(3, -34, 3).fill({ color: 0x10b981 });
+      gehive.circle(3, 34, 3).fill({ color: 0x10b981 });
       // Toksik Biyo-Reaktör
-      gehive.lineStyle(2.5, 0x34d399); gehive.beginFill(0x022c22);
-      gehive.drawCircle(0, 0, 16); gehive.endFill();
-      gehive.lineStyle(0);
-      gehive.beginFill(0x10b981, 0.85); gehive.drawCircle(0, 0, 11); gehive.endFill();
-      gehive.beginFill(0xfacc15, 0.95); gehive.drawCircle(0, 0, 6); gehive.endFill();
-      gehive.beginFill(0xffffff, 1.0);  gehive.drawCircle(0, 0, 2.5); gehive.endFill();
+      gehive.circle(0, 0, 16).fill({ color: 0x022c22 }).stroke({ width: 2.5, color: 0x34d399 });
+      gehive.circle(0, 0, 11).fill({ color: 0x10b981, alpha: 0.85 });
+      gehive.circle(0, 0, 6).fill({ color: 0xfacc15, alpha: 0.95 });
+      gehive.circle(0, 0, 2.5).fill({ color: 0xffffff, alpha: 1.0 });
       pixiTextures.enemy_boss_hive = app.renderer.generateTexture({ target: gehive, resolution: 2 });
 
       // 3. Boss (Shadow Cavalier - Obsidiyen Hayalet Bıçak Savaş Kruvazörü)
       const geshadow = new PIXI.Graphics();
-      geshadow.beginFill(0x0c0617); geshadow.lineStyle(3.0, 0x3b0764, 0.98);
-      geshadow.moveTo(60, 0); geshadow.lineTo(38, -14); geshadow.lineTo(52, -36); geshadow.lineTo(12, -28);
-      geshadow.lineTo(-24, -42); geshadow.lineTo(-44, -14); geshadow.lineTo(-30, 0); geshadow.lineTo(-44, 14);
-      geshadow.lineTo(-24, 42); geshadow.lineTo(12, 28); geshadow.lineTo(52, 36); geshadow.lineTo(38, 14);
-      geshadow.closePath(); geshadow.endFill();
-      geshadow.beginFill(0x2e1065); geshadow.lineStyle(2.6, 0xa855f7, 1.0);
-      geshadow.moveTo(48, 0); geshadow.lineTo(30, -10); geshadow.lineTo(40, -26); geshadow.lineTo(8, -20);
-      geshadow.lineTo(-18, -30); geshadow.lineTo(-32, -10); geshadow.lineTo(-22, 0); geshadow.lineTo(-32, 10);
-      geshadow.lineTo(-18, 30); geshadow.lineTo(8, 20); geshadow.lineTo(40, 26); geshadow.lineTo(30, 10);
-      geshadow.closePath(); geshadow.endFill();
+      geshadow.poly([60, 0, 38, -14, 52, -36, 12, -28, -24, -42, -44, -14, -30, 0, -44, 14, -24, 42, 12, 28, 52, 36, 38, 14]).fill({ color: 0x0c0617 }).stroke({ width: 3.0, color: 0x3b0764, alpha: 0.98 });
+      geshadow.poly([48, 0, 30, -10, 40, -26, 8, -20, -18, -30, -32, -10, -22, 0, -32, 10, -18, 30, 8, 20, 40, 26, 30, 10]).fill({ color: 0x2e1065 }).stroke({ width: 2.6, color: 0xa855f7, alpha: 1.0 });
       // Kuantum Faz Kaydırma Işıkları
-      geshadow.lineStyle(2.0, 0x00f3ff);
-      geshadow.moveTo(25, -5); geshadow.lineTo(55, 0); geshadow.lineTo(25, 5);
-      geshadow.lineStyle(0);
-      geshadow.beginFill(0xa855f7, 0.8); geshadow.drawCircle(-2, 0, 13); geshadow.endFill();
-      geshadow.beginFill(0x00f3ff, 0.95); geshadow.drawCircle(-2, 0, 7.5); geshadow.endFill();
-      geshadow.beginFill(0xffffff, 1.0);  geshadow.drawCircle(-2, 0, 3.2); geshadow.endFill();
+      geshadow.moveTo(25, -5).lineTo(55, 0).lineTo(25, 5).stroke({ width: 2.0, color: 0x00f3ff });
+      geshadow.circle(-2, 0, 13).fill({ color: 0xa855f7, alpha: 0.8 });
+      geshadow.circle(-2, 0, 7.5).fill({ color: 0x00f3ff, alpha: 0.95 });
+      geshadow.circle(-2, 0, 3.2).fill({ color: 0xffffff, alpha: 1.0 });
       pixiTextures.enemy_boss_shadow = app.renderer.generateTexture({ target: geshadow, resolution: 2 });
 
       // 4. Boss (Heavy Reactor Titan - Termal Endüstriyel Tungsten Kalesi)
       const gereactor = new PIXI.Graphics();
-      gereactor.beginFill(0x1c0f04); gereactor.lineStyle(3.2, 0x7c2d12, 0.98);
-      gereactor.moveTo(48, 0); gereactor.lineTo(32, -32); gereactor.lineTo(0, -48); gereactor.lineTo(-32, -32);
-      gereactor.lineTo(-48, 0); gereactor.lineTo(-32, 32); gereactor.lineTo(0, 48); gereactor.lineTo(32, 32);
-      gereactor.closePath(); gereactor.endFill();
-      gereactor.beginFill(0x431407); gereactor.lineStyle(2.8, 0xf97316, 1.0);
-      gereactor.moveTo(38, 0); gereactor.lineTo(24, -24); gereactor.lineTo(0, -36); gereactor.lineTo(-24, -24);
-      gereactor.lineTo(-38, 0); gereactor.lineTo(-24, 24); gereactor.lineTo(0, 36); gereactor.lineTo(24, 24);
-      gereactor.closePath(); gereactor.endFill();
+      gereactor.poly([48, 0, 32, -32, 0, -48, -32, -32, -48, 0, -32, 32, 0, 48, 32, 32]).fill({ color: 0x1c0f04 }).stroke({ width: 3.2, color: 0x7c2d12, alpha: 0.98 });
+      gereactor.poly([38, 0, 24, -24, 0, -36, -24, -24, -38, 0, -24, 24, 0, 36, 24, 24]).fill({ color: 0x431407 }).stroke({ width: 2.8, color: 0xf97316, alpha: 1.0 });
       // Radyal Manyetik Bobin Yuvaları
       for (let i = 0; i < 4; i++) {
         const a = (i * Math.PI) / 2;
         const cx = Math.cos(a) * 32, cy = Math.sin(a) * 32;
-        gereactor.lineStyle(1.8, 0xfacc15); gereactor.beginFill(0x18181b);
-        gereactor.drawCircle(cx, cy, 6); gereactor.endFill();
-        gereactor.lineStyle(0); gereactor.beginFill(0xff3b00);
-        gereactor.drawCircle(cx, cy, 2.5); gereactor.endFill();
+        gereactor.circle(cx, cy, 6).fill({ color: 0x18181b }).stroke({ width: 1.8, color: 0xfacc15 });
+        gereactor.circle(cx, cy, 2.5).fill({ color: 0xff3b00 });
       }
       // Aşırı Isınmış Plazma Kalbi
-      gereactor.lineStyle(2.4, 0xfacc15); gereactor.beginFill(0xea580c);
-      gereactor.drawCircle(0, 0, 16); gereactor.endFill();
-      gereactor.lineStyle(0);
-      gereactor.beginFill(0xfde047, 0.9); gereactor.drawCircle(0, 0, 10); gereactor.endFill();
-      gereactor.beginFill(0xffffff, 1.0); gereactor.drawCircle(0, 0, 5); gereactor.endFill();
+      gereactor.circle(0, 0, 16).fill({ color: 0xea580c }).stroke({ width: 2.4, color: 0xfacc15 });
+      gereactor.circle(0, 0, 10).fill({ color: 0xfde047, alpha: 0.9 });
+      gereactor.circle(0, 0, 5).fill({ color: 0xffffff, alpha: 1.0 });
       pixiTextures.enemy_boss_reactor = app.renderer.generateTexture({ target: gereactor, resolution: 2 });
 
       // 5. Minion (Hatchery Pod - Hexagonal Drone Dağıtıcı Kovan Kapsülü)
       const gepod = new PIXI.Graphics();
-      gepod.beginFill(0x064e3b); gepod.lineStyle(2.4, 0x10b981, 1.0);
+      const podPts = [];
       for (let i = 0; i < 6; i++) {
         const a = (i * Math.PI) / 3;
-        const px = Math.cos(a) * 22, py = Math.sin(a) * 22;
-        if (i === 0) gepod.moveTo(px, py); else gepod.lineTo(px, py);
+        podPts.push(Math.cos(a) * 22, Math.sin(a) * 22);
       }
-      gepod.closePath(); gepod.endFill();
-      gepod.lineStyle(1.5, 0xfacc15); gepod.beginFill(0x022c22);
-      gepod.drawCircle(0, 0, 11); gepod.endFill();
-      gepod.lineStyle(0); gepod.beginFill(0x34d399);
-      gepod.drawCircle(0, 0, 5); gepod.endFill();
+      gepod.poly(podPts).fill({ color: 0x064e3b }).stroke({ width: 2.4, color: 0x10b981, alpha: 1.0 });
+      gepod.circle(0, 0, 11).fill({ color: 0x022c22 }).stroke({ width: 1.5, color: 0xfacc15 });
+      gepod.circle(0, 0, 5).fill({ color: 0x34d399 });
       pixiTextures.enemy_hatchery_pod = app.renderer.generateTexture({ target: gepod, resolution: 2 });
 
       // 6. Minion (Shadow Clone - Holografik Mor Hayalet Klonu)
       const geclone = new PIXI.Graphics();
-      geclone.beginFill(0x2e1065, 0.75); geclone.lineStyle(2.0, 0xc084fc, 0.95);
-      geclone.moveTo(22, 0); geclone.lineTo(-14, -14); geclone.lineTo(-6, 0); geclone.lineTo(-14, 14);
-      geclone.closePath(); geclone.endFill();
-      geclone.lineStyle(0); geclone.beginFill(0x00f3ff, 0.9);
-      geclone.drawCircle(2, 0, 3.2); geclone.endFill();
+      geclone.poly([22, 0, -14, -14, -6, 0, -14, 14]).fill({ color: 0x2e1065, alpha: 0.75 }).stroke({ width: 2.0, color: 0xc084fc, alpha: 0.95 });
+      geclone.circle(2, 0, 3.2).fill({ color: 0x00f3ff, alpha: 0.9 });
       pixiTextures.enemy_shadow_clone = app.renderer.generateTexture({ target: geclone, resolution: 2 });
 
       // Nemesis (İntikam Avcısı - "Dread Corsair Flagship")
       const genem = new PIXI.Graphics();
       // Katman 1: Ağır Obsidiyen-Karbon Alt Şasi (Geniş Açılı Avcı Kanatları)
-      genem.beginFill(0x1a0505); genem.lineStyle(2.6, 0x450a0a, 0.98);
-      genem.moveTo(32, 0); genem.lineTo(16, -14); genem.lineTo(24, -24); genem.lineTo(8, -26);
-      genem.lineTo(-14, -26); genem.lineTo(-24, -14); genem.lineTo(-16, 0); genem.lineTo(-24, 14);
-      genem.lineTo(-14, 26); genem.lineTo(8, 26); genem.lineTo(24, 24); genem.lineTo(16, 14);
-      genem.closePath(); genem.endFill();
+      genem.poly([32, 0, 16, -14, 24, -24, 8, -26, -14, -26, -24, -14, -16, 0, -24, 14, -14, 26, 8, 26, 24, 24, 16, 14]).fill({ color: 0x1a0505 }).stroke({ width: 2.6, color: 0x450a0a, alpha: 0.98 });
       // Katman 2: Fasetli Yakut-Kızıl Ağır Zırh Plakaları
-      genem.beginFill(0x5f0f15); genem.lineStyle(2.6, 0xdc2626, 1.0);
-      genem.moveTo(28, 0); genem.lineTo(14, -11); genem.lineTo(20, -18); genem.lineTo(6, -20);
-      genem.lineTo(-11, -20); genem.lineTo(-18, -11); genem.lineTo(-13, 0); genem.lineTo(-18, 11);
-      genem.lineTo(-11, 20); genem.lineTo(6, 20); genem.lineTo(20, 18); genem.lineTo(14, 11);
-      genem.closePath(); genem.endFill();
+      genem.poly([28, 0, 14, -11, 20, -18, 6, -20, -11, -20, -18, -11, -13, 0, -18, 11, -11, 20, 6, 20, 20, 18, 14, 11]).fill({ color: 0x5f0f15 }).stroke({ width: 2.6, color: 0xdc2626, alpha: 1.0 });
       // Katman 3: İleri Uzanan Keskin Çift Saldırı Mahmuzları (Serrated Ramming Mandibles)
-      genem.lineStyle(2.4, 0xff0055, 0.95);
-      genem.moveTo(14, -8); genem.lineTo(34, -7); genem.lineTo(28, 0);
-      genem.moveTo(14, 8); genem.lineTo(34, 7); genem.lineTo(28, 0);
+      genem.moveTo(14, -8).lineTo(34, -7).lineTo(28, 0).stroke({ width: 2.4, color: 0xff0055, alpha: 0.95 });
+      genem.moveTo(14, 8).lineTo(34, 7).lineTo(28, 0).stroke({ width: 2.4, color: 0xff0055, alpha: 0.95 });
       // Katman 4: Yönlü Speküler Rim Işığı & Metalik Pah
-      genem.lineStyle(2.2, 0xffffff, 0.95);
-      genem.moveTo(27, 0); genem.lineTo(13, -11); genem.lineTo(19, -18); genem.lineTo(6, -20);
-      genem.lineStyle(1.4, 0xfca5a5, 0.85);
-      genem.moveTo(10, -5); genem.lineTo(-8, -12);
+      genem.moveTo(27, 0).lineTo(13, -11).lineTo(19, -18).lineTo(6, -20).stroke({ width: 2.2, color: 0xffffff, alpha: 0.95 });
+      genem.moveTo(10, -5).lineTo(-8, -12).stroke({ width: 1.4, color: 0xfca5a5, alpha: 0.85 });
       // Katman 5: Kanat Ucu Ağır Plazma Topu Kovanları
-      genem.lineStyle(1.8, 0x7f1d1d); genem.beginFill(0x1e0709);
-      genem.drawRect(4, -25, 12, 4); genem.drawRect(4, 21, 12, 4); genem.endFill();
-      genem.lineStyle(0); genem.beginFill(0xffe600);
-      genem.drawCircle(16, -23, 2.0); genem.drawCircle(16, 23, 2.0); genem.endFill();
+      genem.rect(4, -25, 12, 4).fill({ color: 0x1e0709 }).stroke({ width: 1.8, color: 0x7f1d1d });
+      genem.rect(4, 21, 12, 4).fill({ color: 0x1e0709 }).stroke({ width: 1.8, color: 0x7f1d1d });
+      genem.circle(16, -23, 2.0).fill({ color: 0xffe600 });
+      genem.circle(16, 23, 2.0).fill({ color: 0xffe600 });
       // Katman 6: Merkez Öfkeli Aşırı Yüklü İntikam Reaktörü (Pulsing Nemesis Core)
-      genem.lineStyle(0);
-      genem.beginFill(0xdc2626, 0.45); genem.drawCircle(0, 0, 13); genem.endFill();
-      genem.beginFill(0xff0033, 0.90); genem.drawCircle(0, 0, 8.5); genem.endFill();
-      genem.beginFill(0xffe600, 0.95); genem.drawCircle(0, 0, 5.0); genem.endFill();
-      genem.beginFill(0xffffff, 1.0);  genem.drawCircle(0, 0, 2.4); genem.endFill();
+      genem.circle(0, 0, 13).fill({ color: 0xdc2626, alpha: 0.45 });
+      genem.circle(0, 0, 8.5).fill({ color: 0xff0033, alpha: 0.90 });
+      genem.circle(0, 0, 5.0).fill({ color: 0xffe600, alpha: 0.95 });
+      genem.circle(0, 0, 2.4).fill({ color: 0xffffff, alpha: 1.0 });
       // Katman 7: Çift Ağır İtici Alev Nozulları
-      genem.beginFill(0x1a0505); genem.lineStyle(1.6, 0x991b1b);
-      genem.drawRect(-23, -11, 6, 6); genem.drawRect(-23, 5, 6, 6); genem.endFill();
-      genem.lineStyle(0); genem.beginFill(0xdc2626);
-      genem.drawCircle(-21, -8, 2.8); genem.drawCircle(-21, 8, 2.8); genem.endFill();
-      genem.beginFill(0xffea00);
-      genem.drawCircle(-21, -8, 1.4); genem.drawCircle(-21, 8, 1.4); genem.endFill();
+      genem.rect(-23, -11, 6, 6).fill({ color: 0x1a0505 }).stroke({ width: 1.6, color: 0x991b1b });
+      genem.rect(-23, 5, 6, 6).fill({ color: 0x1a0505 }).stroke({ width: 1.6, color: 0x991b1b });
+      genem.circle(-21, -8, 2.8).fill({ color: 0xdc2626 });
+      genem.circle(-21, 8, 2.8).fill({ color: 0xdc2626 });
+      genem.circle(-21, -8, 1.4).fill({ color: 0xffea00 });
+      genem.circle(-21, 8, 1.4).fill({ color: 0xffea00 });
       pixiTextures.enemy_nemesis = app.renderer.generateTexture({ target: genem, resolution: 2 });
 
       // Elite Ring (Holografik Çentikli Tehdit Halesi)
@@ -6059,6 +6041,24 @@
       }
     });
 
+    // Sekme görünürlüğü değiştiğinde ses ve oyun döngüsü yaşam döngüsünü yönet
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        for (const k in keys) keys[k] = false;
+        mouse.down = false;
+        if (typeof audio !== 'undefined' && audio && audio.ctx && audio.ctx.state === 'running') {
+          audio.ctx.suspend().catch(() => {});
+        }
+        if (gameState === 'PLAYING') {
+          togglePause();
+        }
+      } else {
+        if (typeof audio !== 'undefined' && audio && !audio.muted && audio.ctx && audio.ctx.state === 'suspended') {
+          audio.ctx.resume().catch(() => {});
+        }
+      }
+    });
+
     // ==============================================================
     // YENİ: SAVAŞ GEMİSİ SINIFLARI (SHIP CLASSES & ARCHETYPES)
     // ==============================================================
@@ -6372,7 +6372,12 @@
             triggerRumble('light');
           }
         } else if (gameState === 'MENU') {
-          const shipKeys = ['interceptor', 'titan', 'spectre'];
+          const unlockedCatalog = (window.ZortexMetaProgression && typeof window.ZortexMetaProgression.getUnlockedShips === 'function')
+            ? window.ZortexMetaProgression.getUnlockedShips()
+            : null;
+          const shipKeys = (unlockedCatalog && unlockedCatalog.length > 0)
+            ? unlockedCatalog
+            : (typeof SHIP_CLASSES !== 'undefined' ? Object.keys(SHIP_CLASSES) : ['interceptor', 'titan', 'spectre']);
           let curIdx = shipKeys.indexOf(selectedShipClass);
           if (curIdx === -1) curIdx = 0;
 
@@ -6655,8 +6660,8 @@
       configurable: true
     });
     function triggerHitStop(duration = 0.05) {
-      if (typeof gameSettings !== 'undefined' && gameSettings.screenShake === 0) return;
-      hitStopTimer = Math.min(0.12, Math.max(hitStopTimer, duration));
+      // Mikro donmaları önleme: Boss gelişi veya kritik anlarda oyun döngüsü dondurulmaz (144Hz akıcılık)
+      hitStopTimer = 0;
     }
     window.triggerHitStop = triggerHitStop;
 
@@ -6984,7 +6989,14 @@
       aegisRing: null,
       particleGlowCache: new Map(),
       enemySprites: new Map(),
+      _initialized: false,
       init() {
+        if (this._initialized) return;
+        // PixiJS v8 saf WebGL modunda ctx null ise 2D offscreen canvas tahsislerini atla
+        if (typeof ctx === 'undefined' || !ctx) {
+          return;
+        }
+        this._initialized = true;
         this.createXpGemSprite();
         this.createScrapSprite();
         this.createEnemySprites();
@@ -9299,7 +9311,7 @@
           const loader = window.ZortexAssetLoader;
           if (loader && loader.isInitialized) {
             if (category === 'spark' && loader.hasTexture('particle_spark_01')) tex = loader.getTexture('particle_spark_01');
-            else if (category === 'smoke' && loader.hasTexture('particle_smoke_01')) tex = loader.getTexture('particle_smoke_01');
+            else if ((category === 'smoke' || category === 'thruster_gas') && loader.hasTexture('particle_smoke_01')) tex = loader.getTexture('particle_smoke_01');
             else if (category === 'flame' && loader.hasTexture('particle_flame_01')) tex = loader.getTexture('particle_flame_01');
             else if (category === 'fire' && loader.hasTexture('particle_fire_01')) tex = loader.getTexture('particle_fire_01');
             else if (category === 'plasma' && loader.hasTexture('particle_flare_01')) tex = loader.getTexture('particle_flare_01');
@@ -9308,7 +9320,7 @@
           if (!tex && typeof pixiTextures !== 'undefined') {
             tex = (category === 'spark' && pixiTextures.spark) ? pixiTextures.spark :
                   (category === 'debris' && pixiTextures.debris) ? pixiTextures.debris :
-                  (category === 'smoke' && pixiTextures.smoke) ? pixiTextures.smoke :
+                  ((category === 'smoke' || category === 'thruster_gas') && pixiTextures.smoke) ? pixiTextures.smoke :
                   (category === 'plasma' && pixiTextures.plasma) ? pixiTextures.plasma :
                   (category === 'casing' && pixiTextures.casing) ? pixiTextures.casing :
                   pixiTextures.particle;
@@ -9471,43 +9483,56 @@
         this.emitSparks(x + Math.cos(angle) * 16, y + Math.sin(angle) * 16, color, 2, 2.5, angle, 0.4);
       }
 
-      // 6. Fütüristik İyon İtici Plazma Alevi & Duman İzi (Kenney HD Thruster)
-      emitThrusterPlume(x, y, angle, speed = 2.4, color = '#00f3ff') {
-        const pFlame = this._acquire('flame');
-        if (pFlame) {
-          const spread = (Math.random() - 0.5) * 0.35;
-          const spd = speed * (0.8 + Math.random() * 0.5);
-          pFlame.x = x;
-          pFlame.y = y;
-          pFlame.vx = Math.cos(angle + spread) * spd;
-          pFlame.vy = Math.sin(angle + spread) * spd;
-          pFlame.drag = 0.90;
-          pFlame.color = color;
-          pFlame.size = 2.4 + Math.random() * 1.6;
-          pFlame.baseSize = pFlame.size;
-          const l = 0.20 + Math.random() * 0.12;
-          pFlame.life = l;
-          pFlame.maxLife = l;
+      // 6. Fütüristik İyon İtici Plazma Gazı & Kozmik Embers (VFX Gelişmiş Parçacık Yapısı)
+      emitThrusterGas(x, y, angle, speed = 2.4, color = '#00f3ff', isDashing = false) {
+        // Çift nozül dağılımı (Twin exhaust lateral dispersion)
+        const perpAngle = angle + Math.PI / 2;
+        const sideOffset = (Math.random() > 0.5 ? 1 : -1) * (2.0 + Math.random() * 3.5);
+        const emitX = x + Math.cos(perpAngle) * sideOffset;
+        const emitY = y + Math.sin(perpAngle) * sideOffset;
+
+        const pGas = this._acquire('thruster_gas');
+        if (pGas) {
+          const spread = (Math.random() - 0.5) * 0.40;
+          const spd = speed * (0.32 + Math.random() * 0.38);
+          pGas.x = emitX;
+          pGas.y = emitY;
+          pGas.vx = Math.cos(angle + spread) * spd;
+          pGas.vy = Math.sin(angle + spread) * spd;
+          pGas.drag = 0.91;
+          pGas.rot = Math.random() * Math.PI * 2;
+          pGas.rotSpeed = (Math.random() - 0.5) * 2.2;
+          pGas.color = color;
+          pGas.size = (isDashing ? 4.5 : 3.0) + Math.random() * 1.5;
+          pGas.baseSize = pGas.size;
+          const l = (isDashing ? 0.42 : 0.32) + Math.random() * 0.12;
+          pGas.life = l;
+          pGas.maxLife = l;
         }
 
-        if (Math.random() < 0.45) {
-          const pSmoke = this._acquire('smoke');
-          if (pSmoke) {
-            const spread = (Math.random() - 0.5) * 0.6;
-            const spd = speed * (0.3 + Math.random() * 0.3);
-            pSmoke.x = x;
-            pSmoke.y = y;
-            pSmoke.vx = Math.cos(angle + spread) * spd;
-            pSmoke.vy = Math.sin(angle + spread) * spd;
-            pSmoke.drag = 0.94;
-            pSmoke.color = '#334155';
-            pSmoke.size = 3.0 + Math.random() * 2.0;
-            pSmoke.baseSize = pSmoke.size;
-            const l = 0.35 + Math.random() * 0.18;
-            pSmoke.life = l;
-            pSmoke.maxLife = l;
+        // Kozmik mikro-iyon kıvılcımı (Ionized micro-spark ember)
+        if (Math.random() < (isDashing ? 0.45 : 0.28)) {
+          const pSpark = this._acquire('spark');
+          if (pSpark) {
+            const spread = (Math.random() - 0.5) * 0.55;
+            const spd = speed * (0.50 + Math.random() * 0.45);
+            pSpark.x = emitX;
+            pSpark.y = emitY;
+            pSpark.vx = Math.cos(angle + spread) * spd;
+            pSpark.vy = Math.sin(angle + spread) * spd;
+            pSpark.drag = 0.93;
+            pSpark.color = isDashing ? '#ffffff' : color;
+            pSpark.size = 1.3 + Math.random() * 0.9;
+            pSpark.baseSize = pSpark.size;
+            const l = 0.22 + Math.random() * 0.14;
+            pSpark.life = l;
+            pSpark.maxLife = l;
           }
         }
+      }
+
+      emitThrusterPlume(x, y, angle, speed = 2.4, color = '#00f3ff') {
+        this.emitThrusterGas(x, y, angle, speed, color, false);
       }
 
       update(dt) {
@@ -9566,8 +9591,18 @@
                 const curSz = Math.max(0.2, p.size * 0.45);
                 p.sprite.scale.set(curSz, curSz);
               }
-              p.sprite.alpha = lifeRatio * 0.42;
-              p.sprite.blendMode = 'normal';
+            } else if (p.category === 'thruster_gas') {
+              p.sprite.rotation = p.rot;
+              const expandFactor = 0.75 + (1.0 - lifeRatio) * 1.5;
+              if (isHD) {
+                const curSz = Math.max(6, p.size * expandFactor * 8.5);
+                p.sprite.scale.set(curSz * hdBaseScale, curSz * hdBaseScale);
+              } else {
+                const curSz = Math.max(0.2, p.size * expandFactor * 0.42);
+                p.sprite.scale.set(curSz, curSz);
+              }
+              p.sprite.alpha = lifeRatio * (typeof autoPerformanceMode !== 'undefined' && autoPerformanceMode ? 0.25 : 0.42);
+              p.sprite.blendMode = 'add';
             } else if (p.category === 'flame' || p.category === 'fire' || p.category === 'plasma') {
               p.sprite.rotation = p.rot;
               if (isHD) {
@@ -10705,26 +10740,7 @@
           this.x += moveX * curSpeed * dtNorm;
           this.y += moveY * curSpeed * dtNorm;
 
-          // Engine particles (Kenney HD Plazma Alevi & Duman İzi)
-          if (moveX !== 0 || moveY !== 0) {
-            const backAngle = this.angle + Math.PI + (Math.random() * 0.35 - 0.175);
-            const pColor = this.shipClass ? this.shipClass.color : '#00f3ff';
-            if (typeof particles.emitThrusterPlume === 'function') {
-              particles.emitThrusterPlume(
-                this.x + Math.cos(backAngle) * 16,
-                this.y + Math.sin(backAngle) * 16,
-                backAngle,
-                curSpeed * 0.75,
-                pColor
-              );
-            } else {
-              particles.emit(
-                this.x + Math.cos(backAngle) * 16,
-                this.y + Math.sin(backAngle) * 16,
-                pColor, 1, 2, 2.5
-              );
-            }
-          }
+          // Not: İtici parçacıkları aşağıda nozzleX/nozzleY üzerinden emitThrusterGas ile tetiklenir
         }
 
         // Boundaries: Sonsuz Harita (Karakter serbestçe sınırsız dünya uzayında süzülür)
@@ -10756,6 +10772,25 @@
         const sinP = Math.sin(this.angle);
         const nozzleX = this.x - cosP * 14;
         const nozzleY = this.y - sinP * 14;
+
+        // VFX Option 3: Fütüristik İyon İtici Plazma Gazı & Kozmik Embers
+        if (isMoving && typeof particles !== 'undefined' && typeof particles.emitThrusterGas === 'function') {
+          this.thrusterGasTimer = (this.thrusterGasTimer || 0) + dt;
+          const gasInterval = this.isDashing ? 0.020 : 0.036;
+          if (this.thrusterGasTimer >= gasInterval) {
+            this.thrusterGasTimer = 0;
+            const exhaustAngle = this.angle + Math.PI;
+            const pColor = this.shipClass ? this.shipClass.color : '#00f3ff';
+            particles.emitThrusterGas(
+              nozzleX,
+              nozzleY,
+              exhaustAngle,
+              (this.isDashing ? this.dashSpeed * 0.42 : curSpeed * 0.32),
+              pColor,
+              this.isDashing
+            );
+          }
+        }
 
         let shouldPushRibbon = false;
         if (this.ribbonPoints.length === 0) {
@@ -12979,11 +13014,6 @@
           audio.playExplosion(isBossUnit ? 2.5 : (this.isElite ? 1.4 : 0.8), this.x, this.y);
           triggerRumble(isBossUnit ? 'boss' : (this.isElite ? 'heavy' : 'medium'));
           screenShake = Math.max(screenShake, isBossUnit ? 22 : (this.isElite ? 10 : (this.type === 'heavy' ? 8 : (this.type === 'kamikaze' ? 7 : 4))));
-          if (isBossUnit) {
-            triggerHitStop(0.08);
-          } else if (this.isElite) {
-            triggerHitStop(0.05);
-          }
 
           // Phase 9: Kademeli Çok Aşamalı Patlamalar & Şok Dalgaları
           const expScale = isBossUnit ? 2.6 : (this.isElite ? 1.6 : (this.type === 'heavy' ? 1.4 : (this.type === 'kamikaze' ? 1.3 : 0.95)));
@@ -13852,9 +13882,12 @@
     window.AegisHeavyEnemy = AegisHeavyEnemy;
     window.BossEnemy = BossEnemy;
 
-    // [GAMEPLAY] Modüler Düşman Sınıflarını Başlat (FAZ 2)
+    // [GAMEPLAY] Modüler Düşman ve Boss Sınıflarını Başlat (Sıfır Çalışma Zamanı Tahsisi)
     if (window.ZortexEnemies && typeof window.ZortexEnemies.initClasses === 'function') {
       window.ZortexEnemies.initClasses();
+    }
+    if (window.BiomeBossManager && typeof window.BiomeBossManager.initClasses === 'function') {
+      window.BiomeBossManager.initClasses();
     }
 
     /* ==============================================================
@@ -15878,11 +15911,9 @@
         }
 
         if (gameState === 'PLAYING') {
-          // [FX] FAZ 9: Silah Evrimi ve Kritik Anlarda Kısa Hit-Stop (0.12s frame freeze)
+          // [FX] Sıfır-Donma (Zero-Stutter): Boss gelişi ve faz değişimlerinde döngü dondurulmaz (144Hz kesintisiz akıcılık)
           if (typeof window.hitStopTimer === 'number' && window.hitStopTimer > 0) {
-            window.hitStopTimer -= rawDt;
-            if (pixiApp && pixiApp.renderer) pixiApp.render();
-            return;
+            window.hitStopTimer = Math.max(0, window.hitStopTimer - rawDt);
           }
           // Kararlı Oyun Hızı: Ağır çekim tamamen kaldırılmıştır, saf ve akıcı 144Hz Delta Time
           const dt = rawDt;
@@ -16712,7 +16743,7 @@
           }
         }
 
-        // AAA GÖRSELLEŞTİRME PROTOTİPİ (C + E): Biyolüminesans Akışkan Plazma Kurdele (Option E)
+        // AAA GÖRSELLEŞTİRME PROTOTİPİ (Option 1): Vakum İyon İtici Gaz & Plazma Plume (Zero Vector Wires)
         if (pixiFluidRibbonGraphics) {
           pixiFluidRibbonGraphics.clear();
           if (player && player.ribbonPoints && player.ribbonPoints.length >= 2 && (typeof gameState !== 'undefined' && (gameState === 'PLAYING' || gameState === 'UPGRADE'))) {
@@ -16720,7 +16751,7 @@
 
             let outerCol = 0x0088ff;  // Biyolüminesans dış halesi
             let mantleCol = 0x00f3ff; // Sıvı plazma mantosu
-            let coreCol = 0xffffff;   // Süpersonik ipliksi filament çekirdek
+            let coreCol = 0xffffff;   // Sıcak gaz boğaz çekirdeği
             if (player.isUltimateActive) {
               outerCol = 0xff8800;
               mantleCol = 0xffea00;
@@ -16733,6 +16764,10 @@
               outerCol = 0x6b21a8;
               mantleCol = 0xd946ef;
               coreCol = 0xffffff;
+            } else if (player.shipClass && player.shipClass.color) {
+              mantleCol = (typeof hexToPixiColor === 'function') ? hexToPixiColor(player.shipClass.color) : 0x00f3ff;
+              outerCol = mantleCol;
+              coreCol = 0xffffff;
             }
 
             const cosA = Math.cos(player.angle);
@@ -16741,7 +16776,7 @@
             const headY = player.y - sinA * 14;
 
             // Zincir oluştur: Gemi motor çıkışından en eski noktaya kadar
-            const pts = [{ x: headX, y: headY, age: 0, maxAge: 0.35, baseWidth: player.isDashing ? 16 : 9, seed: 0 }];
+            const pts = [{ x: headX, y: headY, age: 0, maxAge: 0.35, baseWidth: player.isDashing ? 15 : 8.0, seed: 0 }];
             for (let i = 0; i < player.ribbonPoints.length; i++) {
               pts.push(player.ribbonPoints[i]);
             }
@@ -16752,13 +16787,15 @@
               const rightPtsOuter = [];
               const leftPtsMantle = [];
               const rightPtsMantle = [];
-              const spinePts = [];
+              const leftPtsCore = [];
+              const rightPtsCore = [];
 
               for (let i = 0; i < numPts; i++) {
                 const pt = pts[i];
-                const k = 1 - (i / (numPts - 1)); // 1.0 = baş, 0.0 = kuyruk
+                const k = 1 - (i / (numPts - 1)); // 1.0 = baş (motor çıkışı), 0.0 = kuyruk
                 const lifeFade = Math.max(0, 1 - (pt.age / (pt.maxAge || 0.35)));
                 const combinedK = k * lifeFade;
+                const progress = 1.0 - combinedK; // 0.0 = çıkış, 1.0 = kuyruk
 
                 let tx = 0, ty = 0;
                 if (i === 0) {
@@ -16775,62 +16812,108 @@
                 const nx = -ty / d;
                 const ny = tx / d;
 
-                // Pürüzsüz aerodinamik akışkan omurga (Smooth continuous aerodynamic trajectory)
-                const cx = pt.x;
-                const cy = pt.y;
+                // Organik vakum genleşmesi ve akışkan dalgalanma (Vacuum expansion & gentle gaseous billow)
+                const billow = Math.sin(t * 7.0 + i * 0.48 + (pt.seed || 0)) * progress * 2.2;
+                const cx = pt.x + nx * billow;
+                const cy = pt.y + ny * billow;
 
-                spinePts.push({ x: cx, y: cy, k: combinedK });
-
-                // Nefes alan plazma genişliği
-                const widthBreathe = 1.0 + 0.08 * Math.sin(t * 5.0 - i * 0.35);
-                const wBase = (pt.baseWidth || 8) * Math.pow(combinedK, 0.65) * widthBreathe;
-                const wOuter = wBase * 1.5;
-                const wMantle = wBase * 0.85;
+                // Çan tipi vakum gaz genleşmesi: Motor ağzında kompakt başlar, uzay boşluğunda genişler ve söner
+                const expansion = 1.0 + Math.sin(Math.pow(progress, 0.70) * Math.PI) * 1.5;
+                const wBase = (pt.baseWidth || 7.5) * Math.pow(combinedK, 0.52) * expansion;
+                const wOuter = wBase * 1.65;
+                const wMantle = wBase * 0.88;
 
                 leftPtsOuter.push({ x: cx + nx * wOuter, y: cy + ny * wOuter });
                 rightPtsOuter.push({ x: cx - nx * wOuter, y: cy - ny * wOuter });
 
                 leftPtsMantle.push({ x: cx + nx * wMantle, y: cy + ny * wMantle });
                 rightPtsMantle.push({ x: cx - nx * wMantle, y: cy - ny * wMantle });
-              }
 
-              // 1. KATMAN: Dış Biyolüminesans Aurora Halesi (Geniş & Saydam Akışkan Şerit)
-              pixiFluidRibbonGraphics.moveTo(leftPtsOuter[0].x, leftPtsOuter[0].y);
-              for (let i = 1; i < leftPtsOuter.length; i++) {
-                pixiFluidRibbonGraphics.lineTo(leftPtsOuter[i].x, leftPtsOuter[i].y);
-              }
-              for (let i = rightPtsOuter.length - 1; i >= 0; i--) {
-                pixiFluidRibbonGraphics.lineTo(rightPtsOuter[i].x, rightPtsOuter[i].y);
-              }
-              pixiFluidRibbonGraphics.closePath()
-                .fill({ color: outerCol, alpha: player.isDashing ? 0.35 : 0.20 });
-
-              // 2. KATMAN: İç Akışkan Plazma Mantosu (Daha Parlak ve Canlı)
-              pixiFluidRibbonGraphics.moveTo(leftPtsMantle[0].x, leftPtsMantle[0].y);
-              for (let i = 1; i < leftPtsMantle.length; i++) {
-                pixiFluidRibbonGraphics.lineTo(leftPtsMantle[i].x, leftPtsMantle[i].y);
-              }
-              for (let i = rightPtsMantle.length - 1; i >= 0; i--) {
-                pixiFluidRibbonGraphics.lineTo(rightPtsMantle[i].x, rightPtsMantle[i].y);
-              }
-              pixiFluidRibbonGraphics.closePath()
-                .fill({ color: mantleCol, alpha: player.isDashing ? 0.68 : 0.45 });
-
-              // 3. KATMAN: Süpersonik İpliksi Filament Çekirdek (Ori Stili Kesintisiz Neon Omurga)
-              if (spinePts.length >= 2) {
-                // Neon halo omurga
-                pixiFluidRibbonGraphics.moveTo(spinePts[0].x, spinePts[0].y);
-                for (let i = 1; i < spinePts.length; i++) {
-                  pixiFluidRibbonGraphics.lineTo(spinePts[i].x, spinePts[i].y);
+                // Motor boğazı sıcak çekirdeği (Yalnızca çıkıştaki ilk 4 segment - Kesintisiz ip/çizgi YOKTUR)
+                if (i <= 4 && combinedK > 0.35) {
+                  const wCore = wBase * 0.45 * (1.0 - (i / 5));
+                  leftPtsCore.push({ x: cx + nx * wCore, y: cy + ny * wCore });
+                  rightPtsCore.push({ x: cx - nx * wCore, y: cy - ny * wCore });
                 }
-                pixiFluidRibbonGraphics.stroke({ width: player.isDashing ? 3.6 : 2.4, color: mantleCol, alpha: 0.88 });
+              }
 
-                // Ultra ince süpersonik beyaz neon iplik
-                pixiFluidRibbonGraphics.moveTo(spinePts[0].x, spinePts[0].y);
-                for (let i = 1; i < spinePts.length; i++) {
-                  pixiFluidRibbonGraphics.lineTo(spinePts[i].x, spinePts[i].y);
+              // 1. KATMAN: Dış Genleşen Gaz Halesi (Soft Expanding Vacuum Gas Envelope)
+              if (leftPtsOuter.length >= 2) {
+                pixiFluidRibbonGraphics.moveTo(leftPtsOuter[0].x, leftPtsOuter[0].y);
+                for (let i = 1; i < leftPtsOuter.length; i++) {
+                  pixiFluidRibbonGraphics.lineTo(leftPtsOuter[i].x, leftPtsOuter[i].y);
                 }
-                pixiFluidRibbonGraphics.stroke({ width: 1.2, color: 0xffffff, alpha: 0.95 });
+                for (let i = rightPtsOuter.length - 1; i >= 0; i--) {
+                  pixiFluidRibbonGraphics.lineTo(rightPtsOuter[i].x, rightPtsOuter[i].y);
+                }
+                pixiFluidRibbonGraphics.closePath()
+                  .fill({ color: outerCol, alpha: player.isDashing ? 0.28 : 0.16 });
+              }
+
+              // 2. KATMAN: İç Plazma Akışı (Vibrant Ionized Gas Plume)
+              if (leftPtsMantle.length >= 2) {
+                pixiFluidRibbonGraphics.moveTo(leftPtsMantle[0].x, leftPtsMantle[0].y);
+                for (let i = 1; i < leftPtsMantle.length; i++) {
+                  pixiFluidRibbonGraphics.lineTo(leftPtsMantle[i].x, leftPtsMantle[i].y);
+                }
+                for (let i = rightPtsMantle.length - 1; i >= 0; i--) {
+                  pixiFluidRibbonGraphics.lineTo(rightPtsMantle[i].x, rightPtsMantle[i].y);
+                }
+                pixiFluidRibbonGraphics.closePath()
+                  .fill({ color: mantleCol, alpha: player.isDashing ? 0.58 : 0.38 });
+              }
+
+              // 3. KATMAN: Sıcak Motor Boğazı (Kısa & Yumuşak Çekirdek Dolgusu - Sıfır Vektör İpi)
+              if (leftPtsCore.length >= 2) {
+                pixiFluidRibbonGraphics.moveTo(leftPtsCore[0].x, leftPtsCore[0].y);
+                for (let i = 1; i < leftPtsCore.length; i++) {
+                  pixiFluidRibbonGraphics.lineTo(leftPtsCore[i].x, leftPtsCore[i].y);
+                }
+                for (let i = rightPtsCore.length - 1; i >= 0; i--) {
+                  pixiFluidRibbonGraphics.lineTo(rightPtsCore[i].x, rightPtsCore[i].y);
+                }
+                pixiFluidRibbonGraphics.closePath()
+                  .fill({ color: coreCol, alpha: player.isDashing ? 0.70 : 0.50 });
+              }
+
+              // 4. KATMAN: Hafif Parçacık Yapısı (Dizi Boyunca Genleşen Gaz Puf Düğümleri)
+              for (let i = 1; i < numPts; i += 2) {
+                const pt = pts[i];
+                const k = 1 - (i / (numPts - 1));
+                const lifeFade = Math.max(0, 1 - (pt.age / (pt.maxAge || 0.35)));
+                const nodeK = k * lifeFade;
+                if (nodeK <= 0.06) continue;
+
+                const progress = 1.0 - nodeK;
+                const billow = Math.sin(t * 7.0 + i * 0.48 + (pt.seed || 0)) * progress * 2.2;
+                let tx = 0, ty = 0;
+                if (i < numPts - 1) {
+                  tx = pts[i + 1].x - pt.x;
+                  ty = pts[i + 1].y - pt.y;
+                } else {
+                  tx = pt.x - pts[i - 1].x;
+                  ty = pt.y - pts[i - 1].y;
+                }
+                const d = Math.hypot(tx, ty) || 1;
+                const nx = -ty / d;
+                const ny = tx / d;
+                const puffX = pt.x + nx * billow;
+                const puffY = pt.y + ny * billow;
+
+                const expansion = 1.0 + Math.sin(Math.pow(progress, 0.70) * Math.PI) * 1.5;
+                const wBase = (pt.baseWidth || 7.5) * Math.pow(nodeK, 0.52) * expansion;
+                const puffR = wBase * (0.80 + progress * 0.55);
+                const puffAlpha = (player.isDashing ? 0.35 : 0.22) * Math.pow(nodeK, 0.80);
+
+                // Dairesel yumuşak plazma puf parçacığı
+                pixiFluidRibbonGraphics.circle(puffX, puffY, puffR)
+                  .fill({ color: mantleCol, alpha: puffAlpha * 0.70 });
+
+                // Çekirdek iyon ışıması
+                if (nodeK > 0.25) {
+                  pixiFluidRibbonGraphics.circle(puffX, puffY, puffR * 0.40)
+                    .fill({ color: 0xffffff, alpha: puffAlpha * 0.85 });
+                }
               }
             }
           }
@@ -18509,6 +18592,17 @@
           }
         },
         {
+          key: 'debugTelemetry',
+          name: getT('setting_debug_telemetry_name', '⚡ Geliştirici Telemetri / FX HUD (F4)'),
+          desc: getT('setting_debug_telemetry_desc', 'Köşede parçacık, mermi, düşman sayısı ve kare süresi gecikme istatistiklerini gösterir.'),
+          getVal: () => (window.ZortexFX && window.ZortexFX.debug && window.ZortexFX.debug.hudVisible) ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
+          toggle: () => {
+            if (window.ZortexFX && window.ZortexFX.debug) {
+              window.ZortexFX.debug.toggleDomHUD();
+            }
+          }
+        },
+        {
           key: 'fullscreen',
           name: getT('setting_fullscreen_name', '🖥️ Tam Ekran Modu (Fullscreen)'),
           desc: getT('setting_fullscreen_desc', 'Tarayıcı sekmelerini gizleyerek tam ekran modunda çalıştırır.'),
@@ -18891,6 +18985,80 @@
           createNewProfile(profileInputEl.value);
           profileInputEl.value = '';
         }
+      });
+    }
+
+    // Profil Yedek İndirme (Export) ve Yükleme (Import)
+    const exportProfilesBtn = document.getElementById('exportProfilesBtn');
+    const importProfilesBtn = document.getElementById('importProfilesBtn');
+    const importProfileFileInput = document.getElementById('importProfileFileInput');
+
+    if (exportProfilesBtn) {
+      exportProfilesBtn.addEventListener('click', () => {
+        try {
+          const backupData = {
+            profiles: allProfiles,
+            activeProfile: activeProfileName,
+            settings: (typeof gameSettings !== 'undefined' ? gameSettings : {})
+          };
+          const jsonStr = JSON.stringify(backupData, null, 2);
+          const blob = new Blob([jsonStr], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          const dateStr = new Date().toISOString().slice(0, 10);
+          a.href = url;
+          a.download = `zortex_backup_${dateStr}.json`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          if (typeof audio !== 'undefined' && audio && audio.playConfirm) audio.playConfirm();
+        } catch (err) {
+          console.error('Yedek dışa aktarma hatası:', err);
+          alert('Yedek dışa aktarılamadı.');
+        }
+      });
+    }
+
+    if (importProfilesBtn && importProfileFileInput) {
+      importProfilesBtn.addEventListener('click', () => {
+        importProfileFileInput.click();
+      });
+
+      importProfileFileInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          try {
+            const data = JSON.parse(evt.target.result);
+            if (!data || typeof data !== 'object' || !data.profiles || typeof data.profiles !== 'object') {
+              throw new Error('Geçersiz yedek dosyası şeması.');
+            }
+            allProfiles = data.profiles;
+            if (data.activeProfile && allProfiles[data.activeProfile]) {
+              activeProfileName = data.activeProfile;
+            } else {
+              activeProfileName = Object.keys(allProfiles)[0] || 'Ajan Alpha';
+            }
+            saveAllProfiles();
+            if (data.settings && typeof gameSettings !== 'undefined') {
+              Object.assign(gameSettings, data.settings);
+              saveSettings();
+            }
+            meta = loadMeta();
+            renderProfileList();
+            updateActiveProfileUI();
+            if (typeof audio !== 'undefined' && audio && audio.playLevelUp) audio.playLevelUp();
+            alert('Yedek başarıyla yüklendi!');
+          } catch (err) {
+            console.error('Yedek yükleme hatası:', err);
+            alert('Yedek yüklenemedi: ' + err.message);
+          } finally {
+            importProfileFileInput.value = '';
+          }
+        };
+        reader.readAsText(file);
       });
     }
 
