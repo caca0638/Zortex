@@ -4024,8 +4024,8 @@
       setMasterVolume(vol) {
         if (!this.ctx) return;
         const v = Math.max(0, Math.min(1, vol));
-        if (this.sfxGain) this.sfxGain.gain.setValueAtTime(0.28 * v, this.ctx.currentTime);
-        if (this.musicGain) this.musicGain.gain.setValueAtTime(0.16 * v, this.ctx.currentTime);
+        if (this.sfxGain) this.sfxGain.gain.setValueAtTime(0.22 * v, this.ctx.currentTime);
+        if (this.musicGain) this.musicGain.gain.setValueAtTime(0.14 * v, this.ctx.currentTime);
       }
 
       midiToFreq(midi) {
@@ -4068,7 +4068,7 @@
         if (!this.ctx || this.muted) return;
         if (this.broker && (this.broker.hasSound('explosion_crunch') || this.broker.hasSound('explosion_boss'))) {
           const sndId = intensity > 1.6 ? 'explosion_boss' : 'explosion_crunch';
-          const sndVol = (intensity > 1.6 ? 0.36 : 0.24) * Math.min(1.0, intensity);
+          const sndVol = (intensity > 1.6 ? 0.55 : 0.45) * Math.min(1.2, intensity);
           this.broker.play(sndId, { volume: sndVol, x, y });
           return;
         }
@@ -4086,7 +4086,7 @@
           subOsc.frequency.exponentialRampToValueAtTime(22, now + 0.26);
           // 5ms yumuşak yükselme ile karasal patlama çıtlaması engellenir
           subGain.gain.setValueAtTime(0.001, now);
-          subGain.gain.linearRampToValueAtTime(0.18 * Math.min(1.1, intensity), now + 0.005);
+          subGain.gain.linearRampToValueAtTime(0.22 * Math.min(1.2, intensity), now + 0.005);
           subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
           subOsc.connect(subGain);
           subGain.connect(this.sfxGain);
@@ -4112,7 +4112,7 @@
 
           const gain = this.ctx.createGain();
           gain.gain.setValueAtTime(0.001, now);
-          gain.gain.linearRampToValueAtTime(0.10 * intensity, now + 0.006);
+          gain.gain.linearRampToValueAtTime(0.14 * intensity, now + 0.006);
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.27);
 
           noise.connect(filter);
@@ -4131,7 +4131,7 @@
           ionOsc.frequency.setValueAtTime(135 + Math.random() * 20, now);
           ionOsc.frequency.exponentialRampToValueAtTime(32, now + 0.18);
           ionGain.gain.setValueAtTime(0.001, now);
-          ionGain.gain.linearRampToValueAtTime(0.05 * intensity, now + 0.004);
+          ionGain.gain.linearRampToValueAtTime(0.07 * intensity, now + 0.004);
           ionGain.gain.exponentialRampToValueAtTime(0.001, now + 0.20);
           ionOsc.connect(ionGain);
           ionGain.connect(this.sfxGain);
@@ -4143,7 +4143,7 @@
       playDash() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('thruster_dash')) {
-          this.broker.play('thruster_dash', { volume: 0.85 });
+          this.broker.play('thruster_dash', { volume: 0.50 });
           return;
         }
         const now = this.ctx.currentTime;
@@ -4152,7 +4152,7 @@
         osc.type = 'sine';
         osc.frequency.setValueAtTime(250, now);
         osc.frequency.exponentialRampToValueAtTime(900, now + 0.15);
-        gain.gain.setValueAtTime(0.35, now);
+        gain.gain.setValueAtTime(0.20, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
 
         osc.connect(gain);
@@ -4172,7 +4172,7 @@
         osc.frequency.setValueAtTime(523.25, now); // C5
         osc.frequency.setValueAtTime(659.25, now + 0.04); // E5
         osc.frequency.setValueAtTime(783.99, now + 0.08); // G5
-        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.setValueAtTime(0.14, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
 
         osc.connect(gain);
@@ -4192,7 +4192,7 @@
           osc.frequency.value = freq;
           const t = now + idx * 0.07;
           gain.gain.setValueAtTime(0, t);
-          gain.gain.linearRampToValueAtTime(0.25, t + 0.02);
+          gain.gain.linearRampToValueAtTime(0.18, t + 0.02);
           gain.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
 
           osc.connect(gain);
@@ -4210,7 +4210,7 @@
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(100, now);
         osc.frequency.exponentialRampToValueAtTime(1200, now + 0.4);
-        gain.gain.setValueAtTime(0.4, now);
+        gain.gain.setValueAtTime(0.26, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
 
         osc.connect(gain);
@@ -4229,7 +4229,7 @@
         osc.frequency.setValueAtTime(180, now);
         osc.frequency.exponentialRampToValueAtTime(35, now + 1.2);
         gain.gain.setValueAtTime(0.0001, now);
-        gain.gain.exponentialRampToValueAtTime(0.5, now + 0.15);
+        gain.gain.exponentialRampToValueAtTime(0.26, now + 0.15);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 1.3);
         osc.connect(gain);
         gain.connect(this.sfxGain);
@@ -4253,11 +4253,11 @@
         gain.connect(this.sfxGain);
         osc.start(now);
         osc.stop(now + 1.05);
-        this.playExplosion(2);
+        this.playExplosion(1.8);
       }
 
       // YENİ: Tesla yıldırımı kısa elektrik "çıtırtısı"
-      playZap() {
+      playZap(x, y) {
         if (!this.ctx || this.muted) return;
         const now = this.ctx.currentTime;
         if (now - this.lastSfxTimes.zap < 0.035) return; // Maks 28 zap/sn
@@ -4268,7 +4268,7 @@
         osc.type = 'square';
         osc.frequency.setValueAtTime(1400 + Math.random() * 400, now);
         osc.frequency.exponentialRampToValueAtTime(300, now + 0.06);
-        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.setValueAtTime(0.14, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
         osc.connect(gain);
         gain.connect(this.sfxGain);
@@ -4289,7 +4289,7 @@
         osc.type = 'triangle';
         osc.frequency.setValueAtTime(260, now);
         osc.frequency.linearRampToValueAtTime(1200, now + 0.16);
-        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.setValueAtTime(0.18, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
         osc.connect(gain);
         gain.connect(this.sfxGain);
@@ -4308,7 +4308,7 @@
           osc.frequency.value = freq;
           const t = now + idx * 0.05;
           gain.gain.setValueAtTime(0, t);
-          gain.gain.linearRampToValueAtTime(0.26, t + 0.02);
+          gain.gain.linearRampToValueAtTime(0.16, t + 0.02);
           gain.gain.exponentialRampToValueAtTime(0.001, t + 0.26);
           osc.connect(gain);
           gain.connect(this.sfxGain);
@@ -4321,7 +4321,7 @@
       playFocusTick() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('ui_card_hover')) {
-          this.broker.play('ui_card_hover', { volume: 0.45 });
+          this.broker.play('ui_card_hover', { volume: 0.35 });
           return;
         }
         const now = this.ctx.currentTime;
@@ -4330,7 +4330,7 @@
         osc.type = 'sine';
         osc.frequency.setValueAtTime(880, now);
         osc.frequency.exponentialRampToValueAtTime(440, now + 0.035);
-        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.setValueAtTime(0.10, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
         osc.connect(gain);
         gain.connect(this.sfxGain);
@@ -4342,7 +4342,7 @@
       playConfirm() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('ui_confirm')) {
-          this.broker.play('ui_confirm', { volume: 0.85 });
+          this.broker.play('ui_confirm', { volume: 0.50 });
           return;
         }
         const now = this.ctx.currentTime;
@@ -4352,7 +4352,7 @@
           osc.type = 'triangle';
           osc.frequency.value = f;
           const t = now + idx * 0.04;
-          gain.gain.setValueAtTime(0.22, t);
+          gain.gain.setValueAtTime(0.16, t);
           gain.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
           osc.connect(gain);
           gain.connect(this.sfxGain);
@@ -4370,7 +4370,7 @@
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(320, now);
         osc.frequency.exponentialRampToValueAtTime(140, now + 0.08);
-        gain.gain.setValueAtTime(0.14, now);
+        gain.gain.setValueAtTime(0.12, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
         osc.connect(gain);
         gain.connect(this.sfxGain);
@@ -4390,7 +4390,7 @@
           osc.frequency.value = freq;
           const t = now + idx * 0.06;
           gain.gain.setValueAtTime(0.01, t);
-          gain.gain.linearRampToValueAtTime(0.3, t + 0.03);
+          gain.gain.linearRampToValueAtTime(0.14, t + 0.03);
           gain.gain.exponentialRampToValueAtTime(0.001, t + 0.6);
           osc.connect(gain);
           gain.connect(this.sfxGain);
@@ -4410,7 +4410,7 @@
           osc.type = 'sawtooth';
           osc.frequency.value = baseFreq * mult;
           const t = now + idx * 0.05;
-          gain.gain.setValueAtTime(0.2, t);
+          gain.gain.setValueAtTime(0.14, t);
           gain.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
           osc.connect(gain);
           gain.connect(this.sfxGain);
@@ -4423,7 +4423,7 @@
       playShieldBreak(x, y) {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('shield_break')) {
-          this.broker.play('shield_break', { volume: 0.65, x, y });
+          this.broker.play('shield_break', { volume: 0.50, x, y });
           return;
         }
         const now = this.ctx.currentTime;
@@ -4432,7 +4432,7 @@
         osc.type = 'square';
         osc.frequency.setValueAtTime(950, now);
         osc.frequency.exponentialRampToValueAtTime(110, now + 0.16);
-        gain.gain.setValueAtTime(0.20, now);
+        gain.gain.setValueAtTime(0.18, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
         osc.connect(gain);
         gain.connect(this.sfxGain);
@@ -4443,7 +4443,7 @@
       playHit(x, y) {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('impact_metal')) {
-          this.broker.play('impact_metal', { x, y, volume: 0.85 });
+          this.broker.play('impact_metal', { x, y, volume: 0.42 });
           return;
         }
       }
@@ -4520,7 +4520,7 @@
       playRailgunFire(x, y) {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('laser_railgun')) {
-          this.broker.play('laser_railgun', { pitch: 1.05, volume: 0.45, x, y });
+          this.broker.play('laser_railgun', { pitch: 1.05, volume: 0.40, x, y });
           return;
         }
         const now = this.ctx.currentTime;
@@ -4545,7 +4545,7 @@
           const gain = this.ctx.createGain();
           osc.type = 'square';
           osc.frequency.setValueAtTime(freq, now + idx * 0.12);
-          gain.gain.setValueAtTime(0.24, now + idx * 0.12);
+          gain.gain.setValueAtTime(0.18, now + idx * 0.12);
           gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.12 + 0.1);
           osc.connect(gain);
           gain.connect(this.sfxGain);
@@ -4601,7 +4601,7 @@
       playCardHover() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('ui_card_hover')) {
-          this.broker.play('ui_card_hover', { volume: 0.45 });
+          this.broker.play('ui_card_hover', { volume: 0.35 });
         } else {
           this.playFocusTick();
         }
@@ -4611,7 +4611,7 @@
       playCardSelect() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('ui_card_select')) {
-          this.broker.play('ui_card_select', { volume: 0.9 });
+          this.broker.play('ui_card_select', { volume: 0.50 });
         } else {
           this.playConfirm();
         }
@@ -4621,7 +4621,7 @@
       playShieldOnline() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('shield_online')) {
-          this.broker.play('shield_online', { volume: 0.8 });
+          this.broker.play('shield_online', { volume: 0.45 });
         } else {
           this.playPickup();
         }
@@ -4631,7 +4631,7 @@
       playGlitchWarning() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('ui_glitch')) {
-          this.broker.play('ui_glitch', { volume: 0.45 });
+          this.broker.play('ui_glitch', { volume: 0.35 });
         }
       }
 
@@ -4639,7 +4639,7 @@
       playCardReroll() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('ui_reroll')) {
-          this.broker.play('ui_reroll', { volume: 0.85 });
+          this.broker.play('ui_reroll', { volume: 0.45 });
           return;
         }
         const now = this.ctx.currentTime;
@@ -4649,7 +4649,7 @@
           const gain = this.ctx.createGain();
           osc.type = 'triangle';
           osc.frequency.setValueAtTime(freq, now + idx * 0.04);
-          gain.gain.setValueAtTime(0.22, now + idx * 0.04);
+          gain.gain.setValueAtTime(0.14, now + idx * 0.04);
           gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.04 + 0.06);
           osc.connect(gain);
           gain.connect(this.sfxGain);
@@ -4662,7 +4662,7 @@
       playCardBan() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('ui_ban')) {
-          this.broker.play('ui_ban', { volume: 0.9 });
+          this.broker.play('ui_ban', { volume: 0.48 });
           return;
         }
         const now = this.ctx.currentTime;
@@ -4671,7 +4671,7 @@
         osc.type = 'sawtooth';
         osc.frequency.setValueAtTime(220, now);
         osc.frequency.linearRampToValueAtTime(140, now + 0.18);
-        gain.gain.setValueAtTime(0.35, now);
+        gain.gain.setValueAtTime(0.18, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
         osc.connect(gain);
         gain.connect(this.sfxGain);
@@ -4683,7 +4683,7 @@
       playCardSkip() {
         if (!this.ctx || this.muted) return;
         if (this.broker && this.broker.hasSound('ui_skip')) {
-          this.broker.play('ui_skip', { volume: 0.75 });
+          this.broker.play('ui_skip', { volume: 0.42 });
           return;
         }
         const now = this.ctx.currentTime;
@@ -4692,7 +4692,7 @@
         osc.type = 'sine';
         osc.frequency.setValueAtTime(650, now);
         osc.frequency.exponentialRampToValueAtTime(260, now + 0.15);
-        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.setValueAtTime(0.16, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
         osc.connect(gain);
         gain.connect(this.sfxGain);
@@ -4802,6 +4802,19 @@
     window.canvas = canvas;
     const audio = new AudioEngine();
     window.audio = audio;
+
+    // Menü ve sayfa etkileşimlerinde ses motorunu ilk tıklamada uyandır
+    const resumeAudioOnGesture = () => {
+      try {
+        if (audio) {
+          if (!audio.ctx) audio.init();
+          if (audio.ctx && audio.ctx.state === 'suspended') audio.ctx.resume();
+        }
+      } catch (e) {}
+    };
+    window.addEventListener('pointerdown', resumeAudioOnGesture, { passive: true });
+    window.addEventListener('keydown', resumeAudioOnGesture, { passive: true });
+
     if (window.ZortexCyberAudio && typeof window.ZortexCyberAudio.setup === 'function') {
       window.ZortexCyberAudio.setup(audio);
     }
@@ -6471,6 +6484,7 @@
       mouse.y = e.clientY;
     });
     window.addEventListener('mousedown', (e) => {
+      if (gameState !== 'PLAYING' || typeof player === 'undefined' || !player) return;
       if (e.button === 0) mouse.down = true;
       if (e.button === 2) {
         e.preventDefault();
@@ -10811,6 +10825,7 @@
       }
 
       dash() {
+        if (typeof gameState !== 'undefined' && gameState !== 'PLAYING') return;
         if (this.dashCooldown <= 0 && !this.isDashing) {
           this.isDashing = true;
           this.dashTimer = 0.20; // duration
@@ -16171,6 +16186,7 @@
 
     // [FAZ 4] Zaman Kırılması (Chrono Distortion / Bullet Time)
     function triggerBulletTime(duration = 0.70, scale = 0.35) {
+      if (typeof gameState !== 'undefined' && gameState !== 'PLAYING') return;
       bulletTimeTimer = Math.max(bulletTimeTimer, duration);
       timeScale = scale;
       window.timeScale = scale;

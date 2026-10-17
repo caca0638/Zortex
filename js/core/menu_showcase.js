@@ -29,11 +29,32 @@
 
       // Entities
       this.asteroids = [];
+      this.explosions = [];
       this.particles = [];
       this.shockwaves = [];
       this.floatingTexts = [];
       this.starDust = [];
       this.thrusterParticles = [];
+      this.showcaseProjectiles = [];
+
+      // Sol Menü Buton Hover Durumu (Seçenek 1: Butonlara Duyarlı Canlı Sahne)
+      this.hoveredMenuAction = null;
+      this.hoverBoostStart = 0;
+      this.hoverBoostHangar = 0;
+      this.hoverBoostChips = 0;
+      this.hoverBoostCodex = 0;
+
+      // Canlı Gemi Etkileşimi & Manevra Durumu (Seçenek 3)
+      this.shipCenterX = 0;
+      this.shipCenterY = 0;
+      this.shipCurrentAngle = -Math.PI / 6;
+      this.shipManeuverTimer = 0;
+      this.shipManeuverDuration = 0.85;
+      this.isHoveringShip = false;
+      this.drones = [
+        { orbitPhase: 0.0, orbitRadiusX: 92, orbitRadiusY: 34, tilt: -0.28, speed: 1.55, scanTimer: 0 },
+        { orbitPhase: Math.PI, orbitRadiusX: 108, orbitRadiusY: 38, tilt: 0.18, speed: -1.25, scanTimer: 1.2 }
+      ];
 
       this.planetX = null;
       this.planetY = null;
@@ -185,7 +206,180 @@
       // True 3D WebGL Planet initialization
       this.initPlanet3DWebGL();
 
+      // Sol menü düğmelerine duyarlı sahne etkileşimleri (Seçenek 1)
+      this.bindMenuDockInteractions();
+
       this.isInitialized = true;
+    }
+
+    bindMenuDockInteractions() {
+      const buttonMap = [
+        { id: 'startBtn', action: 'start' },
+        { id: 'neuralMatrixBtn', action: 'chips' },
+        { id: 'hangarBtn', action: 'hangar' },
+        { id: 'codexBtn', action: 'codex' },
+        { id: 'techTreeBtn', action: 'tech' },
+        { id: 'achievementsBtn', action: 'achievements' },
+        { id: 'heatLevelBtn', action: 'heat' }
+      ];
+
+      for (const item of buttonMap) {
+        const el = document.getElementById(item.id);
+        if (!el || el._showcaseBound) continue;
+        el._showcaseBound = true;
+        el.addEventListener('pointerenter', () => {
+          this.hoveredMenuAction = item.action;
+        });
+        el.addEventListener('pointerleave', () => {
+          if (this.hoveredMenuAction === item.action) {
+            this.hoveredMenuAction = null;
+          }
+        });
+        el.addEventListener('focus', () => {
+          this.hoveredMenuAction = item.action;
+        });
+        el.addEventListener('blur', () => {
+          if (this.hoveredMenuAction === item.action) {
+            this.hoveredMenuAction = null;
+          }
+        });
+      }
+    }
+
+    getProgressionContext() {
+      const mp = window.ZortexMetaProgression;
+      const mpState = (mp && typeof mp.getState === 'function') ? mp.getState() : null;
+      const shipClass = (mpState && mpState.selectedShip)
+        ? mpState.selectedShip
+        : ((typeof selectedShipClass !== 'undefined' && selectedShipClass) ? selectedShipClass : this.shipClassId);
+
+      const shipPalette = {
+        interceptor: { primary: '#00f3ff', secondary: '#0077ff', rgb: [0, 243, 255] },
+        titan:       { primary: '#ffaa00', secondary: '#ff5500', rgb: [255, 170, 0] },
+        spectre:     { primary: '#c084fc', secondary: '#9333ea', rgb: [192, 132, 252] },
+        viper:       { primary: '#10b981', secondary: '#059669', rgb: [16, 185, 129] },
+        valkyrie:    { primary: '#f43f5e', secondary: '#e11d48', rgb: [244, 63, 94] }
+      };
+
+      let shipColor = '#00f3ff';
+      if (mp && mp.SHIPS_CATALOG && mp.SHIPS_CATALOG[shipClass] && mp.SHIPS_CATALOG[shipClass].color) {
+        shipColor = mp.SHIPS_CATALOG[shipClass].color;
+      } else if (typeof SHIP_CLASSES !== 'undefined' && SHIP_CLASSES[shipClass] && SHIP_CLASSES[shipClass].color) {
+        shipColor = SHIP_CLASSES[shipClass].color;
+      } else if (shipPalette[shipClass]) {
+        shipColor = shipPalette[shipClass].primary;
+      }
+
+      const pal = shipPalette[shipClass] || { primary: shipColor, secondary: '#0088ff', rgb: [0, 243, 255] };
+
+      // Aktif nöral yongaları oku
+      const activeChips = [];
+      const branchColors = {
+        offense: '#ff0055',
+        defense: '#00f3ff',
+        utility: '#fbbf24'
+      };
+      if (mpState && mpState.equippedChips) {
+        for (const branch of ['offense', 'defense', 'utility']) {
+          const slots = mpState.equippedChips[branch];
+          if (Array.isArray(slots)) {
+            for (let t = 0; t < slots.length; t++) {
+              if (slots[t]) {
+                activeChips.push({
+                  id: slots[t],
+                  branch: branch,
+                  tier: t + 1,
+                  color: branchColors[branch] || '#00f3ff'
+                });
+              }
+            }
+          }
+        }
+      }
+
+      // Aktif Siber Tehlike (Heat) kademesini oku
+      const gm = window.ZortexGameModes;
+      const heatObj = (gm && gm.currentHeat) ? gm.currentHeat : { level: 0, color: '#00f3ff', badge: 'NORMAL' };
+
+      return {
+        shipClass,
+        shipColor: pal.primary,
+        shipSecondary: pal.secondary,
+        shipRgb: pal.rgb,
+        activeChips,
+        heatLevel: heatObj.level || 0,
+        heatColor: heatObj.color || '#00f3ff'
+      };
+    }
+
+    isPointOnShip(x, y) {
+      const sx = this.shipCenterX || (this.width > 960 ? this.width * 0.66 : this.width * 0.50);
+      const sy = this.shipCenterY || (this.height * 0.52);
+      if (!sx || !sy) return false;
+      const dist = Math.hypot(x - sx, y - sy);
+      return dist <= 72;
+    }
+
+    triggerShipManeuver() {
+      this.ensureAudio();
+      this.shipManeuverTimer = this.shipManeuverDuration;
+      const prog = this.getProgressionContext();
+      const sx = this.shipCenterX || (this.width > 960 ? this.width * 0.66 : this.width * 0.50);
+      const sy = this.shipCenterY || (this.height * 0.52);
+      const ang = this.shipCurrentAngle || (-Math.PI / 6);
+
+      if (window.audio) {
+        if (typeof window.audio.playLaser === 'function') window.audio.playLaser(1.15, sx, sy);
+        if (typeof window.audio.playZap === 'function') window.audio.playZap(sx, sy);
+      }
+
+      // Afterburner halka şok dalgası
+      this.shockwaves.push({
+        x: sx - Math.cos(ang) * 32,
+        y: sy - Math.sin(ang) * 32,
+        radius: 10,
+        maxRadius: 95,
+        color: prog.shipColor,
+        life: 0.42,
+        maxLife: 0.42
+      });
+
+      // Gemi namlularından 3'lü siber plazma salvosu ateşle
+      const spreadAngles = [-0.12, 0, 0.12];
+      const noseX = sx + Math.cos(ang) * 44;
+      const noseY = sy + Math.sin(ang) * 44;
+
+      for (let i = 0; i < spreadAngles.length; i++) {
+        const fireAng = ang + spreadAngles[i];
+        const spd = 620 + (i === 1 ? 80 : 0);
+        this.showcaseProjectiles.push({
+          x: noseX + Math.cos(ang + Math.PI / 2) * (i - 1) * 14,
+          y: noseY + Math.sin(ang + Math.PI / 2) * (i - 1) * 14,
+          vx: Math.cos(fireAng) * spd,
+          vy: Math.sin(fireAng) * spd,
+          angle: fireAng,
+          color: i === 1 ? '#ffffff' : prog.shipColor,
+          glowColor: prog.shipColor,
+          life: 1.2,
+          maxLife: 1.2
+        });
+      }
+
+      // Namludan çıkan kıvılcımlar
+      for (let i = 0; i < 14; i++) {
+        const pAng = ang + (Math.random() - 0.5) * 0.9;
+        const pSpd = 90 + Math.random() * 180;
+        this.particles.push({
+          x: noseX,
+          y: noseY,
+          vx: Math.cos(pAng) * pSpd,
+          vy: Math.sin(pAng) * pSpd,
+          color: Math.random() < 0.5 ? '#ffffff' : prog.shipColor,
+          size: 2 + Math.random() * 2,
+          life: 0.30,
+          maxLife: 0.30
+        });
+      }
     }
 
     initPlanet3DWebGL() {
@@ -632,8 +826,11 @@
         this.dragLastPos = { x, y };
         this.canvas.style.cursor = 'grabbing';
       } else {
+        this.isHoveringShip = this.isPointOnShip(this.mouse.x, this.mouse.y);
         if (this.isPointOnPlanet(this.mouse.x, this.mouse.y)) {
           this.canvas.style.cursor = 'grab';
+        } else if (this.isHoveringShip) {
+          this.canvas.style.cursor = 'pointer';
         } else {
           this.canvas.style.cursor = 'crosshair';
         }
@@ -659,24 +856,46 @@
       this.mouse.x = -1000;
       this.mouse.y = -1000;
       this.lockedAsteroid = null;
+      this.isHoveringShip = false;
       if (!this.isDraggingPlanet && this.canvas) {
         this.canvas.style.cursor = 'crosshair';
       }
     }
 
+    ensureAudio() {
+      if (typeof window !== 'undefined' && window.audio) {
+        try {
+          if (!window.audio.ctx && typeof window.audio.init === 'function') {
+            window.audio.init();
+          }
+          if (window.audio.ctx && window.audio.ctx.state === 'suspended') {
+            window.audio.ctx.resume().catch(() => {});
+          }
+        } catch (e) {}
+      }
+    }
+
     onPointerDown(e) {
       if (!this.canvas) return;
+      if (typeof e.button === 'number' && e.button !== 0) return;
+      this.ensureAudio();
       const clickX = e.clientX;
       const clickY = e.clientY;
 
       // Do not handle clicks that fall inside the left dock panel
       if (this.width > 960 && clickX < 490) return;
 
+      // Gemiye tıklandığında kaçınma manevrası ve ateşleme gösterisi tetikle (Seçenek 3)
+      if (this.isPointOnShip(clickX, clickY)) {
+        this.triggerShipManeuver();
+        return;
+      }
+
       let hitTarget = null;
       for (let i = this.asteroids.length - 1; i >= 0; i--) {
         const a = this.asteroids[i];
         const dist = Math.hypot(clickX - a.x, clickY - a.y);
-        if (dist <= a.radius + 14) {
+        if (dist <= a.radius + 20) {
           hitTarget = a;
           this.asteroids.splice(i, 1);
           break;
@@ -699,8 +918,9 @@
     }
 
     spawnLaserSpark(x, y) {
+      this.ensureAudio();
       if (window.audio && typeof window.audio.playLaser === 'function') {
-        window.audio.playLaser(1.4);
+        window.audio.playLaser(1.4, x, y);
       }
       for (let i = 0; i < 8; i++) {
         const ang = Math.random() * Math.PI * 2;
@@ -719,60 +939,67 @@
     }
 
     shatterAsteroid(ast, hitX, hitY) {
+      this.ensureAudio();
+      const ex = (typeof hitX === 'number') ? hitX : ast.x;
+      const ey = (typeof hitY === 'number') ? hitY : ast.y;
+
       if (window.audio && typeof window.audio.playExplosion === 'function') {
-        window.audio.playExplosion(0.85);
+        window.audio.playExplosion(1.4, ex, ey);
       }
       if (window.audio && typeof window.audio.playZap === 'function') {
-        window.audio.playZap();
+        window.audio.playZap(ex, ey);
       }
 
-      // Expanding Shockwave Ripple
+      // 1. Ekran Çapında Büyüyen Şok Dalgaları
       this.shockwaves.push({
-        x: ast.x,
-        y: ast.y,
-        radius: 8,
-        maxRadius: ast.radius * 2.8,
-        color: ast.neonColor,
+        x: ex,
+        y: ey,
+        radius: 12,
+        maxRadius: Math.max(70, ast.radius * 3.4),
+        color: ast.neonColor || '#00f3ff',
+        life: 0.50,
+        maxLife: 0.50
+      });
+      this.shockwaves.push({
+        x: ex,
+        y: ey,
+        radius: 4,
+        maxRadius: Math.max(45, ast.radius * 2.2),
+        color: '#ffffff',
+        life: 0.32,
+        maxLife: 0.32
+      });
+
+      // 2. Özel Plazma Patlama Küresi (Fireball / Core Flash)
+      this.explosions.push({
+        x: ex,
+        y: ey,
+        color: ast.neonColor || '#00f3ff',
+        radius: Math.max(26, ast.radius * 1.7),
+        maxRadius: Math.max(54, ast.radius * 2.9),
         life: 0.45,
         maxLife: 0.45
       });
 
-      // Rock Shards & Fiery Plasma Sparks
-      const shardCount = 24 + Math.floor(Math.random() * 10);
+      // 3. Çok Yönlü Taş Kırıkları ve Enerji Kıvılcımları
+      const shardCount = 28 + Math.floor(Math.random() * 12);
       for (let i = 0; i < shardCount; i++) {
         const ang = Math.random() * Math.PI * 2;
-        const spd = 60 + Math.random() * 190;
+        const spd = 70 + Math.random() * 210;
         this.particles.push({
-          x: ast.x,
-          y: ast.y,
+          x: ex,
+          y: ey,
           vx: Math.cos(ang) * spd,
           vy: Math.sin(ang) * spd,
           rot: Math.random() * Math.PI * 2,
-          rotSpeed: (Math.random() - 0.5) * 12,
-          color: Math.random() < 0.65 ? ast.neonColor : (Math.random() < 0.5 ? '#ffffff' : '#f97316'),
-          size: 2 + Math.random() * (ast.radius * 0.24),
-          life: 0.5 + Math.random() * 0.4,
-          maxLife: 0.9,
-          isShard: Math.random() < 0.5
+          rotSpeed: (Math.random() - 0.5) * 14,
+          color: Math.random() < 0.60 ? (ast.neonColor || '#00f3ff') : (Math.random() < 0.5 ? '#ffffff' : '#f97316'),
+          size: 2.5 + Math.random() * (ast.radius * 0.26),
+          life: 0.55 + Math.random() * 0.45,
+          maxLife: 1.0,
+          isShard: Math.random() < 0.55
         });
       }
-
-      // Scrap increment & Sleek Floating Text
-      const scrapBonus = ast.isRare ? 3 : 1;
-      if (typeof meta !== 'undefined' && meta) {
-        meta.scrap = (meta.scrap || 0) + scrapBonus;
-        if (typeof updateMenuScrapDisplay === 'function') updateMenuScrapDisplay();
-        if (typeof saveMeta === 'function') saveMeta();
-      }
-
-      this.floatingTexts.push({
-        x: ast.x,
-        y: ast.y - 12,
-        text: `+${scrapBonus} 🔩 HURDA`,
-        color: ast.isRare ? '#ff0055' : '#ffe600',
-        life: 1.1,
-        maxLife: 1.1
-      });
     }
 
     update(dt) {
@@ -787,24 +1014,41 @@
         if (this.width <= 0 || this.height <= 0) return;
       }
 
+      this.bindMenuDockInteractions();
       this.time += dt;
 
-      // 1. Draw Deep Space Celestial Atmosphere
+      // Sol menü düğmelerine duyarlı yumuşak geçiş katsayıları (Seçenek 1)
+      const lerpSpeed = Math.min(1, dt * 6.5);
+      const targetStart = (this.hoveredMenuAction === 'start') ? 1 : 0;
+      const targetHangar = (this.hoveredMenuAction === 'hangar' || this.isHoveringShip) ? 1 : 0;
+      const targetChips = (this.hoveredMenuAction === 'chips' || this.hoveredMenuAction === 'tech') ? 1 : 0;
+      const targetCodex = (this.hoveredMenuAction === 'codex' || this.hoveredMenuAction === 'achievements') ? 1 : 0;
+
+      this.hoverBoostStart += (targetStart - this.hoverBoostStart) * lerpSpeed;
+      this.hoverBoostHangar += (targetHangar - this.hoverBoostHangar) * lerpSpeed;
+      this.hoverBoostChips += (targetChips - this.hoverBoostChips) * lerpSpeed;
+      this.hoverBoostCodex += (targetCodex - this.hoverBoostCodex) * lerpSpeed;
+
+      if (this.shipManeuverTimer > 0) {
+        this.shipManeuverTimer = Math.max(0, this.shipManeuverTimer - dt);
+      }
+
+      // 1. Draw Deep Space Celestial Atmosphere (Seçenek 5: İlerleme & Tehlike Yansıması)
       this.drawDeepCosmos();
 
-      // 2. Draw Parallax Star Dust
+      // 2. Draw Parallax Star Dust (Seçenek 1: Sefere Başla Hover Hızlanması)
       this.updateAndDrawStarDust(dt);
 
       // 3. Draw Celestial Planet & Atmosphere
       this.drawCelestialPlanet(dt);
 
-      // 4. Draw Floating Player Ship
+      // 4. Draw Floating Player Ship, Drones & 3D Energy Ring (Seçenek 1, 3, 5)
       this.drawShowcaseShip(dt);
 
       // 5. Update & Draw 3D-Shaded Asteroids
       this.updateAndDrawAsteroids(dt);
 
-      // 6. Update & Draw FX Particles & Shockwaves
+      // 6. Update & Draw FX Particles, Projectiles & Shockwaves
       this.updateAndDrawFX(dt);
 
       // 7. Draw Sleek Targeting Reticle
@@ -815,22 +1059,40 @@
       const ctx = this.ctx;
       const w = this.width;
       const h = this.height;
+      const prog = this.getProgressionContext();
+      const [sr, sg, sb] = prog.shipRgb;
 
       // Deep void background fill
       ctx.fillStyle = '#030712';
       ctx.fillRect(0, 0, w, h);
 
-      // Atmospheric Nebula Clusters (Soft volumetric clouds)
-      const grad1 = ctx.createRadialGradient(w * 0.75, h * 0.45, 40, w * 0.75, h * 0.45, w * 0.55);
-      grad1.addColorStop(0, 'rgba(15, 23, 62, 0.45)');
-      grad1.addColorStop(0.5, 'rgba(30, 15, 60, 0.20)');
+      // Seçili Gemi ve Tehlike Seviyesine Göre Dinamik Bulutsu (Seçenek 5)
+      const shipX = w > 960 ? w * 0.66 : w * 0.50;
+      const shipY = h * 0.52;
+      const pulse = 0.85 + 0.15 * Math.sin(this.time * 1.4);
+      const boostAlpha = 1 + this.hoverBoostStart * 0.45 + this.hoverBoostChips * 0.35;
+
+      const grad1 = ctx.createRadialGradient(shipX, shipY, 30, shipX, shipY, w * 0.52);
+      grad1.addColorStop(0, `rgba(${sr}, ${sg}, ${sb}, ${(0.14 * pulse * boostAlpha).toFixed(3)})`);
+      grad1.addColorStop(0.45, 'rgba(18, 25, 68, 0.32)');
       grad1.addColorStop(1, 'rgba(3, 7, 18, 0)');
       ctx.fillStyle = grad1;
       ctx.fillRect(0, 0, w, h);
 
-      const grad2 = ctx.createRadialGradient(w * 0.40, h * 0.85, 20, w * 0.40, h * 0.85, w * 0.45);
-      grad2.addColorStop(0, 'rgba(0, 243, 255, 0.08)');
-      grad2.addColorStop(0.6, 'rgba(120, 10, 150, 0.06)');
+      // Siber Tehlike (Heat) veya Aktif Yonga Durumuna Göre İkincil Kozmik Aura
+      let auraR = 0, auraG = 243, auraB = 255;
+      if (prog.heatLevel >= 3) {
+        auraR = 255; auraG = 0; auraB = 85;
+      } else if (prog.heatLevel >= 1) {
+        auraR = 251; auraG = 191; auraB = 36;
+      } else if (this.hoverBoostChips > 0.1) {
+        auraR = 192; auraG = 132; auraB = 252;
+      }
+
+      const heatBoost = (prog.heatLevel > 0 ? 0.12 + prog.heatLevel * 0.025 : 0.08) + (this.hoveredMenuAction === 'heat' ? 0.08 : 0);
+      const grad2 = ctx.createRadialGradient(w * 0.42, h * 0.84, 20, w * 0.42, h * 0.84, w * 0.48);
+      grad2.addColorStop(0, `rgba(${auraR}, ${auraG}, ${auraB}, ${heatBoost.toFixed(3)})`);
+      grad2.addColorStop(0.6, 'rgba(120, 10, 150, 0.07)');
       grad2.addColorStop(1, 'rgba(3, 7, 18, 0)');
       ctx.fillStyle = grad2;
       ctx.fillRect(0, 0, w, h);
@@ -1182,86 +1444,624 @@
 
     updateAndDrawStarDust(dt) {
       const ctx = this.ctx;
+      const maneuverBoost = this.shipManeuverTimer > 0 ? Math.sin((this.shipManeuverTimer / this.shipManeuverDuration) * Math.PI) * 2.2 : 0;
+      const warpMult = 1.0 + this.hoverBoostStart * 3.4 + maneuverBoost;
+
       for (const s of this.starDust) {
-        s.x -= s.speed * dt;
-        if (s.x < -10) {
-          s.x = this.width + 10;
+        s.x -= s.speed * warpMult * dt;
+        if (this.hoverBoostStart > 0.05 || maneuverBoost > 0.05) {
+          s.y += s.speed * (this.hoverBoostStart * 1.1 + maneuverBoost * 0.7) * dt;
+        }
+        if (s.x < -20) {
+          s.x = this.width + 20;
           s.y = Math.random() * this.height;
         }
+        if (s.y > this.height + 20) {
+          s.y = -10;
+          s.x = Math.random() * this.width;
+        }
 
-        ctx.fillStyle = s.color;
-        ctx.globalAlpha = s.alpha * (0.65 + 0.35 * Math.sin(this.time * 2.5 + s.x));
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
-        ctx.fill();
+        const twinkle = s.alpha * (0.65 + 0.35 * Math.sin(this.time * 2.5 + s.x));
+        ctx.globalAlpha = Math.min(1, twinkle * (1 + this.hoverBoostStart * 0.35));
+
+        if (warpMult > 1.35) {
+          // Warp / Kalkış hazırlığında yıldız izi uzaması (Seçenek 1)
+          const streakLen = s.size * (warpMult - 1.0) * 6.5;
+          ctx.strokeStyle = s.color;
+          ctx.lineWidth = Math.max(1, s.size * 0.9);
+          ctx.beginPath();
+          ctx.moveTo(s.x, s.y);
+          ctx.lineTo(s.x + streakLen, s.y - streakLen * 0.38);
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = s.color;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
       ctx.globalAlpha = 1.0;
     }
 
+    drawMaintenanceDrone(ctx, d, sx, sy, shipColor, isActiveScan) {
+      const cosT = Math.cos(d.tilt), sinT = Math.sin(d.tilt);
+      const ox = Math.cos(d.orbitPhase) * d.orbitRadiusX;
+      const oy = Math.sin(d.orbitPhase) * d.orbitRadiusY;
+      const dx = sx + (ox * cosT - oy * sinT);
+      const dy = sy + (ox * sinT + oy * cosT);
+      const depthScale = 0.82 + 0.22 * Math.sin(d.orbitPhase);
+
+      ctx.save();
+      // Hangar hover veya aktif gemi etkileşiminde estetik siber tarama demeti
+      if (isActiveScan) {
+        const beamAlpha = 0.55;
+        const beamGrad = ctx.createLinearGradient(dx, dy, sx, sy);
+        beamGrad.addColorStop(0, shipColor);
+        beamGrad.addColorStop(0.5, 'rgba(0, 243, 255, 0.25)');
+        beamGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.strokeStyle = beamGrad;
+        ctx.globalAlpha = beamAlpha;
+        ctx.lineWidth = 1.5;
+        ctx.shadowColor = shipColor;
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.moveTo(dx, dy);
+        ctx.lineTo(sx + Math.cos(d.orbitPhase) * 12, sy + Math.sin(d.orbitPhase) * 8);
+        ctx.stroke();
+
+        // Gemi gövdesinde yumuşak nanit kaynak/tarama ışıltısı
+        ctx.fillStyle = shipColor;
+        ctx.shadowBlur = 6;
+        ctx.beginPath();
+        ctx.arc(sx + Math.cos(d.orbitPhase) * 12, sy + Math.sin(d.orbitPhase) * 8, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Nano-Drone Gövdesi
+      ctx.globalAlpha = 0.95;
+      ctx.translate(dx, dy);
+      ctx.scale(depthScale, depthScale);
+
+      // Drone dış enerji halesi
+      ctx.shadowColor = shipColor;
+      ctx.shadowBlur = 10;
+      ctx.fillStyle = '#0b1528';
+      ctx.strokeStyle = shipColor;
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.moveTo(0, -7);
+      ctx.lineTo(7, -2);
+      ctx.lineTo(5, 6);
+      ctx.lineTo(-5, 6);
+      ctx.lineTo(-7, -2);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      // Drone çekirdek gözü
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(0, 0, 2.2, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Yan kanatçıklar
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.65)';
+      ctx.lineWidth = 1.1;
+      ctx.beginPath();
+      ctx.moveTo(-10, 0); ctx.lineTo(-7, -2);
+      ctx.moveTo(10, 0); ctx.lineTo(7, -2);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    getShip3DMesh(shipClass) {
+      if (this._cachedShipMeshes && this._cachedShipMeshes[shipClass]) {
+        return this._cachedShipMeshes[shipClass];
+      }
+      if (!this._cachedShipMeshes) this._cachedShipMeshes = {};
+
+      const isTitan = shipClass === 'titan';
+      const isSpectre = shipClass === 'spectre';
+
+      const wScale = isTitan ? 1.18 : (isSpectre ? 1.05 : 1.0);
+      const hScale = isTitan ? 1.28 : (isSpectre ? 0.92 : 1.0);
+      const lScale = isTitan ? 0.94 : (isSpectre ? 1.08 : 1.0);
+      const wingLeadX = isSpectre ? 14 : (isTitan ? -4 : -16);
+      const wingTrailX = isSpectre ? -28 : (isTitan ? -38 : -38);
+      const wingTipX = isSpectre ? 24 : (isTitan ? 12 : 6);
+
+      const rawVerts = [
+        [62 * lScale, 0, 0],                        // 0: Burun ucu
+        [28 * lScale, 0, 10 * hScale],              // 1: Ön üst omurga
+        [28 * lScale, -13 * wScale, 1],             // 2: Ön sol kesit
+        [28 * lScale, 13 * wScale, 1],              // 3: Ön sağ kesit
+        [28 * lScale, 0, -9 * hScale],              // 4: Ön alt omurga (karina)
+        [6 * lScale, 0, 20 * hScale],               // 5: Kokpit kristal kubbe tepe noktası
+        [15 * lScale, -9 * wScale, 9 * hScale],     // 6: Kokpit ön-sol
+        [15 * lScale, 9 * wScale, 9 * hScale],      // 7: Kokpit ön-sağ
+        [-12 * lScale, -10 * wScale, 10 * hScale],  // 8: Kokpit arka-sol
+        [-12 * lScale, 10 * wScale, 10 * hScale],   // 9: Kokpit arka-sağ
+        [-24 * lScale, 0, 14 * hScale],             // 10: Arka üst omurga
+        [-6 * lScale, -19 * wScale, 2],             // 11: Orta gövde sol omuz
+        [-6 * lScale, 19 * wScale, 2],              // 12: Orta gövde sağ omuz
+        [-6 * lScale, 0, -14 * hScale],             // 13: Orta alt reaktör omurgası
+        [-45 * lScale, 0, 9 * hScale],              // 14: Kuyruk üst sırt
+        [-45 * lScale, -16 * wScale, 2],            // 15: Kuyruk sol motor yuvası
+        [-45 * lScale, 16 * wScale, 2],             // 16: Kuyruk sağ motor yuvası
+        [-45 * lScale, 0, -9 * hScale],             // 17: Kuyruk alt karina
+        [wingLeadX, -52 * wScale, 3],               // 18: Sol kanat dış hücum ucu
+        [wingTrailX, -46 * wScale, 1],              // 19: Sol kanat dış firar ucu
+        [-22, -48 * wScale, -5 * hScale],           // 20: Sol kanat alt kalınlık hacmi
+        [wingTipX, -52 * wScale, 1],                // 21: Sol kanat ucu lazer podu
+        [wingLeadX, 52 * wScale, 3],                // 22: Sağ kanat dış hücum ucu
+        [wingTrailX, 46 * wScale, 1],               // 23: Sağ kanat dış firar ucu
+        [-22, 48 * wScale, -5 * hScale],            // 24: Sağ kanat alt kalınlık hacmi
+        [wingTipX, 52 * wScale, 1],                 // 25: Sağ kanat ucu lazer podu
+        [-34 * lScale, -22 * wScale, 25 * hScale],  // 26: Sol dikey kuyruk yüzgeci tepe
+        [-46 * lScale, -20 * wScale, 16 * hScale],  // 27: Sol dikey kuyruk yüzgeci arka
+        [-34 * lScale, 22 * wScale, 25 * hScale],   // 28: Sağ dikey kuyruk yüzgeci tepe
+        [-46 * lScale, 20 * wScale, 16 * hScale]    // 29: Sağ dikey kuyruk yüzgeci arka
+      ];
+
+      const rawFaces = [
+        // Ön Burun Konisi (Üst & Alt 3B Yüzeyler)
+        [0, 2, 1, 'hull_top'], [0, 1, 3, 'hull_top'],
+        [0, 4, 2, 'hull_bottom'], [0, 3, 4, 'hull_bottom'],
+        // Kokpit & Ön Güverte
+        [1, 2, 6, 'hull_mid'], [1, 6, 5, 'cockpit'],
+        [1, 7, 3, 'hull_mid'], [1, 5, 7, 'cockpit'],
+        [5, 6, 8, 'cockpit'], [5, 9, 7, 'cockpit'],
+        [5, 8, 10, 'cockpit'], [5, 10, 9, 'cockpit'],
+        // Gövde Yan Zırh & Alt Reaktör Karinası
+        [2, 11, 6, 'hull_mid'], [6, 11, 8, 'hull_accent'],
+        [3, 7, 12, 'hull_mid'], [7, 9, 12, 'hull_accent'],
+        [2, 4, 13, 'hull_bottom'], [2, 13, 11, 'hull_bottom'],
+        [3, 13, 4, 'hull_bottom'], [3, 12, 13, 'hull_bottom'],
+        [8, 11, 15, 'hull_mid'], [8, 15, 10, 'hull_top'],
+        [9, 10, 16, 'hull_top'], [9, 16, 12, 'hull_mid'],
+        // Arka Gövde & Motor Bloğu
+        [10, 15, 14, 'hull_top'], [10, 14, 16, 'hull_top'],
+        [11, 13, 17, 'hull_bottom'], [11, 17, 15, 'hull_bottom'],
+        [12, 17, 13, 'hull_bottom'], [12, 16, 17, 'hull_bottom'],
+        [14, 15, 17, 'engine'], [14, 17, 16, 'engine'],
+        // Sol 3B Kanat (Üst, Alt ve Kanat Ucu Silah Podu)
+        [2, 18, 11, 'wing_top'], [11, 18, 19, 'wing_top'], [11, 19, 15, 'wing_accent'],
+        [2, 11, 20, 'wing_bottom'], [2, 20, 18, 'wing_bottom'],
+        [11, 15, 20, 'wing_bottom'], [20, 15, 19, 'wing_bottom'],
+        [21, 18, 20, 'wing_accent'], [21, 20, 19, 'wing_accent'],
+        // Sağ 3B Kanat (Üst, Alt ve Kanat Ucu Silah Podu)
+        [3, 12, 22, 'wing_top'], [12, 23, 22, 'wing_top'], [12, 16, 23, 'wing_accent'],
+        [3, 24, 12, 'wing_bottom'], [3, 22, 24, 'wing_bottom'],
+        [12, 24, 16, 'wing_bottom'], [24, 23, 16, 'wing_bottom'],
+        [25, 24, 22, 'wing_accent'], [25, 23, 24, 'wing_accent'],
+        // Çift 3B Dikey Kuyruk Stabilizatörleri (Tail Fins)
+        [8, 26, 15, 'fin'], [26, 27, 15, 'fin'],
+        [9, 16, 28, 'fin'], [28, 16, 29, 'fin']
+      ];
+
+      // Her yüzey için yerel dışa dönük 3B birim normal vektörünü önceden hesapla
+      const faces = rawFaces.map(f => {
+        const v0 = rawVerts[f[0]], v1 = rawVerts[f[1]], v2 = rawVerts[f[2]];
+        const ux = v1[0] - v0[0], uy = v1[1] - v0[1], uz = v1[2] - v0[2];
+        const vx = v2[0] - v0[0], vy = v2[1] - v0[1], vz = v2[2] - v0[2];
+        let nx = uy * vz - uz * vy;
+        let ny = uz * vx - ux * vz;
+        let nz = ux * vy - uy * vx;
+        const len = Math.hypot(nx, ny, nz) || 1;
+        nx /= len; ny /= len; nz /= len;
+
+        const cx = (v0[0] + v1[0] + v2[0]) / 3;
+        const cy = (v0[1] + v1[1] + v2[1]) / 3;
+        const cz = (v0[2] + v1[2] + v2[2]) / 3;
+        if (nx * cx + ny * cy + nz * cz < 0) {
+          nx = -nx; ny = -ny; nz = -nz;
+        }
+        return { i0: f[0], i1: f[1], i2: f[2], mat: f[3], nx, ny, nz, isFin: f[3] === 'fin' };
+      });
+
+      const nozzles = isTitan
+        ? [[-46 * lScale, -13 * wScale, 1], [-48 * lScale, -5 * wScale, 2], [-48 * lScale, 5 * wScale, 2], [-46 * lScale, 13 * wScale, 1]]
+        : [[-46 * lScale, -12 * wScale, 1], [-49 * lScale, 0, 2], [-46 * lScale, 12 * wScale, 1]];
+
+      // Neon siber yapısal sırt çizgileri [vA, vB]
+      const neonEdges = [
+        [0, 1], [1, 5], [5, 10], [10, 14], // Üst omurga hattı
+        [0, 2], [2, 18], [21, 19],         // Sol kanat hücum/silah hattı
+        [0, 3], [3, 22], [25, 23],         // Sağ kanat hücum/silah hattı
+        [8, 26], [26, 27],                 // Sol dikey kuyruk yüzgeci
+        [9, 28], [28, 29]                  // Sağ dikey kuyruk yüzgeci
+      ];
+
+      const mesh = { verts: rawVerts, faces, nozzles, neonEdges };
+      this._cachedShipMeshes[shipClass] = mesh;
+      return mesh;
+    }
+
+    renderTrue3DShip(ctx, sx, sy, shipClass, primaryColor, shipRgb, shipAngle, localRoll, localPitch, flameBaseLen) {
+      const mesh = this.getShip3DMesh(shipClass);
+      const [sr, sg, sb] = shipRgb;
+      const scale3D = 1.16;
+
+      // 1. Yerel eksende 3B Roll (X ekseni etrafında 360° barrel roll) ve Pitch (Y ekseni)
+      const cr = Math.cos(localRoll), sr_ang = Math.sin(localRoll);
+      const cp = Math.cos(localPitch), sp = Math.sin(localPitch);
+      // 2. Dünya düzleminde 60° yönelim (Yaw = shipAngle)
+      const cy = Math.cos(shipAngle), sy_ang = Math.sin(shipAngle);
+      // 3. İzometrik 3B kamera eğimi (üstten 30° bakış açısı)
+      const camTilt = 0.52;
+      const cc = Math.cos(camTilt), sc = Math.sin(camTilt);
+
+      const transformPoint = (pt) => {
+        const x0 = pt[0] * scale3D, y0 = pt[1] * scale3D, z0 = pt[2] * scale3D;
+        // Local Roll (around X)
+        const x1 = x0;
+        const y1 = y0 * cr - z0 * sr_ang;
+        const z1 = y0 * sr_ang + z0 * cr;
+        // Local Pitch (around Y)
+        const x2 = x1 * cp + z1 * sp;
+        const y2 = y1;
+        const z2 = -x1 * sp + z1 * cp;
+        // World Yaw (around Z)
+        const x3 = x2 * cy - y2 * sy_ang;
+        const y3 = x2 * sy_ang + y2 * cy;
+        const z3 = z2;
+        // Camera Elevation Tilt (around screen X)
+        const vx = x3;
+        const vy = y3 * cc - z3 * sc;
+        const vz = y3 * sc + z3 * cc;
+        const persp = 560 / Math.max(220, 560 - vz);
+        return { x: sx + vx * persp, y: sy + vy * persp, z: vz, persp };
+      };
+
+      const transformDir = (dx, dy, dz) => {
+        const x1 = dx;
+        const y1 = dy * cr - dz * sr_ang;
+        const z1 = dy * sr_ang + dz * cr;
+        const x2 = x1 * cp + z1 * sp;
+        const y2 = y1;
+        const z2 = -x1 * sp + z1 * cp;
+        const x3 = x2 * cy - y2 * sy_ang;
+        const y3 = x2 * sy_ang + y2 * cy;
+        const z3 = z2;
+        return {
+          x: x3,
+          y: y3 * cc - z3 * sc,
+          z: y3 * sc + z3 * cc
+        };
+      };
+
+      const tVerts = mesh.verts.map(transformPoint);
+
+      // 3B İtici Nozüller ve Hacimsel Plazma Alev Konileri
+      const aftDir = transformDir(-1, 0, 0);
+      const aftScreenLen = Math.hypot(aftDir.x, aftDir.y) || 1;
+      const ax = aftDir.x / aftScreenLen, ay = aftDir.y / aftScreenLen;
+      const px = -ay, py = ax;
+
+      const drawNozzlePlume = (nPt, idx) => {
+        const flen = flameBaseLen * (idx === 1 && mesh.nozzles.length === 3 ? 1.45 : 1.12) * nPt.persp;
+        const fwidth = (idx === 1 && mesh.nozzles.length === 3 ? 8.5 : 6.5) * nPt.persp;
+        const tipX = nPt.x + aftDir.x * flen;
+        const tipY = nPt.y + aftDir.y * flen;
+
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.fillStyle = primaryColor;
+        ctx.beginPath();
+        ctx.moveTo(nPt.x + px * fwidth * 0.5, nPt.y + py * fwidth * 0.5);
+        ctx.lineTo(tipX, tipY);
+        ctx.lineTo(nPt.x - px * fwidth * 0.5, nPt.y - py * fwidth * 0.5);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.moveTo(nPt.x + px * fwidth * 0.25, nPt.y + py * fwidth * 0.25);
+        ctx.lineTo(nPt.x + aftDir.x * flen * 0.58, nPt.y + aftDir.y * flen * 0.58);
+        ctx.lineTo(nPt.x - px * fwidth * 0.25, nPt.y - py * fwidth * 0.25);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      };
+
+      const tNozzles = mesh.nozzles.map((n, idx) => ({ pt: transformPoint(n), idx }));
+      for (const nz of tNozzles) {
+        if (nz.pt.z <= 8) drawNozzlePlume(nz.pt, nz.idx);
+      }
+
+      // 3B Yüzeyleri Z-Derinliğine Göre Sırala (Painter's Algorithm)
+      const renderList = [];
+      for (const f of mesh.faces) {
+        const p0 = tVerts[f.i0], p1 = tVerts[f.i1], p2 = tVerts[f.i2];
+        const zAvg = (p0.z + p1.z + p2.z) / 3;
+        const nView = transformDir(f.nx, f.ny, f.nz);
+        renderList.push({ f, p0, p1, p2, zAvg, nView });
+      }
+      renderList.sort((a, b) => a.zAvg - b.zAvg);
+
+      // 3B Işık Kaynakları: Gezegenin sıcak altın ışığı (sağ-üst) & Siber Nebula Rim ışığı (sol-alt)
+      const L1x = 0.52, L1y = -0.58, L1z = 0.62;
+      const L2x = -0.58, L2y = 0.42, L2z = 0.69;
+
+      ctx.save();
+      ctx.lineJoin = 'round';
+      for (const item of renderList) {
+        const { f, p0, p1, p2, nView } = item;
+        let nx = nView.x, ny = nView.y, nz = nView.z;
+        // İnce kuyruk yüzgeçleri çift taraflı ışık alır
+        if (f.isFin && nz < 0) {
+          nx = -nx; ny = -ny; nz = -nz;
+        }
+
+        const diff1 = Math.max(0, nx * L1x + ny * L1y + nz * L1z);
+        const diff2 = Math.max(0, nx * L2x + ny * L2y + nz * L2z);
+        // Blinn-Phong Specular (H ≈ [0.25, -0.28, 0.92])
+        const specDot = Math.max(0, nx * 0.25 + ny * (-0.28) + nz * 0.92);
+        const spec = Math.pow(specDot, f.mat === 'cockpit' ? 18 : 12);
+
+        let r = 14, g = 23, b = 42;
+        if (f.mat === 'hull_top') {
+          r = 18 + diff1 * 48 + diff2 * (sr * 0.22) + spec * 75;
+          g = 30 + diff1 * 56 + diff2 * (sg * 0.22) + spec * 85;
+          b = 54 + diff1 * 68 + diff2 * (sb * 0.22) + spec * 95;
+        } else if (f.mat === 'hull_mid' || f.mat === 'wing_top') {
+          r = 12 + diff1 * 38 + diff2 * (sr * 0.28) + spec * 55;
+          g = 22 + diff1 * 45 + diff2 * (sg * 0.28) + spec * 65;
+          b = 42 + diff1 * 58 + diff2 * (sb * 0.28) + spec * 75;
+        } else if (f.mat === 'hull_accent' || f.mat === 'wing_accent' || f.mat === 'fin') {
+          r = sr * (0.28 + diff1 * 0.48 + diff2 * 0.35) + spec * 110;
+          g = sg * (0.28 + diff1 * 0.48 + diff2 * 0.35) + spec * 110;
+          b = sb * (0.28 + diff1 * 0.48 + diff2 * 0.35) + spec * 110;
+        } else if (f.mat === 'cockpit') {
+          // Kristal siber kanopi (macenta/camgöbeği yansımalı 3B kubbe)
+          r = 35 + diff1 * 180 + spec * 210;
+          g = 15 + diff1 * 45 + diff2 * 140 + spec * 220;
+          b = 65 + diff1 * 110 + diff2 * 180 + spec * 240;
+        } else if (f.mat === 'hull_bottom' || f.mat === 'wing_bottom') {
+          // Alt zırh plakaları (barrel-roll sırasında net görünen koyu metalik reaktör zırhı)
+          r = 9 + diff1 * 28 + diff2 * (sr * 0.18) + spec * 40;
+          g = 15 + diff1 * 34 + diff2 * (sg * 0.18) + spec * 45;
+          b = 28 + diff1 * 44 + diff2 * (sb * 0.18) + spec * 55;
+        } else if (f.mat === 'engine') {
+          r = sr * 0.65 + 70;
+          g = sg * 0.65 + 70;
+          b = sb * 0.65 + 70;
+        }
+
+        const colStr = `rgb(${Math.min(255, Math.round(r))}, ${Math.min(255, Math.round(g))}, ${Math.min(255, Math.round(b))})`;
+        ctx.fillStyle = colStr;
+        ctx.strokeStyle = (f.mat === 'cockpit' || f.mat === 'hull_accent' || f.mat === 'wing_accent')
+          ? `rgba(${sr}, ${sg}, ${sb}, 0.55)`
+          : colStr;
+        ctx.lineWidth = 0.85;
+
+        ctx.beginPath();
+        ctx.moveTo(p0.x, p0.y);
+        ctx.lineTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      // 3B Yapısal Neon Sırt ve Kanat Çizgileri
+      ctx.strokeStyle = primaryColor;
+      ctx.shadowColor = primaryColor;
+      ctx.shadowBlur = this.isHoveringShip ? 14 : 8;
+      ctx.lineWidth = 1.5;
+      ctx.globalAlpha = 0.82;
+      for (const edge of mesh.neonEdges) {
+        const va = tVerts[edge[0]], vb = tVerts[edge[1]];
+        if (va.z + vb.z > -18) {
+          ctx.beginPath();
+          ctx.moveTo(va.x, va.y);
+          ctx.lineTo(vb.x, vb.y);
+          ctx.stroke();
+        }
+      }
+      ctx.restore();
+
+      // Kameraya doğru dönen ön nozüller (barrel roll esnasında üstte kalanlar)
+      for (const nz of tNozzles) {
+        if (nz.pt.z > 8) drawNozzlePlume(nz.pt, nz.idx);
+      }
+    }
+
     drawShowcaseShip(dt) {
       const ctx = this.ctx;
-      const shipClass = (typeof selectedShipClass !== 'undefined' && selectedShipClass) ? selectedShipClass : this.shipClassId;
-      const shipStats = (typeof SHIP_CLASSES !== 'undefined' && SHIP_CLASSES[shipClass]) ? SHIP_CLASSES[shipClass] : { name: 'İntihar Avcısı', color: '#00f3ff' };
+      const prog = this.getProgressionContext();
+      const shipClass = prog.shipClass;
+      const primaryColor = prog.shipColor || '#00f3ff';
+      const [sr, sg, sb] = prog.shipRgb;
 
       // Ship anchor coordinates (balanced in the open space of the right side)
       const cx = this.width > 960 ? this.width * 0.66 : this.width * 0.50;
       const cy = this.height * 0.52;
 
-      // Gentle floating kinematics (slow, majestic oscillation)
+      // Gerçek 3B Manevra (360° Barrel Roll & Surge) ve Hover Kinematikleri
+      let maneuverSurge = 0;
+      let maneuverRoll3D = 0;
+      let maneuverSpinOffset = 0;
+      if (this.shipManeuverTimer > 0) {
+        const mProg = 1.0 - (this.shipManeuverTimer / this.shipManeuverDuration);
+        maneuverSurge = Math.sin(mProg * Math.PI) * 28;
+        // Tam 360 derece (2*PI) gerçek 3B eksenel dönüş (ease-in-out)
+        const smoothProg = 0.5 - 0.5 * Math.cos(mProg * Math.PI);
+        maneuverRoll3D = smoothProg * Math.PI * 2;
+        maneuverSpinOffset = Math.sin(mProg * Math.PI * 2) * 0.08;
+      }
+
+      const startSurge = this.hoverBoostStart * 14;
       const floatY = Math.sin(this.time * 1.1) * 7;
-      const rollAngle = Math.sin(this.time * 0.8) * 0.04;
+      const rollAngle = Math.sin(this.time * 0.8) * 0.04 + maneuverSpinOffset;
       const shipAngle = -Math.PI / 6 + rollAngle; // 60 derece açılı yönelim (derinlik perspektifi)
 
-      const sx = cx;
-      const sy = cy + floatY;
+      // 3B yalpalama (bank/roll) ve yunuslama (pitch) açıları
+      const localRoll3D = Math.sin(this.time * 1.15) * 0.24 + maneuverRoll3D;
+      const localPitch3D = Math.cos(this.time * 0.85) * 0.08 - this.hoverBoostStart * 0.08;
 
-      // --- Holographic Base Telemetry Ring (3D Perspektif Eğimli) ---
+      const totalSurge = maneuverSurge + startSurge;
+      const sx = cx + Math.cos(shipAngle) * totalSurge;
+      const sy = cy + floatY + Math.sin(shipAngle) * totalSurge;
+
+      this.shipCenterX = sx;
+      this.shipCenterY = sy;
+      this.shipCurrentAngle = shipAngle;
+
+      // Drone yörünge güncellemesi
+      const droneSpeedMult = 1.0 + this.hoverBoostHangar * 1.4 + (this.shipManeuverTimer > 0 ? 1.5 : 0);
+      for (const d of this.drones) {
+        d.orbitPhase += d.speed * droneSpeedMult * (dt || 0.016);
+      }
+
+      // --- Gelişmiş 3B Enerji & Kalkış Platformu (Seçenek 1, 3 ve 5) ---
+      const baseRingY = cy + 92;
       ctx.save();
-      ctx.translate(cx, cy + 95);
-      ctx.scale(1.0, 0.78);
-      const ringPulse = 0.45 + 0.25 * Math.sin(this.time * 2.2);
-      ctx.strokeStyle = `rgba(0, 243, 255, ${ringPulse * 0.45})`;
-      ctx.lineWidth = 1.5;
+      ctx.translate(cx, baseRingY);
+
+      // Platformdan gemiye yükselen hafif holografik enerji projeksiyon konisi
+      const coneAlpha = 0.07 + this.hoverBoostHangar * 0.10 + this.hoverBoostChips * 0.09 + (this.isHoveringShip ? 0.06 : 0);
+      const coneGrad = ctx.createLinearGradient(0, 0, 0, -110);
+      coneGrad.addColorStop(0, `rgba(${sr}, ${sg}, ${sb}, ${coneAlpha.toFixed(3)})`);
+      coneGrad.addColorStop(1, `rgba(${sr}, ${sg}, ${sb}, 0)`);
+      ctx.fillStyle = coneGrad;
       ctx.beginPath();
-      ctx.ellipse(0, 0, 125, 28, -0.22, 0, Math.PI * 2);
+      ctx.moveTo(-115, 0);
+      ctx.lineTo(115, 0);
+      ctx.lineTo(65, -105);
+      ctx.lineTo(-65, -105);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.scale(1.0, 0.78);
+      ctx.rotate(-0.22);
+
+      const ringPulse = 0.55 + 0.25 * Math.sin(this.time * 2.2);
+      const ringBoost = 1.0 + this.hoverBoostHangar * 0.6 + this.hoverBoostStart * 0.5 + (this.isHoveringShip ? 0.45 : 0);
+
+      // Dış Manyetik Platform Çemberi (Hafif neon parıltılı degrade)
+      const outerColor = prog.heatLevel > 0 ? prog.heatColor : primaryColor;
+      ctx.strokeStyle = outerColor;
+      ctx.globalAlpha = Math.min(0.85, 0.22 * ringPulse * ringBoost);
+      ctx.lineWidth = 1.6;
+      ctx.shadowColor = outerColor;
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 142, 34, 0, 0, Math.PI * 2);
       ctx.stroke();
 
-      ctx.strokeStyle = 'rgba(0, 243, 255, 0.18)';
-      ctx.setLineDash([8, 8]);
-      ctx.lineDashOffset = -this.time * 18;
+      // Dönen Siber Kalkan & Manyetik Hızlandırıcı Yayları (Yumuşak degrade uçlu)
+      ctx.lineWidth = 2.0;
+      ctx.shadowColor = primaryColor;
+      ctx.shadowBlur = 10;
+      for (let seg = 0; seg < 4; seg++) {
+        const a0 = this.time * 0.45 + seg * (Math.PI / 2);
+        const arcGrad = ctx.createLinearGradient(
+          Math.cos(a0) * 122, Math.sin(a0) * 28,
+          Math.cos(a0 + 0.8) * 122, Math.sin(a0 + 0.8) * 28
+        );
+        arcGrad.addColorStop(0, `rgba(${sr}, ${sg}, ${sb}, 0)`);
+        arcGrad.addColorStop(0.5, `rgba(${sr}, ${sg}, ${sb}, ${(0.65 * ringPulse * ringBoost).toFixed(3)})`);
+        arcGrad.addColorStop(1, `rgba(${sr}, ${sg}, ${sb}, 0)`);
+        ctx.strokeStyle = arcGrad;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 122, 28, 0, a0, a0 + 0.8);
+        ctx.stroke();
+      }
+
+      // İç Rezonans Halkası (Hafif ve kesintisiz akışkan)
+      ctx.shadowBlur = 4;
+      ctx.strokeStyle = `rgba(${sr}, ${sg}, ${sb}, ${(0.22 * ringBoost).toFixed(3)})`;
+      ctx.lineWidth = 1.2;
       ctx.beginPath();
-      ctx.ellipse(0, 0, 90, 20, -0.22, 0, Math.PI * 2);
+      ctx.ellipse(0, 0, 88, 20, 0, 0, Math.PI * 2);
       ctx.stroke();
-      ctx.setLineDash([]);
+
+      // Merkez Enerji Çekirdeği
+      ctx.strokeStyle = `rgba(255, 255, 255, ${(0.20 * ringPulse).toFixed(3)})`;
+      ctx.lineWidth = 1.0;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 48, 11, 0, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Aktif Nöral Yonga Modülleri (Seçenek 5: Takılı yongalar veya temel yuvalar)
+      const chipsToRender = prog.activeChips.length > 0
+        ? prog.activeChips
+        : [
+            { color: '#ff0055', branch: 'offense', isPlaceholder: true },
+            { color: '#00f3ff', branch: 'defense', isPlaceholder: true },
+            { color: '#fbbf24', branch: 'utility', isPlaceholder: true }
+          ];
+
+      for (let cIdx = 0; cIdx < chipsToRender.length; cIdx++) {
+        const chip = chipsToRender[cIdx];
+        const cAngle = -this.time * 0.75 + (cIdx / chipsToRender.length) * Math.PI * 2;
+        const nx = Math.cos(cAngle) * 122;
+        const ny = Math.sin(cAngle) * 28;
+
+        ctx.save();
+        ctx.globalAlpha = chip.isPlaceholder ? (0.35 + this.hoverBoostChips * 0.55) : (0.85 + 0.15 * Math.sin(this.time * 4 + cIdx));
+        ctx.fillStyle = chip.color;
+        ctx.shadowColor = chip.color;
+        ctx.shadowBlur = chip.isPlaceholder ? 6 : 12;
+        ctx.beginPath();
+        ctx.arc(nx, ny, chip.isPlaceholder ? 3.0 : 4.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Nöral Yonga Matrisi butonuna gelindiğinde merkeze veri hattı bağla (Seçenek 1)
+        if (this.hoverBoostChips > 0.05 || !chip.isPlaceholder) {
+          ctx.strokeStyle = chip.color;
+          ctx.globalAlpha = (chip.isPlaceholder ? 0.35 : 0.45) * (0.35 + this.hoverBoostChips * 0.65);
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(nx, ny);
+          ctx.lineTo(nx * 0.42, ny * 0.42);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+
       ctx.restore();
 
+      // --- Arka Yörüngedeki Bakım Dronları (Gemi Arkasında Kalanlar - 3B Derinlik) ---
+      const activeScan = this.hoverBoostHangar > 0.15 || this.isHoveringShip;
+      for (const d of this.drones) {
+        if (Math.sin(d.orbitPhase) < 0) {
+          this.drawMaintenanceDrone(ctx, d, sx, sy, primaryColor, activeScan);
+        }
+      }
+
       // --- Volumetric Thruster Light Glow & Sparks (Egzoz Yönünde) ---
-      const thrusterDist = 46;
+      const thrusterBoost = 1.0 + this.hoverBoostStart * 0.75 + (this.shipManeuverTimer > 0 ? 0.85 : 0);
+      const thrusterDist = 48;
       const tx = sx - Math.cos(shipAngle) * thrusterDist;
       const ty = sy - Math.sin(shipAngle) * thrusterDist;
 
       ctx.save();
       ctx.globalCompositeOperation = 'screen';
-      const glowGrad = ctx.createRadialGradient(tx, ty, 5, tx, ty, 90);
-      glowGrad.addColorStop(0, 'rgba(0, 243, 255, 0.35)');
-      glowGrad.addColorStop(0.5, 'rgba(0, 153, 255, 0.12)');
+      const glowRadius = 90 * thrusterBoost;
+      const glowGrad = ctx.createRadialGradient(tx, ty, 5, tx, ty, glowRadius);
+      glowGrad.addColorStop(0, `rgba(${sr}, ${sg}, ${sb}, ${(0.38 * Math.min(1.5, thrusterBoost)).toFixed(3)})`);
+      glowGrad.addColorStop(0.5, `rgba(${sr}, ${sg}, ${sb}, 0.14)`);
       glowGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = glowGrad;
       ctx.beginPath();
-      ctx.arc(tx, ty, 90, 0, Math.PI * 2);
+      ctx.arc(tx, ty, glowRadius, 0, Math.PI * 2);
       ctx.fill();
       ctx.restore();
 
       // --- Thruster Sparks ---
-      if (Math.random() < 0.70) {
-        const speed = -(130 + Math.random() * 90);
+      const sparkChance = Math.min(0.98, 0.72 * thrusterBoost);
+      if (Math.random() < sparkChance) {
+        const speed = -(135 + Math.random() * 95) * thrusterBoost;
         this.thrusterParticles.push({
           x: tx + (Math.random() - 0.5) * 10,
           y: ty + (Math.random() - 0.5) * 10,
           vx: speed * Math.cos(shipAngle) + (Math.random() - 0.5) * 20,
           vy: speed * Math.sin(shipAngle) + (Math.random() - 0.5) * 20,
-          size: 1.5 + Math.random() * 2.5,
-          color: Math.random() < 0.75 ? shipStats.color || '#00f3ff' : '#ffffff',
+          size: (1.5 + Math.random() * 2.5) * (1 + this.hoverBoostStart * 0.3),
+          color: Math.random() < 0.75 ? primaryColor : '#ffffff',
           life: 0.28,
           maxLife: 0.28
         });
@@ -1286,139 +2086,82 @@
 
       const t = this.time;
       const flicker = 0.85 + 0.15 * Math.sin(t * 35);
-      const flameBaseLen = 22 * flicker;
+      const flameBaseLen = 22 * flicker * thrusterBoost;
 
-      const drawFlame = (fx, fy, flen, fwidth, outerCol, innerCol) => {
-        ctx.save();
-        ctx.globalCompositeOperation = 'lighter';
-        ctx.fillStyle = outerCol;
-        ctx.beginPath();
-        ctx.moveTo(fx, fy - fwidth * 0.5);
-        ctx.lineTo(fx - flen, fy);
-        ctx.lineTo(fx, fy + fwidth * 0.5);
-        ctx.closePath();
-        ctx.fill();
+      // --- Tamamen 3B Hacimsel Gemi Modeli Çizimi (360° Barrel Roll & Işıklandırma) ---
+      this.renderTrue3DShip(ctx, sx, sy, shipClass, primaryColor, [sr, sg, sb], shipAngle, localRoll3D, localPitch3D, flameBaseLen);
 
-        ctx.fillStyle = innerCol;
-        ctx.beginPath();
-        ctx.moveTo(fx, fy - fwidth * 0.25);
-        ctx.lineTo(fx - flen * 0.55, fy);
-        ctx.lineTo(fx, fy + fwidth * 0.25);
-        ctx.closePath();
-        ctx.fill();
-        ctx.restore();
-      };
-
-      // --- Retrieve In-Game Ship Texture ---
-      let tex = null;
-      try {
-        if (typeof window.getShipTexture === 'function') {
-          tex = window.getShipTexture(shipClass);
-        } else if (typeof pixiTextures !== 'undefined' && pixiTextures) {
-          tex = pixiTextures['ship_' + shipClass] || pixiTextures.ship_interceptor;
-        }
-      } catch (e) {}
-
-      let drawnTexture = false;
-      if (tex && tex.source && tex.source.resource) {
-        const res = tex.source.resource;
-        const frame = tex.frame || { x: 0, y: 0, width: res.width, height: res.height };
-        const fw = frame.width || res.width;
-        const fh = frame.height || res.height;
-        if (fw > 0 && fh > 0) {
-          // Thruster flames behind the sprite
-          ctx.save();
-          ctx.translate(sx, sy);
-          ctx.rotate(shipAngle);
-          ctx.scale(1.0, 0.88); // 3D derinlik
-          drawFlame(-48, -10, flameBaseLen * 1.1, 6.5, shipStats.color || '#00f3ff', '#ffffff');
-          drawFlame(-52, 0, flameBaseLen * 1.4, 8, '#00f3ff', '#ffffff');
-          drawFlame(-48, 10, flameBaseLen * 1.1, 6.5, shipStats.color || '#00f3ff', '#ffffff');
-          ctx.restore();
-
-          // Render sprite (60 derece açılı ve 3B derinlikli gölge & perspektif)
-          ctx.save();
-          ctx.translate(sx, sy);
-          ctx.rotate(shipAngle + Math.PI / 2);
-          ctx.scale(1.0, 0.88); // 3D derinlik perspektifi
-          ctx.shadowColor = 'rgba(0, 0, 0, 0.50)';
-          ctx.shadowBlur = 18;
-          ctx.shadowOffsetY = 14;
-          const drawW = 120;
-          const drawH = drawW * (fh / fw);
-          ctx.drawImage(res, frame.x, frame.y, fw, fh, -drawW / 2, -drawH / 2, drawW, drawH);
-          ctx.restore();
-          drawnTexture = true;
-        }
-      }
-
-      // --- Fallback to Vector Geometry if texture is not ready ---
-      if (!drawnTexture) {
+      // --- Sol Menü Hover Kalkan / Nöral Matris / Hangar Tarama Efektleri (Seçenek 1) ---
+      if (this.hoverBoostHangar > 0.04 || this.hoverBoostChips > 0.04 || this.hoverBoostCodex > 0.04) {
         ctx.save();
         ctx.translate(sx, sy);
-        ctx.rotate(shipAngle);
-        ctx.scale(2.2, 1.95); // 3D derinlik perspektifi
 
-        if (shipClass === 'titan') {
-          drawFlame(-16, -11, flameBaseLen * 0.85, 6, '#ff5500', '#ffe600');
-          drawFlame(-18, -4, flameBaseLen * 1.1, 7, '#ff7700', '#ffffff');
-          drawFlame(-18, 4, flameBaseLen * 1.1, 7, '#ff7700', '#ffffff');
-          drawFlame(-16, 11, flameBaseLen * 0.85, 6, '#ff5500', '#ffe600');
-
-          ctx.fillStyle = '#0f172a';
-          ctx.strokeStyle = '#ffb300';
-          ctx.lineWidth = 2.2;
-          ctx.shadowColor = '#ffb300';
+        // Hangar Hover: Gemi üzerinde holografik eliptik enerji kalkanı parıltısı
+        if (this.hoverBoostHangar > 0.04) {
+          const shieldPulse = 0.85 + 0.15 * Math.sin(this.time * 4.0);
+          ctx.strokeStyle = primaryColor;
+          ctx.globalAlpha = this.hoverBoostHangar * 0.45 * shieldPulse;
+          ctx.lineWidth = 1.6;
+          ctx.shadowColor = primaryColor;
           ctx.shadowBlur = 10;
           ctx.beginPath();
-          ctx.moveTo(22, 0); ctx.lineTo(16, -9); ctx.lineTo(6, -18); ctx.lineTo(-6, -21); ctx.lineTo(-17, -15);
-          ctx.lineTo(-14, -8); ctx.lineTo(-19, 0); ctx.lineTo(-14, 8); ctx.lineTo(-17, 15); ctx.lineTo(-6, 21);
-          ctx.lineTo(6, 18); ctx.lineTo(16, 9); ctx.closePath();
-          ctx.fill(); ctx.stroke();
+          ctx.ellipse(0, 0, 72, 60, shipAngle, 0, Math.PI * 2);
+          ctx.stroke();
 
-          ctx.fillStyle = '#ffe600';
-          ctx.beginPath(); ctx.arc(0, 0, 4, 0, Math.PI * 2); ctx.fill();
-        } else if (shipClass === 'spectre') {
-          drawFlame(-13, -6, flameBaseLen * 0.9, 5, '#a855f7', '#00ffcc');
-          drawFlame(-15, 0, flameBaseLen * 1.25, 7, '#c084fc', '#ffffff');
-          drawFlame(-13, 6, flameBaseLen * 0.9, 5, '#a855f7', '#00ffcc');
-
-          ctx.fillStyle = '#0a0518';
-          ctx.strokeStyle = '#bd00ff';
-          ctx.lineWidth = 2.2;
-          ctx.shadowColor = '#bd00ff';
-          ctx.shadowBlur = 12;
+          // Dış ince telemetri parantezi
+          ctx.lineWidth = 1.0;
+          ctx.globalAlpha = this.hoverBoostHangar * 0.35;
           ctx.beginPath();
-          ctx.moveTo(27, 0); ctx.lineTo(12, -7); ctx.lineTo(18, -21); ctx.lineTo(8, -17); ctx.lineTo(-5, -12);
-          ctx.lineTo(-14, -8); ctx.lineTo(-10, 0); ctx.lineTo(-14, 8); ctx.lineTo(-5, 12); ctx.lineTo(8, 17);
-          ctx.lineTo(18, 21); ctx.lineTo(12, 7); ctx.closePath();
-          ctx.fill(); ctx.stroke();
-
-          ctx.fillStyle = '#00ffcc';
-          ctx.beginPath(); ctx.ellipse(4, 0, 6, 2.5, 0, 0, Math.PI * 2); ctx.fill();
-        } else {
-          // Interceptor / default
-          drawFlame(-15, -6, flameBaseLen * 0.8, 4.5, '#0099ff', '#00f3ff');
-          drawFlame(-17, 0, flameBaseLen * 1.3, 8, '#00f3ff', '#ffffff');
-          drawFlame(-15, 6, flameBaseLen * 0.8, 4.5, '#0099ff', '#00f3ff');
-
-          ctx.fillStyle = '#060e20';
-          ctx.strokeStyle = shipStats.color || '#00f3ff';
-          ctx.lineWidth = 2.2;
-          ctx.shadowColor = shipStats.color || '#00f3ff';
-          ctx.shadowBlur = 12;
-
+          ctx.arc(0, 0, 84, shipAngle - 0.5, shipAngle + 0.5);
+          ctx.stroke();
           ctx.beginPath();
-          ctx.moveTo(27, 0); ctx.lineTo(8, -6); ctx.lineTo(4, -18); ctx.lineTo(-15, -16); ctx.lineTo(-10, -7);
-          ctx.lineTo(-17, 0); ctx.lineTo(-10, 7); ctx.lineTo(-15, 16); ctx.lineTo(4, 18); ctx.lineTo(8, 6);
+          ctx.arc(0, 0, 84, shipAngle + Math.PI - 0.5, shipAngle + Math.PI + 0.5);
+          ctx.stroke();
+        }
+
+        // Nöral Yonga / Yetenek Ağacı Hover: Altıgen Siber Senkronizasyon Dalgası
+        if (this.hoverBoostChips > 0.04) {
+          const hexRadius = 56 + ((this.time * 38) % 34);
+          const hexAlpha = this.hoverBoostChips * (1.0 - ((hexRadius - 56) / 34)) * 0.75;
+          ctx.strokeStyle = '#c084fc';
+          ctx.globalAlpha = Math.max(0, hexAlpha);
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          for (let hIdx = 0; hIdx < 6; hIdx++) {
+            const ha = this.time * 0.9 + (hIdx * Math.PI) / 3;
+            const hx = Math.cos(ha) * hexRadius;
+            const hy = Math.sin(ha) * hexRadius * 0.82;
+            if (hIdx === 0) ctx.moveTo(hx, hy);
+            else ctx.lineTo(hx, hy);
+          }
           ctx.closePath();
-          ctx.fill(); ctx.stroke();
+          ctx.stroke();
+        }
 
-          ctx.fillStyle = '#ff007f';
-          ctx.beginPath(); ctx.ellipse(3, 0, 8, 3.5, 0, 0, Math.PI * 2); ctx.fill();
+        // Füzyon Kodeksi / Başarımlar Hover: Plazma Füzyon Küreleri
+        if (this.hoverBoostCodex > 0.04) {
+          for (let orb = 0; orb < 3; orb++) {
+            const oa = this.time * 3.2 + (orb * Math.PI * 2) / 3;
+            const ox = Math.cos(oa) * 62;
+            const oy = Math.sin(oa) * 48;
+            ctx.fillStyle = orb === 0 ? '#ff0055' : (orb === 1 ? '#00f3ff' : '#fbbf24');
+            ctx.globalAlpha = this.hoverBoostCodex * 0.85;
+            ctx.shadowColor = ctx.fillStyle;
+            ctx.shadowBlur = 10;
+            ctx.beginPath();
+            ctx.arc(ox, oy, 4.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
         }
 
         ctx.restore();
+      }
+
+      // --- Ön Yörüngedeki Bakım Dronları (Gemi Önünde Kalanlar - 3B Derinlik) ---
+      for (const d of this.drones) {
+        if (Math.sin(d.orbitPhase) >= 0) {
+          this.drawMaintenanceDrone(ctx, d, sx, sy, primaryColor, activeScan);
+        }
       }
     }
 
@@ -1522,6 +2265,76 @@
 
     updateAndDrawFX(dt) {
       const ctx = this.ctx;
+
+      // Gemi ateşleme gösterisi mermileri (Seçenek 3)
+      for (let i = this.showcaseProjectiles.length - 1; i >= 0; i--) {
+        const prj = this.showcaseProjectiles[i];
+        prj.life -= dt;
+        prj.x += prj.vx * dt;
+        prj.y += prj.vy * dt;
+
+        if (prj.life <= 0 || prj.x < -50 || prj.x > this.width + 50 || prj.y < -50 || prj.y > this.height + 50) {
+          this.showcaseProjectiles.splice(i, 1);
+          continue;
+        }
+
+        // Göktaşına isabet kontrolü
+        let hitAst = false;
+        for (let aIdx = this.asteroids.length - 1; aIdx >= 0; aIdx--) {
+          const ast = this.asteroids[aIdx];
+          if (Math.hypot(prj.x - ast.x, prj.y - ast.y) <= ast.radius + 8) {
+            this.asteroids.splice(aIdx, 1);
+            this.shatterAsteroid(ast, prj.x, prj.y);
+            this.asteroids.push(this.createAsteroid(true));
+            hitAst = true;
+            break;
+          }
+        }
+        if (hitAst) {
+          this.showcaseProjectiles.splice(i, 1);
+          continue;
+        }
+
+        ctx.save();
+        ctx.translate(prj.x, prj.y);
+        ctx.rotate(prj.angle);
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.shadowColor = prj.glowColor;
+        ctx.shadowBlur = 12;
+        ctx.fillStyle = prj.color;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 14, 3.2, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // Plazma Ateş Topu ve Çekirdek Patlama Işığı (Explosions)
+      for (let i = this.explosions.length - 1; i >= 0; i--) {
+        const exp = this.explosions[i];
+        exp.life -= dt;
+        if (exp.life <= 0) {
+          this.explosions.splice(i, 1);
+          continue;
+        }
+
+        const t = 1 - exp.life / exp.maxLife;
+        const r = exp.radius + (exp.maxRadius - exp.radius) * t;
+        const alpha = Math.max(0, exp.life / exp.maxLife);
+
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        const grad = ctx.createRadialGradient(exp.x, exp.y, 0, exp.x, exp.y, r);
+        grad.addColorStop(0, '#ffffff');
+        grad.addColorStop(0.25, exp.color);
+        grad.addColorStop(0.65, 'rgba(255, 120, 0, ' + (alpha * 0.75) + ')');
+        grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = grad;
+        ctx.globalAlpha = alpha;
+        ctx.beginPath();
+        ctx.arc(exp.x, exp.y, r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
 
       // Shockwaves
       for (let i = this.shockwaves.length - 1; i >= 0; i--) {

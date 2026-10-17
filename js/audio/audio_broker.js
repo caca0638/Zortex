@@ -108,7 +108,11 @@
       const categories = ['sfx', 'music', 'ambient', 'ui'];
       categories.forEach(cat => {
         const bus = this.ctx.createGain();
-        bus.gain.setValueAtTime(cat === 'music' ? this.musicVolume : this.sfxVolume, now);
+        let busVol = this.sfxVolume;
+        if (cat === 'music') busVol = this.musicVolume;
+        else if (cat === 'ui') busVol = 0.55;
+        else if (cat === 'ambient') busVol = 0.60;
+        bus.gain.setValueAtTime(busVol, now);
         bus.connect(this.masterCompressor);
         this.categoryBuses.set(cat, bus);
       });
@@ -285,7 +289,7 @@
           maxConcurrent: 8,
           pitchJitter: 0.035,
           gainJitter: 0.03,
-          baseVolume: 0.38
+          baseVolume: 0.35
         },
         // 3. Railgun / Elektromanyetik Şok (5 Retro hiper-lazer varyasyonu)
         {
@@ -301,9 +305,9 @@
           maxConcurrent: 6,
           pitchJitter: 0.03,
           gainJitter: 0.02,
-          baseVolume: 0.50
+          baseVolume: 0.45
         },
-        // 4. Parçalanma Patlamaları (Uzay Vakumu & Plazma Sönümlenmesi - Derin Boğuk Gövde Titreşimi, Sıfır Karasal Çıtırtı)
+        // 4. Parçalanma Patlamaları (Uzay Vakumu & Plazma Sönümlenmesi - Tok, güçlü ve dengeli gövde titreşimi)
         {
           id: 'explosion_crunch',
           sources: [
@@ -315,8 +319,8 @@
           pitch: 0.78,
           pitchJitter: 0.045,
           gainJitter: 0.04,
-          baseVolume: 0.28,
-          filterFreq: 180 // Uzay vakumu: Karasal çakıl/barut çıtırtılarını tamamen kesen 180Hz derin lowpass
+          baseVolume: 0.55,
+          filterFreq: 220 // Derin gövde ve plazma titreşimi
         },
         // 5. Ağır Boss / Dreadnought Patlamaları (Sismik Uzay Şok Dalgası & Sub-Bass Rezonansı)
         {
@@ -330,8 +334,8 @@
           pitch: 0.58,
           pitchJitter: 0.03,
           gainJitter: 0.03,
-          baseVolume: 0.38,
-          filterFreq: 130 // Derin uzay sismik dalgası: Yalnızca gövdeden iletilen 130Hz sub-bass rezonansı
+          baseVolume: 0.65,
+          filterFreq: 160 // Derin uzay sismik dalgası: Sub-bass rezonansı
         },
         // 6. Kalkan Darbe Sesi (5 Güç alanı varyasyonu)
         {
@@ -347,9 +351,9 @@
           maxConcurrent: 6,
           pitchJitter: 0.03,
           gainJitter: 0.02,
-          baseVolume: 0.40
+          baseVolume: 0.32
         },
-        // 7. Kalkan Kırılma Cam Şangırtısı (5 Ağır Cam Çatlama Darbesi)
+        // 7. Kalkan Kırılma Cam Şangırtısı (5 Ağır Cam Çatlama Darbesi - Normalize Edilmiş)
         {
           id: 'shield_break',
           sources: [
@@ -362,9 +366,9 @@
           category: 'sfx',
           maxConcurrent: 4,
           pitchJitter: 0.025,
-          baseVolume: 0.85
+          baseVolume: 0.45
         },
-        // 8. Gövde Metalik Darbe Sesi (5 Metal Plaka Darbesi)
+        // 8. Gövde Metalik Darbe Sesi (5 Metal Plaka Darbesi - Tok ve Yumuşak)
         {
           id: 'impact_metal',
           sources: [
@@ -378,9 +382,9 @@
           maxConcurrent: 10,
           pitchJitter: 0.05,
           gainJitter: 0.04,
-          baseVolume: 0.40
+          baseVolume: 0.32
         },
-        // 9. Taktiksel Kart Hover / Odaklanma Tıkı
+        // 9. Taktiksel Kart Hover / Odaklanma Tıkı (Hafif ve Zarif)
         {
           id: 'ui_card_hover',
           sources: [
@@ -391,9 +395,9 @@
           category: 'ui',
           maxConcurrent: 4,
           pitchJitter: 0.03,
-          baseVolume: 0.4
+          baseVolume: 0.25
         },
-        // 10. Kart Seçme / Manyetik Kilitlenme
+        // 10. Kart Seçme / Manyetik Kilitlenme (Dengelenmiş Tok Kilit)
         {
           id: 'ui_card_select',
           sources: [
@@ -405,7 +409,7 @@
           category: 'ui',
           maxConcurrent: 4,
           pitchJitter: 0.025,
-          baseVolume: 0.85
+          baseVolume: 0.42
         },
         // 11. Retro Mekanik Silah Değiştirme / Mandallama
         {
@@ -419,7 +423,7 @@
           category: 'ui',
           maxConcurrent: 4,
           pitchJitter: 0.03,
-          baseVolume: 0.75
+          baseVolume: 0.38
         },
         // 12. Düşük Can Glitch Paraziti & Alarm
         {
@@ -433,7 +437,7 @@
           category: 'ui',
           maxConcurrent: 3,
           pitchJitter: 0.04,
-          baseVolume: 0.5
+          baseVolume: 0.32
         },
         // 13. UI Onay Akoru
         {
@@ -445,9 +449,9 @@
           category: 'ui',
           maxConcurrent: 2,
           pitchJitter: 0.02,
-          baseVolume: 0.8
+          baseVolume: 0.42
         },
-        // 14. İtici / Dash Patlaması
+        // 14. İtici / Dash Patlaması (Dengelenmiş Aerodinamik Hava Çıkışı)
         {
           id: 'thruster_dash',
           sources: [
@@ -458,7 +462,7 @@
           category: 'sfx',
           maxConcurrent: 3,
           pitchJitter: 0.03,
-          baseVolume: 0.8
+          baseVolume: 0.42
         },
         // 15. Kalkan Tamamen Doldu / Kilitlendi
         {
@@ -467,7 +471,7 @@
           category: 'sfx',
           maxConcurrent: 2,
           pitchJitter: 0.02,
-          baseVolume: 0.75
+          baseVolume: 0.38
         }
       ];
 

@@ -33,6 +33,7 @@ top_level_files = [
 
 include_dirs = [
     "assets",
+    "desktop",
     "docs",
     "js",
     "research",

@@ -355,7 +355,7 @@
           const startF = 54 * Math.min(1.2, intensity);
           subOsc.frequency.setValueAtTime(startF, now);
           subOsc.frequency.exponentialRampToValueAtTime(22, now + 0.22);
-          const subVol = 0.22 * Math.min(1.2, intensity);
+          const subVol = 0.24 * Math.min(1.2, intensity);
           subGain.gain.setValueAtTime(0.001, now);
           subGain.gain.linearRampToValueAtTime(subVol, now + 0.005);
           subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
@@ -376,7 +376,7 @@
 
           const noiseGain = this.ctx.createGain();
           noiseGain.gain.setValueAtTime(0.001, now);
-          noiseGain.gain.linearRampToValueAtTime(0.09 * intensity, now + 0.006);
+          noiseGain.gain.linearRampToValueAtTime(0.12 * intensity, now + 0.006);
           noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
 
           noise.connect(filter);
@@ -394,7 +394,7 @@
           ionOsc.frequency.setValueAtTime(130 + (Math.random() - 0.5) * 20, now);
           ionOsc.frequency.exponentialRampToValueAtTime(32, now + 0.16);
           ionGain.gain.setValueAtTime(0.001, now);
-          ionGain.gain.linearRampToValueAtTime(0.04 * intensity, now + 0.004);
+          ionGain.gain.linearRampToValueAtTime(0.06 * intensity, now + 0.004);
           ionGain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
           ionOsc.connect(ionGain);
           ionGain.connect(dest);
@@ -445,7 +445,7 @@
         filter.type = 'lowpass';
         filter.frequency.setValueAtTime(3200, now);
 
-        gain.gain.setValueAtTime(0.28, now);
+        gain.gain.setValueAtTime(0.20, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
 
         osc.connect(filter);
@@ -460,7 +460,7 @@
           const clickGain = this.ctx.createGain();
           click.type = 'triangle';
           click.frequency.setValueAtTime(3600 * finalPitch, now);
-          clickGain.gain.setValueAtTime(0.18, now);
+          clickGain.gain.setValueAtTime(0.12, now);
           clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.015);
           click.connect(clickGain);
           clickGain.connect(dest);

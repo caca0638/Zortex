@@ -1,7 +1,7 @@
 # ZORTEX: CYBER SURVIVOR — GENEL PROJE RAPORU, KOD AKIŞI VE AI DEVİR KILAVUZU
 > **Hedef Kitle:** Başka bir Yapay Zeka (AI / LLM) veya Geliştirici.  
-> **Tarih:** 17 Ekim 2026  
-> **Durum:** Kararlı, 144 FPS Doğrulandı, Sıfır Konsol Hatası, PixiJS v8 Yerel Doku Göçü (T1 + T2) Tamamlandı, sim_gate 10/10 Dalga PASS.
+> **Tarih:** 18 Ekim 2026  
+> **Durum:** Kararlı, 144 FPS Doğrulandı, Sıfır Konsol Hatası, PixiJS v8 Yerel Doku Göçü (T1 + T2) Tamamlandı, 3B Ana Menü Vitrini Entegre, sim_gate 10/10 Dalga PASS.
 
 ---
 
@@ -33,6 +33,7 @@ c:/Users/user/Desktop/zort/
 │   │   ├── camera_system.js         # Yumuşak kamera sönümlemesi, ekran sarsıntısı (trauma shake)
 │   │   ├── daily_run_rng.js         # Günlük yarış (Daily Run) için tohumlanmış mulberry32 PRNG
 │   │   ├── localization.js          # TR / EN / ES / DE 4 dil desteği ve çalışma zamanı i18n yöneticisi
+│   │   ├── menu_showcase.js         # Ana Menü 3B Küresel Gezegen (WebGL/Raymarching), 3B Gemi Vitrini ve Etkileşimli Ses/Parçacık Motoru
 │   │   ├── object_pool.js           # Mermiler, parçacıklar ve hasar metinleri için GC-Free havuz
 │   │   └── profiler_system.js       # Canlı kare süresi, p99 ve donma telemetri profilleyicisi
 │   ├── fx/
