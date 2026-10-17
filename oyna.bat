@@ -6,6 +6,13 @@ cd /d "%~dp0"
 :: ZORTEX: CYBER SURVIVOR - MASAUSTU BASLATICI (BATCH LAUNCHER)
 :: -----------------------------------------------------------------------------
 
+:: 0. ONCELIK: Yerel Derlenmis Native EXE Varsa Dogrudan Onu Baslat
+if exist "%~dp0dist\win-unpacked\Zortex.exe" (
+    echo [*] Native Zortex.exe bulundu. Dogrudan baslatiliyor...
+    start "" "%~dp0dist\win-unpacked\Zortex.exe"
+    exit /b 0
+)
+
 :: 1. ONCELIK: Python Varsa app.py ile Yerel Masaustu Cekirdegini Baslat
 where python >nul 2>nul
 if %ERRORLEVEL% equ 0 goto :launch_python

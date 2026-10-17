@@ -4,20 +4,22 @@ Neon Cyberpunk temalı, 144Hz (144 FPS) mekaniklere, tam Gamepad / Oyun Kolu des
 
 ---
 
-## Nasil Baslatilir? (Bagimsiz Masaustu Uygulamasi)
+## Nasil Baslatilir ve Derlenir? (Native EXE & Masaustu Mimarisi)
 
-Zortex, harici framework'lere (Electron vb.) ihtiyaç duymadan dogrudan bagimsiz bir yerel masaustu uygulamasi (Standalone Desktop App) olarak calisacak sekilde optimize edilmistir:
+Zortex, hem dogrudan derlenmis **Native Windows (`Zortex.exe`)** paketi olarak hem de hafif masaustu sunucusu uzerinden calisabilir:
 
-1. **1-Tikla Masaustu Baslatici (Onerilen):**
-   - Masaustunuzdeki `zort` klasorunde yer alan [`oyna.bat`](file:///C:/Users/user/Desktop/zort/oyna.bat) dosyasina cift tiklayin.
-   - Bilgisayarinizda Python varsa [`app.py`](file:///C:/Users/user/Desktop/zort/app.py) uzerinden yerel bir cekirdek kurarak tarayici cubuklari, sekmeler ve menuler olmadan tam ekran bir pencerede baslatir.
-   - Python yoksa dogrudan Microsoft Edge Uygulama Modu (`--app`) ile baslatilir.
-2. **Python Launcher ile:**
+1. **Gercek Native Windows EXE (`Zortex.exe`):**
+   - `dist\win-unpacked\Zortex.exe` dosyasini dogrudan calistirabilir veya kok dizindeki [`oyna.bat`](file:///C:/Users/user/Desktop/zort/oyna.bat) dosyasina cift tiklayabilirsiniz.
+   - Tarayiciya veya Python kurulumuna ihtiyac duymaz; gomulu 144Hz GPU motoru, ozel Mecha ikonu, tam ekran kontrolu (`F11` / `Alt+Enter`) ve atomik kayit sistemi ile bagimsiz pencere olarak acilir.
+2. **Native EXE ve Dagitim Paketlerini Yeniden Derleme (itch.io & CrazyGames):**
+   ```bash
+   npm run build:exe    # dist/win-unpacked/Zortex.exe uretir, ikonu gomer ve self-test yapar
+   npm run build:itch   # itch.io (Windows ZIP) ve CrazyGames/itch.io (Web HTML5 ZIP) paketlerini uretir
+   ```
+3. **Python Gelistirici Sunucusu ile:**
    ```bash
    python app.py
    ```
-3. **Bagimsiz Tek Dosya (Offline):**
-   - [`index.html`](file:///C:/Users/user/Desktop/zort/index.html) dosyasini herhangi bir web tarayicisinda acmaniz yeterlidir (sifir internet / sifir harici dosya bagimliligi).
 
 ---
 
@@ -134,17 +136,18 @@ Dusmanlardan toplanan hurdalar yerel hafizaya kaydedilir:
 ```
 c:/Users/user/Desktop/zort/
 ├── index.html          # Bagimsiz cekirdek oyun ve arayuzler
+├── desktop/            # Native Windows EXE motoru (main.cjs, preload.cjs, icon.ico)
 ├── js/                 # Moduler alt sistemler (audio, core, fx, gameplay)
 │   ├── fx/zortex_fx.js # GPU Post-Process efekt motoru
 │   ├── audio/          # Prosedurel Web Audio motoru ve broker
 │   ├── core/           # Kamera, havuz, i18n (4 dil), profilleyici, gunluk RNG
 │   └── gameplay/       # Boss'lar, dusmanlar, silah fuzyonlari, meta gelisim
 ├── app.py              # Yerel REST API ve masaustu sunucu baslaticisi
-├── oyna.bat            # Cift tiklamali 1-tik masaustu baslatici
+├── oyna.bat            # Cift tiklamali 1-tik masaustu baslatici (Once Zortex.exe'yi acar)
 ├── vendor/             # Cevrimdisi kutuphaneler (PixiJS v8, tweakpane, filters)
 ├── assets/             # SFX ve sprite dokulari
 ├── docs/               # Mimari ve test dokumanlari (CODEBASE_MAP.md, RUNBOOK vb.)
-├── scripts/            # Kanonik test paketi (sim_gate.py, verify_zortex_overhaul.py)
+├── scripts/            # Kanonik test ve EXE/dagitim derleme betikleri
 └── README.md           # Kapsamli sistem ve kullanim kilavuzu
 ```
 

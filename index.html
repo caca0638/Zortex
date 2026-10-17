@@ -6018,6 +6018,10 @@
 
     // [FAZ 5] YENİ: MASAÜSTÜ & STEAM HAZIRLIKLARI (FULLSCREEN & BLUR AUTO-PAUSE)
     function toggleFullscreen() {
+      if (window.ZortexNative && typeof window.ZortexNative.toggleFullscreen === 'function') {
+        window.ZortexNative.toggleFullscreen();
+        return;
+      }
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().catch(err => {
           console.warn('[FULLSCREEN] Tam ekrana geçilemedi:', err);
@@ -6031,6 +6035,23 @@
       }
     }
     window.toggleFullscreen = toggleFullscreen;
+
+    if (window.ZortexNative && window.ZortexNative.isDesktopApp) {
+      window.addEventListener('DOMContentLoaded', () => {
+        const pauseBox = document.querySelector('#pauseOverlay .neon-box');
+        const menuFromPauseBtn = document.getElementById('menuFromPauseBtn');
+        if (pauseBox && menuFromPauseBtn && !document.getElementById('quitDesktopPauseBtn')) {
+          const qBtn = document.createElement('button');
+          qBtn.id = 'quitDesktopPauseBtn';
+          qBtn.className = 'btn btn-secondary';
+          qBtn.style.borderColor = '#ef4444';
+          qBtn.style.color = '#ef4444';
+          qBtn.textContent = 'MASAÜSTÜNE ÇIK';
+          qBtn.onclick = () => window.ZortexNative.quitGame();
+          menuFromPauseBtn.insertAdjacentElement('afterend', qBtn);
+        }
+      });
+    }
 
     // Pencere/Sekme odağı kaybolduğunda tuş takılmalarını önle ve otomatik duraklat
     window.addEventListener('blur', () => {

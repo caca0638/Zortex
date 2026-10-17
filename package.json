@@ -2,13 +2,41 @@
   "name": "zortex-cyber-survivor",
   "version": "2.5.0",
   "description": "2.5D Retro Arcade Space Combat Rogue-Lite powered by PixiJS v8",
-  "type": "module",
-  "main": "src/core/Game.js",
+  "main": "desktop/main.cjs",
   "scripts": {
-    "start": "python app.py",
+    "start": "electron .",
     "dev": "python app.py",
+    "desktop": "electron .",
+    "build:exe": "node scripts/build_native_exe.cjs",
+    "build:itch": "python scripts/build_distributions.py",
     "update-map": "node scripts/update_codebase_map.mjs",
     "watch-map": "node scripts/update_codebase_map.mjs --watch"
+  },
+  "build": {
+    "appId": "com.zortex.cybersurvivor",
+    "productName": "Zortex",
+    "asar": true,
+    "compression": "normal",
+    "electronDist": "node_modules/electron/dist",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "pixi.v8.min.js",
+      "desktop/**/*",
+      "js/**/*",
+      "vendor/**/*",
+      "assets/**/*",
+      "!node_modules/**/*"
+    ],
+    "win": {
+      "icon": "desktop/icons/icon.ico",
+      "signAndEditExecutable": false,
+      "target": [
+        "dir"
+      ]
+    }
   },
   "dependencies": {
     "pixi.js": "^8.6.6"
@@ -25,8 +53,11 @@
   "author": "ZORTEX Team",
   "license": "MIT",
   "devDependencies": {
+    "electron": "^44.8.0",
+    "electron-builder": "^26.8.1",
+    "esbuild": "^0.28.2",
     "pixi-filters": "^6.1.5",
-    "tweakpane": "^4.0.5",
-    "esbuild": "^0.28.2"
+    "rcedit": "^5.0.2",
+    "tweakpane": "^4.0.5"
   }
 }
