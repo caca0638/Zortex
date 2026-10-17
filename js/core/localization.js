@@ -38,6 +38,8 @@
       high_score_lbl: '🏆 En Yüksek Skor:',
       scrap_lbl: '🔩 Hurda:',
       heat_pacts_btn: '🔥 PAKT DETAYLARI',
+      menu_showcase_title: 'SİBER UZAY SAHASI',
+      menu_showcase_hint: '🎯 Meteora tıkla • Parçala & Hurda Topla',
 
       // Kontroller İpuçları
       ctrl_move: '<span class="key-badge">WASD / Oklar</span> Hareket',
@@ -441,6 +443,8 @@
       high_score_lbl: '🏆 High Score:',
       scrap_lbl: '🔩 Scrap:',
       heat_pacts_btn: '🔥 PACT DETAILS',
+      menu_showcase_title: 'CYBERSPACE SECTOR',
+      menu_showcase_hint: '🎯 Click asteroid • Shatter & Collect Scrap',
 
       // Controls Hints
       ctrl_move: '<span class="key-badge">WASD / Arrows</span> Movement',
@@ -844,6 +848,8 @@
       high_score_lbl: '🏆 Récord Máximo:',
       scrap_lbl: '🔩 Chatarra:',
       heat_pacts_btn: '🔥 DETALLES DEL PACTO',
+      menu_showcase_title: 'SECTOR CIBERESPACIAL',
+      menu_showcase_hint: '🎯 Clic en asteroide • Destruye y recolecta chatarra',
 
       // Consejos de Control
       ctrl_move: '<span class="key-badge">WASD / Flechas</span> Moverse',
@@ -1247,6 +1253,8 @@
       high_score_lbl: '🏆 Höchstpunktzahl:',
       scrap_lbl: '🔩 Schrott:',
       heat_pacts_btn: '🔥 PAKT-DETAILS',
+      menu_showcase_title: 'CYBERRAUM-SEKTOR',
+      menu_showcase_hint: '🎯 Klicke Meteorit • Zerstöre & Sammle Schrott',
 
       // Steuerungshinweise
       ctrl_move: '<span class="key-badge">WASD / Pfeile</span> Bewegung',
