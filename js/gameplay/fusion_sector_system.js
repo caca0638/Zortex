@@ -204,9 +204,8 @@
       this.meteors = [];
       this.nextMeteorTime = 0.5;
 
-      if (window.textManager && typeof window.textManager.add === 'function') {
-        window.textManager.add('── ⚠️ METEOR FIRTINASI UYARISI ⚠️ ──', W / 2, H / 2 - 90, '#f97316', 22, 3.0);
-        window.textManager.add('KOZMİK GÖKTAŞI GEÇİŞİ BAŞLADI!', W / 2, H / 2 - 55, '#facc15', 16, 2.5);
+      if (typeof window.showEventNotification === 'function') {
+        window.showEventNotification('── ⚠️ METEOR FIRTINASI UYARISI ⚠️ ──', 'KOZMİK GÖKTAŞI GEÇİŞİ BAŞLADI!', 'GÖKTAŞI ÇARPIŞMALARINDAN KAÇININ', '#f97316', 3.5);
       }
       if (typeof window.screenShake !== 'undefined') {
         window.screenShake = Math.max(window.screenShake || 0, 16);
@@ -350,9 +349,8 @@
     }
 
     triggerSectorWarp(sector, W, H) {
-      if (window.textManager && typeof window.textManager.add === 'function') {
-        window.textManager.add(`── 🌌 YENİ SEKTÖRE GİRİLDİ: [ ${sector.name} ] ──`, W / 2, 70, sector.tint, 22, 3.5);
-        window.textManager.add(sector.subtitle, W / 2, 100, '#ffffff', 14, 3.0);
+      if (typeof window.showEventNotification === 'function') {
+        window.showEventNotification('🌌 YENİ SEKTÖR', sector.name, sector.subtitle || 'SEKTÖR ABLUKA PROTOKOLÜ', sector.tintHex || '#38bdf8', 3.8);
       }
       if (typeof window.triggerCameraZoom === 'function') window.triggerCameraZoom(0.06);
       if (typeof window.triggerHitStop === 'function') window.triggerHitStop(0.18);
@@ -459,11 +457,8 @@
         window.addShockwave(p.x, p.y, 280, 0.45);
       }
 
-      if (window.textManager && typeof window.textManager.add === 'function') {
-        const W = window.W || 1280;
-        const H = window.H || 720;
-        window.textManager.add('⚡ EFSANEVİ SİLAH FÜZYONU TAMAMLANDI! ⚡', W / 2, H / 2 - 90, color, 24, 3.5);
-        window.textManager.add(`[ ${fusionName} ]`, W / 2, H / 2 - 50, '#ffe600', 36, 4.0);
+      if (typeof window.showEventNotification === 'function') {
+        window.showEventNotification('⚡ EFSANEVİ SİLAH FÜZYONU ⚡', fusionName, 'FÜZYON SİLAH SİSTEMİ TAM GÜÇ DEVREDE', color, 4.0);
       }
     }
 

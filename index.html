@@ -49,27 +49,27 @@
     :root {
       /* Nova Drift Geometric Cyber Palette */
       --bg: #030712;
-      --panel: rgba(4, 9, 24, 0.78);
-      --line: rgba(0, 243, 255, 0.22);
+      --panel: rgba(6, 12, 28, 0.88);
+      --line: rgba(56, 189, 248, 0.22);
       --line-dim: rgba(255, 255, 255, 0.08);
-      --accent: #00f3ff;
-      --accent-danger: #ef4444;
-      --accent-warn: #f59e0b;
-      --text: #e2e8f0;
+      --accent: #38bdf8;
+      --accent-danger: #f43f5e;
+      --accent-warn: #fbbf24;
+      --text: #f1f5f9;
       --text-dim: #94a3b8;
-      --corner-cut: 8px;
+      --corner-cut: 6px;
       --border-width: 1px;
 
-      /* Legacy In-Game Compatibility Variables */
-      --primary-neon: #00f3ff;
-      --secondary-neon: #ff007f;
-      --accent-neon: #ffe600;
-      --bg-dark: #050711;
-      --panel-bg: rgba(10, 16, 35, 0.92);
-      --title-gradient: linear-gradient(135deg, #00f3ff 0%, #ff007f 70%, #ffe600 100%);
-      --btn-gradient: linear-gradient(135deg, #00f3ff, #0066ff);
-      --box-glow-1: rgba(0, 243, 255, 0.35);
-      --box-glow-2: rgba(255, 0, 128, 0.4);
+      /* Refined Cinematic Harmonious Palette */
+      --primary-neon: #38bdf8;
+      --secondary-neon: #f43f5e;
+      --accent-neon: #fbbf24;
+      --bg-dark: #030712;
+      --panel-bg: rgba(8, 14, 30, 0.94);
+      --title-gradient: linear-gradient(135deg, #ffffff 0%, #38bdf8 65%, #818cf8 100%);
+      --btn-gradient: linear-gradient(135deg, #0284c7, #0369a1);
+      --box-glow-1: rgba(56, 189, 248, 0.25);
+      --box-glow-2: rgba(244, 63, 94, 0.25);
     }
     body, html {
       width: 100%;
@@ -127,57 +127,61 @@
       display: flex;
       flex-direction: column;
       gap: 7px;
-      background: rgba(4, 9, 22, 0.72);
-      backdrop-filter: blur(8px);
+      background: rgba(6, 11, 25, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 10px 14px;
-      border: 1px solid rgba(0, 243, 255, 0.28);
+      border: 1px solid rgba(56, 189, 248, 0.22);
       border-radius: 8px;
       clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.65), 0 0 12px rgba(0, 243, 255, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75), 0 0 1px rgba(255, 255, 255, 0.08) inset;
     }
     .hud-bar-row {
       display: flex;
       align-items: center;
-      gap: 12px;
+      width: 100%;
     }
     .hud-bar-frame {
-      width: 210px;
-      height: 14px;
-      background: rgba(4, 8, 20, 0.92);
+      width: 240px;
+      background: rgba(4, 8, 20, 0.95);
       background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 2px, transparent 2px, transparent 8px);
-      border-radius: 2px;
+      border-radius: 4px;
       overflow: hidden;
       position: relative;
-      clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+      clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+      box-sizing: border-box;
     }
     .hud-bar-frame.hp-frame { 
-      border: 1.2px solid rgba(255, 0, 85, 0.85); 
-      box-shadow: 0 0 10px rgba(255, 0, 85, 0.45), inset 0 0 8px rgba(255, 0, 85, 0.2); 
+      height: 20px;
+      border: 1px solid rgba(244, 63, 94, 0.75); 
+      box-shadow: 0 0 8px rgba(244, 63, 94, 0.3), inset 0 0 6px rgba(0, 0, 0, 0.7); 
     }
     .hud-bar-frame.hp-frame.critical {
-      border-color: #ff0055;
+      border-color: #f43f5e;
       animation: hpCriticalPulse 0.4s infinite alternate;
     }
     @keyframes hpCriticalPulse {
-      0% { border-color: rgba(255, 0, 85, 0.6); box-shadow: 0 0 6px rgba(255, 0, 85, 0.4); }
-      100% { border-color: #ff0055; box-shadow: 0 0 16px rgba(255, 0, 85, 0.9), inset 0 0 10px rgba(255, 0, 85, 0.4); }
+      0% { border-color: rgba(244, 63, 94, 0.5); box-shadow: 0 0 4px rgba(244, 63, 94, 0.3); }
+      100% { border-color: #f43f5e; box-shadow: 0 0 14px rgba(244, 63, 94, 0.8), inset 0 0 8px rgba(244, 63, 94, 0.4); }
     }
     .hud-bar-frame.shield-frame { 
-      border: 1.2px solid rgba(0, 243, 255, 0.85); 
-      box-shadow: 0 0 10px rgba(0, 243, 255, 0.45), inset 0 0 8px rgba(0, 243, 255, 0.2); 
+      height: 13px;
+      border: 1px solid rgba(56, 189, 248, 0.75); 
+      box-shadow: 0 0 6px rgba(56, 189, 248, 0.25), inset 0 0 6px rgba(0, 0, 0, 0.7); 
     }
     .hud-bar-frame.ult-frame { 
-      border: 1.2px solid rgba(255, 230, 0, 0.85); 
-      box-shadow: 0 0 10px rgba(255, 230, 0, 0.45), inset 0 0 8px rgba(255, 230, 0, 0.2); 
+      height: 11px;
+      border: 1px solid rgba(250, 204, 21, 0.75); 
+      box-shadow: 0 0 6px rgba(250, 204, 21, 0.25), inset 0 0 6px rgba(0, 0, 0, 0.7); 
     }
     .hud-bar-frame.ult-frame.ready {
-      border-color: #ffe600;
-      box-shadow: 0 0 16px rgba(255, 230, 0, 0.85), inset 0 0 8px rgba(255, 230, 0, 0.35);
+      border-color: #fde047;
+      box-shadow: 0 0 12px rgba(250, 204, 21, 0.7), inset 0 0 6px rgba(250, 204, 21, 0.3);
       animation: ultReadyPulse 0.6s infinite alternate;
     }
     @keyframes ultReadyPulse {
       0% { filter: brightness(1.0); }
-      100% { filter: brightness(1.35) drop-shadow(0 0 8px #ffe600); }
+      100% { filter: brightness(1.25) drop-shadow(0 0 6px #fde047); }
     }
     
     .hud-bar-fill {
@@ -187,40 +191,65 @@
       will-change: width;
     }
     .hp-fill { 
-      background: linear-gradient(90deg, #b91c1c 0%, #ff0055 70%, #ff6b9d 100%); 
-      box-shadow: 0 0 14px rgba(255, 0, 85, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.45); 
+      background: linear-gradient(90deg, #991b1b 0%, #e11d48 70%, #fb7185 100%); 
+      box-shadow: 0 0 8px rgba(225, 29, 72, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.4); 
       border-right: 2px solid #ffffff; 
     }
     .shield-fill { 
-      background: linear-gradient(90deg, #0284c7 0%, #00f3ff 72%, #a5f3fc 100%); 
-      box-shadow: 0 0 14px rgba(0, 243, 255, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.5); 
+      background: linear-gradient(90deg, #0369a1 0%, #0284c7 72%, #38bdf8 100%); 
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.45); 
       border-right: 2px solid #ffffff; 
     }
     .ult-fill { 
-      background: linear-gradient(90deg, #ca8a04 0%, #ffe600 72%, #fef08a 100%); 
-      box-shadow: 0 0 14px rgba(255, 230, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.45); 
+      background: linear-gradient(90deg, #b45309 0%, #eab308 72%, #fef08a 100%); 
+      box-shadow: 0 0 8px rgba(234, 179, 8, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.4); 
       border-right: 2px solid #ffffff; 
     }
     .ult-fill.active { 
-      background: linear-gradient(90deg, #9333ea 0%, #ff00ea 72%, #fbcfe8 100%); 
-      box-shadow: 0 0 22px rgba(255, 0, 234, 1.0), inset 0 1px 2px rgba(255, 255, 255, 0.7); 
+      background: linear-gradient(90deg, #7e22ce 0%, #d946ef 72%, #f5d0fe 100%); 
+      box-shadow: 0 0 14px rgba(217, 70, 239, 0.75), inset 0 1px 2px rgba(255, 255, 255, 0.6); 
       animation: ultActivePulse 0.5s infinite alternate; 
       border-right: 2px solid #ffffff; 
     }
     @keyframes ultActivePulse {
       0% { filter: brightness(1.0); }
-      100% { filter: brightness(1.35) drop-shadow(0 0 10px #ff00ea); }
+      100% { filter: brightness(1.25) drop-shadow(0 0 8px #d946ef); }
     }
 
-    .hud-bar-label {
-      font-size: 11px;
+    .hud-bar-inner-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+      box-sizing: border-box;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .hud-bar-title {
+      font-size: 9.5px;
       font-weight: 800;
       letter-spacing: 0.8px;
-      color: #f1f5f9;
-      text-shadow: 0 0 6px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 243, 255, 0.45);
-      min-width: 135px;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+      font-family: 'Segoe UI', system-ui, sans-serif;
     }
+    .shield-frame .hud-bar-title { font-size: 8.5px; }
+    .ult-frame .hud-bar-title { font-size: 8px; }
+    .hud-bar-val {
+      font-size: 11px;
+      font-weight: 900;
+      font-family: 'Consolas', 'Courier New', monospace;
+      letter-spacing: 0.6px;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 4px rgba(0, 0, 0, 0.8);
+    }
+    .shield-frame .hud-bar-val { font-size: 9.5px; }
+    .ult-frame .hud-bar-val { font-size: 8.5px; }
 
     .hud-top-center {
       position: absolute;
@@ -231,20 +260,21 @@
       flex-direction: column;
       align-items: center;
       gap: 5px;
-      background: rgba(4, 9, 22, 0.65);
-      backdrop-filter: blur(8px);
+      background: rgba(6, 11, 25, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 6px 18px 8px 18px;
-      border: 1px solid rgba(168, 85, 247, 0.35);
+      border: 1px solid rgba(168, 85, 247, 0.28);
       border-radius: 8px;
       clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), 0 0 14px rgba(168, 85, 247, 0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75), 0 0 1px rgba(255, 255, 255, 0.08) inset;
     }
     .hud-xp-frame {
       width: min(500px, 42vw);
       height: 9px;
-      background: rgba(4, 8, 20, 0.92);
-      border: 1px solid rgba(168, 85, 247, 0.8);
-      box-shadow: 0 0 10px rgba(168, 85, 247, 0.45);
+      background: rgba(4, 8, 20, 0.95);
+      border: 1px solid rgba(168, 85, 247, 0.65);
+      box-shadow: 0 0 6px rgba(168, 85, 247, 0.3);
       border-radius: 2px;
       overflow: hidden;
       clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 100%, 0 100%);
@@ -252,16 +282,16 @@
     .hud-xp-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #6d28d9 0%, #a855f7 72%, #f0abfc 100%);
-      box-shadow: 0 0 12px rgba(168, 85, 247, 0.95);
+      background: linear-gradient(90deg, #6d28d9 0%, #a855f7 72%, #e9d5ff 100%);
+      box-shadow: 0 0 8px rgba(168, 85, 247, 0.7);
       border-right: 2px solid #ffffff;
       transition: width 0.1s ease-out;
     }
     .hud-level-text {
       font-size: 13px;
-      font-weight: 900;
-      color: #c084fc;
-      text-shadow: 0 0 10px rgba(192, 132, 252, 0.85);
+      font-weight: 800;
+      color: #e9d5ff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 6px rgba(168, 85, 247, 0.35);
       letter-spacing: 2px;
     }
     .hud-combo-wrap {
@@ -272,18 +302,18 @@
       margin-top: 2px;
     }
     .hud-combo-text {
-      font-size: 14px;
-      font-weight: 900;
-      color: #00f3ff;
-      text-shadow: 0 0 12px rgba(0, 243, 255, 0.95);
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #e0f2fe;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 6px rgba(56, 189, 248, 0.4);
       letter-spacing: 1px;
     }
     .hud-combo-frame {
       width: 150px;
       height: 6px;
       background: rgba(4, 8, 20, 0.9);
-      border: 1px solid rgba(0, 243, 255, 0.7);
-      box-shadow: 0 0 8px rgba(0, 243, 255, 0.4);
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      box-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
       border-radius: 1px;
       overflow: hidden;
       clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 100%, 0 100%);
@@ -291,9 +321,107 @@
     .hud-combo-fill {
       height: 100%;
       width: 100%;
-      background: linear-gradient(90deg, #0284c7, #00f3ff);
-      box-shadow: 0 0 8px #00f3ff;
+      background: linear-gradient(90deg, #0284c7, #38bdf8);
+      box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
       border-right: 2px solid #fff;
+    }
+
+    /* HUD Boss / Tehdit Bildirim Bannerı (Seviye & XP Göstergesinin Hemen Altında Sabit) */
+    .hud-boss-notice {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      margin-top: 6px;
+      padding: 6px 16px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid #ef4444;
+      border-radius: 6px;
+      box-shadow: 0 0 16px rgba(239, 68, 68, 0.35), inset 0 0 10px rgba(239, 68, 68, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      text-align: center;
+      pointer-events: none;
+      transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+      animation: bossNoticePop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .hud-boss-notice.notice-fadeout {
+      opacity: 0 !important;
+      transform: translateY(-8px) scale(0.95) !important;
+    }
+    .hud-boss-notice-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      color: #f87171;
+      text-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
+    }
+    .hud-boss-notice-name {
+      font-size: 14.5px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 8px rgba(239, 68, 68, 0.7);
+    }
+    .hud-boss-notice-sub {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #94a3b8;
+    }
+    @keyframes bossNoticePop {
+      0% { opacity: 0; transform: translateY(-6px) scale(0.92); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* HUD Sağ Üst Olay / Görev / Sektör Bildirim Kartı */
+    .hud-event-notice {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: rgba(6, 11, 25, 0.94);
+      border: 1px solid #00f3ff;
+      border-radius: 6px;
+      box-shadow: 0 0 18px rgba(0, 243, 255, 0.3), inset 0 0 10px rgba(0, 243, 255, 0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      text-align: right;
+      pointer-events: none;
+      max-width: 340px;
+      transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+      animation: eventNoticeSlide 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .hud-event-notice.notice-fadeout {
+      opacity: 0 !important;
+      transform: translateX(12px) scale(0.95) !important;
+    }
+    .hud-event-notice-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #38bdf8;
+      text-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
+    }
+    .hud-event-notice-title {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 8px rgba(56, 189, 248, 0.5);
+    }
+    .hud-event-notice-sub {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      color: #cbd5e1;
+      line-height: 1.35;
+    }
+    @keyframes eventNoticeSlide {
+      0% { opacity: 0; transform: translateX(14px) scale(0.92); }
+      100% { opacity: 1; transform: translateX(0) scale(1); }
     }
 
     .hud-top-right {
@@ -303,71 +431,193 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 5px;
-      background: rgba(4, 9, 22, 0.78);
-      backdrop-filter: blur(8px);
-      padding: 8px 16px;
-      border: 1px solid rgba(0, 243, 255, 0.28);
+      gap: 6px;
+      background: rgba(6, 11, 25, 0.90);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 9px 16px 11px 16px;
+      border: 1px solid rgba(56, 189, 248, 0.28);
       border-radius: 8px;
       clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.65), 0 0 12px rgba(0, 243, 255, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75), 0 0 1px rgba(255, 255, 255, 0.12) inset;
     }
     .hud-top-right-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 16px;
       width: 100%;
     }
+    #hudModeHeatBadge {
+      font-size: 11px;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: 0.8px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+    }
+    .hud-tactical-btn {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      border-radius: 4px;
+      color: #38bdf8;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 3px 8px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      backdrop-filter: blur(8px);
+    }
+    .hud-tactical-btn:hover {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: #38bdf8;
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+      transform: translateY(-1px);
+    }
     .hud-score-text {
-      font-family: 'Courier New', monospace;
+      font-family: 'Consolas', 'Courier New', monospace;
       font-size: 22px;
       font-weight: 900;
-      color: #00f3ff;
-      text-shadow: 0 0 14px rgba(0, 243, 255, 0.85);
-      letter-spacing: 2px;
+      color: #f8fafc;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 0 0 8px rgba(56, 189, 248, 0.35);
+      letter-spacing: 1.5px;
+    }
+    .hud-telemetry-pill {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: rgba(3, 7, 18, 0.6);
+      padding: 2px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
     .hud-sub-stats {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
-      color: #94a3b8;
-      text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+      color: #cbd5e1;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
       letter-spacing: 0.5px;
     }
     .hud-scrap-stats {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
-      color: #fbbf24;
-      text-shadow: 0 0 8px rgba(251, 191, 36, 0.65);
+      color: #fde68a;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 6px rgba(245, 158, 11, 0.4);
       letter-spacing: 0.5px;
     }
 
     .hud-bottom-left {
       position: absolute;
-      bottom: 85px;
-      left: 20px;
+      bottom: clamp(14px, 2.5vh, 26px);
+      left: clamp(14px, 2vw, 24px);
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      background: rgba(4, 9, 22, 0.72);
-      backdrop-filter: blur(8px);
-      padding: 8px 14px;
-      border: 1px solid rgba(0, 243, 255, 0.25);
+      gap: 6px;
+      z-index: 35;
+      pointer-events: none;
+    }
+    .hud-ability-deck {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+    .hud-ability-card {
+      position: relative;
+      width: 58px;
+      height: 60px;
+      background: rgba(6, 12, 28, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.35);
       border-radius: 6px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      box-sizing: border-box;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .hud-ability-card.ready {
+      border-color: #00f3ff;
+      box-shadow: 0 0 12px rgba(0, 243, 255, 0.45), inset 0 0 8px rgba(0, 243, 255, 0.15);
+    }
+    .hud-ability-card.cooldown {
+      border-color: rgba(148, 163, 184, 0.25);
+      opacity: 0.65;
+      filter: grayscale(0.4);
+    }
+    .hud-ability-key {
+      position: absolute;
+      top: 3px;
+      left: 4px;
+      font-size: 8px;
+      font-weight: 900;
+      font-family: 'Consolas', monospace;
+      background: #020617;
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      border-radius: 3px;
+      padding: 0 3px;
+      line-height: 1.1;
+    }
+    .hud-ability-icon {
+      font-size: 20px;
+      margin-top: 6px;
+      filter: drop-shadow(0 0 4px rgba(0, 243, 255, 0.5));
+    }
+    .hud-ability-name {
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      color: #94a3b8;
+      margin-top: 1px;
+    }
+    .hud-ability-cooldown {
+      font-size: 8.5px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: #38bdf8;
+      font-family: 'Consolas', monospace;
+    }
+    .hud-ability-card.ready .hud-ability-cooldown {
+      color: #22c55e;
+      text-shadow: 0 0 4px rgba(34, 197, 94, 0.6);
+    }
+    .hud-bottom-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(6, 11, 25, 0.85);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 4px;
+      padding: 4px 10px;
+      backdrop-filter: blur(8px);
+      width: fit-content;
+    }
+    .hud-status-badge {
+      font-size: 9px;
+      font-weight: 800;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 3px;
+      padding: 1px 5px;
     }
     .hud-status-line {
-      font-size: 12px;
-      font-weight: 800;
-      color: #00f3ff;
-      text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #e2e8f0;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 4px rgba(56, 189, 248, 0.3);
       letter-spacing: 0.5px;
     }
     .hud-alert-line {
       font-size: 13px;
-      font-weight: 900;
-      color: #ff0055;
-      text-shadow: 0 0 14px #ff0055;
+      font-weight: 800;
+      color: #fb7185;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 8px rgba(244, 63, 94, 0.7);
       animation: hudPulse 0.4s infinite alternate;
       letter-spacing: 0.8px;
     }
@@ -414,11 +664,13 @@
       pointer-events: none;
     }
     .neon-box {
-      background: #060913;
-      border: 2px solid var(--primary-neon);
-      border-radius: 0;
-      box-shadow: 4px 4px 0 rgba(0, 243, 255, 0.28), inset 0 0 30px rgba(0, 0, 0, 0.85);
-      padding: 22px 36px;
+      background: rgba(8, 14, 30, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(56, 189, 248, 0.35);
+      border-radius: 8px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85), 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      padding: 24px 36px;
       text-align: center;
       max-width: 600px;
       width: 90%;
@@ -571,8 +823,8 @@
       width: 100%;
       padding: clamp(11px, 1.5vh, 15px) 18px;
       margin-bottom: 6px;
-      background: linear-gradient(135deg, rgba(0, 243, 255, 0.22) 0%, rgba(0, 102, 255, 0.35) 100%), #040c1e;
-      border: var(--border-width) solid var(--accent);
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.45) 0%, rgba(3, 105, 161, 0.65) 100%), #06122c;
+      border: 1.5px solid #38bdf8;
       clip-path: polygon(var(--corner-cut) 0, 100% 0, 100% calc(100% - var(--corner-cut)), calc(100% - var(--corner-cut)) 100%, 0 100%, 0 var(--corner-cut));
       color: #ffffff;
       font-family: 'Oxanium', sans-serif;
@@ -584,18 +836,19 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      box-shadow: 0 0 16px rgba(0, 243, 255, 0.35), inset 0 0 10px rgba(0, 243, 255, 0.15);
-      text-shadow: 0 0 8px rgba(0, 243, 255, 0.75);
-      transition: all 0.15s ease;
+      box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4), inset 0 0 12px rgba(56, 189, 248, 0.2);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+      transition: all 0.16s ease;
     }
     .menu-start-primary-btn:hover {
-      background: linear-gradient(135deg, rgba(0, 243, 255, 0.38) 0%, rgba(0, 102, 255, 0.55) 100%), #081736;
-      box-shadow: 0 0 24px rgba(0, 243, 255, 0.65), inset 0 0 14px rgba(0, 243, 255, 0.30);
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.65) 0%, rgba(3, 105, 161, 0.85) 100%), #091a3d;
+      box-shadow: 0 6px 26px rgba(2, 132, 199, 0.65), inset 0 0 16px rgba(56, 189, 248, 0.35);
+      border-color: #7dd3fc;
       transform: translateY(-1px);
     }
     .menu-start-primary-btn:active {
       transform: translateY(1px);
-      box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.4);
     }
     .menu-start-primary-btn .start-btn-sub {
       font-size: 11px;
@@ -768,22 +1021,24 @@
       font-size: 12px;
     }
     h1.title {
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 900;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      background: var(--title-gradient);
+      background: linear-gradient(135deg, #ffffff 0%, #38bdf8 65%, #818cf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
-      text-shadow: 0 0 30px var(--box-glow-1);
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.85));
     }
     .subtitle {
-      color: #8fa0c7;
-      font-size: 15px;
-      letter-spacing: 2px;
+      color: #94a3b8;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
       margin-bottom: 25px;
       text-transform: uppercase;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
     }
 
     /* ==========================================================================
@@ -889,51 +1144,51 @@
       92% { transform: translate(2.5px, 2px); opacity: 0.85; }
     }
     .btn {
-      background: #0d111a;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       color: #ffffff;
-      border: 2px solid #ff0055;
-      padding: 13px 34px;
-      font-size: 16px;
+      border: 1.5px solid #38bdf8;
+      padding: 12px 28px;
+      font-size: 15px;
       font-weight: 800;
-      letter-spacing: 2px;
-      border-radius: 0;
+      letter-spacing: 1.5px;
+      border-radius: 5px;
       cursor: pointer;
       text-transform: uppercase;
-      transition: all 0.15s ease;
-      box-shadow: 3px 3px 0 rgba(255, 0, 85, 0.45);
-      margin: 10px 5px;
+      transition: all 0.16s ease;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+      margin: 8px 5px;
       position: relative;
     }
     .btn:hover {
-      background: #ff0055;
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
       color: #ffffff;
-      border-color: #ff0055;
-      transform: translate(-2px, -2px);
-      box-shadow: 4px 4px 0 #00f3ff;
+      border-color: #7dd3fc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.55);
     }
     .btn:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0 #00f3ff;
+      transform: translateY(1px);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
     }
     .btn-secondary {
-      background: #060912;
-      border: 1.5px solid #334155;
-      border-left: 3px solid #00f3ff;
-      color: #94a3b8;
-      border-radius: 0;
-      box-shadow: none;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-left: 3px solid #38bdf8;
+      color: #cbd5e1;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .btn-secondary:hover {
-      border-color: #00f3ff;
-      border-left-color: #ff0055;
+      border-color: rgba(56, 189, 248, 0.6);
+      border-left-color: #38bdf8;
       color: #ffffff;
-      background: #0f172a;
-      box-shadow: 3px 3px 0 rgba(0, 243, 255, 0.45);
-      transform: translate(-1px, -1px);
+      background: rgba(30, 41, 59, 0.95);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      transform: translateY(-1px);
     }
     .btn-secondary:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0 rgba(0, 243, 255, 0.45);
+      transform: translateY(1px);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     }
     .controls-hint {
       display: grid;
@@ -970,10 +1225,12 @@
       perspective: 1000px;
     }
     .upgrade-card {
-      background: #080c18;
-      border: 2px solid #1e293b;
-      border-top: 3px solid #00f3ff;
-      border-radius: 0;
+      background: rgba(10, 16, 32, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(148, 163, 184, 0.22);
+      border-top: 3px solid #38bdf8;
+      border-radius: 6px;
       padding: 22px 18px;
       cursor: pointer;
       transition: all 0.18s ease;
@@ -983,6 +1240,7 @@
       position: relative;
       overflow: hidden;
       transform-style: preserve-3d;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), 0 0 1px rgba(255, 255, 255, 0.1) inset;
       animation: card3DFlipIn 0.52s cubic-bezier(0.2, 0.85, 0.25, 1) both;
     }
     .upgrade-card:nth-child(1) { animation-delay: 0.04s; }
@@ -1001,80 +1259,88 @@
       }
     }
     .upgrade-card:hover {
-      border-color: #00f3ff;
-      border-top-color: #ff0055;
-      transform: translate(-3px, -3px);
-      box-shadow: 5px 5px 0 #ff0055;
-      background: #0d1527;
+      border-color: rgba(56, 189, 248, 0.75);
+      border-top-color: #38bdf8;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 18px rgba(56, 189, 248, 0.2);
+      background: rgba(15, 23, 46, 0.96);
     }
     .card-icon {
-      font-size: 40px;
+      font-size: 38px;
       margin-bottom: 12px;
-      text-shadow: 0 0 14px rgba(0, 243, 255, 0.5);
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
     }
     .card-title {
       font-size: 16px;
       font-weight: 800;
-      color: #00f3ff;
+      color: #f8fafc;
       margin-bottom: 8px;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+      text-align: center;
     }
     .card-desc {
-      font-size: 13px;
-      color: #9cb2d6;
-      line-height: 1.4;
+      font-size: 13.5px;
+      color: #cbd5e1;
+      line-height: 1.5;
       text-align: center;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
     }
     .card-rarity {
       position: absolute;
       top: 8px;
       right: 8px;
-      font-size: 9.5px;
+      font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 2px 6px;
-      border-radius: 0;
+      letter-spacing: 1.2px;
+      padding: 3px 8px;
+      border-radius: 3px;
       font-family: 'Consolas', monospace;
     }
-    .rarity-common { color: #94a3b8; background: #0f172a; border: 1px solid #334155; }
-    .rarity-rare { color: #00f3ff; background: rgba(0, 243, 255, 0.12); border: 1px solid #00f3ff; }
-    .rarity-epic { color: #ff00ea; background: rgba(255, 0, 234, 0.12); border: 1px solid #ff00ea; }
-    .rarity-legendary { color: #ffb300; background: rgba(255, 179, 0, 0.15); border: 1px solid #ffb300; }
-    .rarity-evolution { color: #ffe600; background: #1a1602; border: 1.5px solid #ffe600; }
-    .rarity-fusion { color: #ff00ea; background: #1a0418; border: 1.5px solid #ff00ea; }
+    .rarity-common { color: #94a3b8; background: rgba(15, 23, 42, 0.85); border: 1px solid #334155; }
+    .rarity-rare { color: #38bdf8; background: rgba(14, 116, 144, 0.25); border: 1px solid rgba(56, 189, 248, 0.6); }
+    .rarity-epic { color: #c084fc; background: rgba(126, 34, 206, 0.25); border: 1px solid rgba(192, 132, 252, 0.6); }
+    .rarity-legendary { color: #fbbf24; background: rgba(180, 83, 9, 0.25); border: 1px solid rgba(251, 191, 36, 0.6); }
+    .rarity-evolution { color: #fde047; background: rgba(113, 63, 18, 0.35); border: 1.5px solid rgba(250, 204, 21, 0.7); }
+    .rarity-fusion { color: #f472b6; background: rgba(131, 24, 67, 0.35); border: 1.5px solid rgba(244, 114, 182, 0.7); }
     .evolution-card {
-      border: 2px solid #ffe600 !important;
-      background: linear-gradient(135deg, rgba(20, 28, 60, 0.95), rgba(40, 25, 60, 0.95)) !important;
-      animation: evoGlow 1.8s infinite alternate !important;
+      border: 1.5px solid rgba(250, 204, 21, 0.75) !important;
+      border-top: 3px solid #fde047 !important;
+      background: linear-gradient(145deg, rgba(20, 24, 45, 0.96), rgba(35, 28, 50, 0.96)) !important;
+      animation: evoGlow 2.2s infinite alternate !important;
     }
     .fusion-card {
-      border: 2px solid #ff00ea !important;
-      background: linear-gradient(135deg, rgba(35, 12, 60, 0.96), rgba(12, 36, 70, 0.96)) !important;
-      animation: fusionPulse 1.6s infinite alternate !important;
+      border: 1.5px solid rgba(244, 114, 182, 0.75) !important;
+      border-top: 3px solid #f472b6 !important;
+      background: linear-gradient(145deg, rgba(28, 16, 42, 0.96), rgba(16, 28, 52, 0.96)) !important;
+      animation: fusionPulse 2.0s infinite alternate !important;
     }
     @keyframes evoGlow {
-      from { box-shadow: 0 0 15px rgba(255, 230, 0, 0.4); border-color: #ffe600; }
-      to { box-shadow: 0 0 35px rgba(0, 243, 255, 0.8), inset 0 0 15px rgba(255, 230, 0, 0.2); border-color: #00f3ff; }
+      from { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.8), 0 0 12px rgba(250, 204, 21, 0.25); border-color: rgba(250, 204, 21, 0.7); }
+      to { box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85), 0 0 22px rgba(56, 189, 248, 0.35); border-color: #38bdf8; }
     }
     .golden-card {
-      border: 2px solid #ffe600 !important;
-      background: linear-gradient(135deg, rgba(38, 30, 10, 0.96), rgba(60, 48, 12, 0.96)) !important;
-      animation: goldenCardGlow 1.4s infinite alternate !important;
+      border: 1.5px solid rgba(251, 191, 36, 0.85) !important;
+      border-top: 3px solid #fde047 !important;
+      background: linear-gradient(145deg, rgba(32, 26, 12, 0.96), rgba(48, 38, 14, 0.96)) !important;
+      animation: goldenCardGlow 1.8s infinite alternate !important;
     }
     @keyframes goldenCardGlow {
-      from { box-shadow: 0 0 18px rgba(255, 230, 0, 0.6), inset 0 0 10px rgba(255, 230, 0, 0.25); border-color: #ffe600; }
-      to { box-shadow: 0 0 38px rgba(255, 230, 0, 0.95), inset 0 0 20px rgba(255, 230, 0, 0.5); border-color: #ffffff; }
+      from { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.8), 0 0 14px rgba(251, 191, 36, 0.35); border-color: rgba(251, 191, 36, 0.7); }
+      to { box-shadow: 0 12px 36px rgba(0, 0, 0, 0.85), 0 0 24px rgba(251, 191, 36, 0.6); border-color: #fde047; }
     }
     .rarity-golden {
-      color: #ffe600;
-      background: linear-gradient(90deg, rgba(255, 230, 0, 0.5), rgba(255, 170, 0, 0.5));
-      border: 1px solid #ffe600;
-      text-shadow: 0 0 10px #ffe600;
+      color: #fde047;
+      background: rgba(180, 83, 9, 0.3);
+      border: 1px solid rgba(250, 204, 21, 0.8);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
     }
     @keyframes fusionPulse {
-      from { box-shadow: 0 0 18px rgba(255, 0, 234, 0.5), inset 0 0 10px rgba(0, 243, 255, 0.2); border-color: #ff00ea; }
-      to { box-shadow: 0 0 40px rgba(0, 243, 255, 0.9), inset 0 0 20px rgba(255, 0, 234, 0.35); border-color: #00f3ff; }
+      from { box-shadow: 0 10px 28px rgba(0, 0, 0, 0.8), 0 0 12px rgba(244, 114, 182, 0.25); border-color: rgba(244, 114, 182, 0.7); }
+      to { box-shadow: 0 12px 32px rgba(0, 0, 0, 0.85), 0 0 22px rgba(56, 189, 248, 0.35); border-color: #38bdf8; }
     }
 
     /* ===== FAZ 4: Sefer Zaferi (Run Victory) Arayüzü ===== */
@@ -1189,27 +1455,56 @@
       background-size: 3px 100%;
     }
 
-    /* ===== HOLOGRAPHIC SCI-FI WEAPON SELECTOR HUD DOCK ===== */
-    #weaponHudBar {
+    /* ===== ENTEGRE TAKTİK SİLAH & ENVANTER DOCK'U (ERGONOMİK & ASLA ÇAKIŞMAZ) ===== */
+    .tactical-loadout-dock {
       position: fixed;
-      bottom: clamp(10px, 2.5vh, 20px);
+      bottom: clamp(10px, 2vh, 18px);
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 12px;
-      background: rgba(4, 9, 22, 0.88);
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      z-index: 40;
+      user-select: none;
+      pointer-events: auto;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .tactical-loadout-dock.hidden,
+    body:has(.overlay:not(.hidden)) .tactical-loadout-dock {
+      display: none !important;
+    }
+
+    #inventory12SlotsBar {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: rgba(4, 9, 22, 0.90);
+      border: 1px solid rgba(0, 243, 255, 0.25);
+      border-radius: 6px;
+      padding: 4px 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+      user-select: none;
+    }
+    #inventory12SlotsBar.hidden {
+      display: none !important;
+    }
+
+    #weaponHudBar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(4, 9, 24, 0.94);
       border: 1px solid rgba(0, 243, 255, 0.38);
       border-radius: 8px;
-      padding: 9px 14px 7px 14px;
-      z-index: 40;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75), 0 0 18px rgba(0, 243, 255, 0.18);
-      transition: opacity 0.2s ease, transform 0.2s ease;
+      padding: 6px 12px 5px 12px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75), 0 0 16px rgba(0, 243, 255, 0.15);
       user-select: none;
       overflow: visible;
     }
-    #weaponHudBar.hidden,
-    body:has(.overlay:not(.hidden)) #weaponHudBar {
+    #weaponHudBar.hidden {
       display: none !important;
     }
     .weapon-hud-slot {
@@ -1217,12 +1512,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 7px 12px 5px 12px;
+      padding: 6px 10px 4px 10px;
       border-radius: 4px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       background: rgba(10, 16, 32, 0.75);
       cursor: pointer;
-      min-width: 80px;
+      min-width: 76px;
       transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
       position: relative;
       overflow: visible;
@@ -1278,29 +1573,6 @@
       background: linear-gradient(90deg, #eab308, #fef08a);
       box-shadow: 0 0 8px #facc15;
       transition: width 0.05s linear;
-    }
-
-    /* ===== 6+6 ENVANTER YUVASI HUD (FAZ 1 ÇEKİRDEK) ===== */
-    #inventory12SlotsBar {
-      position: fixed;
-      bottom: clamp(68px, 9.5vh, 85px);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      background: rgba(3, 7, 18, 0.92);
-      border: 1px solid rgba(0, 243, 255, 0.4);
-      border-radius: 8px;
-      padding: 6px 14px;
-      z-index: 40;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 243, 255, 0.2);
-      user-select: none;
-    }
-    #inventory12SlotsBar.hidden,
-    body:has(.overlay:not(.hidden)) #inventory12SlotsBar {
-      display: none !important;
     }
     .inv-row {
       display: flex;
@@ -1606,10 +1878,11 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      background: #060914;
-      border: 1.5px solid #1c2b4c;
-      border-radius: 0;
+      background: rgba(8, 14, 30, 0.88);
+      border: 1.5px solid rgba(148, 163, 184, 0.2);
+      border-radius: 8px;
       padding: 14px 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
     }
     .hangar-icon {
       font-size: 30px;
@@ -1621,16 +1894,16 @@
     }
     .hangar-name {
       font-weight: 800;
-      color: #00f3ff;
+      color: #38bdf8;
       letter-spacing: 1px;
     }
     .hangar-desc {
       font-size: 12.5px;
-      color: #9cb2d6;
+      color: #cbd5e1;
       margin: 3px 0 6px;
     }
     .hangar-current {
-      color: #ffe600;
+      color: #fde047;
     }
     .hangar-pips {
       display: flex;
@@ -1639,19 +1912,19 @@
     .pip {
       width: 18px;
       height: 6px;
-      border-radius: 0;
+      border-radius: 3px;
       background: #1a2745;
     }
     .pip.on {
-      background: #00f3ff;
-      box-shadow: 1px 1px 0 #fff;
+      background: #38bdf8;
+      box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
     }
     .hangar-buy {
       margin: 0;
       padding: 10px 16px;
       font-size: 14px;
       min-width: 96px;
-      border-radius: 0;
+      border-radius: 5px;
     }
 
     /* ===== YENİ: Gemi Sınıfı Seçim Kartları ===== */
@@ -1670,24 +1943,25 @@
       margin-bottom: 18px;
     }
     .ship-card {
-      background: #060914;
-      border: 1.5px solid #1c2b4c;
-      border-radius: 0;
+      background: rgba(8, 14, 30, 0.88);
+      border: 1.5px solid rgba(148, 163, 184, 0.2);
+      border-radius: 8px;
       padding: 10px 8px;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.16s ease;
       text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
     .ship-card:hover {
-      border-color: #00f3ff;
-      transform: translate(-2px, -2px);
-      box-shadow: 3px 3px 0 #00f3ff;
+      border-color: rgba(56, 189, 248, 0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(56, 189, 248, 0.25);
       background: #0b1426;
     }
     .ship-card.active {
-      border-color: #00f3ff;
-      background: rgba(0, 243, 255, 0.08);
-      box-shadow: 3px 3px 0 #ff0055;
+      border-color: #38bdf8;
+      background: rgba(14, 116, 144, 0.18);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 12px rgba(56, 189, 248, 0.35);
     }
     .ship-card-icon {
       font-size: 22px;
@@ -1842,9 +2116,9 @@
       box-shadow: 0 0 8px rgba(255, 230, 0, 0.3);
     }
     .gp-badge.warn {
-      border-color: #ff0055;
-      color: #ff0055;
-      box-shadow: 0 0 8px rgba(255, 0, 85, 0.3);
+      border-color: #f43f5e;
+      color: #fb7185;
+      box-shadow: 0 0 8px rgba(244, 63, 94, 0.25);
     }
     .gp-badge.purp {
       border-color: #d400ff;
@@ -2103,7 +2377,7 @@
       padding: 7px 16px;
       font-size: 11.5px;
       font-weight: 800;
-      border-radius: 0;
+      border-radius: 5px;
       cursor: pointer;
       border: 1px solid #1e293b;
       background: #090e1a;
@@ -2120,10 +2394,10 @@
       box-shadow: 2px 2px 0 rgba(0, 243, 255, 0.4);
     }
     .settings-toggle-btn.active {
-      background: #00f3ff;
-      color: #020813;
-      border-color: #00f3ff;
-      box-shadow: 2px 2px 0 #ff0055;
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #38bdf8;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
     }
     .settings-toggle-btn.off {
       border-color: #1e293b;
@@ -2535,7 +2809,7 @@
       gap: 6px;
       background: #050812;
       padding: 4px;
-      border-radius: 0;
+      border-radius: 6px;
       border: 1px solid #1e293b;
     }
     .rso-tab-btn {
@@ -2543,7 +2817,7 @@
       border: none;
       color: #94a3b8;
       padding: 8px 18px;
-      border-radius: 0;
+      border-radius: 4px;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 1px;
@@ -2559,10 +2833,11 @@
       background: #0f172a;
     }
     .rso-tab-btn.active {
-      color: #020813;
-      background: #00f3ff;
-      font-weight: 900;
-      box-shadow: 2px 2px 0 #ff0055;
+      color: #ffffff;
+      background: #0284c7;
+      border: 1px solid #38bdf8;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
     }
     .rso-body {
       flex: 1;
@@ -2580,8 +2855,8 @@
       width: 6px;
     }
     .rso-left-pane::-webkit-scrollbar-thumb {
-      background: rgba(0, 243, 255, 0.3);
-      border-radius: 0;
+      background: rgba(56, 189, 248, 0.3);
+      border-radius: 3px;
     }
     .rso-grid-2col {
       display: grid;
@@ -2589,29 +2864,30 @@
       gap: 14px;
     }
     .rso-card {
-      background: #060914;
-      border: 1.5px solid #1e293b;
-      border-radius: 0;
+      background: rgba(10, 16, 32, 0.92);
+      border: 1.5px solid rgba(148, 163, 184, 0.2);
+      border-radius: 6px;
       padding: 14px;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.16s ease;
       display: flex;
       flex-direction: column;
       gap: 8px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
     }
     .rso-card:hover {
-      border-color: #00f3ff;
-      transform: translate(-2px, -2px);
-      background: #0c1426;
-      box-shadow: 3px 3px 0 #00f3ff;
+      border-color: rgba(56, 189, 248, 0.7);
+      transform: translateY(-2px);
+      background: rgba(15, 23, 46, 0.96);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7), 0 0 14px rgba(56, 189, 248, 0.2);
     }
     .rso-card.selected {
-      border-color: #00f3ff;
+      border-color: #38bdf8;
       border-width: 2px;
-      background: rgba(0, 243, 255, 0.08);
-      box-shadow: 4px 4px 0 #ff0055;
+      background: rgba(14, 116, 144, 0.18);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 16px rgba(56, 189, 248, 0.35);
     }
     .rso-card.locked {
       opacity: 0.65;
@@ -2636,14 +2912,15 @@
       font-size: 10px;
       font-weight: 800;
       padding: 2px 7px;
-      border-radius: 0;
+      border-radius: 4px;
       text-transform: uppercase;
       font-family: 'Consolas', monospace;
     }
     .rso-badge-active {
-      background: #00f3ff;
-      color: #000;
-      box-shadow: 2px 2px 0 #ff0055;
+      background: #0284c7;
+      color: #ffffff;
+      border: 1px solid #38bdf8;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.4);
     }
     .rso-badge-unlocked {
       background: rgba(34, 197, 94, 0.15);
@@ -2722,17 +2999,17 @@
     }
     .rso-stat-fill {
       height: 100%;
-      background: linear-gradient(90deg, #00f3ff, #ff00ea);
+      background: linear-gradient(90deg, #0284c7, #38bdf8);
       border-radius: 3px;
     }
     .rso-stat-val {
       min-width: 38px;
       text-align: right;
-      color: #00f3ff;
+      color: #38bdf8;
     }
     .rso-passive-box {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(0, 243, 255, 0.2);
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(56, 189, 248, 0.25);
       border-radius: 8px;
       padding: 12px;
       margin-top: 8px;
@@ -2740,13 +3017,13 @@
     .rso-passive-title {
       font-size: 12px;
       font-weight: 800;
-      color: #ff00ea;
+      color: #38bdf8;
       letter-spacing: 1px;
       margin-bottom: 4px;
     }
     .rso-passive-desc {
       font-size: 12px;
-      color: #94a3b8;
+      color: #cbd5e1;
       line-height: 1.45;
     }
     .rso-action-box {
@@ -2756,50 +3033,50 @@
       gap: 8px;
     }
     .rso-btn-select {
-      background: #00f3ff;
-      border: 2px solid #00f3ff;
-      color: #000;
-      font-weight: 900;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      border: 1.5px solid #38bdf8;
+      color: #ffffff;
+      font-weight: 800;
       letter-spacing: 1.5px;
       padding: 11px 20px;
-      border-radius: 0;
+      border-radius: 5px;
       cursor: pointer;
       font-size: 14px;
-      transition: all 0.15s ease;
-      box-shadow: 3px 3px 0 #ff00ea;
+      transition: all 0.16s ease;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
       font-family: 'Consolas', monospace;
     }
     .rso-btn-select:hover {
-      background: #50f7ff;
-      transform: translate(-2px, -2px);
-      box-shadow: 4px 4px 0 #ff00ea;
+      background: linear-gradient(135deg, #0369a1, #0284c7);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
     }
     .rso-btn-select:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0 #ff00ea;
+      transform: translateY(1px);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
     }
     .rso-btn-buy {
-      background: #ffb300;
-      border: 2px solid #ffb300;
-      color: #000;
-      font-weight: 900;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      border: 1.5px solid #fbbf24;
+      color: #030712;
+      font-weight: 800;
       letter-spacing: 1.5px;
       padding: 11px 20px;
-      border-radius: 0;
+      border-radius: 5px;
       cursor: pointer;
       font-size: 14px;
-      transition: all 0.15s ease;
-      box-shadow: 3px 3px 0 #ffffff;
+      transition: all 0.16s ease;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
       font-family: 'Consolas', monospace;
     }
     .rso-btn-buy:hover {
-      background: #ffd000;
-      transform: translate(-2px, -2px);
-      box-shadow: 4px 4px 0 #ffffff;
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
     }
     .rso-btn-buy:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0 #ffffff;
+      transform: translateY(1px);
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
     }
     .rso-btn-disabled {
       background: #111827 !important;
@@ -2818,72 +3095,72 @@
       border-top: 2px solid #1e293b;
     }
     .rso-btn-back {
-      background: #080c16;
-      border: 1.5px solid #334155;
-      border-left: 3px solid #00f3ff;
-      color: #94a3b8;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-left: 3px solid #38bdf8;
+      color: #cbd5e1;
       padding: 10px 22px;
-      border-radius: 0;
+      border-radius: 4px;
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: 1px;
       cursor: pointer;
       transition: all 0.15s ease;
-      box-shadow: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       font-family: 'Consolas', monospace;
     }
     .rso-btn-back:hover {
-      border-color: #00f3ff;
-      border-left-color: #ff0055;
+      border-color: rgba(56, 189, 248, 0.6);
+      border-left-color: #38bdf8;
       color: #ffffff;
-      background: #0f172a;
-      box-shadow: 3px 3px 0 rgba(0, 243, 255, 0.45);
-      transform: translate(-1px, -1px);
+      background: rgba(30, 41, 59, 0.95);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+      transform: translateY(-1px);
     }
     .rso-btn-back:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0 rgba(0, 243, 255, 0.45);
+      transform: translateY(1px);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
     }
     .rso-summary-pills {
       display: flex;
       gap: 12px;
     }
     .rso-pill {
-      background: #080d1a;
-      border: 1px solid #1e293b;
-      border-left: 2px solid #00f3ff;
+      background: rgba(10, 16, 32, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      border-left: 2px solid #38bdf8;
       padding: 6px 14px;
-      border-radius: 0;
+      border-radius: 4px;
       font-size: 12px;
       font-weight: 700;
       font-family: 'Consolas', monospace;
     }
     .rso-pill span {
-      color: #00f3ff;
+      color: #38bdf8;
     }
     .rso-btn-launch {
-      background: #0d111a;
-      border: 2px solid #ff0055;
+      background: linear-gradient(135deg, #e11d48, #be123c);
+      border: 1.5px solid #fb7185;
       color: #ffffff;
       padding: 13px 36px;
-      border-radius: 0;
+      border-radius: 5px;
       font-size: 16px;
-      font-weight: 900;
+      font-weight: 800;
       letter-spacing: 2px;
       cursor: pointer;
-      transition: all 0.15s ease;
-      box-shadow: 4px 4px 0 #00f3ff;
+      transition: all 0.16s ease;
+      box-shadow: 0 4px 18px rgba(225, 29, 72, 0.45);
       position: relative;
     }
     .rso-btn-launch:hover {
-      background: #ff0055;
+      background: linear-gradient(135deg, #f43f5e, #e11d48);
       color: #ffffff;
-      transform: translate(-2px, -2px);
-      box-shadow: 5px 5px 0 #00f3ff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(225, 29, 72, 0.65);
     }
     .rso-btn-launch:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0 #00f3ff;
+      transform: translateY(1px);
+      box-shadow: 0 2px 8px rgba(225, 29, 72, 0.3);
     }
     .rso-chips-container {
       display: flex;
@@ -2895,7 +3172,7 @@
       flex: 1;
       background: #060914;
       border: 1.5px solid #1e293b;
-      border-radius: 0;
+      border-radius: 8px;
       padding: 18px;
       display: flex;
       flex-direction: column;
@@ -2917,7 +3194,7 @@
     .rso-chip-tier-box {
       background: #03050a;
       border: 1px solid #1e293b;
-      border-radius: 0;
+      border-radius: 6px;
       padding: 10px;
       display: flex;
       flex-direction: column;
@@ -2937,23 +3214,23 @@
       padding: 10px;
       background: #080d1a;
       border: 1px solid #1e293b;
-      border-radius: 0;
+      border-radius: 6px;
       cursor: pointer;
       transition: all 0.15s ease;
     }
     .rso-chip-item:hover {
       background: #0f172a;
-      border-color: #00f3ff;
-      transform: translate(-1px, -1px);
-      box-shadow: 2px 2px 0 #00f3ff;
+      border-color: rgba(56, 189, 248, 0.6);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
     .rso-chip-item.unlocked {
       border-color: #334155;
     }
     .rso-chip-item.equipped {
-      background: rgba(0, 243, 255, 0.08);
-      border-color: #00f3ff;
-      box-shadow: 2px 2px 0 #ff0055;
+      background: rgba(14, 116, 144, 0.18);
+      border-color: #38bdf8;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), 0 0 10px rgba(56, 189, 248, 0.3);
     }
     .rso-chip-item.locked {
       opacity: 0.55;
@@ -3039,17 +3316,32 @@
   <!-- Saf 100% WebGL 2.0 Donanım Hızlandırmalı Siberpunk HUD -->
   <div id="gameHudOverlay">
     <div class="hud-top-left" id="playerStats">
-      <div class="hud-bar-row">
-        <div class="hud-bar-frame hp-frame"><div id="hudHpFill" class="hud-bar-fill hp-fill"></div></div>
-        <div id="hudHpText" class="hud-bar-label">CAN: 100/100</div>
+      <div class="hud-bar-row hp-row">
+        <div class="hud-bar-frame hp-frame">
+          <div id="hudHpFill" class="hud-bar-fill hp-fill"></div>
+          <div class="hud-bar-inner-label">
+            <span class="hud-bar-title">❤️ CAN</span>
+            <span id="hudHpText" class="hud-bar-val">CAN: 100/100</span>
+          </div>
+        </div>
       </div>
-      <div class="hud-bar-row">
-        <div class="hud-bar-frame shield-frame"><div id="hudShieldFill" class="hud-bar-fill shield-fill"></div></div>
-        <div id="hudShieldText" class="hud-bar-label">KALKAN: 50/50</div>
+      <div class="hud-bar-row shield-row">
+        <div class="hud-bar-frame shield-frame">
+          <div id="hudShieldFill" class="hud-bar-fill shield-fill"></div>
+          <div class="hud-bar-inner-label">
+            <span class="hud-bar-title">🛡️ KALKAN</span>
+            <span id="hudShieldText" class="hud-bar-val">KALKAN: 50/50</span>
+          </div>
+        </div>
       </div>
-      <div class="hud-bar-row">
-        <div class="hud-bar-frame ult-frame"><div id="hudUltFill" class="hud-bar-fill ult-fill"></div></div>
-        <div id="hudUltText" class="hud-bar-label">OVERDRIVE</div>
+      <div class="hud-bar-row ult-row">
+        <div class="hud-bar-frame ult-frame">
+          <div id="hudUltFill" class="hud-bar-fill ult-fill"></div>
+          <div class="hud-bar-inner-label">
+            <span class="hud-bar-title">⚡ OVERDRIVE</span>
+            <span id="hudUltText" class="hud-bar-val">OVERDRIVE</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -3060,75 +3352,103 @@
         <div id="hudComboText" class="hud-combo-text">⚡ 2x KOMBO</div>
         <div class="hud-combo-frame"><div id="hudComboFill" class="hud-combo-fill"></div></div>
       </div>
+      <div id="hudBossNotice" class="hud-boss-notice hidden">
+        <div id="hudBossNoticeTag" class="hud-boss-notice-tag">⚠️ TEHLİKE DÜZEYİ: AZAMİ ⚠️</div>
+        <div id="hudBossNoticeName" class="hud-boss-notice-name">OMEGA DREADNOUGHT</div>
+        <div id="hudBossNoticeSub" class="hud-boss-notice-sub">YAKLAŞAN TEHDİT TESPİT EDİLDİ</div>
+      </div>
     </div>
 
     <div class="hud-top-right">
-      <div id="hudModeHeatBadge" style="font-size: 11px; font-weight: 800; color: #00f3ff; margin-bottom: 2px; text-shadow: 0 0 5px rgba(0,243,255,0.7);">[ SEFER • NORMAL ]</div>
       <div class="hud-top-right-header">
-        <div id="top-controls">
-          <button class="icon-btn" id="soundBtn" title="Ses Aç/Kapat">🔊</button>
-          <button class="icon-btn" id="pauseBtn" title="Duraklat (ESC/P)">⏸️</button>
-        </div>
-        <div id="hudScoreText" class="hud-score-text">SKOR: 0</div>
+        <div id="hudModeHeatBadge">[ SEFER • NORMAL ]</div>
+        <button class="hud-tactical-btn" id="pauseBtn" title="Taktik Menü / Duraklat (ESC)">⏸️ MENÜ [ESC]</button>
       </div>
-      <div id="hudWaveStats" class="hud-sub-stats">İmha: 0 | Dalga: 1 • ⚡ 144 FPS</div>
-      <div id="hudScrapStats" class="hud-scrap-stats">🔩 Hurda: 0</div>
+      <div id="hudScoreText" class="hud-score-text">SKOR: 0</div>
+      <div class="hud-telemetry-pill">
+        <div id="hudWaveStats" class="hud-sub-stats">İmha: 0 | Dalga: 1 • ⚡ 144 FPS</div>
+        <div id="hudScrapStats" class="hud-scrap-stats">🔩 Hurda: 0</div>
+      </div>
+      <div id="hudEventNotice" class="hud-event-notice hidden">
+        <div id="hudEventNoticeTag" class="hud-event-notice-tag">⚡ YENİ GÖREV</div>
+        <div id="hudEventNoticeTitle" class="hud-event-notice-title">HACK PROTOKOLÜ</div>
+        <div id="hudEventNoticeSub" class="hud-event-notice-sub">BÖLGEYE GİRİN VE VERİYİ İNDİRİN</div>
+      </div>
     </div>
 
     <div class="hud-bottom-left">
-      <div id="hudDashText" class="hud-status-line">DASH HAZIR (SPACE / SAĞ TIK)</div>
-      <div id="hudDecoyText" class="hud-status-line">📡 [C] HOLO-DECOY: HAZIR</div>
-      <div id="hudAnchorText" class="hud-status-line">🧲 [E] MANYETİK ÇAPA: HAZIR</div>
-      <div id="hudShipClassText" class="hud-status-line">🚀 [INTERCEPTOR] SERİ AVCI</div>
-      <div id="hudRelicsBar" class="hud-status-line hidden">✨ ESERLER: <span id="hudRelicsIcons"></span></div>
-      <div id="hudGatlingText" class="hud-status-line hidden">🔱 GATLING LAZER: AKTİF</div>
-      <div id="hudAutoFireText" class="hud-status-line hidden">⚡ OTO ATEŞ: AÇIK [F]</div>
+      <div class="hud-ability-deck">
+        <div class="hud-ability-card ready" id="hudDashCard" title="İtici Dash [SPACE / Sağ Tık]">
+          <span class="hud-ability-key" id="hudDashKey">SPACE</span>
+          <span class="hud-ability-icon">⚡</span>
+          <span class="hud-ability-name">DASH</span>
+          <span class="hud-ability-cooldown" id="hudDashText">HAZIR</span>
+        </div>
+        <div class="hud-ability-card ready" id="hudDecoyCard" title="Holo-Decoy [C / B]">
+          <span class="hud-ability-key" id="hudDecoyKey">C</span>
+          <span class="hud-ability-icon">📡</span>
+          <span class="hud-ability-name">DECOY</span>
+          <span class="hud-ability-cooldown" id="hudDecoyText">HAZIR</span>
+        </div>
+        <div class="hud-ability-card ready" id="hudAnchorCard" title="Manyetik Çapa [E / X]">
+          <span class="hud-ability-key" id="hudAnchorKey">E</span>
+          <span class="hud-ability-icon">🧲</span>
+          <span class="hud-ability-name">ÇAPA</span>
+          <span class="hud-ability-cooldown" id="hudAnchorText">HAZIR</span>
+        </div>
+      </div>
+      <div class="hud-bottom-meta-row">
+        <div id="hudShipClassText" class="hud-status-line">🚀 [INTERCEPTOR] SERİ AVCI</div>
+        <div id="hudRelicsBar" class="hud-status-line hidden">✨ <span id="hudRelicsIcons"></span></div>
+        <div id="hudGatlingText" class="hud-status-badge hidden">🔱 GATLING</div>
+        <div id="hudAutoFireText" class="hud-status-badge hidden">⚡ OTO ATEŞ</div>
+      </div>
       <div id="hudLowHealthAlert" class="hud-alert-line hidden">⚠️ KRİTİK HASAR! CAN DÜŞÜK! ⚠️</div>
     </div>
   </div>
 
   <!-- YENİ: Retro CRT tarama çizgisi filtresi (tıklamaları engellemez) -->
-  <div id="crtOverlay" class="crt-overlay"></div>
+  <div id="crtOverlay" class="crt-overlay hidden"></div>
 
-  <!-- 6+6 ENVANTER YUVASI HUD DOCK (FAZ 1 ÇEKİRDEK) -->
-  <div id="inventory12SlotsBar" class="hidden">
-    <div class="inv-row">
-      <span class="inv-label">SİLAHLAR</span>
-      <div class="inv-slots-list" id="inventoryWeaponSlots"></div>
+  <!-- ENTEGRE TAKTİK SİLAH & ENVANTER DOCK'U (ASLA ÇAKIŞMAZ) -->
+  <div id="tacticalLoadoutDock" class="tactical-loadout-dock">
+    <!-- 6+6 ENVANTER YUVASI HUD DOCK (FAZ 1 ÇEKİRDEK) -->
+    <div id="inventory12SlotsBar" class="hidden">
+      <div class="inv-row">
+        <span class="inv-label">PASİFLER</span>
+        <div class="inv-slots-list" id="inventoryPassiveSlots"></div>
+      </div>
+      <div id="inventoryWeaponSlots" style="display:none;"></div>
     </div>
-    <div class="inv-row">
-      <span class="inv-label">PASİFLER</span>
-      <div class="inv-slots-list" id="inventoryPassiveSlots"></div>
-    </div>
-  </div>
 
-  <!-- RETRO ATARI WEAPON SELECTOR HUD BAR -->
-  <div id="weaponHudBar" class="hidden">
-    <div class="weapon-hud-slot active" data-weapon="blaster" onclick="if(window.weaponManager) window.weaponManager.selectWeaponIndex(0);">
-      <span class="weapon-hud-key">1</span>
-      <span class="weapon-hud-icon">⚡</span>
-      <span class="weapon-hud-name">BLASTER</span>
-      <div class="weapon-charge-fill"></div>
+    <!-- RETRO ATARI WEAPON SELECTOR HUD BAR -->
+    <div id="weaponHudBar" class="hidden">
+      <div class="weapon-hud-slot active" data-weapon="blaster" onclick="if(window.weaponManager) window.weaponManager.selectWeaponIndex(0);">
+        <span class="weapon-hud-key">1</span>
+        <span class="weapon-hud-icon">⚡</span>
+        <span class="weapon-hud-name">BLASTER</span>
+        <div class="weapon-charge-fill"></div>
+      </div>
+      <div class="weapon-hud-slot" data-weapon="spread" onclick="if(window.weaponManager) window.weaponManager.selectWeaponIndex(1);">
+        <span class="weapon-hud-key">2</span>
+        <span class="weapon-hud-icon">💥</span>
+        <span class="weapon-hud-name">SPREAD</span>
+        <div class="weapon-charge-fill"></div>
+      </div>
+      <div class="weapon-hud-slot" data-weapon="plasma_beam" onclick="if(window.weaponManager) window.weaponManager.selectWeaponIndex(2);">
+        <span class="weapon-hud-key">3</span>
+        <span class="weapon-hud-icon">🔥</span>
+        <span class="weapon-hud-name">PLASMA</span>
+        <div class="weapon-charge-fill"></div>
+      </div>
+      <div class="weapon-hud-slot" data-weapon="railgun" onclick="if(window.weaponManager) window.weaponManager.selectWeaponIndex(3);">
+        <span class="weapon-hud-key">4</span>
+        <span class="weapon-hud-icon">🚀</span>
+        <span class="weapon-hud-name">RAILGUN</span>
+        <div class="weapon-charge-fill" id="railgunChargeBar"></div>
+      </div>
+      <div id="weaponHudGamepadHint">[1-4 / Scroll] Silah Değiştir • [Sol Tık] Ateş</div>
     </div>
-    <div class="weapon-hud-slot" data-weapon="spread" onclick="if(window.weaponManager) window.weaponManager.selectWeaponIndex(1);">
-      <span class="weapon-hud-key">2</span>
-      <span class="weapon-hud-icon">💥</span>
-      <span class="weapon-hud-name">SPREAD</span>
-      <div class="weapon-charge-fill"></div>
-    </div>
-    <div class="weapon-hud-slot" data-weapon="plasma_beam" onclick="if(window.weaponManager) window.weaponManager.selectWeaponIndex(2);">
-      <span class="weapon-hud-key">3</span>
-      <span class="weapon-hud-icon">🔥</span>
-      <span class="weapon-hud-name">PLASMA</span>
-      <div class="weapon-charge-fill"></div>
-    </div>
-    <div class="weapon-hud-slot" data-weapon="railgun" onclick="if(window.weaponManager) window.weaponManager.selectWeaponIndex(3);">
-      <span class="weapon-hud-key">4</span>
-      <span class="weapon-hud-icon">🚀</span>
-      <span class="weapon-hud-name">RAILGUN</span>
-      <div class="weapon-charge-fill" id="railgunChargeBar"></div>
-    </div>
-    <div id="weaponHudGamepadHint">[1-4 / Scroll] Silah Değiştir • [Sol Tık] Ateş</div>
   </div>
 
   <!-- YENİ: Çoklu Profil Seçimi ve Yönetimi (Save System) Overlay -->
@@ -3352,13 +3672,13 @@
     </div>
     <!-- FAZ 3: Taktiksel Kart Eylem Çubuğu (Yenile, Yasakla, Atla) -->
     <div id="upgradeActionBar" style="display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 14px; margin-bottom: 8px;">
-      <button id="cardRerollBtn" class="btn btn-secondary" onclick="window.triggerCardReroll();" style="border-color: #00f3ff; color: #00f3ff; padding: 6px 16px; font-size: 13px; font-weight: bold; cursor: pointer;">
+      <button id="cardRerollBtn" class="btn btn-secondary" onclick="window.triggerCardReroll();" style="border-color: rgba(56, 189, 248, 0.5); color: #38bdf8; background: rgba(15, 23, 42, 0.85); padding: 7px 16px; font-size: 13px; font-weight: 700; cursor: pointer; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
         🎲 YENİLE [R] (<span id="rerollCountDisplay">2</span>)
       </button>
-      <button id="cardBanBtn" class="btn btn-secondary" onclick="window.triggerCardBan();" style="border-color: #ef4444; color: #ef4444; padding: 6px 16px; font-size: 13px; font-weight: bold; cursor: pointer;">
+      <button id="cardBanBtn" class="btn btn-secondary" onclick="window.triggerCardBan();" style="border-color: rgba(244, 63, 94, 0.5); color: #fb7185; background: rgba(15, 23, 42, 0.85); padding: 7px 16px; font-size: 13px; font-weight: 700; cursor: pointer; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
         🚫 YASAKLA [B] (<span id="banCountDisplay">1</span>)
       </button>
-      <button id="cardSkipBtn" class="btn btn-secondary" onclick="window.triggerCardSkip();" style="border-color: #ffe600; color: #ffe600; padding: 6px 16px; font-size: 13px; font-weight: bold; cursor: pointer;">
+      <button id="cardSkipBtn" class="btn btn-secondary" onclick="window.triggerCardSkip();" style="border-color: rgba(250, 204, 21, 0.5); color: #fde047; background: rgba(15, 23, 42, 0.85); padding: 7px 16px; font-size: 13px; font-weight: 700; cursor: pointer; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
         ⏩ ATLA [X] (+25 Hurda, +15 XP)
       </button>
     </div>
@@ -3571,7 +3891,7 @@
   <!-- Game Over Overlay -->
   <div id="gameOverOverlay" class="overlay hidden">
     <div class="neon-box" style="max-width: 620px;">
-      <h1 class="title" data-i18n="system_critical" style="color: #ff0055; font-size: 38px;">SİSTEM ÇÖKTÜ</h1>
+      <h1 class="title" data-i18n="system_critical" style="color: #f43f5e; font-size: 38px; text-shadow: 0 2px 10px rgba(244, 63, 94, 0.4);">SİSTEM ÇÖKTÜ</h1>
       <div class="subtitle" data-i18n="ship_destroyed">GEMİ İMHA EDİLDİ</div>
 
       <div class="stats-row">
@@ -3949,6 +4269,16 @@
         this.musicGain.gain.value = 0.15;
         this.musicGain.connect(this.masterFilter);
 
+        this.shipGain = this.ctx.createGain();
+        this.shipGain.gain.value = 0.22; // Gemi motoru, dash ve itici ses kanalı
+        this.shipGain.connect(this.masterFilter);
+
+        this.masterVol = (typeof gameSettings !== 'undefined' && gameSettings.masterVolume !== undefined) ? gameSettings.masterVolume : 1.0;
+        this.sfxVol = (typeof gameSettings !== 'undefined' && gameSettings.sfxVolume !== undefined) ? gameSettings.sfxVolume : 0.8;
+        this.musicVol = (typeof gameSettings !== 'undefined' && gameSettings.musicVolume !== undefined) ? gameSettings.musicVolume : 0.7;
+        this.shipVol = (typeof gameSettings !== 'undefined' && gameSettings.shipVolume !== undefined) ? gameSettings.shipVolume : 0.8;
+        this.applySettingsVolumes();
+
         // YENİ: Önceden üretilmiş beyaz gürültü belleği (patlamalarda CPU döngülerini sıfırlar)
         try {
           const noiseLen = Math.floor(this.ctx.sampleRate * 0.4);
@@ -4021,11 +4351,45 @@
         return !this.muted;
       }
 
+      applySettingsVolumes(settings) {
+        const s = settings || (typeof gameSettings !== 'undefined' ? gameSettings : null) || DEFAULT_SETTINGS;
+        this.masterVol = (s.masterVolume !== undefined) ? s.masterVolume : 1.0;
+        this.sfxVol = (s.sfxVolume !== undefined) ? s.sfxVolume : 0.8;
+        this.musicVol = (s.musicVolume !== undefined) ? s.musicVolume : 0.7;
+        this.shipVol = (s.shipVolume !== undefined) ? s.shipVolume : 0.8;
+
+        if (this.ctx) {
+          const t = this.ctx.currentTime;
+          if (this.sfxGain) this.sfxGain.gain.setValueAtTime(0.25 * this.masterVol * this.sfxVol, t);
+          if (this.musicGain) this.musicGain.gain.setValueAtTime(0.18 * this.masterVol * this.musicVol, t);
+          if (this.shipGain) this.shipGain.gain.setValueAtTime(0.24 * this.masterVol * this.shipVol, t);
+        }
+        if (window.ZortexAudioBroker) {
+          window.ZortexAudioBroker.setMasterVolume(this.masterVol);
+          window.ZortexAudioBroker.setSFXVolume(this.sfxVol);
+          if (typeof window.ZortexAudioBroker.setMusicVolume === 'function') window.ZortexAudioBroker.setMusicVolume(this.musicVol);
+          if (typeof window.ZortexAudioBroker.setShipVolume === 'function') window.ZortexAudioBroker.setShipVolume(this.shipVol);
+        }
+      }
+
       setMasterVolume(vol) {
-        if (!this.ctx) return;
-        const v = Math.max(0, Math.min(1, vol));
-        if (this.sfxGain) this.sfxGain.gain.setValueAtTime(0.22 * v, this.ctx.currentTime);
-        if (this.musicGain) this.musicGain.gain.setValueAtTime(0.14 * v, this.ctx.currentTime);
+        this.masterVol = Math.max(0, Math.min(1, vol));
+        this.applySettingsVolumes();
+      }
+
+      setSFXVolume(vol) {
+        this.sfxVol = Math.max(0, Math.min(1, vol));
+        this.applySettingsVolumes();
+      }
+
+      setMusicVolume(vol) {
+        this.musicVol = Math.max(0, Math.min(1, vol));
+        this.applySettingsVolumes();
+      }
+
+      setShipVolume(vol) {
+        this.shipVol = Math.max(0, Math.min(1, vol));
+        this.applySettingsVolumes();
       }
 
       midiToFreq(midi) {
@@ -4156,7 +4520,7 @@
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
 
         osc.connect(gain);
-        gain.connect(this.sfxGain);
+        gain.connect(this.shipGain || this.sfxGain);
         osc.start(now);
         osc.stop(now + 0.16);
       }
@@ -4847,9 +5211,11 @@
             backgroundColor: 0x020308,
             antialias: false,
             autoDensity: true,
-            resolution: 1
+            resolution: 1,
+            autoStart: false
           }).then(() => {
             window.pixiApp = pixiApp;
+            if (pixiApp.ticker) pixiApp.ticker.stop();
             initPixiTextures(pixiApp);
             setupPixiContainers(pixiApp);
             if (typeof starfield !== 'undefined' && starfield && typeof starfield.initPixiSprites === 'function') {
@@ -4866,9 +5232,11 @@
             backgroundColor: 0x020308,
             antialias: false,
             autoDensity: true,
-            resolution: 1
+            resolution: 1,
+            autoStart: false
           });
           window.pixiApp = pixiApp;
+          if (pixiApp.ticker) pixiApp.ticker.stop();
           initPixiTextures(pixiApp);
           setupPixiContainers(pixiApp);
           if (typeof starfield !== 'undefined' && starfield && typeof starfield.initPixiSprites === 'function') {
@@ -5852,6 +6220,7 @@
     let pixiBulletsContainer = null;
     let pixiEnemyBulletsContainer = null;
     let pixiPlayerContainer = null;
+    let pixiPlayer3DGraphics = null;
     let pixiPlayerThrusters = null;
     let pixiPlayerDetailsGraphics = null;
     let pixiParticlesContainer = null;
@@ -6078,8 +6447,12 @@
         // 3. Oyuncu Katmanı (Oyuncu gövdesi ve kalkan)
         const pixiShipBodyContainer = new PIXI.Container();
         pixiShipBodyContainer.label = 'shipBodyContainer';
+        pixiPlayer3DGraphics = new PIXI.Graphics();
+        pixiPlayer3DGraphics.label = 'player3DGraphics';
+        pixiShipBodyContainer.addChild(pixiPlayer3DGraphics);
         pixiPlayerContainer.addChild(pixiShipBodyContainer);
         window.pixiShipBodyContainer = pixiShipBodyContainer;
+        window.pixiPlayer3DGraphics = pixiPlayer3DGraphics;
         playerLayer.addChild(pixiPlayerContainer);
 
         // 4. Emissive Parlama Katmanı (Mermiler, Lazerler, Partiküller, Şok Dalgaları, Namlu Alevleri)
@@ -7973,6 +8346,9 @@
       screenShake: 1.0,         // Sarsıntı çarpanı: 0 (KAPALI), 0.5 (DÜŞÜK), 1.0 (NORMAL), 1.5 (GÜÇLÜ)
       damageNumbers: true,      // Sıçrayan Hasar Sayıları
       masterVolume: 1.0,        // Ana Ses Seviyesi: 0.0, 0.25, 0.5, 0.75, 1.0
+      sfxVolume: 0.8,           // Patlama ve Lazerler (SFX / Weapons & Explosions)
+      musicVolume: 0.7,         // Müzik Seviyesi (Synthwave / Boss OST)
+      shipVolume: 0.8,          // Gemi ve Motor Sesleri (Engine / Thrusters)
       crtEnabled: false,        // CRT Retro Tarama Çizgileri varsayılan: KAPALI (0 GPU Yükü)
       rumbleEnabled: true,      // Gamepad Haptik Titreşimi
       spatialAudio: true,       // 3D Mekânsal Ses & Stereo Panning
@@ -10684,8 +11060,12 @@
         this.shieldImpactTimer = 0;
         // AAA Görselleştirme Prototipi (C+E): Biyolüminesans Akışkan Plazma Kurdele
         this.ribbonPoints = [];
-        // Phase 2: 2.5D Sanal Z Derinliği
+        // Phase 2: 2.5D Sanal Z Derinliği & 3B Hacimsel Dönüş Açı Durumları
         this.z = 0;
+        this.roll3D = 0;
+        this.pitch3D = 0;
+        this.dashRollDir = 1;
+        this.dashRollProgress = 0;
       }
 
       // YENİ: Namlu Çıkış Parıltısı Tetikleme (Directional WebGL Muzzle Flare)
@@ -10750,7 +11130,9 @@
         audio.playRelicFound();
         triggerRumble('heavy');
         screenShake = 14;
-        textManager.add(`✨ SİBER ESER: ${relic.name.toUpperCase()} ✨`, W / 2, H / 3, '#ffe600', 26, 2.8);
+        if (typeof showEventNotification === 'function') {
+          showEventNotification('✨ SİBER ESER KAZANILDI', relic.name.toUpperCase(), relic.desc || 'KALICI DONANIM YÜKLEMESİ', '#ffe600', 3.8);
+        }
         particles.emit(this.x, this.y, '#ffe600', 50, 7, 5, 1.5);
         particles.emit(this.x, this.y, '#d400ff', 40, 6, 4, 1.2);
 
@@ -10845,6 +11227,11 @@
           } else {
             this.dashAngle = Math.atan2(dy, dx);
           }
+          // 3B Barrel Roll (360 derece tam takla yönü hesabı)
+          const cross = Math.cos(this.angle) * Math.sin(this.dashAngle) - Math.sin(this.angle) * Math.cos(this.dashAngle);
+          this.dashRollDir = Math.abs(cross) > 0.12 ? (cross > 0 ? 1 : -1) : ((this.dashRollDir || 1) * -1);
+          this.dashRollTimer = 0.28;
+          this.dashRollDuration = 0.28;
           audio.playDash();
           triggerRumble('light');
           screenShake = 6;
@@ -11262,7 +11649,7 @@
           if (this.dashTrailTimer >= 0.035) {
             this.dashTrailTimer = 0;
             this.ghostTrails.push({
-              x: this.x, y: this.y, angle: this.angle, alpha: 0.6
+              x: this.x, y: this.y, angle: this.angle, roll3D: this.roll3D || 0, alpha: 0.6
             });
             if (this.ghostTrails.length > 10) this.ghostTrails.shift();
 
@@ -11655,18 +12042,44 @@
         this.z = zHover + zDash;
         const pZScale = 1.0 + this.z * 0.35;
 
-        // Phase 8: 3D Roll / Banking Tilt (Dönüş ve Hareket Geri Bildirimi)
+        // Phase 8: 3B Hacimsel Roll (Banking + Strafe + 360° Dash Barrel Roll) & Pitch
         const prevAngle = this._lastAngle !== undefined ? this._lastAngle : this.angle;
         let dAngle = this.angle - prevAngle;
         while (dAngle > Math.PI) dAngle -= Math.PI * 2;
         while (dAngle < -Math.PI) dAngle += Math.PI * 2;
         this._lastAngle = this.angle;
 
-        const targetBank = Math.max(-0.28, Math.min(0.28, dAngle * 2.5));
+        const targetBank = Math.max(-0.55, Math.min(0.55, dAngle * 3.8));
         this.bankTilt = (this.bankTilt || 0) + (targetBank - (this.bankTilt || 0)) * Math.min(1.0, dt * 12.0);
 
-        // 3D Perspektif Sıkıştırması ve Skew Roll
+        // Hareket vektörünü geminin ileri ve yanal (strafe) eksenlerine izdüşür
+        const fwdX = Math.cos(this.angle), fwdY = Math.sin(this.angle);
+        const rightX = -fwdY, rightY = fwdX;
+        const speedRef = Math.max(1, this.speed || 4.2);
+        const lateralVel = ((this.vx || 0) * rightX + (this.vy || 0) * rightY) / speedRef;
+        const forwardVel = ((this.vx || 0) * fwdX + (this.vy || 0) * fwdY) / speedRef;
+
+        const targetStrafeRoll = Math.max(-0.48, Math.min(0.48, lateralVel * 0.42));
+        this.strafeRoll = (this.strafeRoll || 0) + (targetStrafeRoll - (this.strafeRoll || 0)) * Math.min(1.0, dt * 10.0);
+
+        const targetPitch = Math.max(-0.22, Math.min(0.22, forwardVel * 0.14)) + 0.04 * Math.cos(t * 2.6);
+        this.pitch3D = (this.pitch3D || 0) + (targetPitch - (this.pitch3D || 0)) * Math.min(1.0, dt * 10.0);
+
+        // Dash 360° Barrel Roll ilerlemesi
+        let barrelRollAngle = 0;
+        if (this.dashRollTimer > 0) {
+          this.dashRollTimer = Math.max(0, this.dashRollTimer - dt);
+          const prog = 1.0 - (this.dashRollTimer / (this.dashRollDuration || 0.28));
+          const ease = prog < 0.5 ? 2 * prog * prog : 1 - Math.pow(-2 * prog + 2, 2) / 2;
+          barrelRollAngle = ease * Math.PI * 2 * (this.dashRollDir || 1);
+        }
+
+        const idleRoll = 0.07 * Math.sin(t * 2.2);
+        this.roll3D = idleRoll + this.bankTilt + this.strafeRoll + barrelRollAngle;
+
+        // 3D Perspektif Sıkıştırması ve Skew Roll (Yedek 2D sprite için; 3B aktifken 2D sprite gizlenir)
         const bankCompress = 0.90 + 0.10 * Math.cos(this.bankTilt);
+        const useTrue3DShip = Boolean(typeof pixiPlayer3DGraphics !== 'undefined' && pixiPlayer3DGraphics);
         if (this.sprite) {
           this.sprite.x = this.x;
           this.sprite.y = this.y;
@@ -11685,7 +12098,7 @@
           } else {
             this.sprite.tint = 0xffffff;
           }
-          this.sprite.visible = (typeof gameState !== 'undefined' && (gameState === 'PLAYING' || gameState === 'PAUSED' || gameState === 'UPGRADE'));
+          this.sprite.visible = !useTrue3DShip && (typeof gameState !== 'undefined' && (gameState === 'PLAYING' || gameState === 'PAUSED' || gameState === 'UPGRADE'));
         }
 
         // [FX] FAZ 1: Düşük Can (Low-HP) Siber Kalp Atışı & Glitch Uyarısı (< %28 HP)
@@ -11744,7 +12157,7 @@
           this.shadowSprite.scale.set(1.15 * scaleFactor, 0.65 * scaleFactor);
           this.shadowSprite.rotation = this.angle * 0.75;
           this.shadowSprite.alpha = Math.max(0.18, 0.52 * (1 - this.z * 0.6));
-          this.shadowSprite.visible = this.sprite ? this.sprite.visible : true;
+          this.shadowSprite.visible = (typeof gameState !== 'undefined' && (gameState === 'PLAYING' || gameState === 'PAUSED' || gameState === 'UPGRADE'));
         }
         if (this.lightSprite) {
           let lightCol = 0x00f3ff;
@@ -13537,7 +13950,9 @@
             e.die();
           }
         }
-        textManager.add('⚡ ' + (this.bossName || 'BOSS') + ': FAZ 2 - REAKTÖR ÇATLAĞI ⚡', W / 2, H / 3, '#d946ef', 28, 2.2);
+        if (typeof showBossNotification === 'function') {
+          showBossNotification('⚡ FAZ 2 GEÇİŞİ: REAKTÖR ÇATLAĞI ⚡', this.bossName || 'BOSS', 'DIŞ ZIRH ÇÖKTÜ • ÇEKİRDEK SAVUNMASIZ', '#d946ef');
+        }
       }
 
       enterPhaseThree() {
@@ -13556,7 +13971,9 @@
         triggerRumble('boss');
         particles.emit(this.x, this.y, '#ff0033', 80, 9, 6, 1.4);
         if (typeof addShockwave === 'function') addShockwave(this.x, this.y, 0xff0033, 280, 0.45, 5.0);
-        textManager.add('🔥 ' + (this.bossName || 'BOSS') + ': FAZ 3 - AŞIRI YÜK (ENRAGE)! 🔥', W / 2, H / 3, '#ff0033', 28, 2.6);
+        if (typeof showBossNotification === 'function') {
+          showBossNotification('🔥 FAZ 3 GEÇİŞİ: AŞIRI YÜK (ENRAGE)! 🔥', this.bossName || 'BOSS', 'AZAMİ HIZ VE SALDIRGANLIK AKTİF', '#ef4444');
+        }
       }
 
       die() {
@@ -13721,7 +14138,9 @@
             bossSpawned = false;
             if (typeof window !== 'undefined') window.bossSpawned = false;
             bossLasers = [];
-            textManager.add('BOSS YOK EDİLDİ!', W / 2, H / 3, '#00f3ff', 32, 2.5);
+            if (typeof showBossNotification === 'function') {
+              showBossNotification('✨ ZAFER: TEHDİT ETKİSİZ HALE GETİRİLDİ ✨', this.bossName || 'BOSS', 'DÜŞMAN GEMİSİ İMHA EDİLDİ • SEKTÖR GÜVENLİ', '#00f3ff');
+            }
 
             // [FAZ 4] Sefer Modu Zafer Kontrolü (10 Dalga + Boss Kesilince)
             if (window.ZortexGameModes && typeof window.ZortexGameModes.checkRunVictory === 'function') {
@@ -14213,7 +14632,9 @@
               const p3Duration = (performance.now() * 0.001) - (this.phase3StartTime || (performance.now() * 0.001));
               if (p3Duration >= 35.0 && !this.isEnraged) {
                 this.isEnraged = true;
-                textManager.add('💀 ⚠️ BOSS ÖFKE MODUNA GİRDİ (ENRAGE)! ⚠️ 💀', W / 2, H / 3 + 40, '#ff0055', 24, 3.0);
+                if (typeof showBossNotification === 'function') {
+                  showBossNotification('💀 ⚠️ KRİTİK ÖFKE MODU (ENRAGE) ⚠️ 💀', this.bossName || 'BOSS', 'ÇEKİRDEK AŞIRI YÜKLENDİ • SALDIRI HIZI KATLANDI', '#ff0055');
+                }
                 if (audio && typeof audio.playExplosion === 'function') audio.playExplosion(1.8, this.x, this.y);
                 screenShake = 14;
               }
@@ -14579,18 +15000,41 @@
           let y = pt.y;
           const bossInst = new BossEnemy(x, y);
           bossInst.spawnTime = performance.now() * 0.001;
-          let bossTitle = '⚠️ TEHLİKE: BOSS YAKLAŞIYOR! ⚠️';
+          let bossTag = '⚠️ TEHLİKE DÜZEYİ: AZAMİ ⚠️';
           let bossName = 'OMEGA DREADNOUGHT';
+          let bossSub = 'NİHAİ APEX SAVUNMA AMİRİ SAVAŞ ALANINA GİRDİ';
+          let bossColor = '#ef4444';
           const cycleWave = (wave > 10 && wave % 10 !== 0) ? (((wave - 1) % 9) + 1) : wave;
 
-          if (cycleWave === 3) { bossTitle = '🛸 BİYOM 1 MİNİ-BOSS: KOVAN ANA GEMİSİ!'; bossName = 'KOVAN ANA GEMİSİ'; }
-          else if (cycleWave === 6) { bossTitle = '⚔️ BİYOM 2 MİNİ-BOSS: GÖLGE SÜVARİSİ!'; bossName = 'GÖLGE SÜVARİSİ'; }
-          else if (cycleWave === 9) { bossTitle = '☢️ BİYOM 3 MİNİ-BOSS: REAKTÖR ÇEKİRDEĞİ!'; bossName = 'REAKTÖR ÇEKİRDEĞİ'; }
-          else if (wave % 10 === 0) { bossTitle = '👑 NİHAİ APEX: OMEGA DREADNOUGHT!'; bossName = 'OMEGA DREADNOUGHT'; }
+          if (cycleWave === 3) {
+            bossTag = '🛸 BİYOM 1 MİNİ-BOSS 🛸';
+            bossName = 'KOVAN ANA GEMİSİ';
+            bossSub = 'SINAV: HEDEF ÖNCELİĞİ VE KULUÇKA PODLARI';
+            bossColor = '#38bdf8';
+          } else if (cycleWave === 6) {
+            bossTag = '⚔️ BİYOM 2 MİNİ-BOSS ⚔️';
+            bossName = 'GÖLGE SÜVARİSİ';
+            bossSub = 'SINAV: HAREKET VE DASH REFLEKSİ';
+            bossColor = '#c084fc';
+          } else if (cycleWave === 9) {
+            bossTag = '☢️ BİYOM 3 MİNİ-BOSS ☢️';
+            bossName = 'REAKTÖR ÇEKİRDEĞİ';
+            bossSub = 'SINAV: ALAN OKUMA VE MERKEZİ AŞIRI YÜK';
+            bossColor = '#f97316';
+          } else if (wave % 10 === 0) {
+            bossTag = '👑 NİHAİ APEX 👑';
+            bossName = 'OMEGA DREADNOUGHT';
+            bossSub = 'TÜM DİRENÇ SİSTEMLERİNİ AKTİF ET';
+            bossColor = '#ef4444';
+          }
+
+          let bossTitle = `${bossTag} ${bossName}!`;
 
           // [FAZ 5 & BÖLÜM 11.3] Dalga 20 Çifte Boss & Heat IV Biyom Çifte Mini-Boss Olayı
           const isHeat4MiniBoss = (window.ZortexGameModes && window.ZortexGameModes.currentHeatIndex >= 4 && (cycleWave === 3 || cycleWave === 6 || cycleWave === 9));
           if (wave === 20 || isHeat4MiniBoss) {
+            bossTag = '💀 ⚠️ KABUS İSTİLASI ⚠️ 💀';
+            bossSub = 'DİKKAT: AYNI ANDA ÇİFTE BOSS TESPİT EDİLDİ!';
             bossTitle = (wave === 20)
               ? '💀 ⚠️ 20. DALGA: ÇİFTE BOSS İSTİLASI! ⚠️ 💀'
               : `💀 ⚠️ KABUS (HEAT IV): ÇİFTE ${bossName}! ⚠️ 💀`;
@@ -14613,7 +15057,9 @@
           } else if (window.ZortexEnemies && typeof window.ZortexEnemies.onBossSpawn === 'function') {
             window.ZortexEnemies.onBossSpawn(bossInst);
           }
-          textManager.add(bossTitle, W / 2, H / 2 - 80, '#ff0033', 28, 3.2);
+          if (typeof showBossNotification === 'function') {
+            showBossNotification(bossTag, bossName, bossSub, bossColor);
+          }
           audio.playExplosion(1.5);
           return;
         }
@@ -14651,8 +15097,9 @@
         else if (w >= 4) { subtitle = 'HAYALET VE KAMİKAZE İSTİLASI!'; color = '#ff7700'; }
         else if (w >= 2) { subtitle = 'GELİŞMİŞ AVCI DRONLARI DEVREDE!'; color = '#ffe600'; }
 
-        textManager.add(`── DALGA ${w} BAŞLADI ──`, W / 2, 115, color, 24, 2.2);
-        textManager.add(subtitle, W / 2, 145, '#ffffff', 13, 2.0);
+        if (typeof showBossNotification === 'function') {
+          showBossNotification('── SAVAŞ ALARMI ──', `DALGA ${w} BAŞLADI`, subtitle, color);
+        }
       }
 
       spawnWaveGroup() {
@@ -14679,8 +15126,8 @@
           window.__introducedEnemies = window.__introducedEnemies || new Set();
           if (!window.__introducedEnemies.has(name)) {
             window.__introducedEnemies.add(name);
-            if (typeof textManager !== 'undefined' && textManager && textManager.add) {
-              textManager.add('⚠️ YENİ TEHDİT: ' + name, W / 2, 85, color, 18, 2.5);
+            if (typeof showEventNotification === 'function') {
+              showEventNotification('⚠️ YENİ TEHDİT', name, 'ÖZEL DÜŞMAN TÜRÜ SAVAŞ ALANINDA', color, 3.2);
             }
             if (audio && typeof audio.playWarning === 'function') audio.playWarning();
           }
@@ -15435,9 +15882,9 @@
           won.apply();
         }
 
-        textManager.add('HACK TAMAMLANDI! CAN DOLDU!', this.x, this.y - 30, '#00ff66', 24, 2.8);
-        if (won) {
-          textManager.add(`YETENEK KAZANILDI: ${won.name.toUpperCase()}`, this.x, this.y + 10, '#ffe600', 18, 2.8);
+        if (typeof showEventNotification === 'function') {
+          const subMsg = won ? `YETENEK KAZANILDI: ${won.name.toUpperCase()} • CAN DOLDU` : 'CAN VE KALKAN TAMAMEN DOLDURULDU';
+          showEventNotification('✨ GÖREV TAMAMLANDI', 'HACK BAŞARILI', subMsg, '#00ff66', 3.5);
         }
       }
 
@@ -15871,7 +16318,9 @@
       const x = anchorX + Math.cos(angle) * dist;
       const y = anchorY + Math.sin(angle) * dist;
       activeHackZone = new HackZone(x, y);
-      textManager.add('⚡ YENİ GÖREV: HACK PROTOKOLÜ TESPİT EDİLDİ!', W / 2, H / 2 - 80, '#00ff66', 22, 3.0);
+      if (typeof showEventNotification === 'function') {
+        showEventNotification('⚡ YENİ GÖREV', 'HACK PROTOKOLÜ TESPİT EDİLDİ', 'BÖLGEYE GİRİN VE VERİYİ İNDİRİN', '#00ff66', 3.5);
+      }
       audio.playLevelUp();
     }
 
@@ -16329,30 +16778,44 @@
       const scrapStats = document.getElementById('hudScrapStats');
       if (scrapStats) scrapStats.textContent = `🔩 Hurda: ${runScrap}`;
 
-      // 7. Status lines
+      // 7. Status lines & Ability Action Cards
+      const dashReady = player.dashCooldown <= 0;
+      const dashCard = document.getElementById('hudDashCard');
       const dashText = document.getElementById('hudDashText');
+      const dashKey = document.getElementById('hudDashKey');
+      if (dashCard) {
+        dashCard.classList.toggle('ready', dashReady);
+        dashCard.classList.toggle('cooldown', !dashReady);
+      }
+      if (dashKey) dashKey.textContent = gamepadConnected ? 'LT' : 'SPACE';
       if (dashText) {
-        const dashReady = player.dashCooldown <= 0;
-        dashText.textContent = dashReady
-          ? (gamepadConnected ? 'DASH HAZIR (LT / A)' : 'DASH HAZIR (SPACE / SAĞ TIK)')
-          : 'DASH DOLUYOR...';
-        dashText.style.color = dashReady ? '#00f3ff' : '#445577';
+        dashText.textContent = dashReady ? 'HAZIR' : `${Math.ceil(player.dashCooldown)}s`;
       }
 
+      const decoyReady = player.decoyCooldown <= 0;
+      const decoyCard = document.getElementById('hudDecoyCard');
       const decoyText = document.getElementById('hudDecoyText');
+      const decoyKey = document.getElementById('hudDecoyKey');
+      if (decoyCard) {
+        decoyCard.classList.toggle('ready', decoyReady);
+        decoyCard.classList.toggle('cooldown', !decoyReady);
+      }
+      if (decoyKey) decoyKey.textContent = gamepadConnected ? 'B' : 'C';
       if (decoyText) {
-        const decoyReady = player.decoyCooldown <= 0;
-        const btnKey = gamepadConnected ? '[B]' : '[C]';
-        decoyText.textContent = decoyReady ? `📡 ${btnKey} HOLO-DECOY: HAZIR` : `📡 ${btnKey} HOLO-DECOY: ${Math.ceil(player.decoyCooldown)}s`;
-        decoyText.style.color = decoyReady ? '#00e5ff' : '#556688';
+        decoyText.textContent = decoyReady ? 'HAZIR' : `${Math.ceil(player.decoyCooldown)}s`;
       }
 
+      const anchorReady = (player.gravityAnchorCooldown || 0) <= 0;
+      const anchorCard = document.getElementById('hudAnchorCard');
       const anchorText = document.getElementById('hudAnchorText');
+      const anchorKey = document.getElementById('hudAnchorKey');
+      if (anchorCard) {
+        anchorCard.classList.toggle('ready', anchorReady);
+        anchorCard.classList.toggle('cooldown', !anchorReady);
+      }
+      if (anchorKey) anchorKey.textContent = gamepadConnected ? 'X' : 'E';
       if (anchorText) {
-        const anchorReady = (player.gravityAnchorCooldown || 0) <= 0;
-        const btnKey = gamepadConnected ? '[X]' : '[E]';
-        anchorText.textContent = anchorReady ? `🧲 ${btnKey} MANYETİK ÇAPA: HAZIR` : `🧲 ${btnKey} MANYETİK ÇAPA: ${Math.ceil(player.gravityAnchorCooldown)}s`;
-        anchorText.style.color = anchorReady ? '#00f3ff' : '#556688';
+        anchorText.textContent = anchorReady ? 'HAZIR' : `${Math.ceil(player.gravityAnchorCooldown || 0)}s`;
       }
 
       const shipText = document.getElementById('hudShipClassText');
@@ -16409,6 +16872,74 @@
 
       if (wBar) wBar.classList.toggle('hidden', gameState !== 'PLAYING');
     }
+
+    // HUD Seviye Göstergesi Altında Sabit Boss/Tehdit Bildirim Bannerı
+    let bossNoticeTimer = null;
+    function showBossNotification(tagText, bossName, subText, colorHex = '#ef4444') {
+      const banner = document.getElementById('hudBossNotice');
+      if (!banner) return;
+      const tagEl = document.getElementById('hudBossNoticeTag');
+      const nameEl = document.getElementById('hudBossNoticeName');
+      const subEl = document.getElementById('hudBossNoticeSub');
+
+      if (tagEl) tagEl.textContent = tagText || '⚠️ TEHLİKE DÜZEYİ: AZAMİ ⚠️';
+      if (nameEl) nameEl.textContent = bossName || 'OMEGA DREADNOUGHT';
+      if (subEl) subEl.textContent = subText || 'YAKLAŞAN TEHDİT TESPİT EDİLDİ';
+
+      banner.style.borderColor = colorHex;
+      banner.style.boxShadow = `0 0 16px ${colorHex}59, inset 0 0 10px ${colorHex}26`;
+      if (tagEl) {
+        tagEl.style.color = colorHex;
+        tagEl.style.textShadow = `0 0 8px ${colorHex}99`;
+      }
+      banner.classList.remove('hidden', 'notice-fadeout');
+
+      if (bossNoticeTimer) clearTimeout(bossNoticeTimer);
+      bossNoticeTimer = setTimeout(() => {
+        banner.classList.add('notice-fadeout');
+        setTimeout(() => {
+          banner.classList.remove('notice-fadeout');
+          banner.classList.add('hidden');
+        }, 360);
+      }, 3400);
+    }
+    window.showBossNotification = showBossNotification;
+
+    // HUD Sağ Üst Olay / Görev / Sektör Bildirim Kartı
+    let eventNoticeTimer = null;
+    function showEventNotification(tagText, titleText, subText, colorHex = '#00f3ff', durationSec = 3.2) {
+      const banner = document.getElementById('hudEventNotice');
+      if (!banner) return;
+      const tagEl = document.getElementById('hudEventNoticeTag');
+      const titleEl = document.getElementById('hudEventNoticeTitle');
+      const subEl = document.getElementById('hudEventNoticeSub');
+
+      if (tagEl) {
+        tagEl.textContent = tagText || '⚡ BİLDİRİM';
+        tagEl.style.color = colorHex;
+        tagEl.style.textShadow = `0 0 6px ${colorHex}99`;
+      }
+      if (titleEl) {
+        titleEl.textContent = titleText || '';
+        titleEl.style.textShadow = `0 1px 3px rgba(0,0,0,0.95), 0 0 8px ${colorHex}80`;
+      }
+      if (subEl) subEl.textContent = subText || '';
+
+      banner.style.borderColor = colorHex;
+      banner.style.boxShadow = `0 0 18px ${colorHex}4d, inset 0 0 10px ${colorHex}1f`;
+      banner.classList.remove('hidden', 'notice-fadeout');
+
+      if (eventNoticeTimer) clearTimeout(eventNoticeTimer);
+      eventNoticeTimer = setTimeout(() => {
+        banner.classList.add('notice-fadeout');
+        setTimeout(() => {
+          banner.classList.remove('notice-fadeout');
+          banner.classList.add('hidden');
+        }, 360);
+      }, Math.round(durationSec * 1000));
+    }
+    window.showEventNotification = showEventNotification;
+
     function drawHUD(ctx) { updateDOMHUD(); }
     window.drawHUD = drawHUD;
     window.updateDOMHUD = updateDOMHUD;
@@ -16436,27 +16967,49 @@
     const flockingNeighbors = [];
     window.flockingNeighbors = flockingNeighbors;
 
-    let lastFrameExecuteTime = 0;
+    let nextFrameTargetTime = 0;
+    let fpsWindowFrames = 0;
+    let fpsWindowStartTime = performance.now();
 
     function gameLoop(currentTime) {
       rafId = null;
       try {
-        // Hedef Kare Hızı / FPS Sınırı (60 FPS, 120 FPS, 144 FPS veya Otomatik Monitör Hızı)
+        // Hedef Kare Hızı / FPS Sınırı (Bresenham kesirli zaman biriktiricisi - 144Hz monitörde 60/90/120 FPS kilitlerinin tam eşleşmesini sağlar)
         if (gameSettings.targetFPS && gameSettings.targetFPS !== 'auto' && gameSettings.targetFPS !== 'unlimited') {
           const targetRate = Number(gameSettings.targetFPS);
           if (targetRate > 0) {
-            const minFrameInterval = 1000 / targetRate - 1.2; // 1.2ms jitter payı
-            if (currentTime - lastFrameExecuteTime < minFrameInterval) {
-              return; // Bu kareyi atla; finally bloğu bir sonraki rAF çağrısını garanti eder
+            const frameInterval = 1000 / targetRate;
+            if (nextFrameTargetTime === 0) {
+              nextFrameTargetTime = currentTime;
             }
+            if (currentTime < nextFrameTargetTime - 0.15) {
+              return; // Bu VSync adımını atla (render edilmez, fpsWindowFrames artmaz)
+            }
+            nextFrameTargetTime += frameInterval;
+            // Yalnızca sekme değişimi veya duraklatma gibi >150ms büyük gecikmelerde zamanlayıcıyı sıfırla
+            if (currentTime - nextFrameTargetTime > 150) {
+              nextFrameTargetTime = currentTime + frameInterval;
+            }
+          } else {
+            nextFrameTargetTime = 0;
           }
+        } else {
+          nextFrameTargetTime = 0;
         }
-        lastFrameExecuteTime = currentTime;
 
         // Kararlı Delta Time: 0.001s ile 0.033s arası sıkı clamp (ani takılma ve fırlama önleyici)
         const rawDt = Math.max(0.001, Math.min(0.033, (currentTime - lastTime) / 1000 || 0.01667));
         lastTime = currentTime;
-        fpsSmoothed = Math.round(fpsSmoothed * 0.90 + (1 / rawDt) * 0.10);
+
+        // Gerçek ZamanPenceresi Tabanlı (Sliding Window) Doğru FPS Hesabı
+        fpsWindowFrames++;
+        const fpsElapsed = currentTime - fpsWindowStartTime;
+        if (fpsElapsed >= 250) {
+          const measuredFps = (fpsWindowFrames * 1000) / fpsElapsed;
+          fpsSmoothed = Math.round(fpsSmoothed * 0.35 + measuredFps * 0.65);
+          fpsWindowFrames = 0;
+          fpsWindowStartTime = currentTime;
+        }
 
         // [CORE] AAA F3 Teşhis Profiler & 6 Kademeli Kalite Merdiveni (Bölüm 13)
         if (window.ZortexProfiler) {
@@ -16998,7 +17551,7 @@
           }
         }
         if (player.shadowSprite) {
-          player.shadowSprite.visible = player.sprite ? player.sprite.visible : true;
+          player.shadowSprite.visible = (typeof gameState !== 'undefined' && (gameState === 'PLAYING' || gameState === 'PAUSED' || gameState === 'UPGRADE'));
         }
 
         // 3. WebGL GPU Vektörel Tehlikeler
@@ -17175,6 +17728,315 @@
           }
         }
 
+        // 3.45. [AŞAMA 1] Tam 3B Hacimsel Oyuncu Gemisi Modeli (360° Barrel Roll, Dinamik Roll/Pitch & Işıklandırma)
+        if (!window.ZortexShip3D) {
+          window.ZortexShip3D = {
+            _cachedMeshes: {},
+            getMesh(shipClass) {
+              if (this._cachedMeshes[shipClass]) return this._cachedMeshes[shipClass];
+              const isTitan = shipClass === 'titan';
+              const isSpectre = shipClass === 'spectre';
+              const wScale = isTitan ? 1.18 : (isSpectre ? 1.05 : 1.0);
+              const hScale = isTitan ? 1.28 : (isSpectre ? 0.92 : 1.0);
+              const lScale = isTitan ? 0.94 : (isSpectre ? 1.08 : 1.0);
+              const wingLeadX = isSpectre ? 14 : (isTitan ? -4 : -16);
+              const wingTrailX = isSpectre ? -28 : (isTitan ? -38 : -38);
+              const wingTipX = isSpectre ? 24 : (isTitan ? 12 : 6);
+
+              const rawVerts = [
+                [62 * lScale, 0, 0],                        // 0: Burun ucu
+                [28 * lScale, 0, 10 * hScale],              // 1: Ön üst omurga
+                [28 * lScale, -13 * wScale, 1],             // 2: Ön sol kesit
+                [28 * lScale, 13 * wScale, 1],              // 3: Ön sağ kesit
+                [28 * lScale, 0, -9 * hScale],              // 4: Ön alt omurga
+                [6 * lScale, 0, 20 * hScale],               // 5: Kokpit kubbe tepe noktası
+                [15 * lScale, -9 * wScale, 9 * hScale],     // 6: Kokpit ön-sol
+                [15 * lScale, 9 * wScale, 9 * hScale],      // 7: Kokpit ön-sağ
+                [-12 * lScale, -10 * wScale, 10 * hScale],  // 8: Kokpit arka-sol
+                [-12 * lScale, 10 * wScale, 10 * hScale],   // 9: Kokpit arka-sağ
+                [-24 * lScale, 0, 14 * hScale],             // 10: Arka üst omurga
+                [-6 * lScale, -19 * wScale, 2],             // 11: Orta gövde sol omuz
+                [-6 * lScale, 19 * wScale, 2],              // 12: Orta gövde sağ omuz
+                [-6 * lScale, 0, -14 * hScale],             // 13: Orta alt reaktör omurgası
+                [-45 * lScale, 0, 9 * hScale],              // 14: Kuyruk üst sırt
+                [-45 * lScale, -16 * wScale, 2],            // 15: Kuyruk sol motor yuvası
+                [-45 * lScale, 16 * wScale, 2],             // 16: Kuyruk sağ motor yuvası
+                [-45 * lScale, 0, -9 * hScale],             // 17: Kuyruk alt karina
+                [wingLeadX, -52 * wScale, 3],               // 18: Sol kanat dış hücum ucu
+                [wingTrailX, -46 * wScale, 1],              // 19: Sol kanat dış firar ucu
+                [-22, -48 * wScale, -5 * hScale],           // 20: Sol kanat alt kalınlık hacmi
+                [wingTipX, -52 * wScale, 1],                // 21: Sol kanat ucu lazer podu
+                [wingLeadX, 52 * wScale, 3],                // 22: Sağ kanat dış hücum ucu
+                [wingTrailX, 46 * wScale, 1],               // 23: Sağ kanat dış firar ucu
+                [-22, 48 * wScale, -5 * hScale],            // 24: Sağ kanat alt kalınlık hacmi
+                [wingTipX, 52 * wScale, 1],                 // 25: Sağ kanat ucu lazer podu
+                [-34 * lScale, -22 * wScale, 25 * hScale],  // 26: Sol dikey kuyruk yüzgeci tepe
+                [-46 * lScale, -20 * wScale, 16 * hScale],  // 27: Sol dikey kuyruk yüzgeci arka
+                [-34 * lScale, 22 * wScale, 25 * hScale],   // 28: Sağ dikey kuyruk yüzgeci tepe
+                [-46 * lScale, 20 * wScale, 16 * hScale]    // 29: Sağ dikey kuyruk yüzgeci arka
+              ];
+
+              const rawFaces = [
+                [0, 2, 1, 'hull_top'], [0, 1, 3, 'hull_top'],
+                [0, 4, 2, 'hull_bottom'], [0, 3, 4, 'hull_bottom'],
+                [1, 2, 6, 'hull_mid'], [1, 6, 5, 'cockpit'],
+                [1, 7, 3, 'hull_mid'], [1, 5, 7, 'cockpit'],
+                [5, 6, 8, 'cockpit'], [5, 9, 7, 'cockpit'],
+                [5, 8, 10, 'cockpit'], [5, 10, 9, 'cockpit'],
+                [2, 11, 6, 'hull_mid'], [6, 11, 8, 'hull_accent'],
+                [3, 7, 12, 'hull_mid'], [7, 9, 12, 'hull_accent'],
+                [2, 4, 13, 'hull_bottom'], [2, 13, 11, 'hull_bottom'],
+                [3, 13, 4, 'hull_bottom'], [3, 12, 13, 'hull_bottom'],
+                [8, 11, 15, 'hull_mid'], [8, 15, 10, 'hull_top'],
+                [9, 10, 16, 'hull_top'], [9, 16, 12, 'hull_mid'],
+                [10, 15, 14, 'hull_top'], [10, 14, 16, 'hull_top'],
+                [11, 13, 17, 'hull_bottom'], [11, 17, 15, 'hull_bottom'],
+                [12, 17, 13, 'hull_bottom'], [12, 16, 17, 'hull_bottom'],
+                [14, 15, 17, 'engine'], [14, 17, 16, 'engine'],
+                [2, 18, 11, 'wing_top'], [11, 18, 19, 'wing_top'], [11, 19, 15, 'wing_accent'],
+                [2, 11, 20, 'wing_bottom'], [2, 20, 18, 'wing_bottom'],
+                [11, 15, 20, 'wing_bottom'], [20, 15, 19, 'wing_bottom'],
+                [21, 18, 20, 'wing_accent'], [21, 20, 19, 'wing_accent'],
+                [3, 12, 22, 'wing_top'], [12, 23, 22, 'wing_top'], [12, 16, 23, 'wing_accent'],
+                [3, 24, 12, 'wing_bottom'], [3, 22, 24, 'wing_bottom'],
+                [12, 24, 16, 'wing_bottom'], [24, 23, 16, 'wing_bottom'],
+                [25, 24, 22, 'wing_accent'], [25, 23, 24, 'wing_accent'],
+                [8, 26, 15, 'fin'], [26, 27, 15, 'fin'],
+                [9, 16, 28, 'fin'], [28, 16, 29, 'fin']
+              ];
+
+              const faces = rawFaces.map(f => {
+                const v0 = rawVerts[f[0]], v1 = rawVerts[f[1]], v2 = rawVerts[f[2]];
+                const ux = v1[0] - v0[0], uy = v1[1] - v0[1], uz = v1[2] - v0[2];
+                const vx = v2[0] - v0[0], vy = v2[1] - v0[1], vz = v2[2] - v0[2];
+                let nx = uy * vz - uz * vy;
+                let ny = uz * vx - ux * vz;
+                let nz = ux * vy - uy * vx;
+                const len = Math.hypot(nx, ny, nz) || 1;
+                nx /= len; ny /= len; nz /= len;
+                const cx = (v0[0] + v1[0] + v2[0]) / 3;
+                const cy = (v0[1] + v1[1] + v2[1]) / 3;
+                const cz = (v0[2] + v1[2] + v2[2]) / 3;
+                if (nx * cx + ny * cy + nz * cz < 0) {
+                  nx = -nx; ny = -ny; nz = -nz;
+                }
+                return { i0: f[0], i1: f[1], i2: f[2], mat: f[3], nx, ny, nz, isFin: f[3] === 'fin' };
+              });
+
+              const nozzles = isTitan
+                ? [[-46 * lScale, -13 * wScale, 1], [-48 * lScale, -5 * wScale, 2], [-48 * lScale, 5 * wScale, 2], [-46 * lScale, 13 * wScale, 1]]
+                : [[-46 * lScale, -12 * wScale, 1], [-49 * lScale, 0, 2], [-46 * lScale, 12 * wScale, 1]];
+
+              const neonEdges = [
+                [0, 1], [1, 5], [5, 10], [10, 14],
+                [0, 2], [2, 18], [21, 19],
+                [0, 3], [3, 22], [25, 23],
+                [8, 26], [26, 27],
+                [9, 28], [28, 29]
+              ];
+
+              const tVerts = rawVerts.map(() => ({ x: 0, y: 0, z: 0, persp: 1 }));
+              const renderList = faces.map(f => ({ f, p0: null, p1: null, p2: null, zAvg: 0, nx: 0, ny: 0, nz: 0 }));
+              const mesh = { verts: rawVerts, faces, nozzles, neonEdges, tVerts, renderList };
+              this._cachedMeshes[shipClass] = mesh;
+              return mesh;
+            },
+
+            renderPixi(g, sx, sy, shipClass, shipRgb, primaryColInt, shipAngle, localRoll, localPitch, scale3D = 0.42, alpha = 1.0) {
+              const mesh = this.getMesh(shipClass || 'interceptor');
+              const [sr, sg, sb] = shipRgb;
+              const cr = Math.cos(localRoll), sr_ang = Math.sin(localRoll);
+              const cp = Math.cos(localPitch), sp = Math.sin(localPitch);
+              const cy = Math.cos(shipAngle), sy_ang = Math.sin(shipAngle);
+              // Oyun içi üstten-açılı derinlik kamerası (isometric elevation tilt)
+              const camTilt = 0.38;
+              const cc = Math.cos(camTilt), sc = Math.sin(camTilt);
+
+              const verts = mesh.verts;
+              const tVerts = mesh.tVerts;
+              for (let i = 0; i < verts.length; i++) {
+                const pt = verts[i];
+                const x0 = pt[0] * scale3D, y0 = pt[1] * scale3D, z0 = pt[2] * scale3D;
+                const x1 = x0;
+                const y1 = y0 * cr - z0 * sr_ang;
+                const z1 = y0 * sr_ang + z0 * cr;
+                const x2 = x1 * cp + z1 * sp;
+                const y2 = y1;
+                const z2 = -x1 * sp + z1 * cp;
+                const x3 = x2 * cy - y2 * sy_ang;
+                const y3 = x2 * sy_ang + y2 * cy;
+                const z3 = z2;
+                const vx = x3;
+                const vy = y3 * cc - z3 * sc;
+                const vz = y3 * sc + z3 * cc;
+                const persp = 520 / Math.max(200, 520 - vz);
+                const tv = tVerts[i];
+                tv.x = sx + vx * persp;
+                tv.y = sy + vy * persp;
+                tv.z = vz;
+                tv.persp = persp;
+              }
+
+              const renderList = mesh.renderList;
+              for (let i = 0; i < renderList.length; i++) {
+                const item = renderList[i];
+                const f = item.f;
+                const p0 = tVerts[f.i0], p1 = tVerts[f.i1], p2 = tVerts[f.i2];
+                item.p0 = p0; item.p1 = p1; item.p2 = p2;
+                item.zAvg = (p0.z + p1.z + p2.z) * 0.333333;
+
+                const x1 = f.nx;
+                const y1 = f.ny * cr - f.nz * sr_ang;
+                const z1 = f.ny * sr_ang + f.nz * cr;
+                const x2 = x1 * cp + z1 * sp;
+                const y2 = y1;
+                const z2 = -x1 * sp + z1 * cp;
+                const x3 = x2 * cy - y2 * sy_ang;
+                const y3 = x2 * sy_ang + y2 * cy;
+                const z3 = z2;
+                item.nx = x3;
+                item.ny = y3 * cc - z3 * sc;
+                item.nz = y3 * sc + z3 * cc;
+              }
+              renderList.sort((a, b) => a.zAvg - b.zAvg);
+
+              const L1x = 0.52, L1y = -0.58, L1z = 0.62;
+              const L2x = -0.58, L2y = 0.42, L2z = 0.69;
+
+              for (let i = 0; i < renderList.length; i++) {
+                const item = renderList[i];
+                const f = item.f;
+                const p0 = item.p0, p1 = item.p1, p2 = item.p2;
+                let nx = item.nx, ny = item.ny, nz = item.nz;
+                if (f.isFin && nz < 0) {
+                  nx = -nx; ny = -ny; nz = -nz;
+                }
+
+                const diff1 = Math.max(0, nx * L1x + ny * L1y + nz * L1z);
+                const diff2 = Math.max(0, nx * L2x + ny * L2y + nz * L2z);
+                const specDot = Math.max(0, nx * 0.25 + ny * (-0.28) + nz * 0.92);
+                const spec = Math.pow(specDot, f.mat === 'cockpit' ? 18 : 12);
+
+                let r = 14, gr = 23, b = 42;
+                if (f.mat === 'hull_top') {
+                  r = 18 + diff1 * 48 + diff2 * (sr * 0.22) + spec * 75;
+                  gr = 30 + diff1 * 56 + diff2 * (sg * 0.22) + spec * 85;
+                  b = 54 + diff1 * 68 + diff2 * (sb * 0.22) + spec * 95;
+                } else if (f.mat === 'hull_mid' || f.mat === 'wing_top') {
+                  r = 12 + diff1 * 38 + diff2 * (sr * 0.28) + spec * 55;
+                  gr = 22 + diff1 * 45 + diff2 * (sg * 0.28) + spec * 65;
+                  b = 42 + diff1 * 58 + diff2 * (sb * 0.28) + spec * 75;
+                } else if (f.mat === 'hull_accent' || f.mat === 'wing_accent' || f.mat === 'fin') {
+                  r = sr * (0.28 + diff1 * 0.48 + diff2 * 0.35) + spec * 110;
+                  gr = sg * (0.28 + diff1 * 0.48 + diff2 * 0.35) + spec * 110;
+                  b = sb * (0.28 + diff1 * 0.48 + diff2 * 0.35) + spec * 110;
+                } else if (f.mat === 'cockpit') {
+                  r = 35 + diff1 * 180 + spec * 210;
+                  gr = 15 + diff1 * 45 + diff2 * 140 + spec * 220;
+                  b = 65 + diff1 * 110 + diff2 * 180 + spec * 240;
+                } else if (f.mat === 'hull_bottom' || f.mat === 'wing_bottom') {
+                  r = 9 + diff1 * 28 + diff2 * (sr * 0.18) + spec * 40;
+                  gr = 15 + diff1 * 34 + diff2 * (sg * 0.18) + spec * 45;
+                  b = 28 + diff1 * 44 + diff2 * (sb * 0.18) + spec * 55;
+                } else if (f.mat === 'engine') {
+                  r = sr * 0.65 + 70;
+                  gr = sg * 0.65 + 70;
+                  b = sb * 0.65 + 70;
+                }
+
+                const ri = Math.min(255, Math.max(0, r | 0));
+                const gi = Math.min(255, Math.max(0, gr | 0));
+                const bi = Math.min(255, Math.max(0, b | 0));
+                const faceCol = (ri << 16) | (gi << 8) | bi;
+                const strokeCol = (f.mat === 'cockpit' || f.mat === 'hull_accent' || f.mat === 'wing_accent') ? primaryColInt : faceCol;
+                const strokeAlpha = (f.mat === 'cockpit' || f.mat === 'hull_accent' || f.mat === 'wing_accent') ? 0.55 * alpha : 0.85 * alpha;
+
+                g.moveTo(p0.x, p0.y)
+                  .lineTo(p1.x, p1.y)
+                  .lineTo(p2.x, p2.y)
+                  .closePath()
+                  .fill({ color: faceCol, alpha })
+                  .stroke({ width: 0.75, color: strokeCol, alpha: strokeAlpha });
+              }
+
+              // 3B Yapısal Neon Sırt ve Kanat Çizgileri
+              const edges = mesh.neonEdges;
+              for (let i = 0; i < edges.length; i++) {
+                const edge = edges[i];
+                const va = tVerts[edge[0]], vb = tVerts[edge[1]];
+                if (va.z + vb.z > -7) {
+                  g.moveTo(va.x, va.y)
+                    .lineTo(vb.x, vb.y)
+                    .stroke({ width: 1.35, color: primaryColInt, alpha: 0.88 * alpha });
+                }
+              }
+            }
+          };
+        }
+
+        if (pixiPlayer3DGraphics) {
+          pixiPlayer3DGraphics.clear();
+          if (player && (typeof gameState !== 'undefined' && (gameState === 'PLAYING' || gameState === 'PAUSED' || gameState === 'UPGRADE'))) {
+            const pZScale = 1.0 + (player.z || 0) * 0.35;
+            let shipRgb = [0, 243, 255];
+            let primaryColInt = 0x00f3ff;
+            if (player.isUltimateActive) {
+              shipRgb = [255, 230, 0];
+              primaryColInt = 0xffe600;
+            } else if (player.shipClassId === 'titan') {
+              shipRgb = [255, 170, 0];
+              primaryColInt = 0xffaa00;
+            } else if (player.shipClassId === 'spectre') {
+              shipRgb = [217, 70, 239];
+              primaryColInt = 0xd946ef;
+            } else if (player.shipClass && player.shipClass.color) {
+              const hex = player.shipClass.color.replace('#', '');
+              if (hex.length === 6) {
+                const cInt = parseInt(hex, 16);
+                primaryColInt = cInt;
+                shipRgb = [(cInt >> 16) & 255, (cInt >> 8) & 255, cInt & 255];
+              }
+            }
+
+            // Dash esnasında arkada kalan 3B hayalet kopyalar (Ghost Trails)
+            if (player.ghostTrails && player.ghostTrails.length > 0) {
+              for (let gtIdx = 0; gtIdx < player.ghostTrails.length; gtIdx += 2) {
+                const gt = player.ghostTrails[gtIdx];
+                if (gt && gt.alpha > 0.08) {
+                  window.ZortexShip3D.renderPixi(
+                    pixiPlayer3DGraphics,
+                    gt.x,
+                    gt.y,
+                    player.shipClassId,
+                    shipRgb,
+                    primaryColInt,
+                    gt.angle,
+                    gt.roll3D !== undefined ? gt.roll3D : (player.roll3D || 0),
+                    player.pitch3D || 0,
+                    0.42 * pZScale,
+                    Math.min(0.38, gt.alpha * 0.45)
+                  );
+                }
+              }
+            }
+
+            // Ana 3B Oyuncu Gemisi
+            window.ZortexShip3D.renderPixi(
+              pixiPlayer3DGraphics,
+              player.x,
+              player.y,
+              player.shipClassId,
+              shipRgb,
+              primaryColInt,
+              player.angle,
+              player.roll3D || 0,
+              player.pitch3D || 0,
+              0.42 * pZScale,
+              1.0
+            );
+          }
+        }
+
         // 3.5. Dinamik Gemi İyon İtici Plazma Alevleri (Dynamic Twin/Quad Ion Thruster Plumes)
         if (pixiPlayerThrusters) {
           pixiPlayerThrusters.clear();
@@ -17183,15 +18045,15 @@
             const isDashing = player.isDashing;
             const t = performance.now() * 0.001;
 
-            let nozzles = [[-16, -7], [-16, 7]];
+            let nozzles = [[-16, -5.5], [-18, 0], [-16, 5.5]];
             let outerCol = 0x0284c7;
             let innerCol = 0x00f3ff;
             if (player.shipClassId === 'titan') {
-              nozzles = [[-18, -12], [-18, -4.5], [-18, 4.5], [-18, 12]];
+              nozzles = [[-18, -10], [-19, -3.5], [-19, 3.5], [-18, 10]];
               outerCol = 0xff5500;
               innerCol = 0xffaa00;
             } else if (player.shipClassId === 'spectre') {
-              nozzles = [[-16, -4.5], [-16, 4.5]];
+              nozzles = [[-16, -5], [-18, 0], [-16, 5]];
               outerCol = 0x7e22ce;
               innerCol = 0xd946ef;
             }
@@ -17213,15 +18075,20 @@
             const baseLen = isDashing ? 34 : (isMoving ? 17 : 6);
             const cosA = Math.cos(player.angle);
             const sinA = Math.sin(player.angle);
+            const cosRoll = Math.cos(player.roll3D || 0);
+            const sinRoll = Math.sin(player.roll3D || 0);
             const backCos = Math.cos(player.angle + Math.PI);
             const backSin = Math.sin(player.angle + Math.PI);
             const normCos = Math.cos(player.angle + Math.PI * 0.5);
             const normSin = Math.sin(player.angle + Math.PI * 0.5);
 
             for (let nIdx = 0; nIdx < nozzles.length; nIdx++) {
-              const [lx, ly] = nozzles[nIdx];
+              const [lx, lyRaw] = nozzles[nIdx];
+              // 3B Roll açısına göre nozüllerin yanal (Y) ve dikey (Z) konumunu döndür
+              const ly = lyRaw * cosRoll;
+              const lz = lyRaw * sinRoll * 0.38;
               const wx = player.x + (lx * cosA - ly * sinA);
-              const wy = player.y + (lx * sinA + ly * cosA);
+              const wy = player.y + (lx * sinA + ly * cosA) - lz;
 
               const flick = 0.82 + 0.32 * Math.sin(t * 48 + nIdx * 2.3);
               const len = baseLen * flick;
@@ -17256,60 +18123,28 @@
               }
             }
 
-            // [FAZ 2] Canlı Gemi Mekaniği & Siber Detaylar
+            // [FAZ 2] Canlı Gemi Mekaniği & Siber Detaylar (3B Gemi ile uyumlu namlu/reaktör parıltısı)
             if (pixiPlayerDetailsGraphics) {
               pixiPlayerDetailsGraphics.clear();
               const px = player.x, py = player.y;
               const pAngle = player.angle;
               const cosA = Math.cos(pAngle);
               const sinA = Math.sin(pAngle);
-
-              // 1. Reaktör Çekirdeği (Core Reactor Pulse):
-              const corePulse = 0.85 + 0.25 * Math.sin(t * 6.0);
               const isFiring = player.fireCooldown > 0;
               const isUlt = player.isUltimateActive || player.overdriveActive;
               const coreCol = isUlt ? 0xffe600 : (isFiring ? 0xffffff : (player.shipClassId === 'titan' ? 0xff5500 : (player.shipClassId === 'spectre' ? 0xd946ef : 0x00f3ff)));
-              const coreSize = (player.shipClassId === 'titan' ? 5.2 : 4.0) * (isFiring ? 1.35 : corePulse);
 
-              pixiPlayerDetailsGraphics.circle(px, py, coreSize * 2.2)
-                .fill({ color: coreCol, alpha: isFiring ? 0.65 : 0.35 });
-
-              pixiPlayerDetailsGraphics.circle(px, py, coreSize)
-                .fill({ color: 0xffffff, alpha: 0.95 });
-
-              // 2. Kanat Ucu Enerji Hatları (Wingtip Conduits):
-              const wingWidth = player.shipClassId === 'titan' ? 18 : (player.shipClassId === 'spectre' ? 15 : 16);
-              const wingBack = player.shipClassId === 'titan' ? 14 : 12;
-              const leftWingX = px + (-wingBack * cosA - (-wingWidth) * sinA);
-              const leftWingY = py + (-wingBack * sinA + (-wingWidth) * cosA);
-              const rightWingX = px + (-wingBack * cosA - wingWidth * sinA);
-              const rightWingY = py + (-wingBack * sinA + wingWidth * cosA);
-              const noseX = px + (18 * cosA);
-              const noseY = py + (18 * sinA);
-
-              const conduitAlpha = (isMoving ? 0.85 : 0.45) + (isDashing ? 0.4 : 0);
-              const finalAlpha = Math.min(1.0, conduitAlpha);
-              pixiPlayerDetailsGraphics.moveTo(noseX, noseY)
-                .lineTo(leftWingX, leftWingY)
-                .stroke({ width: 1.6, color: coreCol, alpha: finalAlpha });
-              pixiPlayerDetailsGraphics.moveTo(noseX, noseY)
-                .lineTo(rightWingX, rightWingY)
-                .stroke({ width: 1.6, color: coreCol, alpha: finalAlpha });
-
-              pixiPlayerDetailsGraphics.circle(leftWingX, leftWingY, isMoving ? 2.2 : 1.4)
-                .circle(rightWingX, rightWingY, isMoving ? 2.2 : 1.4)
-                .fill({ color: 0xffffff, alpha: 0.9 });
-
-              // 3. Silah Hardpoint & Namlu Tepmesi (Muzzle Pods):
+              // Silah Hardpoint & Namlu Tepmesi (3B Roll açısına duyarlı)
               if (isFiring) {
-                const mLeftX = px + (14 * cosA - (-8) * sinA);
-                const mLeftY = py + (14 * sinA + (-8) * cosA);
-                const mRightX = px + (14 * cosA - (8) * sinA);
-                const mRightY = py + (14 * sinA + (8) * cosA);
+                const wSpan = 10 * cosRoll;
+                const mLeftX = px + (14 * cosA - (-wSpan) * sinA);
+                const mLeftY = py + (14 * sinA + (-wSpan) * cosA);
+                const mRightX = px + (14 * cosA - (wSpan) * sinA);
+                const mRightY = py + (14 * sinA + (wSpan) * cosA);
 
-                pixiPlayerDetailsGraphics.circle(mLeftX, mLeftY, 3.2)
-                  .circle(mRightX, mRightY, 3.2)
-                  .fill({ color: 0xffffff, alpha: 0.95 });
+                pixiPlayerDetailsGraphics.circle(mLeftX, mLeftY, 2.8)
+                  .circle(mRightX, mRightY, 2.8)
+                  .fill({ color: coreCol, alpha: 0.90 });
               }
             }
           }
@@ -18328,8 +19163,8 @@
       player.bannedCardIds.add(targetId);
       if (audio && typeof audio.playCardBan === 'function') audio.playCardBan();
       if (typeof triggerRumble === 'function') triggerRumble('medium');
-      if (window.textManager) {
-        window.textManager.add('🚫 KART KOŞUDAN YASAKLANDI!', window.W / 2, window.H / 3, '#ef4444', 18, 1.8);
+      if (typeof window.showEventNotification === 'function') {
+        window.showEventNotification('🚫 YASAKLAMA', 'KART KOŞUDAN ÇIKARILDI', 'BU GELİŞTİRME BU KOŞUDA BİR DAHA ÇIKMAYACAK', '#ef4444', 2.2);
       }
       showUpgradeMenu();
     }
@@ -18346,8 +19181,8 @@
         if (typeof saveMeta === 'function') saveMeta();
       }
       player.xp = (player.xp || 0) + 15;
-      if (window.textManager) {
-        window.textManager.add('+25 HURDA & +15 XP (ATLANDI)', window.W / 2, window.H / 2, '#ffe600', 20, 2.0);
+      if (typeof window.showEventNotification === 'function') {
+        window.showEventNotification('⏭️ KART ATLANDI', '+25 HURDA & +15 XP', 'SEÇİM YAPILMADAN EKSTRA KAYNAK ALINDI', '#ffe600', 2.5);
       }
       if (typeof particles !== 'undefined') {
         particles.emit(window.W / 2, window.H / 2, '#ffe600', 30, 8, 4, 0.8);
@@ -18408,7 +19243,8 @@
     // Ses aç/kapat (sağ üst buton ve M tuşu ortak kullanır)
     function toggleSound() {
       const active = audio.toggleMute();
-      document.getElementById('soundBtn').textContent = active ? '🔊' : '🔇';
+      const sBtn = document.getElementById('soundBtn');
+      if (sBtn) sBtn.textContent = active ? '🔊' : '🔇';
     }
 
     // Ana menüdeki toplam hurda göstergesini günceller
@@ -19242,14 +20078,58 @@
         },
         {
           key: 'masterVolume',
-          name: getT('setting_mastervolume_name', '🔊 Ana Ses Seviyesi'),
-          desc: getT('setting_mastervolume_desc', 'Sentezleyici SFX ve müzik genel ses şiddeti.'),
-          getVal: () => `%${Math.round(gameSettings.masterVolume * 100)}`,
+          name: getT('setting_mastervolume_name', '🔊 Ana Ses Seviyesi (Master)'),
+          desc: getT('setting_mastervolume_desc', 'Tüm oyun sesleri, müzik ve efektler için ana ses şiddeti.'),
+          getVal: () => `%${Math.round((gameSettings.masterVolume ?? 1.0) * 100)}`,
           toggle: () => {
             const steps = [1.0, 0.75, 0.5, 0.25, 0.0];
-            const idx = steps.findIndex(v => Math.abs(v - gameSettings.masterVolume) < 0.05);
+            const cur = gameSettings.masterVolume ?? 1.0;
+            const idx = steps.findIndex(v => Math.abs(v - cur) < 0.05);
             gameSettings.masterVolume = steps[(idx + 1) % steps.length];
             audio.setMasterVolume(gameSettings.masterVolume);
+            saveSettings();
+          }
+        },
+        {
+          key: 'sfxVolume',
+          name: getT('setting_sfxvolume_name', '💥 Silah & Patlama Sesleri (SFX)'),
+          desc: getT('setting_sfxvolume_desc', 'Lazer atışları, patlamalar, vuruşlar ve düşman ses seviyesi.'),
+          getVal: () => `%${Math.round((gameSettings.sfxVolume ?? 0.8) * 100)}`,
+          toggle: () => {
+            const steps = [1.0, 0.8, 0.6, 0.4, 0.2, 0.0];
+            const cur = gameSettings.sfxVolume ?? 0.8;
+            const idx = steps.findIndex(v => Math.abs(v - cur) < 0.05);
+            gameSettings.sfxVolume = steps[(idx + 1) % steps.length];
+            audio.setSFXVolume(gameSettings.sfxVolume);
+            saveSettings();
+          }
+        },
+        {
+          key: 'musicVolume',
+          name: getT('setting_musicvolume_name', '🎵 Müzik Seviyesi (OST)'),
+          desc: getT('setting_musicvolume_desc', 'Synthwave arka plan müzikleri ve boss temaları ses şiddeti.'),
+          getVal: () => `%${Math.round((gameSettings.musicVolume ?? 0.7) * 100)}`,
+          toggle: () => {
+            const steps = [1.0, 0.8, 0.6, 0.4, 0.2, 0.0];
+            const cur = gameSettings.musicVolume ?? 0.7;
+            const idx = steps.findIndex(v => Math.abs(v - cur) < 0.05);
+            gameSettings.musicVolume = steps[(idx + 1) % steps.length];
+            audio.setMusicVolume(gameSettings.musicVolume);
+            saveSettings();
+          }
+        },
+        {
+          key: 'shipVolume',
+          name: getT('setting_shipvolume_name', '🚀 Gemi & Motor Sesleri (Engine)'),
+          desc: getT('setting_shipvolume_desc', 'İyon iticiler, dash sıçramaları, decoy ve çapa yetenek sesleri.'),
+          getVal: () => `%${Math.round((gameSettings.shipVolume ?? 0.8) * 100)}`,
+          toggle: () => {
+            const steps = [1.0, 0.8, 0.6, 0.4, 0.2, 0.0];
+            const cur = gameSettings.shipVolume ?? 0.8;
+            const idx = steps.findIndex(v => Math.abs(v - cur) < 0.05);
+            gameSettings.shipVolume = steps[(idx + 1) % steps.length];
+            audio.setShipVolume(gameSettings.shipVolume);
+            saveSettings();
           }
         },
         {
@@ -19482,7 +20362,8 @@
     document.getElementById('resumeBtn').addEventListener('click', togglePause);
     document.getElementById('restartFromPauseBtn').addEventListener('click', startGame);
     document.getElementById('pauseBtn').addEventListener('click', togglePause);
-    document.getElementById('soundBtn').addEventListener('click', toggleSound);
+    const soundBtnEl = document.getElementById('soundBtn');
+    if (soundBtnEl) soundBtnEl.addEventListener('click', toggleSound);
 
     // --- YENİ: Hangar, Yetenek Ağacı, Başarımlar, Ayarlar ve Menü butonları ---
     document.getElementById('hangarBtn').addEventListener('click', openHangar);

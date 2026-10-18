@@ -460,12 +460,8 @@
         if (typeof window.screenShake !== 'undefined') window.screenShake = Math.max(window.screenShake || 0, 24);
         if (window.audio && typeof window.audio.playExplosion === 'function') window.audio.playExplosion(2.4);
 
-        if (window.textManager && typeof window.textManager.add === 'function') {
-          const W = window.W || 1280;
-          const H = window.H || 720;
-          window.textManager.add(`── ⚠️ KRİTİK TEHDİT TESPİT EDİLDİ ⚠️ ──`, W / 2, H / 2 - 100, '#ff0055', 22, 3.8);
-          window.textManager.add(`[ ${bossName} ]`, W / 2, H / 2 - 60, '#ffe600', 38, 4.2);
-          window.textManager.add(subtitle, W / 2, H / 2 - 25, '#00f3ff', 15, 3.2);
+        if (typeof window.showBossNotification === 'function') {
+          window.showBossNotification('⚠️ KRİTİK TEHDİT TESPİT EDİLDİ ⚠️', bossName, subtitle, '#ef4444');
         }
       } catch (err) {
         console.warn('[BiomeBossManager] triggerBossIntro warning:', err);

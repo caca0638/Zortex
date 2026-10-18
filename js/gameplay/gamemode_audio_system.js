@@ -592,11 +592,8 @@
       this.syncUI();
       window.gameState = 'PLAYING';
       const wBar = document.getElementById('weaponHudBar');
-      if (wBar) wBar.classList.remove('hidden');
-      if (window.textManager && typeof window.textManager.add === 'function') {
-        const W = window.W || 1280;
-        const H = window.H || 720;
-        window.textManager.add('♾️ SONSUZ MOD ETKİN: DERİN UZAYA DEVAM EDİLİYOR!', W / 2, H / 3, '#00f3ff', 24, 3.0);
+      if (typeof window.showEventNotification === 'function') {
+        window.showEventNotification('♾️ MOD GEÇİŞİ', 'SONSUZ MOD ETKİN', 'DERİN UZAYA VE ZORLU DALGALARA DEVAM EDİLİYOR', '#00f3ff', 3.5);
       }
     }
 

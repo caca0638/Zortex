@@ -1614,16 +1614,14 @@
           break;
       }
 
-      if (typeof textManager !== 'undefined' && this.activeEvent) {
-        textManager.add(this.activeEvent.name, W / 2, H / 3, '#ffe600', 26, 2.5);
+      if (typeof window.showEventNotification === 'function' && this.activeEvent) {
+        window.showEventNotification('🌟 ÖZEL KOZMİK OLAY', this.activeEvent.name, 'GÖREVİ TAMAMLAYIN VE ÖDÜLÜ KAZANIN', '#ffe600', 3.5);
       }
     }
 
     endEvent() {
-      if (this.activeEvent && typeof textManager !== 'undefined') {
-        const W = window.W || 1280;
-        const H = window.H || 720;
-        textManager.add('OLAY TAMAMLANDI', W / 2, H / 3, '#00f3ff', 20, 1.4);
+      if (this.activeEvent && typeof window.showEventNotification === 'function') {
+        window.showEventNotification('✨ OLAY BİTTİ', 'KOZMİK OLAY TAMAMLANDI', 'SEKTÖR NORMALE DÖNDÜ', '#00f3ff', 2.5);
       }
       this.activeEvent = null;
     }

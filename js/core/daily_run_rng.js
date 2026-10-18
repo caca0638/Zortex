@@ -69,10 +69,8 @@
       // Oynanış rastgeleliğini (gameRng) tohumlu üretece bağla. Math.random asla değiştirilmez!
       activeRng = this.seededRng;
 
-      if (window.textManager) {
-        const W = window.W || 1280;
-        const H = window.H || 720;
-        window.textManager.add(`📅 GÜNLÜK PROTOKOL: TOHUM #${this.dateKey || this.currentSeed}`, W / 2, H / 3, '#00f3ff', 22, 3.5);
+      if (typeof window.showEventNotification === 'function') {
+        window.showEventNotification('📅 GÜNLÜK PROTOKOL', `TOHUM #${this.dateKey || this.currentSeed}`, 'STANDARTLAŞTIRILMIŞ GÜNLÜK GÖREV ETKİN', '#00f3ff', 3.8);
       }
     }
 

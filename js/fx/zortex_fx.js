@@ -2041,8 +2041,8 @@
       try {
         localStorage.setItem('zortex_show_fps_hud', this.hudVisible ? 'true' : 'false');
       } catch (_) {}
-      if (typeof window.textManager !== 'undefined' && window.textManager && window.textManager.add && window.gameState === 'PLAYING') {
-        window.textManager.add(`⚡ FX/FPS HUD: ${this.hudVisible ? 'AÇIK' : 'KAPALI'} (F8)`, window.W / 2, window.H / 3, '#00f3ff', 16, 1.2);
+      if (typeof window.showEventNotification === 'function' && window.gameState === 'PLAYING') {
+        window.showEventNotification('⚡ FX/FPS HUD', this.hudVisible ? 'AÇIK (F8)' : 'KAPALI (F8)', 'PERFORMANS VE DONANIM TELEMETRİSİ', '#00f3ff', 1.8);
       }
       return this.hudVisible;
     }

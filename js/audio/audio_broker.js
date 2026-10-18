@@ -52,6 +52,7 @@
       this.masterVolume = 0.85;
       this.sfxVolume = 0.70;
       this.musicVolume = 0.75;
+      this.shipVolume = 0.80;
       this.muted = false;
     }
 
@@ -104,12 +105,13 @@
       this.masterCompressor.connect(this.masterGain);
       this.masterGain.connect(this.ctx.destination);
 
-      // 3. KATEGORİ BUS'LARI (SFX, Müzik, Ambiyans, UI)
-      const categories = ['sfx', 'music', 'ambient', 'ui'];
+      // 3. KATEGORİ BUS'LARI (SFX, Müzik, Ambiyans, UI, Gemi/İtici)
+      const categories = ['sfx', 'music', 'ambient', 'ui', 'ship'];
       categories.forEach(cat => {
         const bus = this.ctx.createGain();
         let busVol = this.sfxVolume;
         if (cat === 'music') busVol = this.musicVolume;
+        else if (cat === 'ship') busVol = this.shipVolume;
         else if (cat === 'ui') busVol = 0.55;
         else if (cat === 'ambient') busVol = 0.60;
         bus.gain.setValueAtTime(busVol, now);
@@ -459,7 +461,7 @@
             'assets/audio/sci-fi-sounds/Audio/thrusterFire_001.ogg',
             'assets/audio/sci-fi-sounds/Audio/thrusterFire_002.ogg'
           ],
-          category: 'sfx',
+          category: 'ship',
           maxConcurrent: 3,
           pitchJitter: 0.03,
           baseVolume: 0.42
@@ -685,6 +687,28 @@
       const bus = this.categoryBuses.get('sfx');
       if (bus && this.ctx) {
         bus.gain.setTargetAtTime(this.sfxVolume, this.ctx.currentTime, 0.05);
+      }
+    }
+
+    /**
+     * Müzik ses seviyesini ayarlar
+     */
+    setMusicVolume(val) {
+      this.musicVolume = Math.max(0, Math.min(1, val));
+      const bus = this.categoryBuses.get('music');
+      if (bus && this.ctx) {
+        bus.gain.setTargetAtTime(this.musicVolume, this.ctx.currentTime, 0.05);
+      }
+    }
+
+    /**
+     * Gemi / İtici ses seviyesini ayarlar
+     */
+    setShipVolume(val) {
+      this.shipVolume = Math.max(0, Math.min(1, val));
+      const bus = this.categoryBuses.get('ship');
+      if (bus && this.ctx) {
+        bus.gain.setTargetAtTime(this.shipVolume, this.ctx.currentTime, 0.05);
       }
     }
 

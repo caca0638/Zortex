@@ -24,6 +24,7 @@ app.commandLine.appendSwitch('enable-gamepad-extensions');
 app.commandLine.appendSwitch('high-dpi-support', '1');
 app.commandLine.appendSwitch('disable-renderer-backgrounding');
 app.commandLine.appendSwitch('disable-background-timer-throttling');
+app.commandLine.appendSwitch('force_high_performance_gpu');
 
 const APP_ROOT = path.resolve(__dirname, '..');
 

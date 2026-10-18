@@ -759,8 +759,8 @@
       }
 
       if (window.enemies) window.enemies.push(nemesis);
-      if (window.textManager) {
-        window.textManager.add('⚠️ İNTİKAM DÜŞMANI YAKLAŞIYOR: ' + data.name + '!', x, y - 40, '#dc2626', 22, 3.5);
+      if (typeof window.showEventNotification === 'function') {
+        window.showEventNotification('💀 İNTİKAM DÜŞMANI', data.name, 'GEÇMİŞ YENİLGİNİN İNTİKAMI İÇİN GELDİ', '#dc2626', 3.8);
       }
       if (window.audio && typeof window.audio.playWarning === 'function') window.audio.playWarning();
 
@@ -786,8 +786,8 @@
         window.checkAchievements();
       }
 
-      if (window.textManager) {
-        window.textManager.add('⭐ İNTİKAM ALINDI! +' + bounty + ' HURDA ⭐', nemesis.x, nemesis.y - 40, '#ffe600', 22, 3.0);
+      if (typeof window.showEventNotification === 'function') {
+        window.showEventNotification('⭐ İNTİKAM ALINDI', `+${bounty} HURDA ÖDÜLÜ`, 'DÜŞMAN TAMAMEN İMHA EDİLDİ', '#ffe600', 3.5);
       }
       if (window.audio && typeof window.audio.playFanfare === 'function') {
         window.audio.playFanfare();
