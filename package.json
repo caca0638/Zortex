@@ -9,6 +9,7 @@
     "desktop": "electron .",
     "build:exe": "node scripts/build_native_exe.cjs",
     "build:itch": "python scripts/build_distributions.py",
+    "audit:secrets": "python scripts/audit_secret_leakage.py",
     "update-map": "node scripts/update_codebase_map.mjs",
     "watch-map": "node scripts/update_codebase_map.mjs --watch"
   },
