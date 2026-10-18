@@ -351,7 +351,7 @@
       name: 'Akım Hızlandırıcı',
       code: 'OFF-01',
       cost: 150,
-      color: '#ef4444',
+      color: '#fb7185',
       summary: '+%12 Mermi Hızı, +%6 Silah Hasarı',
       desc: '+%12 Mermi Hızı ve +%6 Temel Silah Hasarı.',
       apply: (p) => { p.bulletSpeedMultiplier = (p.bulletSpeedMultiplier || 1.0) * 1.12; p.damageMultiplier = (p.damageMultiplier || 1.0) * 1.06; }
@@ -363,7 +363,7 @@
       name: 'Siber Tetikleyici',
       code: 'OFF-02',
       cost: 150,
-      color: '#ef4444',
+      color: '#fb7185',
       summary: '+%10 Atış Hızı',
       desc: '+%10 Genel Atış Hızı.',
       apply: (p) => { p.fireRateMultiplier = (p.fireRateMultiplier || 1.0) * 0.90; }
@@ -375,7 +375,7 @@
       name: 'Kritik Odaklayıcı',
       code: 'OFF-03',
       cost: 300,
-      color: '#f87171',
+      color: '#f43f5e',
       summary: '+%12 Kritik Şans, +%25 Kritik Hasar',
       desc: '+%12 Kritik Vuruş Şansı ve +%25 Kritik Hasar Çarpanı.',
       apply: (p) => { p.critChance = (p.critChance || 0.05) + 0.12; p.critDamage = (p.critDamage || 1.5) + 0.25; }
@@ -387,7 +387,7 @@
       name: 'Zırh Delici Çekirdek',
       code: 'OFF-04',
       cost: 300,
-      color: '#f87171',
+      color: '#f43f5e',
       summary: '+1 Mermi Delme & Zırh Parçalama',
       desc: '+1 Mermi Delip Geçme (Pierce) ve zırhlı düşmanlara +%15 Hasar.',
       apply: (p) => { p.pierceCount = (p.pierceCount || 0) + 1; p.armorShred = true; }
@@ -399,7 +399,7 @@
       name: 'Elementel Rezonans',
       code: 'OFF-05',
       cost: 600,
-      color: '#dc2626',
+      color: '#fda4af',
       summary: '+%35 Elementel Hasar/Süre',
       desc: 'Alev, Buz ve Şok durum efektlerinin süresi ve hasarı +%35 artar.',
       apply: (p) => { p.elementalBonus = 1.35; }
@@ -411,7 +411,7 @@
       name: 'Momentum Reaktörü',
       code: 'OFF-06',
       cost: 600,
-      color: '#dc2626',
+      color: '#fda4af',
       summary: '+%20\'ye Varan Hız-Hasar Bonusu',
       desc: 'Gemi hareket halindeyken hızına oranla +%20\'ye varan Hasar Bonusu.',
       apply: (p) => { p.hasMomentumBuff = true; }
@@ -423,7 +423,7 @@
       name: 'İnfazcı Matrisi',
       code: 'OFF-07',
       cost: 1200,
-      color: '#b91c1c',
+      color: '#fca5a5',
       summary: 'Düşük Can (<%30) 2X İnfaz Hasarı',
       desc: 'Canı %30\'un altına inmiş tüm düşmanlara 2X HASAR verir.',
       apply: (p) => { p.hasExecuteBonus = true; }
@@ -435,7 +435,7 @@
       name: 'Aşırı Voltaj İğnesi',
       code: 'OFF-08',
       cost: 1200,
-      color: '#b91c1c',
+      color: '#fca5a5',
       summary: 'Kritik Vuruşlarda Alan Şoku',
       desc: 'Kritik vuruşlar hedefin etrafındaki 90px alana şok patlaması saçar.',
       apply: (p) => { p.hasCritOvervolt = true; }
@@ -473,7 +473,7 @@
       name: 'İtici Soğutucu',
       code: 'DEF-03',
       cost: 300,
-      color: '#60a5fa',
+      color: '#67e8f9',
       summary: '-%20 Dash Bekleme Süresi',
       desc: 'Dash (Siber Kaçış) bekleme süresi %20 daha hızlı dolar.',
       apply: (p) => { p.dashCooldownMultiplier = (p.dashCooldownMultiplier || 1.0) * 0.80; }
@@ -485,7 +485,7 @@
       name: 'Acil Durum İticisi',
       code: 'DEF-04',
       cost: 300,
-      color: '#60a5fa',
+      color: '#67e8f9',
       summary: 'Darbe Alınca +%50 Hız Patlaması',
       desc: 'Hasar alındığında 1.5 saniye boyunca +%50 Hareket Hızı artışı kazanılır.',
       apply: (p) => { p.hasEmergencyThruster = true; }
@@ -497,7 +497,7 @@
       name: 'Kuantum Manyetik Halka',
       code: 'DEF-05',
       cost: 600,
-      color: '#0284c7',
+      color: '#7dd3fc',
       summary: '+%45 Manyetik Çekim Menzili',
       desc: 'Hurda ve XP kristalleri çekim yarıçapı +%45 daha genişler.',
       apply: (p) => { p.pickupRadiusMultiplier = (p.pickupRadiusMultiplier || 1.0) * 1.45; }
@@ -509,7 +509,7 @@
       name: 'Geri Dönüşüm İşlemcisi',
       code: 'DEF-06',
       cost: 600,
-      color: '#0284c7',
+      color: '#7dd3fc',
       summary: '+%25 Dalga Sonu Hurda Bonusu',
       desc: 'Her dalga başarıyla tamamlandığında +%25 Ekstra Hurda bonusu kazandırır.',
       apply: (p) => { p.waveBonusScrapMultiplier = (p.waveBonusScrapMultiplier || 1.0) * 1.25; }
@@ -521,7 +521,7 @@
       name: 'Kuantum Can Yeleği',
       code: 'DEF-07',
       cost: 1200,
-      color: '#1d4ed8',
+      color: '#93c5fd',
       summary: 'Ölümcül Darbede Can Kurtarma (1 Hak)',
       desc: 'Ölümcül darbe alındığında ölmek yerine 2.5 sn hasar almazlık ve %25 Can yeniler (Koşu başına 1 hak).',
       apply: (p) => { p.hasQuantumLifevest = true; p.lifevestUsed = false; }
@@ -533,7 +533,7 @@
       name: 'Aegis EMP Boşalımı',
       code: 'DEF-08',
       cost: 1200,
-      color: '#1d4ed8',
+      color: '#93c5fd',
       summary: 'Kalkan Kırılınca EMP Şok Dalgası',
       desc: 'Kalkan kırıldığı anda ekrandaki tüm düşman mermilerini anında siler ve düşmanları 1.5 sn sersemletir.',
       apply: (p) => { p.hasAegisEmp = true; }
@@ -1068,236 +1068,289 @@
         100% { box-shadow: 0 0 30px rgba(255, 0, 85, 0.8); }
       }
 
-      /* === NÖRAL YONGA MATRİSİ ÖZEL DÜZENİ === */
+      /* === NÖRAL YONGA MATRİSİ ÖZEL DÜZENİ (ALTIN ORAN & ERGONOMİK KOKPİT GRID) === */
       .rso-chips-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 6px;
         width: 100%;
         height: 100%;
+        min-height: 0;
         overflow: hidden;
       }
-      /* Üst Soket Yuvaları Bölmesi */
-      .rso-sockets-hub {
+      /* Üst Durum Şeridi (HUD Status Ribbon - Ultra Kompakt & Şık) */
+      .rso-hub-bar {
         background: rgba(10, 16, 32, 0.75);
-        border: 1px solid rgba(0, 243, 255, 0.25);
-        border-radius: 12px;
-        padding: 12px 16px;
-        flex-shrink: 0;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      }
-      .rso-hub-header {
+        border: 1px solid rgba(56, 189, 248, 0.25);
+        border-radius: 6px;
+        padding: 5px 12px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 8px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding-bottom: 6px;
+        flex-shrink: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
       }
-      .rso-hub-title {
-        font-size: 13px;
+      .rso-hub-bar-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .rso-hub-bar-title {
+        font-size: 11.5px;
         font-weight: 800;
-        letter-spacing: 1.5px;
-        color: #00f3ff;
+        letter-spacing: 1.2px;
+        color: #38bdf8;
         text-transform: uppercase;
       }
-      .rso-hub-counter {
-        font-size: 12px;
-        color: #94a3b8;
-        font-weight: 700;
-      }
-      .rso-hub-counter b {
-        color: #ffe600;
-      }
-      .rso-sockets-grid {
-        display: grid;
-        grid-template-columns: repeat(8, 1fr);
-        gap: 8px;
-      }
-      .rso-socket-slot {
-        background: rgba(15, 23, 42, 0.6);
-        border: 1px dashed rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        padding: 8px 6px;
-        text-align: center;
-        transition: all 0.2s ease;
-        position: relative;
-        cursor: pointer;
-      }
-      .rso-socket-slot:hover {
-        background: rgba(30, 41, 59, 0.85);
-        border-color: rgba(255, 255, 255, 0.35);
-      }
-      .rso-socket-slot.filled-offense {
-        border: 1px solid #ef4444;
-        background: rgba(239, 68, 68, 0.15);
-        box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
-      }
-      .rso-socket-slot.filled-defense {
-        border: 1px solid #00f3ff;
-        background: rgba(0, 243, 255, 0.15);
-        box-shadow: 0 0 12px rgba(0, 243, 255, 0.25);
-      }
-      .rso-slot-tier {
-        font-size: 10px;
-        font-weight: 900;
-        letter-spacing: 1px;
-        color: #94a3b8;
-        margin-bottom: 2px;
-      }
-      .rso-socket-slot.filled-offense .rso-slot-tier { color: #f87171; }
-      .rso-socket-slot.filled-defense .rso-slot-tier { color: #38bdf8; }
-      .rso-slot-name {
-        font-size: 11px;
-        font-weight: 700;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: #fff;
-      }
-      .rso-slot-empty {
-        font-size: 10px;
-        color: #64748b;
-        font-style: italic;
-      }
-      .rso-hub-stats-summary {
-        margin-top: 8px;
-        font-size: 11px;
-        color: #cbd5e1;
-        line-height: 1.4;
+      .rso-hub-pin-group {
         display: flex;
-        flex-wrap: wrap;
+        gap: 4px;
+        align-items: center;
+      }
+      .rso-hub-pin {
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.2s ease;
+      }
+      .rso-hub-pin.filled-off {
+        background: #f43f5e;
+        border-color: #fda4af;
+        box-shadow: 0 0 6px rgba(244, 63, 94, 0.6);
+      }
+      .rso-hub-pin.filled-def {
+        background: #0ea5e9;
+        border-color: #7dd3fc;
+        box-shadow: 0 0 6px rgba(14, 165, 233, 0.6);
+      }
+      .rso-hub-bar-right {
+        display: flex;
+        align-items: center;
         gap: 6px;
+        overflow: hidden;
+        max-height: 24px;
       }
       .rso-stat-chip-pill {
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 11px;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 10px;
         color: #e2e8f0;
+        white-space: nowrap;
       }
-      .rso-stat-chip-pill.off { border-color: rgba(239, 68, 68, 0.4); color: #fca5a5; }
+      .rso-stat-chip-pill.off { border-color: rgba(244, 63, 94, 0.4); color: #fda4af; }
       .rso-stat-chip-pill.def { border-color: rgba(56, 189, 248, 0.4); color: #7dd3fc; }
 
-      /* Alt Ana Sütunlar (Taarruz & Savunma) */
+      /* Alt Ana Sütunlar (Taarruz & Savunma) - Geniş Çalışma Alanı */
       .rso-chips-columns {
         display: flex;
-        gap: 18px;
+        gap: 12px;
         width: 100%;
         flex: 1;
-        overflow-y: auto;
-        padding-right: 4px;
+        min-height: 0;
+        overflow: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .rso-chips-columns::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
       }
       .rso-chip-col {
         flex: 1;
         background: rgba(10, 16, 32, 0.65);
         border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 12px;
-        padding: 16px;
+        border-radius: 8px;
+        padding: 8px 12px;
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 6px;
+        min-height: 0;
+        overflow: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .rso-chip-col::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
       }
       .rso-col-offense {
-        border-left: 4px solid #ef4444;
+        border-left: 3px solid #f43f5e;
       }
       .rso-col-defense {
-        border-left: 4px solid #00f3ff;
+        border-left: 3px solid #0ea5e9;
+      }
+      .rso-col-offense .rso-chip-col-header {
+        color: #fda4af;
+      }
+      .rso-col-defense .rso-chip-col-header {
+        color: #7dd3fc;
       }
       .rso-chip-col-header {
-        font-size: 14px;
+        font-size: 12.5px;
         font-weight: 900;
         letter-spacing: 1.5px;
-        padding-bottom: 8px;
+        padding-bottom: 4px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
         justify-content: space-between;
         align-items: center;
         text-transform: uppercase;
+        flex-shrink: 0;
       }
       .rso-chip-tier-box {
         background: rgba(0, 0, 0, 0.35);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 10px;
-        padding: 12px;
+        border-radius: 6px;
+        padding: 6px 8px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 4px;
+        flex: 1;
+        min-height: 0;
+        justify-content: space-between;
       }
       .rso-tier-label {
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 800;
-        letter-spacing: 1px;
+        letter-spacing: 0.8px;
         color: #94a3b8;
         display: flex;
         justify-content: space-between;
+        flex-shrink: 0;
       }
       .rso-tier-label-status {
-        color: #00f3ff;
+        color: #38bdf8;
       }
       .rso-chip-options-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 8px;
+        flex: 1;
+        min-height: 0;
       }
       .rso-chip-item {
-        background: rgba(15, 23, 42, 0.7);
+        background: rgba(15, 23, 42, 0.75);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        padding: 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 8px;
-        transition: all 0.2s ease;
+        border-radius: 6px;
+        padding: 6px 10px;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 10px;
+        height: 100%;
+        box-sizing: border-box;
+        transition: all 0.15s ease;
       }
       .rso-chip-item:hover {
-        background: rgba(30, 41, 59, 0.85);
-        border-color: rgba(255, 255, 255, 0.2);
-        transform: translateY(-1px);
+        background: rgba(30, 41, 59, 0.9);
+        border-color: rgba(255, 255, 255, 0.25);
       }
       .rso-chip-item.equipped {
-        border-color: #00f3ff;
-        background: rgba(0, 243, 255, 0.08);
-        box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+        border-color: #38bdf8;
+        background: rgba(56, 189, 248, 0.1);
+        box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+      }
+      .rso-chip-main {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        flex: 1;
+        gap: 3px;
+      }
+      .rso-chip-title-line {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-width: 0;
       }
       .rso-chip-badge {
-        font-size: 10px;
+        font-size: 9px;
         font-weight: 900;
-        padding: 2px 6px;
-        border-radius: 4px;
+        padding: 2px 5px;
+        border-radius: 3px;
         background: rgba(255, 255, 255, 0.1);
         color: #94a3b8;
-        margin-right: 6px;
-      }
-      .rso-chip-title-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 8px;
+        flex-shrink: 0;
       }
       .rso-chip-name {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 800;
-        color: #f1f5f9;
-        line-height: 1.3;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .rso-chip-desc {
-        font-size: 12px;
-        color: #cbd5e1;
-        line-height: 1.45;
-        flex: 1;
+        font-size: 10px;
+        color: #94a3b8;
+        line-height: 1.3;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
-      .rso-chip-action-btn {
-        width: 100%;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.8px;
-        padding: 6px 12px;
-        border-radius: 6px;
+      .rso-chip-side {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+      }
+      .rso-chip-btn {
+        margin: 0 !important;
+        padding: 5px 10px !important;
+        font-size: 10px !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.6px;
+        border-radius: 4px;
         cursor: pointer;
-        transition: all 0.18s ease;
+        transition: all 0.15s ease;
+        line-height: 1.1;
+        box-sizing: border-box;
+        text-align: center;
+        white-space: nowrap;
+        border: 1px solid transparent;
+        font-family: inherit;
+        min-width: 66px;
+      }
+      .rso-btn-unequip {
+        border-color: rgba(56, 189, 248, 0.6) !important;
+        background: rgba(56, 189, 248, 0.2) !important;
+        color: #38bdf8 !important;
+      }
+      .rso-btn-unequip:hover {
+        border-color: rgba(244, 63, 94, 0.6) !important;
+        background: rgba(244, 63, 94, 0.25) !important;
+        color: #fb7185 !important;
+      }
+      .rso-btn-equip {
+        border-color: rgba(56, 189, 248, 0.5) !important;
+        background: rgba(56, 189, 248, 0.14) !important;
+        color: #38bdf8 !important;
+      }
+      .rso-btn-equip:hover {
+        background: rgba(56, 189, 248, 0.3) !important;
+        color: #fff !important;
+      }
+      .rso-btn-buy {
+        border-color: rgba(251, 191, 36, 0.5) !important;
+        background: rgba(251, 191, 36, 0.14) !important;
+        color: #fbbf24 !important;
+      }
+      .rso-btn-buy:hover:not(:disabled) {
+        background: rgba(251, 191, 36, 0.3) !important;
+        color: #fff !important;
+      }
+      .rso-btn-buy:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
       }
     `;
     document.head.appendChild(style);
@@ -1365,9 +1418,7 @@
 
     const backBtn = document.getElementById('runSetupBackBtn');
     if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        closeRunSetup();
-      });
+      backBtn.onclick = () => handleBack();
     }
 
     const launchBtn = document.getElementById('runSetupLaunchBtn');
@@ -1378,6 +1429,18 @@
     }
 
     return overlay;
+  }
+
+  function handleBack() {
+    if (currentTab === 'chips') {
+      switchTab('weapons');
+      if (window.audio && typeof window.audio.playCancel === 'function') window.audio.playCancel();
+    } else if (currentTab === 'weapons') {
+      switchTab('ships');
+      if (window.audio && typeof window.audio.playCancel === 'function') window.audio.playCancel();
+    } else {
+      closeRunSetup();
+    }
   }
 
   function switchTab(tab) {
@@ -1408,14 +1471,14 @@
     if (currentTab === 'ships') {
       if (backBtn) {
         backBtn.textContent = '◀ ANA MENÜ';
-        backBtn.onclick = () => closeRunSetup();
+        backBtn.onclick = () => handleBack();
       }
       if (navBtn) {
         navBtn.style.display = 'inline-block';
-        navBtn.style.background = 'linear-gradient(135deg, #00f3ff, #38bdf8)';
-        navBtn.style.color = '#000';
+        navBtn.style.background = 'linear-gradient(135deg, #0284c7, #38bdf8)';
+        navBtn.style.color = '#fff';
         navBtn.style.fontWeight = 'bold';
-        navBtn.style.boxShadow = '0 0 15px rgba(0, 243, 255, 0.45)';
+        navBtn.style.boxShadow = '0 0 14px rgba(2, 132, 199, 0.4)';
         navBtn.textContent = 'SİLAH SEÇİMİNE İLERLE ➔';
         navBtn.onclick = () => switchTab('weapons');
       }
@@ -1427,15 +1490,15 @@
       }
     } else if (currentTab === 'weapons') {
       if (backBtn) {
-        backBtn.textContent = '◀ 1. GEMİLER';
-        backBtn.onclick = () => switchTab('ships');
+        backBtn.textContent = '◀ 1. GEMİ SEÇİMİ';
+        backBtn.onclick = () => handleBack();
       }
       if (navBtn) {
         navBtn.style.display = 'inline-block';
-        navBtn.style.background = 'linear-gradient(135deg, #c084fc, #ec4899)';
+        navBtn.style.background = 'linear-gradient(135deg, #a855f7, #c084fc)';
         navBtn.style.color = '#fff';
         navBtn.style.fontWeight = 'bold';
-        navBtn.style.boxShadow = '0 0 15px rgba(192, 132, 252, 0.45)';
+        navBtn.style.boxShadow = '0 0 14px rgba(168, 85, 247, 0.4)';
         navBtn.textContent = 'NÖRAL MATRİSE İLERLE ➔';
         navBtn.onclick = () => switchTab('chips');
       }
@@ -1447,18 +1510,18 @@
       }
     } else if (currentTab === 'chips') {
       if (backBtn) {
-        backBtn.textContent = '◀ 2. SİLAHLAR';
-        backBtn.onclick = () => switchTab('weapons');
+        backBtn.textContent = '◀ 2. BAŞLANGIÇ SİLAHI';
+        backBtn.onclick = () => handleBack();
       }
       if (navBtn) {
         navBtn.style.display = 'none';
       }
       if (launchBtn) {
         launchBtn.textContent = 'SEFERİ BAŞLAT (ENTER)';
-        launchBtn.style.fontSize = '16px';
-        launchBtn.style.padding = '12px 28px';
-        launchBtn.style.background = 'linear-gradient(135deg, #00f3ff, #ff00ea)';
-        launchBtn.style.boxShadow = '0 0 25px rgba(0, 243, 255, 0.6)';
+        launchBtn.style.fontSize = '15px';
+        launchBtn.style.padding = '11px 26px';
+        launchBtn.style.background = 'linear-gradient(135deg, #0ea5e9, #2563eb)';
+        launchBtn.style.boxShadow = '0 0 20px rgba(14, 165, 233, 0.45)';
         launchBtn.style.opacity = '1.0';
       }
     }
@@ -1787,35 +1850,21 @@
       }
     });
 
-    // 1. ÜST SOKET BÖLMESİ (SOCKET BAY) & STAT HUB
+    // 1. ÜST DURUM ŞERİDİ (HUD STATUS RIBBON)
     function renderSocketsHub() {
-      const branches = [
-        { key: 'offense', label: 'TAARRUZ', colorClass: 'filled-offense', textCol: '#f87171' },
-        { key: 'defense', label: 'SAVUNMA', colorClass: 'filled-defense', textCol: '#38bdf8' }
-      ];
+      let offPins = '';
+      for (let t = 1; t <= 4; t++) {
+        const eqId = state.equippedChips.offense[t];
+        const chip = eqId ? CHIPS_CATALOG[eqId] : null;
+        offPins += `<span class="rso-hub-pin ${chip ? 'filled-off' : ''}" title="Taarruz T${t}: ${chip ? chip.name : 'Boş Soket'}"></span>`;
+      }
 
-      let slotsHtml = '';
-      branches.forEach(b => {
-        for (let t = 1; t <= 4; t++) {
-          const eqId = state.equippedChips[b.key][t];
-          const chip = eqId ? CHIPS_CATALOG[eqId] : null;
-          if (chip) {
-            slotsHtml += `
-              <div class="rso-socket-slot ${b.colorClass} rso-socket-interactive" data-action="unequip" data-chip="${chip.id}" title="Soketten Çıkarmak İçin Tıkla">
-                <div class="rso-slot-tier">${b.label} T${t}</div>
-                <div class="rso-slot-name">${chip.name}</div>
-              </div>
-            `;
-          } else {
-            slotsHtml += `
-              <div class="rso-socket-slot">
-                <div class="rso-slot-tier">${b.label} T${t}</div>
-                <div class="rso-slot-empty">[BOŞ SOKET]</div>
-              </div>
-            `;
-          }
-        }
-      });
+      let defPins = '';
+      for (let t = 1; t <= 4; t++) {
+        const eqId = state.equippedChips.defense[t];
+        const chip = eqId ? CHIPS_CATALOG[eqId] : null;
+        defPins += `<span class="rso-hub-pin ${chip ? 'filled-def' : ''}" title="Savunma T${t}: ${chip ? chip.name : 'Boş Soket'}"></span>`;
+      }
 
       // Kümülatif Stat Özeti
       let statsSummaryHtml = '';
@@ -1825,19 +1874,19 @@
           return `<span class="rso-stat-chip-pill ${pillClass}"><b>[${c.code || ('T' + c.tier)}]</b> ${c.summary || c.desc}</span>`;
         }).join('');
       } else {
-        statsSummaryHtml = '<span style="color: #64748b; font-style: italic;">Matriste aktif yonga yok. Aşağıdaki kademelerden yonga takarak geminizi güçlendirin.</span>';
+        statsSummaryHtml = '<span style="color: #64748b; font-size: 10px; font-style: italic;">Matriste aktif yonga yok — aşağıdaki kademelerden yonga takarak geminizi güçlendirin.</span>';
       }
 
       return `
-        <div class="rso-sockets-hub">
-          <div class="rso-hub-header">
-            <span class="rso-hub-title">AKTİF NÖRAL SOKETLER</span>
-            <span class="rso-hub-counter">DOLULUK: <b>${activeChips.length} / 8</b></span>
+        <div class="rso-hub-bar">
+          <div class="rso-hub-bar-left">
+            <span class="rso-hub-bar-title">NÖRAL HUD</span>
+            <div class="rso-hub-pin-group" title="Taarruz Soketleri T1-T4">${offPins}</div>
+            <div style="width: 1px; height: 12px; background: rgba(255, 255, 255, 0.15); margin: 0 2px;"></div>
+            <div class="rso-hub-pin-group" title="Savunma Soketleri T1-T4">${defPins}</div>
+            <span style="font-size: 10.5px; font-weight: 800; color: #94a3b8; font-family: 'Consolas', monospace; margin-left: 4px;">DOLULUK: <b>${activeChips.length} / 8</b></span>
           </div>
-          <div class="rso-sockets-grid">
-            ${slotsHtml}
-          </div>
-          <div class="rso-hub-stats-summary">
+          <div class="rso-hub-bar-right">
             ${statsSummaryHtml}
           </div>
         </div>
@@ -1866,28 +1915,21 @@
 
                 return `
                   <div class="rso-chip-item ${isEquipped ? 'equipped' : ''}" data-chip-id="${chip.id}">
-                    <div>
-                      <div class="rso-chip-title-row">
-                        <div style="display: flex; align-items: center; flex: 1; min-width: 0;">
-                          <span class="rso-chip-badge">${chip.code || ('T' + chip.tier)}</span>
-                          <span class="rso-chip-name" style="color: ${chip.color};">${chip.name}</span>
-                        </div>
-                        <div>
-                          ${isEquipped ? '<span style="font-size: 10px; background: #00f3ff; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 900;">TAKILI</span>' :
-                            (isUnlocked ? '<span style="font-size: 10px; color: #4ade80; font-weight: 800;">HAZIR</span>' :
-                            `<span style="font-size: 11px; color: #ffb300; font-weight: 800;">${chip.cost} HURDA</span>`)}
-                        </div>
+                    <div class="rso-chip-main">
+                      <div class="rso-chip-title-line">
+                        <span class="rso-chip-badge">${chip.code || ('T' + chip.tier)}</span>
+                        <span class="rso-chip-name" style="color: ${chip.color};">${chip.name}</span>
                       </div>
-                      <div class="rso-chip-desc" style="margin-top: 8px;">${chip.desc}</div>
+                      <div class="rso-chip-desc">${chip.summary || chip.desc}</div>
                     </div>
-                    <div style="margin-top: 10px;">
+                    <div class="rso-chip-side">
                       ${isEquipped ? `
-                        <button class="btn btn-secondary rso-chip-action-btn" data-action="unequip" data-chip="${chip.id}" style="border-color: #f43f5e; color: #f43f5e;">SOKETTEN ÇIKAR</button>
+                        <button class="rso-chip-btn rso-chip-action-btn rso-btn-unequip" data-action="unequip" data-chip="${chip.id}" title="Soketten Çıkarmak İçin Tıkla">TAKILI</button>
                       ` : (isUnlocked ? `
-                        <button class="btn rso-chip-action-btn" data-action="equip" data-chip="${chip.id}">SOKETE TAK</button>
+                        <button class="rso-chip-btn rso-chip-action-btn rso-btn-equip" data-action="equip" data-chip="${chip.id}">TAK</button>
                       ` : `
-                        <button class="btn btn-secondary rso-chip-action-btn" data-action="buy" data-chip="${chip.id}" ${!canAfford ? 'disabled' : ''} style="border-color: #ffb300; color: #ffb300; ${!canAfford ? 'opacity: 0.5; cursor: not-allowed;' : ''}">
-                          KİLİDİ AÇ (${chip.cost})
+                        <button class="rso-chip-btn rso-chip-action-btn rso-btn-buy" data-action="buy" data-chip="${chip.id}" ${!canAfford ? 'disabled' : ''}>
+                          ${chip.cost} 🔩
                         </button>
                       `)}
                     </div>
@@ -1903,7 +1945,7 @@
         <div class="rso-chip-col ${colClass}">
           <div class="rso-chip-col-header">
             <span>${branchTitle}</span>
-            <span style="font-size: 12px; color: #94a3b8; font-weight: 700;">4 KADEME</span>
+            <span style="font-size: 11px; color: #94a3b8; font-weight: 700;">4 KADEME</span>
           </div>
           ${tiersHtml}
         </div>
@@ -1920,8 +1962,8 @@
       </div>
     `;
 
-    // Buton & Soket Eylemleri
-    container.querySelectorAll('.rso-chip-action-btn, .rso-socket-interactive').forEach(btn => {
+    // Buton Eylemleri
+    container.querySelectorAll('.rso-chip-action-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const act = btn.getAttribute('data-action');
@@ -1950,6 +1992,17 @@
           if (window.audio && window.audio.playConfirm) window.audio.playConfirm();
           renderChipsTab(container);
           updateFooterSummary();
+        }
+      });
+    });
+
+    // Kartın herhangi bir yerine tıklandığında ilgili butonu tetikle (Fitts yasası ergonomisi)
+    container.querySelectorAll('.rso-chip-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        if (e.target.closest('.rso-chip-action-btn')) return;
+        const btn = item.querySelector('.rso-chip-action-btn');
+        if (btn && !btn.disabled) {
+          btn.click();
         }
       });
     });
@@ -2147,6 +2200,7 @@
     modifyScrap,
     openRunSetup,
     closeRunSetup,
+    handleBack,
     launchRun,
     switchTab,
     cycleTab,

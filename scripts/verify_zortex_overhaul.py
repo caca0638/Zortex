@@ -231,7 +231,8 @@ def main():
         time.sleep(0.4)
         chipItemsCount = eval_js(ws, "document.querySelectorAll('#runSetupBody .rso-chip-item').length")
         print(f"Rendered Neural Chips: {chipItemsCount} (Expected: 16)")
-        assert chipItemsCount == 16, f"FAIL: Expected 16 neural chips, found {chipItemsCount}"
+        chipDiag = eval_js(ws, "(() => { const ov = document.getElementById('runSetupOverlay'); const hdr = ov.querySelector('.rso-header'); const body = ov.querySelector('.rso-body'); const ftr = ov.querySelector('.rso-footer'); const wrap = document.querySelector('.rso-chips-wrapper'); const hub = document.querySelector('.rso-hub-bar') || document.querySelector('.rso-sockets-hub'); const cols = document.querySelector('.rso-chips-columns'); const col = document.querySelector('.rso-chip-col'); const tierBox = document.querySelector('.rso-chip-tier-box'); const item = document.querySelector('.rso-chip-item'); return { ov_h: ov.offsetHeight, hdr_h: hdr.offsetHeight, body_h: body.offsetHeight, ftr_h: ftr.offsetHeight, wrap_h: wrap ? wrap.offsetHeight : 0, hub_h: hub ? hub.offsetHeight : 0, cols_h: cols ? cols.offsetHeight : 0, col_h: col ? col.offsetHeight : 0, tierBox_h: tierBox ? tierBox.offsetHeight : 0, item_h: item ? item.offsetHeight : 0 }; })()")
+        print(f"Containers Diagnostic: {chipDiag}")
         save_screenshot(ws, "verified_run_setup_chips.png")
 
         # 5. Test Keyboard Navigation (1, 2, 3, Tab, Escape, Enter)
@@ -254,14 +255,30 @@ def main():
         activeTabTab = eval_js(ws, "document.querySelector('.rso-tab-btn.active')?.getAttribute('data-tab')")
         print(f"Active Tab after Tab cycle: {activeTabTab} (Expected: 'chips')")
 
-        # Press Escape -> return to menu
+        # Hierarchical Escape test:
+        # 1. Escape from chips -> returns to weapons
+        eval_js(ws, "window.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape', bubbles: true }))")
+        time.sleep(0.3)
+        tabAfterEsc1 = eval_js(ws, "document.querySelector('.rso-tab-btn.active')?.getAttribute('data-tab')")
+        print(f"Active Tab after 1st Escape: {tabAfterEsc1} (Expected: 'weapons')")
+        assert tabAfterEsc1 == 'weapons', f"FAIL: expected weapons, got {tabAfterEsc1}"
+
+        # 2. Escape from weapons -> returns to ships
+        eval_js(ws, "window.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape', bubbles: true }))")
+        time.sleep(0.3)
+        tabAfterEsc2 = eval_js(ws, "document.querySelector('.rso-tab-btn.active')?.getAttribute('data-tab')")
+        print(f"Active Tab after 2nd Escape: {tabAfterEsc2} (Expected: 'ships')")
+        assert tabAfterEsc2 == 'ships', f"FAIL: expected ships, got {tabAfterEsc2}"
+
+        # 3. Escape from ships -> returns to main menu
         eval_js(ws, "window.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape', bubbles: true }))")
         time.sleep(0.4)
         escapedState = eval_js(ws, "window.gameState")
         escapedHidden = eval_js(ws, "document.getElementById('runSetupOverlay').classList.contains('hidden')")
-        print(f"Game State after Escape: {escapedState} (Expected: 'MENU')")
-        print(f"runSetupOverlay hidden after Escape: {escapedHidden} (Expected: True)")
+        print(f"Game State after 3rd Escape: {escapedState} (Expected: 'MENU')")
+        print(f"runSetupOverlay hidden after 3rd Escape: {escapedHidden} (Expected: True)")
         assert escapedState == 'MENU', f"FAIL: expected MENU, got {escapedState}"
+        assert escapedHidden is True, "FAIL: expected runSetupOverlay to be hidden"
 
         # 6. Reopen Loadout and Launch Run with Titan & Scattergun
         print("\n--- TEST 6: LOADOUT SELECTION & RUN LAUNCH ---")

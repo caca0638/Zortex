@@ -51,7 +51,7 @@
     "roguelite"
   ],
   "author": "ZORTEX Team",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
     "electron": "^44.8.0",
     "electron-builder": "^26.8.1",

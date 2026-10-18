@@ -156,3 +156,15 @@ c:/Users/user/Desktop/zort/
 ## Kalite ve Güvenilirlik Testleri
 
 Tüm oyun mekanikleri headless Chromium CDP üzerinde kanonik regresyon kapısı (`scripts/sim_gate.py`) ile 10 dalga boyunca otomatik olarak simüle edilir; 0 konsol hatası ve 0 runtime exception doğrulaması sağlanır. Arayüz, silah ateşleme ve boss aşamalarının doğrulaması `scripts/verify_zortex_overhaul.py` ile yapılır.
+
+---
+
+## Lisans (License)
+
+Bu proje ikili (dual/split) bir lisans modeli kullanır:
+
+- **Kaynak Kod (Yazılım Motoru, Betikler, HTML/JS/CSS):** [GNU General Public License v3.0 (GPL-3.0)](LICENSE) altında lisanslanmıştır. Kod incelenebilir, değiştirilebilir ve katkı sağlanabilir; ancak koddan türetilen tüm projeler de açık kaynak ve GPL-3.0 olmak zorundadır. Kapatılıp gizli satılamaz.
+- **Oyun Varlıkları, Sesler, Marka & Tasarımlar (Assets & Branding):** **Tüm Hakları Saklıdır (All Rights Reserved)**.
+  - "ZORTEX: Cyber Survivor" adı, logoları, gemi/düşman/boss sprite çizimleri, prosedürel ses sentezleri, oyun hikayesi ve görsel tasarım varlıkları yazılı izin olmaksızın klonlanamaz, ticari platformlarda (Steam, Play Store vb.) satılamaz veya yeniden dağıtılamaz.
+
+Ayrıntılı şartlar ve tam yasal metin için [`LICENSE`](LICENSE) dosyasını inceleyebilirsiniz.

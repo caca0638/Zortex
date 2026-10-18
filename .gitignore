@@ -41,7 +41,13 @@ desktop.ini
 **/Kenney.url
 **/Patreon.url
 
-# Skill secrets
+# Environment & Secret files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
 .agents/skills/**/.env
 
 
