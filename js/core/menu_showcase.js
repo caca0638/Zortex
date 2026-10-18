@@ -1876,8 +1876,8 @@
       const [sr, sg, sb] = prog.shipRgb;
 
       // Ship anchor coordinates (balanced in the open space of the right side)
-      const cx = this.width > 960 ? this.width * 0.66 : this.width * 0.50;
-      const cy = this.height * 0.52;
+      const cx = (this.customShipX !== null && this.customShipX !== undefined) ? this.customShipX : (this.width > 960 ? this.width * 0.66 : this.width * 0.50);
+      const cy = (this.customShipY !== null && this.customShipY !== undefined) ? this.customShipY : this.height * 0.52;
 
       // Gerçek 3B Manevra (360° Barrel Roll & Surge) ve Hover Kinematikleri
       let maneuverSurge = 0;

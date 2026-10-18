@@ -961,8 +961,13 @@
 
       // 15. Reactive Shield -> Maks Kalkan
       const shieldLvl = this.getPassiveLevel('reactive_shield');
-      if (shieldLvl > 0) {
-        player.maxShield = 50 + (shieldLvl * 15);
+      const prevShieldBonus = player._appliedReactiveShield || 0;
+      const newShieldBonus = shieldLvl * 15;
+      if (newShieldBonus !== prevShieldBonus) {
+        const diffS = newShieldBonus - prevShieldBonus;
+        player.maxShield = Math.max(50, (player.maxShield || 50) + diffS);
+        if (diffS > 0) player.shield = Math.min(player.maxShield, (player.shield || 0) + diffS);
+        player._appliedReactiveShield = newShieldBonus;
       }
 
       // 16. Reflect Plate -> Mermi Yansıtma
@@ -979,10 +984,15 @@
 
       // 19. Titanium Core -> Maks Can
       const titanLvl = this.getPassiveLevel('titanium_core');
-      if (titanLvl > 0) {
-        player.maxHealth = 100 + (titanLvl * 25);
-        player.contactResist = Math.min(0.45, titanLvl * 0.15);
+      const prevTitanBonus = player._appliedTitanCore || 0;
+      const newTitanBonus = titanLvl * 25;
+      if (newTitanBonus !== prevTitanBonus) {
+        const diffH = newTitanBonus - prevTitanBonus;
+        player.maxHealth = Math.max(100, (player.maxHealth || 100) + diffH);
+        if (diffH > 0) player.health = Math.min(player.maxHealth, (player.health || 0) + diffH);
+        player._appliedTitanCore = newTitanBonus;
       }
+      player.contactResist = titanLvl > 0 ? Math.min(0.45, titanLvl * 0.15) : 0;
 
       // 20. Cheap Escape
       const escapeLvl = this.getPassiveLevel('cheap_escape');
@@ -1728,7 +1738,8 @@
       this.rewardCount = count;
 
       // Çifte Bahis pasifi kontrolü (Double Bet)
-      if (window.player && window.player.hasDoubleBet && count < 5) {
+      const activePlayer = (typeof player !== 'undefined' && player) ? player : window.player;
+      if (activePlayer && activePlayer.hasDoubleBet && count < 5) {
         count = Math.min(5, count * 2);
         this.rewardCount = count;
       }
@@ -1905,7 +1916,9 @@
             color: data.color
           });
         } else {
-          const scrapAmt = tier === 'boss' ? 450 : (tier === 'miniboss' ? 250 : 150);
+          const activePlayer = (typeof player !== 'undefined' && player) ? player : window.player;
+          const betMult = (activePlayer && activePlayer.hasDoubleBet) ? 2 : 1;
+          const scrapAmt = (tier === 'boss' ? 450 : (tier === 'miniboss' ? 250 : 150)) * betMult;
           rewards.push({
             type: 'scrap',
             amount: scrapAmt,

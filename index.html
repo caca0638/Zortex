@@ -11486,9 +11486,12 @@
         if (typeof gameState !== 'undefined' && gameState !== 'PLAYING') return;
         if (this.dashCooldown <= 0 && !this.isDashing) {
           this.isDashing = true;
-          this.dashTimer = 0.20; // duration
-          this.dashInvulnerableTimer = 0.12; // 0.12 sn tam dokunulmazlık (Bölüm 15.2)
-          this.dashCooldown = this.dashCooldownTime;
+          this.dashTimer = 0.20 * (this.dashDistanceModifier || 1.0); // duration (Gravity Shift desteği)
+          this.dashInvulnerableTimer = 0.12 * (this.dashDistanceModifier || 1.0); // 0.12 sn tam dokunulmazlık (Bölüm 15.2)
+          this.dashCooldown = this.dashCooldownTime * (this.dashCooldownModifier || 1.0); // Overload Cap desteği
+          if (this.hasGhostDash) {
+            this._ghostDashHits = new Set();
+          }
           let dx = 0, dy = 0;
           if (keys['KeyW'] || keys['ArrowUp']) dy -= 1;
           if (keys['KeyS'] || keys['ArrowDown']) dy += 1;
@@ -11631,8 +11634,14 @@
       takeDamage(amount, sourceName = 'SİBERNETİK SÜRÜ') {
         if (this.godMode) return; // Test/Sandbox Ölümsüzlük Modu
         if (this.isDashing) {
-          if (this.dashInvulnerableTimer > 0) return; // İlk 0.12 sn tam dokunulmaz (Bölüm 15.2)
+          if (this.dashInvulnerableTimer > 0 || this.hasGhostDash) return; // İlk 0.12 sn veya Hayalet Dash boyunca tam dokunulmaz
           amount *= 0.50; // Kalan dash süresince %50 hasar azaltma
+        }
+        // [PASİF 14] Phantom Plate (Hayalet Plaka) -> % Kaçınma Şansı
+        if (this.dodgeChance > 0 && Math.random() < this.dodgeChance) {
+          particles.emit(this.x, this.y, '#c084fc', 12, 4, 2.5, 0.35);
+          textManager.add('👻 KAÇINILDI!', this.x, this.y - 24, '#c084fc', 15, 0.75);
+          return;
         }
         if (this.isUltimateActive && window.MutationsManager && window.MutationsManager.activeMutations.overdrive === 'ironclad') {
           amount *= 0.50; // Zırh Modu Mutasyonu: Overdrive süresince %50 hasar azaltma (Bölüm 7.1)
@@ -11662,6 +11671,36 @@
         // Zırh hasar azaltma çarpanları
         const totalArmor = (this.damageReduction || 0) + (this.bionicArmor || 0);
         amount *= Math.max(0.2, 1 - totalArmor);
+
+        // [PASİF 19] Titanium Core (Titanyum Çekirdek) -> Çarpışma / Temas Hasarı Direnci
+        if (this.contactResist > 0 && sourceName !== 'DÜŞMAN MERMİSİ') {
+          amount *= Math.max(0.2, 1 - this.contactResist);
+        }
+
+        // [PASİF 30] Cursed Chip (Lanetli Çip) -> +% Alınan Hasar
+        if (this.cursedChipBonus > 0) {
+          amount *= (1 + this.cursedChipBonus * 0.5);
+        }
+
+        // [PASİF 17] Reactive Armor (Tepkisel Zırh) -> Hasar alınca çevredeki düşmanları iter ve hasar verir
+        if (this.hasReactiveArmor && typeof enemies !== 'undefined' && enemies.length > 0) {
+          if (typeof addShockwave === 'function') addShockwave(this.x, this.y, 0x3b82f6, 175, 0.35, 4.0);
+          particles.emit(this.x, this.y, '#3b82f6', 20, 5, 3, 0.5);
+          for (let i = enemies.length - 1; i >= 0; i--) {
+            const e = enemies[i];
+            if (!e || e.dead) continue;
+            const d = Math.hypot(e.x - this.x, e.y - this.y);
+            if (d < 175) {
+              const nx = (e.x - this.x) / (d || 1);
+              const ny = (e.y - this.y) / (d || 1);
+              if (typeof e.applyKnockback === 'function') e.applyKnockback(nx, ny, 14);
+              if (e.hit(this.bulletDamage * 1.25, false)) {
+                e.dead = true;
+                e.markedForRemoval = true;
+              }
+            }
+          }
+        }
 
         triggerRumble('heavy');
         triggerTrauma(Math.min(0.28, 0.08 + amount * 0.01), this.angle + Math.PI, 3.0);
@@ -11741,6 +11780,19 @@
           if (wave < 6 && runStats) {
             runStats.hullDamageTakenBeforeWave6 = true;
           }
+          // [PASİF 20] Cheap Escape (Ucuz Kaçış) -> Ölümcül darbeyi 1 kez engeller ve 2.5 sn dokunulmazlık verir
+          if (this.health <= amount && this.hasCheapEscape) {
+            this.hasCheapEscape = false;
+            if (window.inventoryManager) window.inventoryManager.cheapEscapeUsed = true;
+            this.health = Math.max(1, Math.round(this.maxHealth * 0.25));
+            this.emergencyBarrierTimer = 2.5;
+            screenShake = 8;
+            if (typeof addShockwave === 'function') addShockwave(this.x, this.y, 0xffe600, 210, 0.45, 4.5);
+            particles.emit(this.x, this.y, '#ffe600', 40, 7, 4, 1.0);
+            textManager.add('⚡ UCUZ KAÇIŞ! ÖLÜM ENGELLENDİ!', this.x, this.y - 45, '#ffe600', 20, 2.2);
+            audio.playShieldBreak();
+            return;
+          }
           // Titan Diriliş Çekirdeği (Tech Tree Node)
           if (this.health <= amount && this.hasTitanRevive && !this.titanReviveUsed) {
             this.titanReviveUsed = true;
@@ -11754,6 +11806,13 @@
           }
 
           this.health -= amount;
+          // [PASİF 18] Emergency Repair Drone (Acil Onarım Dronu) -> Can <%25'e düşünce 5 sn'de %30 can yeniler
+          if (this.hasEmergencyRepair && (this.health / this.maxHealth) <= 0.25 && (this.emergencyRepairCd || 0) <= 0 && this.health > 0) {
+            this.emergencyRepairTimer = 5.0;
+            this.emergencyRepairCd = 60.0;
+            textManager.add('🩹 ACİL ONARIM DRONU AKTİF!', this.x, this.y - 38, '#10b981', 18, 1.8);
+            particles.emit(this.x, this.y, '#10b981', 25, 5, 3, 0.8);
+          }
           screenShake = 3;
           audio.playExplosion(0.30);
           particles.emit(this.x, this.y, '#ff0055', 12, 4, 3);
@@ -11782,9 +11841,17 @@
         if (typeof hasTechNode === 'function' && hasTechNode('util_scavenger')) {
           finalAmt *= 1.25;
         }
+        // [PASİF 30] Cursed Chip (Lanetli Çip) -> +% Kazanç Bonusu
+        if (this.cursedChipBonus > 0) {
+          finalAmt *= (1 + this.cursedChipBonus);
+        }
         this.xp += finalAmt;
         let ultMult = this.shipClassId === 'spectre' ? 0.52 : 0.40;
         if (this.hasOverdriveBattery) ultMult *= 1.45;
+        // [PASİF 41] Overclock Module -> Ulti dolum hızını artırır
+        if (this.ultimateCooldownMultiplier && this.ultimateCooldownMultiplier < 1.0) {
+          ultMult /= this.ultimateCooldownMultiplier;
+        }
         this.ultimateCharge = Math.min(this.maxUltimate, (this.ultimateCharge || 0) + finalAmt * ultMult);
         audio.playPickup();
         if (this.xp >= this.nextLevelXp && (typeof gameState === 'undefined' || gameState !== 'UPGRADE')) {
@@ -11837,13 +11904,31 @@
         if (this.quantumShieldTimer > 0) this.quantumShieldTimer -= dt;
         if (this.quantumCooldown > 0) this.quantumCooldown -= dt;
         if (this.isFrosted > 0) this.isFrosted -= dt;
+        if (this.cyberInstinctCd > 0) this.cyberInstinctCd -= dt;
+        if (this.emergencyRepairCd > 0) this.emergencyRepairCd -= dt;
+
+        // [PASİF 37] Nanite Coating (Nanit Kaplama) -> Sürekli Can Yenilenmesi
+        if (this.healthRegenRate > 0 && this.health > 0 && this.health < this.maxHealth && (typeof gameState === 'undefined' || gameState === 'PLAYING')) {
+          this.health = Math.min(this.maxHealth, this.health + this.healthRegenRate * dt);
+        }
+
+        // [PASİF 18] Emergency Repair Drone -> 5 saniyede %30 can yenileme
+        if (this.emergencyRepairTimer > 0) {
+          this.emergencyRepairTimer -= dt;
+          if (this.health > 0 && this.health < this.maxHealth) {
+            this.health = Math.min(this.maxHealth, this.health + (this.maxHealth * 0.30 / 5.0) * dt);
+            if (Math.random() < 0.3) particles.emit(this.x, this.y, '#10b981', 1, 2.5, 2, 0.3);
+          }
+        }
 
         // Cooldowns (Zaman Dondurucu Mutasyonu: Overdrive esnasında yetenek sayaçları donar)
+        // [PASİF 41] Overclock Module -> Tüm yetenek bekleme sürelerini hızlandırır
+        const cdRate = (this.ultimateCooldownMultiplier && this.ultimateCooldownMultiplier < 1.0) ? (1.0 / this.ultimateCooldownMultiplier) : 1.0;
         const isChronoFrozen = this.isUltimateActive && window.MutationsManager && window.MutationsManager.activeMutations.overdrive === 'chrono';
         if (!isChronoFrozen) {
-          if (this.dashCooldown > 0) this.dashCooldown -= dt;
-          if (this.decoyCooldown > 0) this.decoyCooldown -= dt;
-          if (this.gravityAnchorCooldown > 0) this.gravityAnchorCooldown -= dt;
+          if (this.dashCooldown > 0) this.dashCooldown -= dt * cdRate;
+          if (this.decoyCooldown > 0) this.decoyCooldown -= dt * cdRate;
+          if (this.gravityAnchorCooldown > 0) this.gravityAnchorCooldown -= dt * cdRate;
         }
         if (this.dashInvulnerableTimer > 0) this.dashInvulnerableTimer -= dt;
         if (this.fireCooldown > 0) this.fireCooldown -= dt;
@@ -11898,6 +11983,10 @@
 
         // Adrenalin Hız Çarpanları
         let curSpeed = this.speed;
+        // [PASİF 23] Inertia Dampener (Atalet Sönümleyici) -> İvme, manevra hızı ve yavaşlatma direnci
+        if (this.frictionModifier && this.frictionModifier > 1.0) {
+          curSpeed *= (1 + Math.min(0.35, (this.frictionModifier - 1.0) * 0.22));
+        }
         if (this.combo >= 25) curSpeed *= 1.18;
         if (this.combo >= 50) {
           curSpeed *= 1.32;
@@ -11907,7 +11996,7 @@
             particles.emit(this.x, this.y, rainbow[Math.floor(Math.random() * rainbow.length)], 2, 3, 2, 0.3);
           }
         }
-        if (this.isFrosted > 0) curSpeed *= 0.75;
+        if (this.isFrosted > 0) curSpeed *= (this.frictionModifier > 1.0 ? 0.90 : 0.75);
 
         // Movement (Klavye veya Gamepad - 144Hz Delta Time Uyumlu)
         const dtNorm = dt * 60;
@@ -11920,6 +12009,25 @@
           this.x += moveX * this.dashSpeed * dtNorm;
           this.y += moveY * this.dashSpeed * dtNorm;
           this.dashTimer -= dt;
+
+          // [PASİF 22] Ghost Dash (Hayalet İtiş) -> İçinden geçilen düşmanlara 50+ hasar verir
+          if (this.hasGhostDash && typeof enemies !== 'undefined' && enemies.length > 0) {
+            if (!this._ghostDashHits) this._ghostDashHits = new Set();
+            for (let gi = enemies.length - 1; gi >= 0; gi--) {
+              const ge = enemies[gi];
+              if (!ge || ge.dead || this._ghostDashHits.has(ge)) continue;
+              const gd = Math.hypot(ge.x - this.x, ge.y - this.y);
+              if (gd <= (this.radius || 18) + (ge.radius || 15) + 22) {
+                this._ghostDashHits.add(ge);
+                particles.emit(ge.x, ge.y, '#00f3ff', 10, 4, 2.5, 0.35);
+                textManager.add('👻 HAYALET DARBESİ!', ge.x, ge.y - 22, '#00f3ff', 13, 0.55);
+                if (ge.hit(50 + this.bulletDamage * 0.8, false)) {
+                  ge.dead = true;
+                  ge.markedForRemoval = true;
+                }
+              }
+            }
+          }
 
           this.dashTrailTimer = (this.dashTrailTimer || 0) + dt;
           if (this.dashTrailTimer >= 0.035) {
@@ -11953,7 +12061,27 @@
             );
           }
 
-          if (this.dashTimer <= 0) this.isDashing = false;
+          if (this.dashTimer <= 0) {
+            this.isDashing = false;
+            // [PASİF 24] Gravity Shift (Yerçekimi Kayması) -> Dash sonunda çekim dalgası
+            if (this.dashDistanceModifier && this.dashDistanceModifier > 1.0 && typeof enemies !== 'undefined') {
+              if (typeof addShockwave === 'function') addShockwave(this.x, this.y, 0xc084fc, 165, 0.35, 3.5);
+              particles.emit(this.x, this.y, '#c084fc', 18, 4.5, 3, 0.45);
+              for (let qi = enemies.length - 1; qi >= 0; qi--) {
+                const qe = enemies[qi];
+                if (!qe || qe.dead) continue;
+                const qd = Math.hypot(qe.x - this.x, qe.y - this.y);
+                if (qd < 165 && qd > 5) {
+                  qe.x += ((this.x - qe.x) / qd) * 32;
+                  qe.y += ((this.y - qe.y) / qd) * 32;
+                  if (qe.hit(this.bulletDamage * 1.1, false)) {
+                    qe.dead = true;
+                    qe.markedForRemoval = true;
+                  }
+                }
+              }
+            }
+          }
         } else {
           if (keys['KeyW'] || keys['ArrowUp']) moveY -= 1;
           if (keys['KeyS'] || keys['ArrowDown']) moveY += 1;
@@ -12060,7 +12188,25 @@
         // Firing Weapon (Mouse, Gamepad veya Otomatik)
         const shouldFire = mouse.down || autoFire || gamepadFiring || this.isUltimateActive;
 
+        // [PASİF 4] Overheat Barrel (Aşırı Isınan Namlu) -> Sürekli ateşte hasar artışı
+        if (this.hasOverheatBarrel) {
+          if (shouldFire) {
+            this.overheatTimer = Math.min(4.0, (this.overheatTimer || 0) + dt);
+            if (this.overheatTimer > 1.5 && Math.random() < 0.25) {
+              particles.emit(this.x + Math.cos(this.angle) * 18, this.y + Math.sin(this.angle) * 18, '#ff5500', 1, 2.5, 2, 0.2);
+            }
+          } else {
+            this.overheatTimer = Math.max(0, (this.overheatTimer || 0) - dt * 2.0);
+          }
+        } else {
+          this.overheatTimer = 0;
+        }
+
         let currentFireRate = this.isUltimateActive ? 0.06 : this.fireRate;
+        // [PASİF 1] Core Cooler (Çekirdek Soğutucu) -> Ateşleme hızı çarpanı
+        if (this.fireRateModifier && this.fireRateModifier < 1.0) {
+          currentFireRate *= this.fireRateModifier;
+        }
         if (this.isUltimateActive && window.MutationsManager && window.MutationsManager.activeMutations.overdrive === 'bullet_storm') {
           currentFireRate *= 0.5; // Ateş Seli Mutasyonu: 2 kat seri ateş
         }
@@ -12103,7 +12249,7 @@
               const bAngle = this.angle + startOffset + bIdx * spreadStep;
               const startX = this.x + Math.cos(bAngle) * 22;
               const startY = this.y + Math.sin(bAngle) * 22;
-              const beamLen = 1400;
+              const beamLen = 1400 * (this.bulletScaleModifier || 1.0);
               const endX = startX + Math.cos(bAngle) * beamLen;
               const endY = startY + Math.sin(bAngle) * beamLen;
 
@@ -12122,7 +12268,7 @@
                     const isCrit = Math.random() < this.critChance;
                     const finalDmg = isCrit ? tickDmg * 2.2 : tickDmg;
                     if (this.hasAbsoluteZero) {
-                      e.freezeTimer = Math.max(e.freezeTimer || 0, 1.8);
+                      e.freezeTimer = Math.max(e.freezeTimer || 0, 1.8 * (this.cryoDurationMultiplier || 1.0));
                     }
                     const dead = e.hit(finalDmg, isCrit);
                     if (dead) {
@@ -12224,14 +12370,20 @@
 
         // Kinetik Uydular Dönüşü
         if (this.orbitalShields) {
+          const dMultOrb = this.droneMultiplier || 1.0;
           for (const os of this.orbitalShields) {
-            os.angle += dt * os.speed;
+            os.angle += dt * os.speed * dMultOrb;
           }
         }
 
+        // [PASİF 13] Drone Commander (Dron Komutanı) -> Dron yoksa 1 dron verir, tüm dronların hız/hasarını artırır
+        const dMult = this.droneMultiplier || 1.0;
+        if (dMult > 1.0 && this.drones.length === 0) {
+          this.addDrone();
+        }
         // Update Drones
         for (const d of this.drones) {
-          d.angle += dt * 2.5;
+          d.angle += dt * 2.5 * dMult;
           d.fireCooldown -= dt;
           if (d.fireCooldown <= 0 && enemies.length > 0) {
             let closest = null, minDist = 400;
@@ -12246,17 +12398,37 @@
             }
             if (closest) {
               const shotAngle = Math.atan2(closest.y - droneY, closest.x - droneX);
-              bullets.push(new Bullet(droneX, droneY, shotAngle, this.bulletDamage * 0.7, '#00ffcc', 14, false));
+              bullets.push(new Bullet(droneX, droneY, shotAngle, this.bulletDamage * 0.7 * dMult, '#00ffcc', 14, false));
               runStats.bulletsFired++;
               audio.playLaser(1.4);
-              d.fireCooldown = 0.45;
+              d.fireCooldown = 0.45 / dMult;
+            }
+          }
+        }
+
+        // [PASİF 28] Miner Drone (Madenci Dronu) -> Uzaktaki XP kristallerini otomatik toplar
+        if (this.hasMinerDrone && typeof gems !== 'undefined' && gems.length > 0) {
+          this.minerDroneTimer = (this.minerDroneTimer || 0) - dt;
+          if (this.minerDroneTimer <= 0) {
+            this.minerDroneTimer = 0.35;
+            let pulled = 0;
+            for (let gi = 0; gi < gems.length && pulled < 2; gi++) {
+              const g = gems[gi];
+              if (g && !g.isVacuumed) {
+                const gd = Math.hypot(g.x - this.x, g.y - this.y);
+                if (gd < 650) {
+                  g.isVacuumed = true;
+                  particles.emit(g.x, g.y, '#ffe600', 2, 2, 2, 0.25);
+                  pulled++;
+                }
+              }
             }
           }
         }
 
         // 1. Siber Savunma Tareti (Deployable Sentry Turret)
         if (this.hasSentryTurret) {
-          this.sentryCooldown -= dt;
+          this.sentryCooldown -= dt * cdRate;
           if (this.sentryCooldown <= 0) {
             this.sentryCooldown = 22.0;
             this.deploySentryTurret();
@@ -12903,23 +13075,29 @@
         this.init(x, y, angle, damage, color, speed, isCrit, isEnemy, skipPool);
       }
       init(x, y, angle, damage, color, speed = 16, isCrit = false, isEnemy = false, skipPool = false) {
+        const pRef = (!isEnemy && typeof player !== 'undefined' && player) ? player : null;
+        const spdMult = (pRef && pRef.bulletSpeedMultiplier > 1.0) ? pRef.bulletSpeedMultiplier : 1.0;
+        const scaleMult = (pRef && pRef.bulletScaleModifier > 1.0) ? pRef.bulletScaleModifier : 1.0;
+        const finalSpeed = speed * spdMult;
         this.x = x;
         this.y = y;
         this.angle = angle;
-        this.vx = Math.cos(angle) * speed;
-        this.vy = Math.sin(angle) * speed;
+        this.vx = Math.cos(angle) * finalSpeed;
+        this.vy = Math.sin(angle) * finalSpeed;
         this.damage = damage;
         this.color = color;
-        this.radius = isCrit ? 5 : 3.5;
+        this.radius = (isCrit ? 5 : 3.5) * scaleMult;
         this.isCrit = isCrit;
         this.isEnemy = isEnemy;
-        this.life = 1.6;
+        this.life = 1.6 * scaleMult;
         this.pierce = 0;
         this.ricochet = 0;
         this.isCryo = false;
         this.isExplosive = false;
         this.isGlacier = false;
         this.isTempest = false;
+        this.isShrapnel = false;
+        this.isNanite = false;
         this.weaponType = 'blaster';
         this.knockbackPower = 3.2;
         this.hitSet = null;
@@ -12938,6 +13116,7 @@
             this.sprite.x = this.x;
             this.sprite.y = this.y;
             this.sprite.rotation = this.angle;
+            if (scaleMult > 1.0) this.sprite.scale.set(scaleMult);
             if (this.color) this.sprite.tint = hexToPixiColor(this.color);
             if (skipPool) this.sprite.visible = false;
             pixiBulletsContainer.addChild(this.sprite);
@@ -12945,23 +13124,29 @@
         }
       }
       reset(x, y, angle, damage, color, speed = 16, isCrit = false, isEnemy = false) {
+        const pRef = (!isEnemy && typeof player !== 'undefined' && player) ? player : null;
+        const spdMult = (pRef && pRef.bulletSpeedMultiplier > 1.0) ? pRef.bulletSpeedMultiplier : 1.0;
+        const scaleMult = (pRef && pRef.bulletScaleModifier > 1.0) ? pRef.bulletScaleModifier : 1.0;
+        const finalSpeed = speed * spdMult;
         this.x = x;
         this.y = y;
         this.angle = angle;
-        this.vx = Math.cos(angle) * speed;
-        this.vy = Math.sin(angle) * speed;
+        this.vx = Math.cos(angle) * finalSpeed;
+        this.vy = Math.sin(angle) * finalSpeed;
         this.damage = damage;
         this.color = color;
-        this.radius = isCrit ? 5 : 3.5;
+        this.radius = (isCrit ? 5 : 3.5) * scaleMult;
         this.isCrit = isCrit;
         this.isEnemy = isEnemy;
-        this.life = 1.6;
+        this.life = 1.6 * scaleMult;
         this.pierce = 0;
         this.ricochet = 0;
         this.isCryo = false;
         this.isExplosive = false;
         this.isGlacier = false;
         this.isTempest = false;
+        this.isShrapnel = false;
+        this.isNanite = false;
         this.weaponType = 'blaster';
         this.knockbackPower = 3.2;
         if (this.hitSet) this.hitSet.clear();
@@ -13752,7 +13937,8 @@
         const rail = this.weapons.railgun;
         if (this.activeWeaponId === 'railgun') {
           if (isFirePressed) {
-            rail.updateCharge(dt, true);
+            const chargeDt = dt / ((player && player.fireRateModifier && player.fireRateModifier < 1.0) ? player.fireRateModifier : 1.0);
+            rail.updateCharge(chargeDt, true);
           } else if (rail.charge > 0) {
             this.fire(player, { chargeLevel: rail.charge });
             rail.charge = 0;
@@ -13769,6 +13955,32 @@
       }
       fire(player, options = {}) {
         this.currentWeapon.fire(player, options);
+        // [PASİF 39] Static Discharge (Statik Deşarj) -> Her 10 atışta bir mini EMP dalgası
+        if (player && player.hasStaticDischarge) {
+          player.staticDischargeCounter = (player.staticDischargeCounter || 0) + 1;
+          if (player.staticDischargeCounter >= 10) {
+            player.staticDischargeCounter = 0;
+            if (typeof addShockwave === 'function') addShockwave(player.x, player.y, 0x38bdf8, 185, 0.35, 3.8);
+            particles.emit(player.x, player.y, '#38bdf8', 22, 5, 3, 0.45);
+            if (typeof textManager !== 'undefined') textManager.add('⚡ STATİK DEŞARJ!', player.x, player.y - 32, '#38bdf8', 15, 0.8);
+            if (typeof audio !== 'undefined' && audio && typeof audio.playZap === 'function') audio.playZap();
+            if (typeof enemies !== 'undefined' && enemies.length > 0) {
+              for (let si = enemies.length - 1; si >= 0; si--) {
+                const se = enemies[si];
+                if (!se || se.dead) continue;
+                const sd = Math.hypot(se.x - player.x, se.y - player.y);
+                if (sd <= 185) {
+                  se.freezeTimer = Math.max(se.freezeTimer || 0, 1.0 * (player.cryoDurationMultiplier || 1.0));
+                  se.isFrosted = Math.max(se.isFrosted || 0, 1.5);
+                  if (se.hit(player.bulletDamage * 1.15, false)) {
+                    se.dead = true;
+                    se.markedForRemoval = true;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
       syncHUD() {
         if (typeof document === 'undefined') return;
@@ -13905,8 +14117,30 @@
 
       update(dt) {
         if (this.dead) return;
+        // [PASİF 33] Double Bet (Çifte Bahis) -> Düşman canı +%20
+        if (!this._doubleBetChecked) {
+          this._doubleBetChecked = true;
+          if (typeof player !== 'undefined' && player && player.hasDoubleBet && this.maxHp > 0) {
+            this.maxHp = Math.round(this.maxHp * 1.20);
+            this.hp = Math.round(this.hp * 1.20);
+          }
+        }
         this.updatePhysics(dt);
         if (this.flash > 0) this.flash -= dt;
+        if (this.isFrosted > 0) this.isFrosted = Math.max(0, this.isFrosted - dt);
+        if (this.freezeTimer > 0) this.freezeTimer = Math.max(0, this.freezeTimer - dt);
+
+        // [PASİF 9] Burn Sigil (Yanma Mührü) -> Süreli Yanma Hasarı (DoT)
+        if (this.burnTimer > 0) {
+          this.burnTimer -= dt;
+          this.burnTickAcc = (this.burnTickAcc || 0) + dt;
+          if (this.burnTickAcc >= 0.25) {
+            const bDmg = (this.burnDps || 10) * this.burnTickAcc;
+            this.burnTickAcc = 0;
+            particles.emit(this.x, this.y, '#ff6a00', 2, 2, 2, 0.25);
+            if (this.hit(bDmg, false, 0, null, 'burn_dot')) return;
+          }
+        }
 
         // Seçkin Düşman Affix Yetenekleri (Dual-Affix Destekli)
         if (this.isElite) {
@@ -13964,8 +14198,9 @@
           this.z = Math.max(0, this.z - dt * 0.90);
         }
 
-        // Alt sınıf davranışı
-        this.behavior(dt);
+        // Alt sınıf davranışı (Donma ve Buz Yavaşlatması Desteği)
+        const moveDtMod = (this.freezeTimer > 0) ? 0.15 : ((this.isFrosted > 0) ? 0.60 : 1.0);
+        this.behavior(dt * moveDtMod);
 
         // Logic - Render Ayrımı: Sprite'ın x, y, rotation, Z-scale ve tint özelliklerini senkronize et
         const depthScale = Math.max(0.60, 1.0 + this.z * 0.40);
@@ -13987,7 +14222,7 @@
           if (this.flash > 0) {
             this.sprite.tint = 0xffffff;
             this.sprite.alpha = 1.0;
-          } else if (this.isFrosted > 0) {
+          } else if (this.freezeTimer > 0 || this.isFrosted > 0) {
             this.sprite.tint = 0x67e8f9;
             this.sprite.alpha = 1.0;
           } else {
@@ -14058,6 +14293,27 @@
 
       hit(damage, isCrit = false, knockbackImpulse = 0, shotAngle = null, weaponType = null) {
         if (this.dead) return true;
+        if (!this._doubleBetChecked) {
+          this._doubleBetChecked = true;
+          if (typeof player !== 'undefined' && player && player.hasDoubleBet && this.maxHp > 0) {
+            this.maxHp = Math.round(this.maxHp * 1.20);
+            this.hp = Math.round(this.hp * 1.20);
+          }
+        }
+
+        // [PASİF 32] Cyber Gambler (Siber Kumarbaz) -> %5 Iska, %10 3x Jackpot Hasar
+        if (typeof player !== 'undefined' && player && player.hasCyberGambler && weaponType !== 'burn_dot') {
+          const gRoll = Math.random();
+          if (gRoll < 0.05) {
+            textManager.add('🎲 ISKA!', this.x, this.y - 16, '#94a3b8', 13, 0.5);
+            return false;
+          } else if (gRoll < 0.15) {
+            damage *= 3.0;
+            isCrit = true;
+            textManager.add('🎰 JACKPOT 3x!', this.x, this.y - 26, '#ffe600', 17, 0.8);
+          }
+        }
+
         // Phase 2: Z darbe sıçraması (Impact lift)
         if (isCrit) {
           this.z = Math.min(0.22, this.z + 0.14);
@@ -14071,11 +14327,44 @@
           this.applyKnockback(kx, ky, knockbackImpulse);
         }
 
-        if ((this.type === 'boss' || this.isBoss || Boolean(this.bossType)) && this.invulnerableTimer > 0) {
+        const isBossCheck = (this.type === 'boss' || this.isBoss || Boolean(this.bossType));
+        if (isBossCheck && this.invulnerableTimer > 0) {
           if (Math.random() < 0.15) {
             textManager.add('BAĞIŞIK', this.x + (Math.random() * 40 - 20), this.y - this.radius, '#ffe600', 13, 0.5);
           }
           return false;
+        }
+
+        // [PASİF 42, 2, 3, 4, 6, 7, 9, 11, 31] Saldırı Pasif Çarpanları
+        if (typeof player !== 'undefined' && player && weaponType !== 'burn_dot') {
+          if (player.globalDamageMultiplier && player.globalDamageMultiplier > 1.0) {
+            damage *= player.globalDamageMultiplier;
+          }
+          if (player.killCounterBonus && player.killCounterBonus > 0) {
+            damage *= (1 + player.killCounterBonus);
+          }
+          if (player.hasOverheatBarrel && player.overheatTimer > 0) {
+            damage *= (1 + Math.min(0.45, (player.overheatTimer / 4.0) * 0.45));
+          }
+          if (player.hasBloodBond && (player.health / Math.max(1, player.maxHealth)) < 0.50) {
+            damage *= 1.50;
+          }
+          if (isCrit && player.critMultiplier && player.critMultiplier > 1.5) {
+            damage *= (player.critMultiplier / 1.5);
+          }
+          if ((this.type === 'heavy' || this.isElite || isBossCheck || this.aegisShield > 0) && player.antiArmorMultiplier && player.antiArmorMultiplier > 1.0) {
+            damage *= player.antiArmorMultiplier;
+          }
+          if ((this.aegisShield > 0 || this.isShieldLinked || this.shieldedByGenerator || this.isElite) && player.shieldBreakerMultiplier && player.shieldBreakerMultiplier > 1.0) {
+            damage *= player.shieldBreakerMultiplier;
+          }
+          if ((this.isFrosted > 0 || this.freezeTimer > 0) && player.cryoDamageMultiplier && player.cryoDamageMultiplier > 1.0) {
+            damage *= player.cryoDamageMultiplier;
+          }
+          if (player.burnDamageMultiplier && player.burnDamageMultiplier > 1.0) {
+            this.burnTimer = 2.5;
+            this.burnDps = (player.bulletDamage || 20) * 0.25 * player.burnDamageMultiplier;
+          }
         }
 
         // Shield Linker Kalkan Ağı: %70 hasar indirimi
@@ -14114,7 +14403,6 @@
 
         // [FAZ 3] Boss Zırh: Faz 1'de Taretler ayaktayken gövde zırhı %35 hasar saptırır
         const enemyList = (typeof window !== 'undefined' && Array.isArray(window.enemies)) ? window.enemies : (typeof enemies !== 'undefined' ? enemies : []);
-        const isBossCheck = (this.type === 'boss' || this.isBoss || Boolean(this.bossType));
         if (isBossCheck && this.phase === 1 && enemyList) {
           const hasActiveTurrets = enemyList.some(e => e && !e.dead && e.type === 'boss_turret');
           if (hasActiveTurrets) {
@@ -14257,6 +14545,47 @@
         this.dead = true;
         try {
           kills++;
+          // [PASİF 2] Kill Counter (Av Sayacı) -> Her 20 imhada kalıcı hasar bonusu
+          if (window.inventoryManager) {
+            window.inventoryManager.killCountForPassive = (window.inventoryManager.killCountForPassive || 0) + 1;
+            if (window.inventoryManager.killCountForPassive % 20 === 0) {
+              window.inventoryManager.applyPassiveModifiers();
+              if (player && player.killCounterBonus > 0) {
+                textManager.add(`🎯 AV SAYACI: +%${Math.round(player.killCounterBonus * 100)} HASAR!`, player.x, player.y - 32, '#ef4444', 14, 0.9);
+              }
+            }
+          }
+          // [PASİF 26] Scrap Converter (Hurda Dönüştürücü) -> Her 50 imhada +15 Hurda
+          if (player && player.hasScrapConverter) {
+            player.scrapConverterKills = (player.scrapConverterKills || 0) + 1;
+            if (player.scrapConverterKills >= 50) {
+              player.scrapConverterKills = 0;
+              scraps.push(new ScrapPickup(this.x, this.y, 15));
+              textManager.add('🔩 HURDA DÖNÜŞTÜRÜCÜ: +15 HURDA!', this.x, this.y - 28, '#ffe600', 15, 1.1);
+            }
+          }
+          // [PASİF 12] Hack Carrier (Siber Virüs Taşıyıcı) -> Ölen düşmandan yakındaki 2 düşmana siber virüs sıçrar
+          if (player && player.hasHackCarrier && typeof enemies !== 'undefined' && enemies.length > 0) {
+            let infected = 0;
+            for (let hi = enemies.length - 1; hi >= 0 && infected < 2; hi--) {
+              const he = enemies[hi];
+              if (!he || he.dead || he === this) continue;
+              const hd = Math.hypot(he.x - this.x, he.y - this.y);
+              if (hd <= 165) {
+                infected++;
+                he.isFrosted = Math.max(he.isFrosted || 0, 2.5);
+                particles.emit(he.x, he.y, '#00ff66', 8, 3, 2, 0.35);
+                if (typeof lightningArcs !== 'undefined' && typeof makeLightningArc === 'function') {
+                  lightningArcs.push(makeLightningArc(this.x, this.y, he.x, he.y));
+                }
+                if (he.hit((player.bulletDamage || 20) * 0.65, false, 0, null, 'abilities')) {
+                  he.dead = true;
+                  he.markedForRemoval = true;
+                }
+              }
+            }
+          }
+
           const isBossUnit = Boolean(this.type === 'boss' || this.isBoss || this.bossType);
           if (isBossUnit) {
             runStats.bossKills = (runStats.bossKills || 0) + 1;
@@ -14375,20 +14704,24 @@
             }
           }
 
+          // [PASİF 27 & 35] Explorer Eye + Focus Lens -> Emanet düşme şansı artışı
+          const dropBoost = 1.0 + ((player && player.dropRateBonus) ? player.dropRateBonus : 0) + ((player && player.luckBonus) ? player.luckBonus * 0.005 : 0);
           const unownedRelics = RELICS_POOL.filter(r => !player.relics.some(pr => pr.id === r.id));
           if (unownedRelics.length > 0) {
-            const dropChance = isBossUnit ? 1.0 : (this.isElite ? 0.16 : 0.0);
+            const dropChance = isBossUnit ? 1.0 : (this.isElite ? 0.16 * dropBoost : 0.0);
             if (dropChance > 0 && gameRng() < dropChance) {
               const chosen = unownedRelics[Math.floor(gameRng() * unownedRelics.length)];
               relicPickups.push(new RelicPickup(this.x, this.y, chosen));
             }
           }
 
-          // Siber Sandık Düşüşü: YALNIZCA Mini-Boss (3 ödül) ve Ana Boss (5 ödül)
+          // Siber Sandık Düşüşü: Mini-Boss / Ana Boss veya Explorer Eye ile Elit düşmandan nadir sandık şansı
           if (window.ChestSystem && typeof window.ChestSystem.spawnChest === 'function') {
             if (isBossUnit) {
               const bTier = (typeof wave !== 'undefined' && wave >= 10) ? 'boss' : 'miniboss';
               window.ChestSystem.spawnChest(this.x, this.y, bTier);
+            } else if (this.isElite && player && player.dropRateBonus > 0 && gameRng() < player.dropRateBonus * 0.25) {
+              window.ChestSystem.spawnChest(this.x, this.y, 'elite');
             }
           }
 
@@ -14427,6 +14760,13 @@
 
             wave++;
             if (typeof window !== 'undefined') window.wave = wave;
+
+            // [PASİF 29] XP Interest (XP Faizi) -> Dalga/Boss sonunda mevcut XP üzerinden +%10 faiz
+            if (player && player.hasXpInterest) {
+              const interestXp = Math.max(15, Math.round((player.xp || 0) * 0.10 + (player.nextLevelXp || 100) * 0.10));
+              player.gainXp(interestXp);
+              textManager.add(`📈 XP FAİZİ: +${interestXp} XP!`, player.x, player.y - 36, '#10b981', 16, 1.5);
+            }
 
             if (meta.levels && meta.levels.wave_repair > 0) {
               const heal = meta.levels.wave_repair * 10;
@@ -15255,6 +15595,13 @@
         }
 
         if (wave !== this.lastAnnouncedWave) {
+          if (this.lastAnnouncedWave >= 1 && typeof player !== 'undefined' && player && player.hasScrapShop) {
+            player.health = Math.min(player.maxHealth, player.health + 10);
+            particles.emit(player.x, player.y, '#22c55e', 14, 3.5, 2.5, 0.45);
+            if (typeof textManager !== 'undefined') {
+              textManager.add('🔧 HURDACI: +10 HP', player.x, player.y - 30, '#22c55e', 14, 1.1);
+            }
+          }
           this.lastAnnouncedWave = wave;
           this.announceWave(wave);
           // [FAZ 4] Bölüm 11.2: İsimli İntikam Düşmanı Doğumu
@@ -15609,11 +15956,14 @@
     // Ölen düşmandan hurda düşürür; değer dalga sayısıyla birlikte artar
     function dropScrap(enemy) {
       const t = SCRAP_DROP_TABLE[enemy.type];
-      if (!t || gameRng() > t.chance) return;
+      if (!t) return;
+      const dropChanceMod = (typeof player !== 'undefined' && player && player.scrapDropBonus > 0) ? player.scrapDropBonus : 1.0;
+      if (gameRng() > Math.min(1.0, t.chance * dropChanceMod)) return;
       const heatMult = (window.ZortexGameModes && typeof window.ZortexGameModes.getScrapMultiplier === 'function')
         ? window.ZortexGameModes.getScrapMultiplier()
         : 1.0;
-      const value = Math.max(1, Math.round(t.base * (1 + (wave - 1) * 0.5) * heatMult));
+      const scrapValMod = (typeof player !== 'undefined' && player && player.scrapBonus > 0) ? player.scrapBonus : 1.0;
+      const value = Math.max(1, Math.round(t.base * (1 + (wave - 1) * 0.5) * heatMult * scrapValMod));
       for (let i = 0; i < t.count; i++) {
         if (scraps.length >= 45) {
           if (scraps[0]) {
@@ -16031,7 +16381,9 @@
       let prev1 = source;
       let prev2 = null;
       let hitCount = 1;
-      for (let jump = 0; jump < 2; jump++) {
+      const maxJumps = 2 + ((typeof player !== 'undefined' && player) ? ((player.chainJumpBonus || 0) + (player.tempestChainBonus || 0)) : 0);
+      const chainDmg = damage * ((typeof player !== 'undefined' && player && player.tempestDamageMultiplier > 0) ? player.tempestDamageMultiplier : 1.0);
+      for (let jump = 0; jump < maxJumps; jump++) {
         let target = null;
         let best = 160 * 160;
         spatialGrid.queryNearInto(from.x, from.y, 160, chainCandidates);
@@ -16067,7 +16419,7 @@
           }
         }
 
-        if (target.hit(damage, false)) {
+        if (target.hit(chainDmg, false)) {
           if (window.ZortexFusions && typeof window.ZortexFusions.onEnemyKilled === 'function') {
             window.ZortexFusions.onEnemyKilled(target);
           }
@@ -16118,8 +16470,9 @@
         this.isPlayerInside = dist < this.radius;
 
         if (this.isPlayerInside) {
-          // YENİ: Spectre sınıfı hack bölgelerini %50 daha hızlı ele geçirir
-          const rateMod = (player.shipClassId === 'spectre') ? 1.5 : 1.0;
+          // YENİ: Spectre sınıfı hack bölgelerini %50 daha hızlı ele geçirir + hack_antenna pasifi
+          const hackMod = (player && player.hackSpeedModifier > 0) ? player.hackSpeedModifier : 1.0;
+          const rateMod = ((player.shipClassId === 'spectre') ? 1.5 : 1.0) / Math.max(0.25, hackMod);
           this.progress += (dt / this.duration) * rateMod;
           // Yeşil veri akışı parçacıkları
           if (Math.random() < 0.4) {
@@ -16618,7 +16971,7 @@
       // ekranı sayı yağmuruna boğmamak için ~0.25 sn'lik paketler halinde uygulanır.
       // Üst üste binen segmentler hasarı katlamaz (düşman başına kare başı tek kontrol).
       if (flameTrails.length > 0) {
-        const dps = player.bulletDamage * 0.5;
+        const dps = player.bulletDamage * 0.5 * (player.burnDamageMultiplier || 1.0);
         const tickDamage = dps * 0.25;
         for (let i = enemies.length - 1; i >= 0; i--) {
           const e = enemies[i];
@@ -17444,10 +17797,14 @@
                   b.hitSet.add(e);
                 }
 
-                // Cryo / Glacier Yavaşlatma
-                if (b.isCryo || b.isGlacier || player.hasAbsoluteZero) {
+                // Cryo / Glacier Yavaşlatma (+ cryo_heart pasifi)
+                if (b.isCryo || b.isGlacier || player.hasAbsoluteZero || (player.cryoDurationMultiplier && player.cryoDurationMultiplier > 1.0)) {
+                  const cryoMult = (player && player.cryoDurationMultiplier > 1.0) ? player.cryoDurationMultiplier : 1.0;
                   e.speed = Math.max(0.4, e.speed * (player.hasAbsoluteZero ? 0.25 : (b.isGlacier ? 0.35 : 0.65)));
-                  if (player.hasAbsoluteZero) e.freezeTimer = Math.max(e.freezeTimer || 0, 1.8);
+                  e.isFrosted = Math.max(e.isFrosted || 0, 2.2 * cryoMult);
+                  if (player.hasAbsoluteZero || cryoMult > 1.25) {
+                    e.freezeTimer = Math.max(e.freezeTimer || 0, (player.hasAbsoluteZero ? 1.8 : 0.85) * cryoMult);
+                  }
                   particles.emit(e.x, e.y, '#7df9ff', 8, 2.5, 2);
                 }
 
@@ -17504,6 +17861,19 @@
                   if (typeof triggerSuperconductorShrapnel === 'function') {
                     triggerSuperconductorShrapnel(b.x, b.y, b.angle, b.damage * 0.40);
                   }
+                }
+
+                // [PASSIVE: shrapnel_shell] Parçacık Kovanı: İsabet noktasında 3 mini şarapnel saçar
+                if (player && player.hasShrapnel && !b.isShrapnel && !b.isNanite) {
+                  for (let shi = -1; shi <= 1; shi++) {
+                    const shAng = b.angle + shi * 0.42 + (Math.random() * 0.14 - 0.07);
+                    const shrap = new Bullet(b.x, b.y, shAng, b.damage * 0.30, '#f59e0b', 15, false);
+                    shrap.isShrapnel = true;
+                    shrap.life = 0.38;
+                    shrap.radius = 3.2;
+                    bullets.push(shrap);
+                  }
+                  particles.emit(b.x, b.y, '#f59e0b', 5, 3, 2, 0.2);
                 }
 
                 // [SKILL] Nanit Kovanı: Düşmana çarpan otonom nanit gövdeyi +2 HP onarır
@@ -17615,7 +17985,37 @@
             const pdx = player.x - b.x;
             const pdy = player.y - b.y;
             const pR = player.radius + b.radius;
-            if (pdx * pdx + pdy * pdy < pR * pR) {
+            const distSq = pdx * pdx + pdy * pdy;
+
+            // [PASSIVE: cyber_instinct] Siber İçgüdü: Mermi çok yakından teğet geçtiğinde zamanı yavaşlatır
+            if (player.hasCyberInstinct && !b._instinctTriggered && (player.cyberInstinctCd || 0) <= 0) {
+              const nearR = pR + 28;
+              if (distSq < nearR * nearR && distSq >= pR * pR) {
+                b._instinctTriggered = true;
+                player.cyberInstinctCd = 4.0;
+                if (typeof triggerBulletTime === 'function') triggerBulletTime(0.45, 0.28);
+                particles.emit(player.x, player.y, '#38bdf8', 10, 3, 2, 0.3);
+                if (typeof textManager !== 'undefined') {
+                  textManager.add('👁️ SİBER İÇGÜDÜ!', player.x, player.y - 30, '#38bdf8', 14, 0.75);
+                }
+              }
+            }
+
+            if (distSq < pR * pR) {
+              // [PASSIVE: reflect_plate] Yansıtıcı Plaka: Kalkan varken mermiyi %25 şansla geri yansıtır
+              if (player.shield > 0 && player.reflectChance > 0 && Math.random() < player.reflectChance) {
+                const refAngle = Math.atan2(-b.vy, -b.vx);
+                const refBullet = new Bullet(b.x, b.y, refAngle, (b.damage || 15) * 2.5, '#00f3ff', 18, true);
+                bullets.push(refBullet);
+                particles.emit(b.x, b.y, '#00f3ff', 10, 4, 2.5, 0.3);
+                if (audio && audio.ctx) audio.playZap();
+                if (typeof textManager !== 'undefined') {
+                  textManager.add('🛡️ YANSITILDI!', player.x, player.y - 26, '#00f3ff', 13, 0.65);
+                }
+                if (b.destroy) b.destroy();
+                swapAndPop(enemyBullets, i);
+                continue;
+              }
               player.takeDamage(b.damage, (b.sourceEnemy || b.weaponType || 'DÜŞMAN MERMİSİ').toUpperCase());
               if (b.destroy) b.destroy();
               swapAndPop(enemyBullets, i);
