@@ -41,7 +41,14 @@ def build_web_zip(zip_path):
                 zf.write(target, item)
             elif os.path.isdir(target):
                 for root, _, files in os.walk(target):
+                    # Skip internal node/npm build packages inside vendor
+                    parts = root.split(os.sep)
+                    if "package" in parts:
+                        continue
                     for file in files:
+                        ext = os.path.splitext(file)[1].lower()
+                        if ext in {".map", ".url", ".unitypackage", ".ini", ".txt"}:
+                            continue
                         full_path = os.path.join(root, file)
                         rel_path = os.path.relpath(full_path, ROOT_DIR)
                         zf.write(full_path, rel_path)
