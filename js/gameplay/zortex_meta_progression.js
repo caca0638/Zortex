@@ -349,9 +349,10 @@
       branch: 'offense',
       tier: 1,
       name: 'Akım Hızlandırıcı',
+      code: 'OFF-01',
       cost: 150,
-      icon: '⚡',
       color: '#ef4444',
+      summary: '+%12 Mermi Hızı, +%6 Silah Hasarı',
       desc: '+%12 Mermi Hızı ve +%6 Temel Silah Hasarı.',
       apply: (p) => { p.bulletSpeedMultiplier = (p.bulletSpeedMultiplier || 1.0) * 1.12; p.damageMultiplier = (p.damageMultiplier || 1.0) * 1.06; }
     },
@@ -360,9 +361,10 @@
       branch: 'offense',
       tier: 1,
       name: 'Siber Tetikleyici',
+      code: 'OFF-02',
       cost: 150,
-      icon: '🎯',
       color: '#ef4444',
+      summary: '+%10 Atış Hızı',
       desc: '+%10 Genel Atış Hızı.',
       apply: (p) => { p.fireRateMultiplier = (p.fireRateMultiplier || 1.0) * 0.90; }
     },
@@ -371,9 +373,10 @@
       branch: 'offense',
       tier: 2,
       name: 'Kritik Odaklayıcı',
+      code: 'OFF-03',
       cost: 300,
-      icon: '👁️',
       color: '#f87171',
+      summary: '+%12 Kritik Şans, +%25 Kritik Hasar',
       desc: '+%12 Kritik Vuruş Şansı ve +%25 Kritik Hasar Çarpanı.',
       apply: (p) => { p.critChance = (p.critChance || 0.05) + 0.12; p.critDamage = (p.critDamage || 1.5) + 0.25; }
     },
@@ -382,9 +385,10 @@
       branch: 'offense',
       tier: 2,
       name: 'Zırh Delici Çekirdek',
+      code: 'OFF-04',
       cost: 300,
-      icon: '🗡️',
       color: '#f87171',
+      summary: '+1 Mermi Delme & Zırh Parçalama',
       desc: '+1 Mermi Delip Geçme (Pierce) ve zırhlı düşmanlara +%15 Hasar.',
       apply: (p) => { p.pierceCount = (p.pierceCount || 0) + 1; p.armorShred = true; }
     },
@@ -393,9 +397,10 @@
       branch: 'offense',
       tier: 3,
       name: 'Elementel Rezonans',
+      code: 'OFF-05',
       cost: 600,
-      icon: '🔮',
       color: '#dc2626',
+      summary: '+%35 Elementel Hasar/Süre',
       desc: 'Alev, Buz ve Şok durum efektlerinin süresi ve hasarı +%35 artar.',
       apply: (p) => { p.elementalBonus = 1.35; }
     },
@@ -404,9 +409,10 @@
       branch: 'offense',
       tier: 3,
       name: 'Momentum Reaktörü',
+      code: 'OFF-06',
       cost: 600,
-      icon: '🚀',
       color: '#dc2626',
+      summary: '+%20\'ye Varan Hız-Hasar Bonusu',
       desc: 'Gemi hareket halindeyken hızına oranla +%20\'ye varan Hasar Bonusu.',
       apply: (p) => { p.hasMomentumBuff = true; }
     },
@@ -415,9 +421,10 @@
       branch: 'offense',
       tier: 4,
       name: 'İnfazcı Matrisi',
+      code: 'OFF-07',
       cost: 1200,
-      icon: '☠️',
       color: '#b91c1c',
+      summary: 'Düşük Can (<%30) 2X İnfaz Hasarı',
       desc: 'Canı %30\'un altına inmiş tüm düşmanlara 2X HASAR verir.',
       apply: (p) => { p.hasExecuteBonus = true; }
     },
@@ -426,9 +433,10 @@
       branch: 'offense',
       tier: 4,
       name: 'Aşırı Voltaj İğnesi',
+      code: 'OFF-08',
       cost: 1200,
-      icon: '⚡',
       color: '#b91c1c',
+      summary: 'Kritik Vuruşlarda Alan Şoku',
       desc: 'Kritik vuruşlar hedefin etrafındaki 90px alana şok patlaması saçar.',
       apply: (p) => { p.hasCritOvervolt = true; }
     },
@@ -439,9 +447,10 @@
       branch: 'defense',
       tier: 1,
       name: 'Nano Kompozit Zırh',
+      code: 'DEF-01',
       cost: 150,
-      icon: '🛡️',
       color: '#38bdf8',
+      summary: '+20 Kalkan, -1 Hasar Direnci',
       desc: '+20 Maksimum Kalkan ve alınan tüm hasarları 1 puan azaltır.',
       apply: (p) => { p.maxShield = (p.maxShield || 50) + 20; p.shield = p.maxShield; p.flatDamageReduction = (p.flatDamageReduction || 0) + 1; }
     },
@@ -450,9 +459,10 @@
       branch: 'defense',
       tier: 1,
       name: 'Biyo-Hücresel Doku',
+      code: 'DEF-02',
       cost: 150,
-      icon: '❤️',
       color: '#38bdf8',
+      summary: '+25 Can Kapasitesi',
       desc: '+25 Maksimum Can Kapasitesi.',
       apply: (p) => { p.maxHealth = (p.maxHealth || 100) + 25; p.health = Math.min(p.maxHealth, p.health + 25); }
     },
@@ -461,9 +471,10 @@
       branch: 'defense',
       tier: 2,
       name: 'İtici Soğutucu',
+      code: 'DEF-03',
       cost: 300,
-      icon: '💨',
       color: '#60a5fa',
+      summary: '-%20 Dash Bekleme Süresi',
       desc: 'Dash (Siber Kaçış) bekleme süresi %20 daha hızlı dolar.',
       apply: (p) => { p.dashCooldownMultiplier = (p.dashCooldownMultiplier || 1.0) * 0.80; }
     },
@@ -472,9 +483,10 @@
       branch: 'defense',
       tier: 2,
       name: 'Acil Durum İticisi',
+      code: 'DEF-04',
       cost: 300,
-      icon: '⚡',
       color: '#60a5fa',
+      summary: 'Darbe Alınca +%50 Hız Patlaması',
       desc: 'Hasar alındığında 1.5 saniye boyunca +%50 Hareket Hızı artışı kazanılır.',
       apply: (p) => { p.hasEmergencyThruster = true; }
     },
@@ -483,9 +495,10 @@
       branch: 'defense',
       tier: 3,
       name: 'Kuantum Manyetik Halka',
+      code: 'DEF-05',
       cost: 600,
-      icon: '🧲',
       color: '#0284c7',
+      summary: '+%45 Manyetik Çekim Menzili',
       desc: 'Hurda ve XP kristalleri çekim yarıçapı +%45 daha genişler.',
       apply: (p) => { p.pickupRadiusMultiplier = (p.pickupRadiusMultiplier || 1.0) * 1.45; }
     },
@@ -494,9 +507,10 @@
       branch: 'defense',
       tier: 3,
       name: 'Geri Dönüşüm İşlemcisi',
+      code: 'DEF-06',
       cost: 600,
-      icon: '♻️',
       color: '#0284c7',
+      summary: '+%25 Dalga Sonu Hurda Bonusu',
       desc: 'Her dalga başarıyla tamamlandığında +%25 Ekstra Hurda bonusu kazandırır.',
       apply: (p) => { p.waveBonusScrapMultiplier = (p.waveBonusScrapMultiplier || 1.0) * 1.25; }
     },
@@ -505,9 +519,10 @@
       branch: 'defense',
       tier: 4,
       name: 'Kuantum Can Yeleği',
+      code: 'DEF-07',
       cost: 1200,
-      icon: '👼',
       color: '#1d4ed8',
+      summary: 'Ölümcül Darbede Can Kurtarma (1 Hak)',
       desc: 'Ölümcül darbe alındığında ölmek yerine 2.5 sn hasar almazlık ve %25 Can yeniler (Koşu başına 1 hak).',
       apply: (p) => { p.hasQuantumLifevest = true; p.lifevestUsed = false; }
     },
@@ -516,9 +531,10 @@
       branch: 'defense',
       tier: 4,
       name: 'Aegis EMP Boşalımı',
+      code: 'DEF-08',
       cost: 1200,
-      icon: '🛡️',
       color: '#1d4ed8',
+      summary: 'Kalkan Kırılınca EMP Şok Dalgası',
       desc: 'Kalkan kırıldığı anda ekrandaki tüm düşman mermilerini anında siler ve düşmanları 1.5 sn sersemletir.',
       apply: (p) => { p.hasAegisEmp = true; }
     }
@@ -1053,25 +1069,144 @@
       }
 
       /* === NÖRAL YONGA MATRİSİ ÖZEL DÜZENİ === */
-      .rso-chips-container {
+      .rso-chips-wrapper {
         display: flex;
-        gap: 24px;
+        flex-direction: column;
+        gap: 14px;
         width: 100%;
         height: 100%;
+        overflow: hidden;
+      }
+      /* Üst Soket Yuvaları Bölmesi */
+      .rso-sockets-hub {
+        background: rgba(10, 16, 32, 0.75);
+        border: 1px solid rgba(0, 243, 255, 0.25);
+        border-radius: 12px;
+        padding: 12px 16px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+      .rso-hub-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 6px;
+      }
+      .rso-hub-title {
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        color: #00f3ff;
+        text-transform: uppercase;
+      }
+      .rso-hub-counter {
+        font-size: 12px;
+        color: #94a3b8;
+        font-weight: 700;
+      }
+      .rso-hub-counter b {
+        color: #ffe600;
+      }
+      .rso-sockets-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 8px;
+      }
+      .rso-socket-slot {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px dashed rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        padding: 8px 6px;
+        text-align: center;
+        transition: all 0.2s ease;
+        position: relative;
+        cursor: pointer;
+      }
+      .rso-socket-slot:hover {
+        background: rgba(30, 41, 59, 0.85);
+        border-color: rgba(255, 255, 255, 0.35);
+      }
+      .rso-socket-slot.filled-offense {
+        border: 1px solid #ef4444;
+        background: rgba(239, 68, 68, 0.15);
+        box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
+      }
+      .rso-socket-slot.filled-defense {
+        border: 1px solid #00f3ff;
+        background: rgba(0, 243, 255, 0.15);
+        box-shadow: 0 0 12px rgba(0, 243, 255, 0.25);
+      }
+      .rso-slot-tier {
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        color: #94a3b8;
+        margin-bottom: 2px;
+      }
+      .rso-socket-slot.filled-offense .rso-slot-tier { color: #f87171; }
+      .rso-socket-slot.filled-defense .rso-slot-tier { color: #38bdf8; }
+      .rso-slot-name {
+        font-size: 11px;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #fff;
+      }
+      .rso-slot-empty {
+        font-size: 10px;
+        color: #64748b;
+        font-style: italic;
+      }
+      .rso-hub-stats-summary {
+        margin-top: 8px;
+        font-size: 11px;
+        color: #cbd5e1;
+        line-height: 1.4;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .rso-stat-chip-pill {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        color: #e2e8f0;
+      }
+      .rso-stat-chip-pill.off { border-color: rgba(239, 68, 68, 0.4); color: #fca5a5; }
+      .rso-stat-chip-pill.def { border-color: rgba(56, 189, 248, 0.4); color: #7dd3fc; }
+
+      /* Alt Ana Sütunlar (Taarruz & Savunma) */
+      .rso-chips-columns {
+        display: flex;
+        gap: 18px;
+        width: 100%;
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 4px;
       }
       .rso-chip-col {
         flex: 1;
-        background: rgba(8, 14, 30, 0.65);
+        background: rgba(10, 16, 32, 0.65);
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 12px;
-        padding: 18px;
+        padding: 16px;
         display: flex;
         flex-direction: column;
         gap: 12px;
-        overflow-y: auto;
+      }
+      .rso-col-offense {
+        border-left: 4px solid #ef4444;
+      }
+      .rso-col-defense {
+        border-left: 4px solid #00f3ff;
       }
       .rso-chip-col-header {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 900;
         letter-spacing: 1.5px;
         padding-bottom: 8px;
@@ -1079,38 +1214,90 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        text-transform: uppercase;
       }
-      .rso-col-offense { border-color: rgba(239, 68, 68, 0.35); }
-      .rso-col-defense { border-color: rgba(56, 189, 248, 0.35); }
       .rso-chip-tier-box {
         background: rgba(0, 0, 0, 0.35);
-        border: 1px dashed rgba(255, 255, 255, 0.15);
-        border-radius: 8px;
-        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 12px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
       }
       .rso-tier-label {
         font-size: 11px;
         font-weight: 800;
-        color: #94a3b8;
         letter-spacing: 1px;
+        color: #94a3b8;
+        display: flex;
+        justify-content: space-between;
+      }
+      .rso-tier-label-status {
+        color: #00f3ff;
+      }
+      .rso-chip-options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
       }
       .rso-chip-item {
         background: rgba(15, 23, 42, 0.7);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 6px;
-        padding: 10px;
-        cursor: pointer;
-        transition: all 0.18s ease;
+        border-radius: 8px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 8px;
+        transition: all 0.2s ease;
       }
       .rso-chip-item:hover {
-        background: rgba(30, 41, 59, 0.9);
+        background: rgba(30, 41, 59, 0.85);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
       }
       .rso-chip-item.equipped {
         border-color: #00f3ff;
-        background: rgba(0, 243, 255, 0.1);
+        background: rgba(0, 243, 255, 0.08);
+        box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+      }
+      .rso-chip-badge {
+        font-size: 10px;
+        font-weight: 900;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #94a3b8;
+        margin-right: 6px;
+      }
+      .rso-chip-title-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .rso-chip-name {
+        font-size: 13px;
+        font-weight: 800;
+        color: #f1f5f9;
+        line-height: 1.3;
+      }
+      .rso-chip-desc {
+        font-size: 12px;
+        color: #cbd5e1;
+        line-height: 1.45;
+        flex: 1;
+      }
+      .rso-chip-action-btn {
+        width: 100%;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.8px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.18s ease;
       }
     `;
     document.head.appendChild(style);
@@ -1120,9 +1307,9 @@
   // 6. MODAL DOM OLUŞTURMA & ENTEGRASYON
   // ============================================================================
   function createRunSetupOverlay() {
+    injectStyles();
     let overlay = document.getElementById('runSetupOverlay');
     if (!overlay) {
-      injectStyles();
       overlay = document.createElement('div');
       overlay.id = 'runSetupOverlay';
       overlay.className = 'hidden';
@@ -1130,7 +1317,7 @@
         <!-- Üst Başlık & Sekmeler -->
         <div class="rso-header">
           <div class="rso-title-group">
-            <div class="rso-title">🚀 SEFER HAZIRLIĞI</div>
+            <div class="rso-title">SEFER HAZIRLIĞI</div>
             <div class="rso-scrap-badge">
               <span>🔩</span>
               <span id="runSetupScrapValue">0</span> HURDA
@@ -1138,9 +1325,9 @@
           </div>
 
           <div class="rso-tabs">
-            <button class="rso-tab-btn active" data-tab="ships">🛸 1. GEMİ SEÇİMİ</button>
-            <button class="rso-tab-btn" data-tab="weapons">🔫 2. BAŞLANGIÇ SİLAHI</button>
-            <button class="rso-tab-btn" data-tab="chips">🧬 3. NÖRAL YONGA MATRİSİ</button>
+            <button class="rso-tab-btn active" data-tab="ships">1. GEMİ SEÇİMİ</button>
+            <button class="rso-tab-btn" data-tab="weapons">2. BAŞLANGIÇ SİLAHI</button>
+            <button class="rso-tab-btn" data-tab="chips">3. NÖRAL YONGA MATRİSİ</button>
           </div>
         </div>
 
@@ -1159,7 +1346,7 @@
             <div class="rso-pill">Yongalar: <span id="rsoSumChips">0/8</span></div>
           </div>
 
-          <button class="rso-btn-launch" id="runSetupLaunchBtn">🚀 SEFERİ BAŞLAT</button>
+          <button class="rso-btn-launch" id="runSetupLaunchBtn">SEFERİ BAŞLAT</button>
         </div>
       `;
       document.body.appendChild(overlay);
@@ -1233,7 +1420,7 @@
         navBtn.onclick = () => switchTab('weapons');
       }
       if (launchBtn) {
-        launchBtn.textContent = '🚀 HEMEN BAŞLAT [ENTER]';
+        launchBtn.textContent = 'HEMEN BAŞLAT [ENTER]';
         launchBtn.style.fontSize = '12px';
         launchBtn.style.padding = '8px 14px';
         launchBtn.style.opacity = '0.85';
@@ -1253,7 +1440,7 @@
         navBtn.onclick = () => switchTab('chips');
       }
       if (launchBtn) {
-        launchBtn.textContent = '🚀 SEFERİ BAŞLAT [ENTER]';
+        launchBtn.textContent = 'SEFERİ BAŞLAT [ENTER]';
         launchBtn.style.fontSize = '14px';
         launchBtn.style.padding = '10px 20px';
         launchBtn.style.opacity = '1.0';
@@ -1267,7 +1454,7 @@
         navBtn.style.display = 'none';
       }
       if (launchBtn) {
-        launchBtn.textContent = '🚀 SEFERİ BAŞLAT (ENTER)';
+        launchBtn.textContent = 'SEFERİ BAŞLAT (ENTER)';
         launchBtn.style.fontSize = '16px';
         launchBtn.style.padding = '12px 28px';
         launchBtn.style.background = 'linear-gradient(135deg, #00f3ff, #ff00ea)';
@@ -1589,38 +1776,118 @@
   function renderChipsTab(container) {
     const scrap = getScrap();
 
+    // Aktif Takılı Yongaları Topla
+    const activeChips = [];
+    ['offense', 'defense'].forEach(branchKey => {
+      for (let t = 1; t <= 4; t++) {
+        const equippedId = state.equippedChips[branchKey][t];
+        if (equippedId && CHIPS_CATALOG[equippedId]) {
+          activeChips.push(CHIPS_CATALOG[equippedId]);
+        }
+      }
+    });
+
+    // 1. ÜST SOKET BÖLMESİ (SOCKET BAY) & STAT HUB
+    function renderSocketsHub() {
+      const branches = [
+        { key: 'offense', label: 'TAARRUZ', colorClass: 'filled-offense', textCol: '#f87171' },
+        { key: 'defense', label: 'SAVUNMA', colorClass: 'filled-defense', textCol: '#38bdf8' }
+      ];
+
+      let slotsHtml = '';
+      branches.forEach(b => {
+        for (let t = 1; t <= 4; t++) {
+          const eqId = state.equippedChips[b.key][t];
+          const chip = eqId ? CHIPS_CATALOG[eqId] : null;
+          if (chip) {
+            slotsHtml += `
+              <div class="rso-socket-slot ${b.colorClass} rso-socket-interactive" data-action="unequip" data-chip="${chip.id}" title="Soketten Çıkarmak İçin Tıkla">
+                <div class="rso-slot-tier">${b.label} T${t}</div>
+                <div class="rso-slot-name">${chip.name}</div>
+              </div>
+            `;
+          } else {
+            slotsHtml += `
+              <div class="rso-socket-slot">
+                <div class="rso-slot-tier">${b.label} T${t}</div>
+                <div class="rso-slot-empty">[BOŞ SOKET]</div>
+              </div>
+            `;
+          }
+        }
+      });
+
+      // Kümülatif Stat Özeti
+      let statsSummaryHtml = '';
+      if (activeChips.length > 0) {
+        statsSummaryHtml = activeChips.map(c => {
+          const pillClass = c.branch === 'offense' ? 'off' : 'def';
+          return `<span class="rso-stat-chip-pill ${pillClass}"><b>[${c.code || ('T' + c.tier)}]</b> ${c.summary || c.desc}</span>`;
+        }).join('');
+      } else {
+        statsSummaryHtml = '<span style="color: #64748b; font-style: italic;">Matriste aktif yonga yok. Aşağıdaki kademelerden yonga takarak geminizi güçlendirin.</span>';
+      }
+
+      return `
+        <div class="rso-sockets-hub">
+          <div class="rso-hub-header">
+            <span class="rso-hub-title">AKTİF NÖRAL SOKETLER</span>
+            <span class="rso-hub-counter">DOLULUK: <b>${activeChips.length} / 8</b></span>
+          </div>
+          <div class="rso-sockets-grid">
+            ${slotsHtml}
+          </div>
+          <div class="rso-hub-stats-summary">
+            ${statsSummaryHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    // 2. MATRİS SÜTUNLARI (TAARRUZ & SAVUNMA)
     function renderBranchColumn(branchTitle, branchKey, colClass) {
       let tiersHtml = '';
       for (let t = 1; t <= 4; t++) {
         const chipsInTier = Object.values(CHIPS_CATALOG).filter(c => c.branch === branchKey && c.tier === t);
         const equippedId = state.equippedChips[branchKey][t];
+        const equippedChip = equippedId ? CHIPS_CATALOG[equippedId] : null;
 
         tiersHtml += `
           <div class="rso-chip-tier-box">
-            <div class="rso-tier-label">KADEME ${t} SOKETİ ${equippedId ? '• [DOLDURULDU]' : '• [BOŞ]'}</div>
-            <div style="display: flex; gap: 8px;">
+            <div class="rso-tier-label">
+              <span>KADEME ${t} SOKETİ</span>
+              <span class="rso-tier-label-status">${equippedChip ? 'TAKILI: ' + equippedChip.name : 'DURUM: BOŞ'}</span>
+            </div>
+            <div class="rso-chip-options-grid">
               ${chipsInTier.map(chip => {
                 const isUnlocked = state.unlockedChips.includes(chip.id);
                 const isEquipped = equippedId === chip.id;
                 const canAfford = scrap >= chip.cost;
 
                 return `
-                  <div class="rso-chip-item ${isEquipped ? 'equipped' : ''}" style="flex: 1;" data-chip-id="${chip.id}">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                      <span style="font-weight: 800; font-size: 13px; color: ${chip.color};">${chip.icon} ${chip.name}</span>
-                      ${isEquipped ? '<span style="font-size: 10px; background: #00f3ff; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 800;">TAKILI</span>' :
-                        (isUnlocked ? '<span style="font-size: 10px; color: #4ade80;">AÇIK</span>' :
-                        `<span style="font-size: 10px; color: #ffb300;">🔒 ${chip.cost}</span>`)}
+                  <div class="rso-chip-item ${isEquipped ? 'equipped' : ''}" data-chip-id="${chip.id}">
+                    <div>
+                      <div class="rso-chip-title-row">
+                        <div style="display: flex; align-items: center; flex: 1; min-width: 0;">
+                          <span class="rso-chip-badge">${chip.code || ('T' + chip.tier)}</span>
+                          <span class="rso-chip-name" style="color: ${chip.color};">${chip.name}</span>
+                        </div>
+                        <div>
+                          ${isEquipped ? '<span style="font-size: 10px; background: #00f3ff; color: #000; padding: 2px 6px; border-radius: 4px; font-weight: 900;">TAKILI</span>' :
+                            (isUnlocked ? '<span style="font-size: 10px; color: #4ade80; font-weight: 800;">HAZIR</span>' :
+                            `<span style="font-size: 11px; color: #ffb300; font-weight: 800;">${chip.cost} HURDA</span>`)}
+                        </div>
+                      </div>
+                      <div class="rso-chip-desc" style="margin-top: 8px;">${chip.desc}</div>
                     </div>
-                    <div style="font-size: 11px; color: #cbd5e1; line-height: 1.35;">${chip.desc}</div>
-                    <div style="margin-top: 6px;">
+                    <div style="margin-top: 10px;">
                       ${isEquipped ? `
-                        <button class="btn btn-secondary btn-small rso-chip-action-btn" data-action="unequip" data-chip="${chip.id}" style="width: 100%; font-size: 10px; padding: 3px;">ÇIKAR</button>
+                        <button class="btn btn-secondary rso-chip-action-btn" data-action="unequip" data-chip="${chip.id}" style="border-color: #f43f5e; color: #f43f5e;">SOKETTEN ÇIKAR</button>
                       ` : (isUnlocked ? `
-                        <button class="btn btn-small rso-chip-action-btn" data-action="equip" data-chip="${chip.id}" style="width: 100%; font-size: 10px; padding: 3px;">BU KADEMEYE TAK</button>
+                        <button class="btn rso-chip-action-btn" data-action="equip" data-chip="${chip.id}">SOKETE TAK</button>
                       ` : `
-                        <button class="btn btn-secondary btn-small rso-chip-action-btn" data-action="buy" data-chip="${chip.id}" ${!canAfford ? 'disabled' : ''} style="width: 100%; font-size: 10px; padding: 3px; border-color: #ffb300; color: #ffb300;">
-                          SATIN AL (${chip.cost})
+                        <button class="btn btn-secondary rso-chip-action-btn" data-action="buy" data-chip="${chip.id}" ${!canAfford ? 'disabled' : ''} style="border-color: #ffb300; color: #ffb300; ${!canAfford ? 'opacity: 0.5; cursor: not-allowed;' : ''}">
+                          KİLİDİ AÇ (${chip.cost})
                         </button>
                       `)}
                     </div>
@@ -1636,7 +1903,7 @@
         <div class="rso-chip-col ${colClass}">
           <div class="rso-chip-col-header">
             <span>${branchTitle}</span>
-            <span style="font-size: 12px; opacity: 0.8;">4 KADEME</span>
+            <span style="font-size: 12px; color: #94a3b8; font-weight: 700;">4 KADEME</span>
           </div>
           ${tiersHtml}
         </div>
@@ -1644,14 +1911,17 @@
     }
 
     container.innerHTML = `
-      <div class="rso-chips-container">
-        ${renderBranchColumn('🔴 TAARRUZ YONGALARI (SALDIRI MATRİSİ)', 'offense', 'rso-col-offense')}
-        ${renderBranchColumn('🔵 SAVUNMA & SİSTEM YONGALARI (TAKTİK MATRİS)', 'defense', 'rso-col-defense')}
+      <div class="rso-chips-wrapper">
+        ${renderSocketsHub()}
+        <div class="rso-chips-columns">
+          ${renderBranchColumn('TAARRUZ MATRİSİ (SALDIRI SİSTEMLERİ)', 'offense', 'rso-col-offense')}
+          ${renderBranchColumn('SAVUNMA & SİSTEM MATRİSİ (HAYATTA KALMA)', 'defense', 'rso-col-defense')}
+        </div>
       </div>
     `;
 
-    // Buton Eylemleri
-    container.querySelectorAll('.rso-chip-action-btn').forEach(btn => {
+    // Buton & Soket Eylemleri
+    container.querySelectorAll('.rso-chip-action-btn, .rso-socket-interactive').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const act = btn.getAttribute('data-action');

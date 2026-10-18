@@ -2339,70 +2339,191 @@
 
     /* ===== AYARLAR (SETTINGS) ===== */
     .neon-box.settings-box {
-      max-width: 620px;
+      max-width: 660px;
       width: 95%;
       max-height: 88vh;
       overflow-y: auto;
+      background: rgba(8, 14, 30, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(0, 243, 255, 0.4);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.75), 0 0 24px rgba(0, 243, 255, 0.25), inset 0 0 14px rgba(0, 243, 255, 0.06);
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+    .settings-tabs-bar {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0 14px 0;
+      border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+      padding-bottom: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .settings-tab-btn {
+      background: rgba(10, 20, 42, 0.75);
+      border: 1px solid rgba(26, 44, 78, 0.85);
+      color: #8fa0c7;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      font-family: 'Consolas', 'Rajdhani', monospace;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    .settings-tab-btn:hover {
+      background: rgba(0, 243, 255, 0.12);
+      border-color: rgba(0, 243, 255, 0.6);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .settings-tab-btn.active {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.4), rgba(0, 243, 255, 0.25));
+      border-color: #00f3ff;
+      color: #ffffff;
+      box-shadow: 0 0 14px rgba(0, 243, 255, 0.4), inset 0 0 8px rgba(0, 243, 255, 0.18);
+      font-weight: 800;
     }
     .settings-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin: 16px 0;
+      margin: 14px 0;
       text-align: left;
+      min-height: 220px;
     }
     .settings-item {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(6, 12, 28, 0.8);
-      border: 1px solid #1a2c4e;
+      background: rgba(6, 12, 28, 0.7);
+      border: 1px solid rgba(26, 44, 78, 0.85);
       border-radius: 8px;
-      padding: 12px 16px;
+      padding: 12px 18px;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+    }
+    .settings-item:hover {
+      background: rgba(10, 20, 42, 0.85);
+      border-color: rgba(0, 243, 255, 0.45);
+      transform: translateX(2px);
     }
     .settings-item-info {
       flex: 1;
+      padding-right: 14px;
     }
     .settings-item-name {
       font-weight: 700;
       font-size: 13.5px;
       color: #00f3ff;
+      letter-spacing: 0.3px;
     }
     .settings-item-desc {
       font-size: 11.5px;
       color: #8fa0c7;
-      margin-top: 2px;
+      margin-top: 3px;
+      line-height: 1.4;
     }
     .settings-toggle-btn {
-      padding: 7px 16px;
-      font-size: 11.5px;
+      padding: 8px 18px;
+      font-size: 12px;
       font-weight: 800;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
       border: 1px solid #1e293b;
       background: #090e1a;
       color: #94a3b8;
-      min-width: 110px;
+      min-width: 120px;
       text-align: center;
-      transition: all 0.15s ease;
+      transition: all 0.18s ease;
       font-family: 'Consolas', monospace;
+      letter-spacing: 0.5px;
     }
     .settings-toggle-btn:hover {
       border-color: #00f3ff;
       color: #ffffff;
       transform: translate(-1px, -1px);
-      box-shadow: 2px 2px 0 rgba(0, 243, 255, 0.4);
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
     }
     .settings-toggle-btn.active {
-      background: #0284c7;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
       color: #ffffff;
       border-color: #38bdf8;
-      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.5);
     }
     .settings-toggle-btn.off {
       border-color: #1e293b;
       background: #050811;
       color: #64748b;
+    }
+
+    /* ===== SES KAYDIRMA ÇUBUĞU (WINDOWS / SCI-FI AUDIO SLIDER) ===== */
+    .settings-slider-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 230px;
+      justify-content: flex-end;
+    }
+    .settings-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 160px;
+      height: 7px;
+      border-radius: 4px;
+      background: #0c162d;
+      outline: none;
+      cursor: pointer;
+      transition: box-shadow 0.15s ease;
+      border: 1px solid rgba(0, 243, 255, 0.25);
+    }
+    .settings-slider::-webkit-slider-runnable-track {
+      height: 7px;
+      border-radius: 4px;
+    }
+    .settings-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #00f3ff;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.8), 0 2px 5px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+      margin-top: -5.5px;
+    }
+    .settings-slider::-webkit-slider-thumb:hover,
+    .settings-slider:active::-webkit-slider-thumb {
+      transform: scale(1.22);
+      background: #ffffff;
+      box-shadow: 0 0 16px rgba(0, 243, 255, 1), 0 0 6px #00f3ff;
+    }
+    .settings-slider.gamepad-focused,
+    .settings-slider:focus {
+      box-shadow: 0 0 12px rgba(0, 243, 255, 0.6);
+      border-color: #00f3ff;
+    }
+    .settings-slider.gamepad-focused::-webkit-slider-thumb,
+    .settings-slider:focus::-webkit-slider-thumb {
+      transform: scale(1.22);
+      box-shadow: 0 0 16px #00f3ff, 0 0 0 2px #38bdf8;
+    }
+    .settings-slider-val {
+      font-family: 'Consolas', monospace;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #00f3ff;
+      min-width: 52px;
+      text-align: right;
+      letter-spacing: 0.5px;
+      user-select: none;
     }
 
     /* ===== HOLOGRAPHIC SCI-FI BAŞARIM BİLDİRİMİ TOAST ===== */
@@ -3398,7 +3519,7 @@
         </div>
       </div>
       <div class="hud-bottom-meta-row">
-        <div id="hudShipClassText" class="hud-status-line">🚀 [INTERCEPTOR] SERİ AVCI</div>
+        <div id="hudShipClassText" class="hud-status-line">[INTERCEPTOR] SERİ AVCI</div>
         <div id="hudRelicsBar" class="hud-status-line hidden">✨ <span id="hudRelicsIcons"></span></div>
         <div id="hudGatlingText" class="hud-status-badge hidden">🔱 GATLING</div>
         <div id="hudAutoFireText" class="hud-status-badge hidden">⚡ OTO ATEŞ</div>
@@ -3655,7 +3776,7 @@
         <div data-i18n="ctrl_autofire"><span class="key-badge">F</span> Otomatik Ateş Aç/Kapat</div>
         <div data-i18n="ctrl_switch_weapon"><span class="key-badge">1 - 4</span> Silah Değiştir (Açık Silahlar Arasında)</div>
         <div data-i18n="ctrl_pause"><span class="key-badge">P / ESC</span> Duraklat / Menü</div>
-        <div data-i18n="ctrl_gamepad"><span class="key-badge">🎮 Gamepad</span> Sol/Sağ Analog (Twin-Stick)</div>
+        <div data-i18n="ctrl_gamepad"><span class="key-badge">Gamepad</span> Sol/Sağ Analog (Twin-Stick)</div>
       </div>
       <div style="text-align: center; margin-top: 16px;">
         <button class="btn btn-secondary btn-small" onclick="document.getElementById('controlsHintModal').classList.add('hidden');" data-i18n="close_btn">KAPAT</button>
@@ -3697,7 +3818,7 @@
     <!-- Üst Başlık & Sekmeler -->
     <div class="rso-header">
       <div class="rso-title-group">
-        <div class="rso-title" data-i18n="rso_title">🚀 SEFER HAZIRLIĞI</div>
+        <div class="rso-title" data-i18n="rso_title">SEFER HAZIRLIĞI</div>
         <div class="rso-scrap-badge">
           <span>🔩</span>
           <span id="runSetupScrapValue">0</span> <span data-i18n="scrap_text">HURDA</span>
@@ -3705,9 +3826,9 @@
       </div>
 
       <div class="rso-tabs">
-        <button class="rso-tab-btn active" data-tab="ships" data-i18n="rso_tab_ships">🛸 1. GEMİ SEÇİMİ</button>
-        <button class="rso-tab-btn" data-tab="weapons" data-i18n="rso_tab_weapons">🔫 2. BAŞLANGIÇ SİLAHI</button>
-        <button class="rso-tab-btn" data-tab="chips" data-i18n="rso_tab_chips">🧬 3. NÖRAL YONGA MATRİSİ</button>
+        <button class="rso-tab-btn active" data-tab="ships" data-i18n="rso_tab_ships">1. GEMİ SEÇİMİ</button>
+        <button class="rso-tab-btn" data-tab="weapons" data-i18n="rso_tab_weapons">2. BAŞLANGIÇ SİLAHI</button>
+        <button class="rso-tab-btn" data-tab="chips" data-i18n="rso_tab_chips">3. NÖRAL YONGA MATRİSİ</button>
       </div>
     </div>
 
@@ -3726,14 +3847,14 @@
         <div class="rso-pill"><span data-i18n="rso_pill_chips">Yongalar:</span> <span id="rsoSumChips">0/8</span></div>
       </div>
 
-      <button class="rso-btn-launch" id="runSetupLaunchBtn" data-i18n="rso_launch_btn">🚀 SEFERİ BAŞLAT</button>
+      <button class="rso-btn-launch" id="runSetupLaunchBtn" data-i18n="rso_launch_btn">SEFERİ BAŞLAT</button>
     </div>
   </div>
 
   <!-- YENİ: Hangar (kalıcı gemi yükseltmeleri) Overlay -->
   <div id="hangarOverlay" class="overlay hidden">
     <div class="neon-box hangar-box">
-      <h1 class="title" data-i18n="hangar_title" style="font-size: 34px;">🛠️ HANGAR</h1>
+      <h1 class="title" data-i18n="hangar_title" style="font-size: 34px;">HANGAR</h1>
       <div class="subtitle" data-i18n="hangar_subtitle">KALICI GEMİ VE SİBERNETİK GELİŞTİRMELERİ</div>
       <div style="font-size: 16px; margin-bottom: 12px;"><span data-i18n="available_scrap">Mevcut Hurda:</span> <span id="hangarScrap" style="color: #ffb300; font-weight: 900;">0</span> 🔩</div>
       
@@ -3742,20 +3863,20 @@
 
       <!-- [FAZ 5] Bölüm 11.3: İyon İtici Plazma Alev Rengi (Kozmetik) -->
       <div id="hangarCosmeticsPanel" class="hangar-cosmetics-panel" style="margin-bottom: 12px; padding: 8px 12px; background: rgba(0, 243, 255, 0.05); border: 1px solid rgba(0, 243, 255, 0.2); border-radius: 8px; text-align: center;">
-        <div id="hangarCosmeticTitle" data-i18n="thruster_cosmetics" style="font-size: 11px; font-weight: bold; letter-spacing: 1.5px; color: #00f3ff; margin-bottom: 6px;">🚀 İYON İTİCİ PLAZMA ALEVİ (KOZMETİK)</div>
+        <div id="hangarCosmeticTitle" data-i18n="thruster_cosmetics" style="font-size: 11px; font-weight: bold; letter-spacing: 1.5px; color: #00f3ff; margin-bottom: 6px;">İYON İTİCİ PLAZMA ALEVİ (KOZMETİK)</div>
         <div id="hangarTrailColors" style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;"></div>
       </div>
 
       <div style="display: flex; gap: 10px; margin-bottom: 10px; justify-content: center; flex-wrap: wrap;">
-        <button id="hangarRespecBtn" class="btn btn-secondary" data-i18n="respec_all" style="font-size: 12px; padding: 5px 12px; color: #ff0055; border-color: #ff0055;">🔄 TÜMÜNÜ SIFIRLA (RESPEC)</button>
-        <button id="hangarCodexBtn" class="btn btn-secondary" data-i18n="weapon_fusion_codex" style="font-size: 12px; padding: 5px 12px; color: #00f3ff; border-color: #00f3ff;">📜 SİLAH FÜZYON KODEKSİ</button>
+        <button id="hangarRespecBtn" class="btn btn-secondary" data-i18n="respec_all" style="font-size: 12px; padding: 5px 12px; color: #ff0055; border-color: #ff0055;">TÜMÜNÜ SIFIRLA (RESPEC)</button>
+        <button id="hangarCodexBtn" class="btn btn-secondary" data-i18n="weapon_fusion_codex" style="font-size: 12px; padding: 5px 12px; color: #00f3ff; border-color: #00f3ff;">SİLAH FÜZYON KODEKSİ</button>
       </div>
 
       <div id="hangarItems" class="hangar-list"></div>
       <div id="hangarFooterNotice" data-i18n="hangar_footer" style="font-size: 12px; color: #6a7c9f; margin-bottom: 10px;">
         Hurda düşmanlardan düşer; oyun sonunda skor/dalga bonusuyla birlikte kalıcı olarak kaydedilir.
       </div>
-      <button id="hangarBackBtn" class="btn btn-secondary" data-i18n="back_main_menu">⬅️ ANA MENÜ</button>
+      <button id="hangarBackBtn" class="btn btn-secondary" data-i18n="back_main_menu">ANA MENÜ</button>
       <div class="gamepad-prompt-bar">
         <span>🎮</span>
         <span class="gp-badge">▲ / ▼</span> Seç
@@ -3768,11 +3889,11 @@
   <!-- YENİ: Yetenek Ağacı (Tech Tree) Overlay -->
   <div id="techTreeOverlay" class="overlay hidden">
     <div class="neon-box tech-tree-box">
-      <h1 class="title" data-i18n="tech_tree_title" style="font-size: 32px; margin-bottom: 4px;">🧬 SİBERNETİK YETENEK AĞACI</h1>
+      <h1 class="title" data-i18n="tech_tree_title" style="font-size: 32px; margin-bottom: 4px;">SİBERNETİK YETENEK AĞACI</h1>
       <div class="subtitle" data-i18n="tech_tree_subtitle">BAŞARIMLARLA KAZANILAN TEKNOLOJİ PUANLARIYLA (TP) GEMİ PROTOKOLLERİNİ GÜÇLENDİR</div>
       
       <div class="tech-points-banner">
-        <div><span data-i18n="tp_avail">Kullanılabilir TP:</span> <span id="techPointsAvail" style="color: #00f3ff; font-weight: 900; font-size: 20px;">0</span> 🧬</div>
+        <div><span data-i18n="tp_avail">Kullanılabilir TP:</span> <span id="techPointsAvail" style="color: #00f3ff; font-weight: 900; font-size: 20px;">0</span> TP</div>
         <div style="color: #8fa0c7; font-size: 13px;"><span data-i18n="tp_total">Toplam Kazanılan:</span> <span id="techPointsTotal" style="color: #ffe600; font-weight: bold;">0</span> TP</div>
       </div>
 
@@ -3781,8 +3902,8 @@
       </div>
 
       <div class="menu-row" style="margin-top: 16px;">
-        <button id="respecTreeBtn" class="btn btn-secondary btn-small" data-i18n="reset_points" style="border-color: #ff0055; color: #ff0055;">🔄 PUANLARI SIFIRLA (RESPEC)</button>
-        <button id="techTreeBackBtn" class="btn btn-secondary" data-i18n="back_main_menu">⬅️ ANA MENÜ</button>
+        <button id="respecTreeBtn" class="btn btn-secondary btn-small" data-i18n="reset_points" style="border-color: #ff0055; color: #ff0055;">PUANLARI SIFIRLA (RESPEC)</button>
+        <button id="techTreeBackBtn" class="btn btn-secondary" data-i18n="back_main_menu">ANA MENÜ</button>
       </div>
 
       <div class="gamepad-prompt-bar">
@@ -3798,19 +3919,19 @@
   <!-- YENİ: Başarımlar (Achievements) Overlay -->
   <div id="achievementsOverlay" class="overlay hidden">
     <div class="neon-box achievements-box">
-      <h1 class="title" data-i18n="achievements_title" style="font-size: 32px; margin-bottom: 4px;">🏆 SİBERNETİK BAŞARIMLAR</h1>
+      <h1 class="title" data-i18n="achievements_title" style="font-size: 32px; margin-bottom: 4px;">SİBERNETİK BAŞARIMLAR</h1>
       <div class="subtitle" data-i18n="achievements_subtitle">KİLİDİ AÇILAN HER BAŞARIM YETENEK AĞACI İÇİN TEKNOLOJİ PUANI (TP) SAĞLAR</div>
 
       <div class="ach-summary-banner">
         <div><span data-i18n="ach_unlocked">Açılan:</span> <span id="achUnlockedCount" style="color: #00ff66; font-weight: 900;">0 / 18</span></div>
-        <div><span data-i18n="ach_total_reward">Toplam TP Getirisi:</span> <span id="achTotalTpEarned" style="color: #ffe600; font-weight: 900;">0</span> 🧬</div>
+        <div><span data-i18n="ach_total_reward">Toplam TP Getirisi:</span> <span id="achTotalTpEarned" style="color: #ffe600; font-weight: 900;">0</span> TP</div>
       </div>
 
       <div class="achievements-list" id="achievementsList">
         <!-- JS ile dinamik doldurulur -->
       </div>
 
-      <button id="achievementsBackBtn" class="btn btn-secondary" data-i18n="back_main_menu" style="margin-top: 15px;">⬅️ ANA MENÜ</button>
+      <button id="achievementsBackBtn" class="btn btn-secondary" data-i18n="back_main_menu" style="margin-top: 15px;">ANA MENÜ</button>
 
       <div class="gamepad-prompt-bar">
         <span>🎮</span>
@@ -3823,19 +3944,29 @@
   <!-- YENİ: Ayarlar (Settings) Overlay -->
   <div id="settingsOverlay" class="overlay hidden">
     <div class="neon-box settings-box">
-      <h1 class="title" data-i18n="settings_title" style="font-size: 32px; margin-bottom: 4px;">⚙️ SİSTEM AYARLARI</h1>
-      <div class="subtitle" data-i18n="settings_subtitle">GRAFİK, OYNANIŞ VE GERİ BİLDİRİM TERCİHLERİ</div>
+      <h1 class="title" data-i18n="settings_title" style="font-size: 30px; margin-bottom: 4px;">SİSTEM AYARLARI</h1>
+      <div class="subtitle" data-i18n="settings_subtitle">SES, GÖRÜNTÜ, OYNANIŞ VE ERİŞİLEBİLİRLİK TERCİHLERİ</div>
+
+      <!-- Kategori Sekmeleri -->
+      <div class="settings-tabs-bar" id="settingsTabsBar">
+        <button class="settings-tab-btn active" data-tab="audio" data-i18n="tab_audio" onclick="switchSettingsTab('audio')">SES</button>
+        <button class="settings-tab-btn" data-tab="video" data-i18n="tab_video" onclick="switchSettingsTab('video')">GÖRÜNTÜ</button>
+        <button class="settings-tab-btn" data-tab="gameplay" data-i18n="tab_gameplay" onclick="switchSettingsTab('gameplay')">OYNANIŞ</button>
+        <button class="settings-tab-btn" data-tab="accessibility" data-i18n="tab_accessibility" onclick="switchSettingsTab('accessibility')">ERİŞİLEBİLİRLİK</button>
+      </div>
 
       <div class="settings-list" id="settingsList">
         <!-- JS ile dinamik ayar maddeleri -->
       </div>
 
-      <button id="settingsBackBtn" class="btn" data-i18n="save_and_return" style="margin-top: 18px;">💾 KAYDET VE GERİ DÖN</button>
+      <button id="settingsBackBtn" class="btn" data-i18n="save_and_return" style="margin-top: 18px;">KAYDET VE GERİ DÖN</button>
 
       <div class="gamepad-prompt-bar">
         <span>🎮</span>
+        <span class="gp-badge">LB / RB (Q/E)</span> Sekme Değiştir
         <span class="gp-badge">▲ / ▼</span> Seçenek Değiştir
-        <span class="gp-badge alt">A</span> Değeri Değiştir
+        <span class="gp-badge">◄ / ►</span> Kaydır
+        <span class="gp-badge alt">A</span> Değiştir
         <span class="gp-badge warn">B</span> Geri Dön / Kaydet
       </div>
     </div>
@@ -3854,13 +3985,13 @@
   <!-- Pause Overlay -->
   <div id="pauseOverlay" class="overlay hidden">
     <div class="neon-box">
-      <h1 class="title" data-i18n="pause_title" style="font-size: 34px;">⏸️ OYUN DURAKLATILDI</h1>
+      <h1 class="title" data-i18n="pause_title" style="font-size: 34px;">OYUN DURAKLATILDI</h1>
       <div class="subtitle" data-i18n="pause_subtitle">SİSTEM BEKLEMEDE</div>
-      <button id="resumeBtn" class="btn" data-i18n="resume">▶️ DEVAM ET</button>
-      <button id="codexFromPauseBtn" class="btn btn-secondary" data-i18n="weapon_fusion_codex">📜 SİLAH FÜZYON KODEKSİ</button>
-      <button id="restartFromPauseBtn" class="btn btn-secondary" data-i18n="retry">🔄 YENİDEN BAŞLAT</button>
-      <button id="settingsFromPauseBtn" class="btn btn-secondary" data-i18n="settings">⚙️ AYARLAR</button>
-      <button id="menuFromPauseBtn" class="btn btn-secondary" data-i18n="main_menu">🏠 ANA MENÜ</button>
+      <button id="resumeBtn" class="btn" data-i18n="resume">DEVAM ET</button>
+      <button id="codexFromPauseBtn" class="btn btn-secondary" data-i18n="weapon_fusion_codex">SİLAH FÜZYON KODEKSİ</button>
+      <button id="restartFromPauseBtn" class="btn btn-secondary" data-i18n="retry">YENİDEN BAŞLAT</button>
+      <button id="settingsFromPauseBtn" class="btn btn-secondary" data-i18n="settings">AYARLAR</button>
+      <button id="menuFromPauseBtn" class="btn btn-secondary" data-i18n="main_menu">ANA MENÜ</button>
       <div class="gamepad-prompt-bar">
         <span>🎮</span>
         <span class="gp-badge">▲ / ▼</span> Seçenek
@@ -3873,13 +4004,13 @@
   <!-- [FAZ 4] YENİ: Silah Füzyon ve Evrim Kodeksi (Holo-Blueprint Codex) Overlay -->
   <div id="codexOverlay" class="overlay hidden">
     <div class="neon-box codex-box" style="max-width: 920px; width: 95%; max-height: 88vh; overflow-y: auto;">
-      <h1 class="title" data-i18n="codex_title" style="font-size: 32px; margin-bottom: 4px;">📜 SİBER FÜZYON KODEKSİ</h1>
+      <h1 class="title" data-i18n="codex_title" style="font-size: 32px; margin-bottom: 4px;">SİBER FÜZYON KODEKSİ</h1>
       <div class="subtitle" data-i18n="codex_subtitle">HOLO-ŞEMA REHBERİ: GELİŞTİRME, EVRİM & FÜZYON BİRLEŞİM TARİFLERİ</div>
       <div id="codexGrid" class="codex-grid">
         <!-- JS ile dinamik doldurulur -->
       </div>
       <div style="margin-top: 16px; display: flex; gap: 12px; justify-content: center;">
-        <button id="codexCloseBtn" class="btn btn-secondary" data-i18n="codex_close">✕ KODEKSİ KAPAT</button>
+        <button id="codexCloseBtn" class="btn btn-secondary" data-i18n="codex_close">KODEKSİ KAPAT</button>
       </div>
       <div class="gamepad-prompt-bar">
         <span>🎮</span>
@@ -3919,13 +4050,13 @@
 
       <!-- YENİ: Ölüm Özeti (Death Recap - Bölüm 11.3) -->
       <div id="deathRecapBox" class="run-summary-box death-recap-box" style="border-color: rgba(255, 0, 85, 0.4); background: rgba(255, 0, 85, 0.08); margin-bottom: 12px; padding: 10px 14px; text-align: center;">
-        <span style="font-size: 13px; font-weight: bold; letter-spacing: 1px; color: #ff0055;" data-i18n="death_killer_label">☠️ ÖLÜMCÜL DARBE:</span>
+        <span style="font-size: 13px; font-weight: bold; letter-spacing: 1px; color: #ff0055;" data-i18n="death_killer_label">ÖLÜMCÜL DARBE:</span>
         <span id="statKiller" style="font-size: 14px; font-weight: 800; color: #fff; margin-left: 8px; text-shadow: 0 0 8px rgba(255,0,85,0.7);">SİBERNETİK SÜRÜ</span>
       </div>
 
       <!-- YENİ: Ayrıntılı Koşu Sonu Savaş Raporu -->
       <div class="run-summary-box">
-        <div class="summary-title" data-i18n="combat_report_title">📊 AYRINTILI SAVAŞ RAPORU</div>
+        <div class="summary-title" data-i18n="combat_report_title">AYRINTILI SAVAŞ RAPORU</div>
         <div class="summary-grid">
           <div><span data-i18n="label_ship_class">Gemi Sınıfı:</span> <span id="sumShipClass" style="color: #00f3ff; font-weight: bold;">INTERCEPTOR</span></div>
           <div><span data-i18n="label_total_damage">Toplam Hasar:</span> <span id="sumTotalDmg" style="color: #ff0055; font-weight: bold;">0</span></div>
@@ -3942,7 +4073,7 @@
 
       <!-- YENİ: Koşu Sonu Silah ve Yetenek Hasar Dağılımı (FAZ 5) -->
       <div class="run-summary-box weapon-breakdown-box">
-        <div class="summary-title" data-i18n="weapon_damage_title">⚔️ SİLAH VE YETENEK HASAR DAĞILIMI</div>
+        <div class="summary-title" data-i18n="weapon_damage_title">SİLAH VE YETENEK HASAR DAĞILIMI</div>
         <div id="weaponDamageBar" class="weapon-damage-bar"></div>
         <div id="weaponDamageLegend" class="weapon-damage-legend"></div>
       </div>
@@ -3952,8 +4083,8 @@
         &nbsp;•&nbsp; <span data-i18n="scrap_lbl">Toplam Hurda:</span> <span id="totalScrapGameOver" style="color: #ffb300; font-weight: bold;">0</span> 🔩
       </div>
 
-      <button id="restartBtn" class="btn" data-i18n="retry">🔄 TEKRAR DENE</button>
-      <button id="menuFromGameOverBtn" class="btn btn-secondary" data-i18n="main_menu">🏠 ANA MENÜ / HANGAR</button>
+      <button id="restartBtn" class="btn" data-i18n="retry">TEKRAR DENE</button>
+      <button id="menuFromGameOverBtn" class="btn btn-secondary" data-i18n="main_menu">ANA MENÜ / HANGAR</button>
       <div class="gamepad-prompt-bar">
         <span>🎮</span>
         <span class="gp-badge">◄ / ►</span> Buton Seç
@@ -3967,7 +4098,7 @@
   <div id="victoryOverlay" class="overlay hidden">
     <div class="neon-box victory-box" style="max-width: 620px;">
       <div class="victory-header">
-        <h1 class="title victory-title" data-i18n="galaxy_saved">🏆 GALAKSİ KURTARILDI! 🏆</h1>
+        <h1 class="title victory-title" data-i18n="galaxy_saved">GALAKSİ KURTARILDI!</h1>
         <div class="subtitle" data-i18n="run_victory" style="color: #ffe600; font-size: 16px; letter-spacing: 2px;">SEFER ZAFERİ (RUN VICTORY)</div>
       </div>
       <p data-i18n="victory_desc" style="color: #c0d1ee; font-size: 14px; margin: 12px 0;">
@@ -6753,6 +6884,41 @@
         return;
       }
 
+      // 1b. Ayarlar (SETTINGS) Menüsü Klavye Kısayolları (Sekme Geçişi)
+      if (gameState === 'SETTINGS') {
+        if (e.code === 'KeyQ') {
+          e.preventDefault();
+          if (typeof cycleSettingsTab === 'function') cycleSettingsTab(-1);
+          return;
+        }
+        if (e.code === 'KeyE') {
+          e.preventDefault();
+          if (typeof cycleSettingsTab === 'function') cycleSettingsTab(1);
+          return;
+        }
+        if (e.code === 'Tab') {
+          e.preventDefault();
+          if (typeof cycleSettingsTab === 'function') cycleSettingsTab(e.shiftKey ? -1 : 1);
+          return;
+        }
+        if (e.code === 'Digit1' || e.code === 'Numpad1') {
+          if (typeof switchSettingsTab === 'function') switchSettingsTab('audio');
+          return;
+        }
+        if (e.code === 'Digit2' || e.code === 'Numpad2') {
+          if (typeof switchSettingsTab === 'function') switchSettingsTab('video');
+          return;
+        }
+        if (e.code === 'Digit3' || e.code === 'Numpad3') {
+          if (typeof switchSettingsTab === 'function') switchSettingsTab('gameplay');
+          return;
+        }
+        if (e.code === 'Digit4' || e.code === 'Numpad4') {
+          if (typeof switchSettingsTab === 'function') switchSettingsTab('accessibility');
+          return;
+        }
+      }
+
       // 2. Kart Seçimi (UPGRADE Modalı)
       if (gameState === 'UPGRADE') {
         if (e.code === 'KeyR') {
@@ -7073,7 +7239,7 @@
           ].filter(el => el && el.offsetParent !== null);
         } else if (gameState === 'SETTINGS') {
           return [
-            ...document.querySelectorAll('#settingsList .settings-toggle-btn'),
+            ...document.querySelectorAll('#settingsList .settings-toggle-btn, #settingsList .settings-slider'),
             document.getElementById('settingsBackBtn')
           ].filter(el => el && el.offsetParent !== null);
         } else if (gameState === 'UPGRADE') {
@@ -7131,13 +7297,26 @@
         const dpadLeft = !!gp.buttons[14]?.pressed || (gp.axes[0] < -0.55);
         const dpadRight = !!gp.buttons[15]?.pressed || (gp.axes[0] > 0.55);
 
+        const focusedEl = elements[this.focusIndex];
+        const isSlider = focusedEl && focusedEl.classList.contains('settings-slider');
+
         if (now - this.lastNavTime > this.navCooldown) {
-          if (dpadDown || dpadRight) {
+          if (isSlider && (dpadLeft || dpadRight)) {
+            const cur = parseInt(focusedEl.value, 10) || 0;
+            const delta = dpadRight ? 5 : -5;
+            const nextVal = Math.max(0, Math.min(100, cur + delta));
+            focusedEl.value = nextVal;
+            focusedEl.dispatchEvent(new Event('input'));
+            if (focusedEl.onchange) focusedEl.dispatchEvent(new Event('change'));
+            this.lastNavTime = now;
+            audio.playFocusTick();
+            triggerRumble('tick');
+          } else if (dpadDown || (!isSlider && dpadRight)) {
             this.focusIndex = (this.focusIndex + 1) % elements.length;
             this.lastNavTime = now;
             audio.playFocusTick();
             triggerRumble('tick');
-          } else if (dpadUp || dpadLeft) {
+          } else if (dpadUp || (!isSlider && dpadLeft)) {
             this.focusIndex = (this.focusIndex - 1 + elements.length) % elements.length;
             this.lastNavTime = now;
             audio.playFocusTick();
@@ -7236,13 +7415,21 @@
           }
         }
 
-        // LB / RB: RUN_SETUP sekme geçişi veya Menüde Anında Gemi Değiştir
+        // LB / RB: RUN_SETUP veya SETTINGS sekme geçişi veya Menüde Anında Gemi Değiştir
         if (gameState === 'RUN_SETUP') {
           if (btnLB && !this.prevButtons.LB) {
             if (window.ZortexMetaProgression) window.ZortexMetaProgression.cycleTab(-1);
             triggerRumble('light');
           } else if (btnRB && !this.prevButtons.RB) {
             if (window.ZortexMetaProgression) window.ZortexMetaProgression.cycleTab(1);
+            triggerRumble('light');
+          }
+        } else if (gameState === 'SETTINGS') {
+          if (btnLB && !this.prevButtons.LB) {
+            if (typeof cycleSettingsTab === 'function') cycleSettingsTab(-1);
+            triggerRumble('light');
+          } else if (btnRB && !this.prevButtons.RB) {
+            if (typeof cycleSettingsTab === 'function') cycleSettingsTab(1);
             triggerRumble('light');
           }
         } else if (gameState === 'MENU') {
@@ -13447,19 +13634,19 @@
         // Görsel bildirim (Oyuncunun hangi silaha geçtiğini ekranda göster)
         if (typeof textManager !== 'undefined' && typeof player !== 'undefined' && player) {
           const names = {
-            blaster: '⚡ BLASTER',
-            spread: '💥 SPREAD (SAÇILMA)',
-            plasma_beam: '🔥 PLAZMA KÜRESİ',
-            railgun: '🚀 AĞIR RAILGUN',
-            homing_missiles: '🎯 GÜDÜMLÜ FÜZELER',
-            tesla_coil: '🌩️ TESLA BOBİNİ',
-            orbit_blades: '⚔️ YÖRÜNGE BIÇAKLARI',
-            gravity_cannon: '🌌 TEKİLLİK TOPU',
-            mine_layer: '💣 SİBER MAYIN',
-            orbital_satellite: '🛰️ SAVUNMA UYDUSU',
-            hologram_prism: '💎 PRİZMA LAZERİ',
-            shadow_clone: '👥 GÖLGE KLONU',
-            gatling_vulcan: '🌪️ GATLING VULCAN'
+            blaster: 'BLASTER',
+            spread: 'SPREAD (SAÇILMA)',
+            plasma_beam: 'PLAZMA KÜRESİ',
+            railgun: 'AĞIR RAILGUN',
+            homing_missiles: 'GÜDÜMLÜ FÜZELER',
+            tesla_coil: 'TESLA BOBİNİ',
+            orbit_blades: 'YÖRÜNGE BIÇAKLARI',
+            gravity_cannon: 'TEKİLLİK TOPU',
+            mine_layer: 'SİBER MAYIN',
+            orbital_satellite: 'SAVUNMA UYDUSU',
+            hologram_prism: 'PRİZMA LAZERİ',
+            shadow_clone: 'GÖLGE KLONU',
+            gatling_vulcan: 'GATLING VULCAN'
           };
           const wName = names[id] || (id ? id.toUpperCase() : '');
           if (wName) textManager.add(wName, player.x, player.y - 45, '#00f3ff', 16, 0.8);
@@ -13519,10 +13706,10 @@
        2) GENİŞ ÇEŞİTLİLİKLİ OOP DÜŞMAN SİSTEMİ (ENEMY BASE & HIERARCHY)
        ============================================================== */
     const AFFIX_TAGS = {
-      volatile: '💥 VOLATILE',
-      frostbite: '❄️ FROSTBITE',
-      tempest: '⚡ TEMPEST',
-      aegis: '🛡️ AEGIS'
+      volatile: 'VOLATILE',
+      frostbite: 'FROSTBITE',
+      tempest: 'TEMPEST',
+      aegis: 'AEGIS'
     };
 
     class EnemyBase {
@@ -13951,7 +14138,7 @@
           }
         }
         if (typeof showBossNotification === 'function') {
-          showBossNotification('⚡ FAZ 2 GEÇİŞİ: REAKTÖR ÇATLAĞI ⚡', this.bossName || 'BOSS', 'DIŞ ZIRH ÇÖKTÜ • ÇEKİRDEK SAVUNMASIZ', '#d946ef');
+          showBossNotification('FAZ 2 GEÇİŞİ: REAKTÖR ÇATLAĞI', this.bossName || 'BOSS', 'DIŞ ZIRH ÇÖKTÜ • ÇEKİRDEK SAVUNMASIZ', '#d946ef');
         }
       }
 
@@ -13972,7 +14159,7 @@
         particles.emit(this.x, this.y, '#ff0033', 80, 9, 6, 1.4);
         if (typeof addShockwave === 'function') addShockwave(this.x, this.y, 0xff0033, 280, 0.45, 5.0);
         if (typeof showBossNotification === 'function') {
-          showBossNotification('🔥 FAZ 3 GEÇİŞİ: AŞIRI YÜK (ENRAGE)! 🔥', this.bossName || 'BOSS', 'AZAMİ HIZ VE SALDIRGANLIK AKTİF', '#ef4444');
+          showBossNotification('FAZ 3 GEÇİŞİ: AŞIRI YÜK (ENRAGE)', this.bossName || 'BOSS', 'AZAMİ HIZ VE SALDIRGANLIK AKTİF', '#ef4444');
         }
       }
 
@@ -14091,10 +14278,10 @@
             runStats.elitesKilled++;
             if (this.isDualAffix) {
               runStats.dualAffixElitesKilled = (runStats.dualAffixElitesKilled || 0) + 1;
-              textManager.add('⚡ ÇİFT AFFİKSLİ ELİT İMHA! ⚡', this.x, this.y - 48, '#a855f7', 20, 1.8);
+              textManager.add('ÇİFT AFFİKSLİ ELİT İMHA!', this.x, this.y - 48, '#a855f7', 20, 1.8);
               scraps.push(new ScrapPickup(this.x, this.y, 6 + Math.floor(gameRng() * 3)));
             } else {
-              textManager.add('⭐ SEÇKİN İMHA! +HURDA ⭐', this.x, this.y - 32, '#ffe600', 18, 1.6);
+              textManager.add('SEÇKİN İMHA! +HURDA', this.x, this.y - 32, '#ffe600', 18, 1.6);
               scraps.push(new ScrapPickup(this.x, this.y, 3 + Math.floor(gameRng() * 2)));
             }
           }
@@ -14139,7 +14326,7 @@
             if (typeof window !== 'undefined') window.bossSpawned = false;
             bossLasers = [];
             if (typeof showBossNotification === 'function') {
-              showBossNotification('✨ ZAFER: TEHDİT ETKİSİZ HALE GETİRİLDİ ✨', this.bossName || 'BOSS', 'DÜŞMAN GEMİSİ İMHA EDİLDİ • SEKTÖR GÜVENLİ', '#00f3ff');
+              showBossNotification('ZAFER: TEHDİT ETKİSİZ HALE GETİRİLDİ', this.bossName || 'BOSS', 'DÜŞMAN GEMİSİ İMHA EDİLDİ • SEKTÖR GÜVENLİ', '#00f3ff');
             }
 
             // [FAZ 4] Sefer Modu Zafer Kontrolü (10 Dalga + Boss Kesilince)
@@ -14155,14 +14342,14 @@
             if (meta.levels && meta.levels.wave_repair > 0) {
               const heal = meta.levels.wave_repair * 10;
               player.health = Math.min(player.maxHealth, player.health + heal);
-              textManager.add(`+${heal} CAN (NANİT TAMİRİ) 🩹`, player.x, player.y - 30, '#00ff66', 15, 1.4);
+              textManager.add(`+${heal} CAN (NANİT TAMİRİ)`, player.x, player.y - 30, '#00ff66', 15, 1.4);
             }
 
             if (typeof hasTechNode === 'function' && hasTechNode('util_synergy')) {
               const synergyHeal = Math.round(player.maxHealth * 0.20);
               player.health = Math.min(player.maxHealth, player.health + synergyHeal);
               player.speedBonusTimer = 6.0;
-              textManager.add(`SİBER SİNERJİ AKTİF! 🌟`, player.x, player.y - 48, '#ffe600', 16, 1.6);
+              textManager.add('SİBER SİNERJİ AKTİF!', player.x, player.y - 48, '#ffe600', 16, 1.6);
             }
           }
 
@@ -14323,7 +14510,7 @@
           ctx.textAlign = 'center';
           ctx.font = 'bold 12px "Segoe UI", sans-serif';
           ctx.fillStyle = '#ffffff';
-          const phaseTag = this.phase === 3 ? '🔥 FAZ 3: AŞIRI YÜK (ENRAGE)' : (this.phase === 2 ? '⚡ FAZ 2: REAKTÖR ÇATLAĞI' : '🛡️ FAZ 1: DIŞ ZIRH & TARETLER');
+          const phaseTag = this.phase === 3 ? 'FAZ 3: AŞIRI YÜK (ENRAGE)' : (this.phase === 2 ? 'FAZ 2: REAKTÖR ÇATLAĞI' : 'FAZ 1: DIŞ ZIRH & TARETLER');
           const bossLabel = this.bossName || this.bossTitle || 'OMEGA DREADNOUGHT';
           ctx.fillText(`${bossLabel} • ${phaseTag} • %${Math.round(hpPct * 100)}`, W / 2, barY - 8);
           ctx.restore();
@@ -14633,7 +14820,7 @@
               if (p3Duration >= 35.0 && !this.isEnraged) {
                 this.isEnraged = true;
                 if (typeof showBossNotification === 'function') {
-                  showBossNotification('💀 ⚠️ KRİTİK ÖFKE MODU (ENRAGE) ⚠️ 💀', this.bossName || 'BOSS', 'ÇEKİRDEK AŞIRI YÜKLENDİ • SALDIRI HIZI KATLANDI', '#ff0055');
+                  showBossNotification('KRİTİK ÖFKE MODU (ENRAGE)', this.bossName || 'BOSS', 'ÇEKİRDEK AŞIRI YÜKLENDİ • SALDIRI HIZI KATLANDI', '#ff0055');
                 }
                 if (audio && typeof audio.playExplosion === 'function') audio.playExplosion(1.8, this.x, this.y);
                 screenShake = 14;
@@ -15000,44 +15187,44 @@
           let y = pt.y;
           const bossInst = new BossEnemy(x, y);
           bossInst.spawnTime = performance.now() * 0.001;
-          let bossTag = '⚠️ TEHLİKE DÜZEYİ: AZAMİ ⚠️';
+          let bossTag = 'TEHLİKE DÜZEYİ: AZAMİ';
           let bossName = 'OMEGA DREADNOUGHT';
           let bossSub = 'NİHAİ APEX SAVUNMA AMİRİ SAVAŞ ALANINA GİRDİ';
           let bossColor = '#ef4444';
           const cycleWave = (wave > 10 && wave % 10 !== 0) ? (((wave - 1) % 9) + 1) : wave;
 
           if (cycleWave === 3) {
-            bossTag = '🛸 BİYOM 1 MİNİ-BOSS 🛸';
+            bossTag = 'BİYOM 1 MİNİ-BOSS';
             bossName = 'KOVAN ANA GEMİSİ';
             bossSub = 'SINAV: HEDEF ÖNCELİĞİ VE KULUÇKA PODLARI';
             bossColor = '#38bdf8';
           } else if (cycleWave === 6) {
-            bossTag = '⚔️ BİYOM 2 MİNİ-BOSS ⚔️';
+            bossTag = 'BİYOM 2 MİNİ-BOSS';
             bossName = 'GÖLGE SÜVARİSİ';
             bossSub = 'SINAV: HAREKET VE DASH REFLEKSİ';
             bossColor = '#c084fc';
           } else if (cycleWave === 9) {
-            bossTag = '☢️ BİYOM 3 MİNİ-BOSS ☢️';
+            bossTag = 'BİYOM 3 MİNİ-BOSS';
             bossName = 'REAKTÖR ÇEKİRDEĞİ';
             bossSub = 'SINAV: ALAN OKUMA VE MERKEZİ AŞIRI YÜK';
             bossColor = '#f97316';
           } else if (wave % 10 === 0) {
-            bossTag = '👑 NİHAİ APEX 👑';
+            bossTag = 'NİHAİ APEX';
             bossName = 'OMEGA DREADNOUGHT';
             bossSub = 'TÜM DİRENÇ SİSTEMLERİNİ AKTİF ET';
             bossColor = '#ef4444';
           }
 
-          let bossTitle = `${bossTag} ${bossName}!`;
+          let bossTitle = `${bossTag}: ${bossName}!`;
 
           // [FAZ 5 & BÖLÜM 11.3] Dalga 20 Çifte Boss & Heat IV Biyom Çifte Mini-Boss Olayı
           const isHeat4MiniBoss = (window.ZortexGameModes && window.ZortexGameModes.currentHeatIndex >= 4 && (cycleWave === 3 || cycleWave === 6 || cycleWave === 9));
           if (wave === 20 || isHeat4MiniBoss) {
-            bossTag = '💀 ⚠️ KABUS İSTİLASI ⚠️ 💀';
+            bossTag = 'KABUS İSTİLASI';
             bossSub = 'DİKKAT: AYNI ANDA ÇİFTE BOSS TESPİT EDİLDİ!';
             bossTitle = (wave === 20)
-              ? '💀 ⚠️ 20. DALGA: ÇİFTE BOSS İSTİLASI! ⚠️ 💀'
-              : `💀 ⚠️ KABUS (HEAT IV): ÇİFTE ${bossName}! ⚠️ 💀`;
+              ? '20. DALGA: ÇİFTE BOSS İSTİLASI!'
+              : `KABUS (HEAT IV): ÇİFTE ${bossName}!`;
             const pt2 = getSpawnPointOffscreen(65);
             const bossInst2 = new BossEnemy(pt2.x, pt2.y);
             bossInst2.bossTitle = bossTitle;
@@ -15127,7 +15314,7 @@
           if (!window.__introducedEnemies.has(name)) {
             window.__introducedEnemies.add(name);
             if (typeof showEventNotification === 'function') {
-              showEventNotification('⚠️ YENİ TEHDİT', name, 'ÖZEL DÜŞMAN TÜRÜ SAVAŞ ALANINDA', color, 3.2);
+              showEventNotification('YENİ TEHDİT', name, 'ÖZEL DÜŞMAN TÜRÜ SAVAŞ ALANINDA', color, 3.2);
             }
             if (audio && typeof audio.playWarning === 'function') audio.playWarning();
           }
@@ -15312,7 +15499,7 @@
         audio.playPowerup(1.2);
       }
       if (window.textManager) {
-        window.textManager.add('⚡ MANYETİK VAKUM DEVREDE! ⚡', player.x, player.y - 35, '#00f3ff', 16, 1.5);
+        window.textManager.add('MANYETİK VAKUM DEVREDE!', player.x, player.y - 35, '#00f3ff', 16, 1.5);
       }
     }
     window.triggerXpVacuum = triggerXpVacuum;
@@ -15623,7 +15810,7 @@
       const y = anchorY + Math.sin(angle) * dist;
       blackHoles.push(new BlackHole(x, y));
       audio.playBlackHole();
-      textManager.add('⚠️ YERÇEKİMİ ANOMALİSİ ⚠️', x, y - 40, '#b14dff', 18, 1.6);
+      textManager.add('YERÇEKİMİ ANOMALİSİ', x, y - 40, '#b14dff', 18, 1.6);
     }
 
     /* ==============================================================
@@ -15884,7 +16071,7 @@
 
         if (typeof showEventNotification === 'function') {
           const subMsg = won ? `YETENEK KAZANILDI: ${won.name.toUpperCase()} • CAN DOLDU` : 'CAN VE KALKAN TAMAMEN DOLDURULDU';
-          showEventNotification('✨ GÖREV TAMAMLANDI', 'HACK BAŞARILI', subMsg, '#00ff66', 3.5);
+          showEventNotification('GÖREV TAMAMLANDI', 'HACK BAŞARILI', subMsg, '#00ff66', 3.5);
         }
       }
 
@@ -15939,7 +16126,7 @@
         ctx.fillText(`HACK: %${pct}`, 0, -10);
         ctx.font = 'bold 11px sans-serif';
         ctx.fillStyle = this.isPlayerInside ? '#ff3366' : '#8fa0c7';
-        ctx.fillText(this.isPlayerInside ? '⚠️ RİSK: DÜŞMAN x2' : 'BÖLGEYE GİRİN', 0, 12);
+        ctx.fillText(this.isPlayerInside ? 'RİSK: DÜŞMAN x2' : 'BÖLGEYE GİRİN', 0, 12);
 
         ctx.restore();
       }
@@ -16019,7 +16206,7 @@
         screenShake = Math.max(screenShake, 16);
         particles.emit(this.x, this.y, '#00f3ff', 80, 8, 5, 1.4);
         particles.emit(this.x, this.y, '#ffe600', 40, 6, 4, 1.0);
-        textManager.add('HOLO-KOPYA PATLAMASI! 💥', this.x, this.y - 25, '#00f3ff', 24, 2.0);
+        textManager.add('HOLO-KOPYA PATLAMASI!', this.x, this.y - 25, '#00f3ff', 24, 2.0);
         if (typeof addShockwave === 'function') addShockwave(this.x, this.y, 0x00f3ff, 220, 0.40, 4.5);
 
         // 220px içindeki tüm düşmanlara 350 yüksek hasar
@@ -16319,7 +16506,7 @@
       const y = anchorY + Math.sin(angle) * dist;
       activeHackZone = new HackZone(x, y);
       if (typeof showEventNotification === 'function') {
-        showEventNotification('⚡ YENİ GÖREV', 'HACK PROTOKOLÜ TESPİT EDİLDİ', 'BÖLGEYE GİRİN VE VERİYİ İNDİRİN', '#00ff66', 3.5);
+        showEventNotification('YENİ GÖREV', 'HACK PROTOKOLÜ TESPİT EDİLDİ', 'BÖLGEYE GİRİN VE VERİYİ İNDİRİN', '#00ff66', 3.5);
       }
       audio.playLevelUp();
     }
@@ -16727,7 +16914,7 @@
         }
       }
       if (ultText) {
-        ultText.textContent = player.isUltimateActive ? '⚡ OVERDRIVE AKTİF!' : (ultPct >= 1 ? (gamepadConnected ? '⚡ HAZIR (Y)' : '⚡ HAZIR (Q)') : 'OVERDRIVE');
+        ultText.textContent = player.isUltimateActive ? 'OVERDRIVE AKTİF!' : (ultPct >= 1 ? (gamepadConnected ? 'HAZIR (Y)' : 'HAZIR (Q)') : 'OVERDRIVE');
       }
 
       // 4. Level & XP
@@ -16752,7 +16939,7 @@
           comboWrap.classList.remove('hidden');
           const mult = (1.0 + Math.min(3.0, Math.floor(cVal / 10) * 0.5)).toFixed(1);
           const comboText = document.getElementById('hudComboText');
-          if (comboText) comboText.textContent = `⚡ ${cVal}x KOMBO (x${mult} SKOR)`;
+          if (comboText) comboText.textContent = `${cVal}x KOMBO (x${mult} SKOR)`;
           const comboFill = document.getElementById('hudComboFill');
           if (comboFill) {
             const cPct = Math.max(0, Math.min(1, (player.comboTimer || 0) / 3.5));
@@ -16772,7 +16959,7 @@
       if (scoreText) scoreText.textContent = `SKOR: ${safeScore}`;
       const waveStats = document.getElementById('hudWaveStats');
       if (waveStats) {
-        const fpsStr = (gameSettings.showFps !== false) ? `  •  ⚡ ${fpsSmoothed} FPS` : '';
+        const fpsStr = (gameSettings.showFps !== false) ? `  •  ${fpsSmoothed} FPS` : '';
         waveStats.textContent = `İmha: ${kills} | Dalga: ${wave}${fpsStr}`;
       }
       const scrapStats = document.getElementById('hudScrapStats');
@@ -16820,7 +17007,7 @@
 
       const shipText = document.getElementById('hudShipClassText');
       if (shipText && player.shipClass) {
-        shipText.textContent = `🚀 [${player.shipClass.name}] ${player.shipClass.role.toUpperCase()}`;
+        shipText.textContent = `[${player.shipClass.name}] ${player.shipClass.role.toUpperCase()}`;
         shipText.style.color = player.shipClass.color || '#00f3ff';
       }
 
@@ -16840,7 +17027,7 @@
 
       const autoText = document.getElementById('hudAutoFireText');
       if (autoText) {
-        autoText.textContent = gamepadConnected ? '⚡ OTO ATEŞ: AÇIK [R3]' : '⚡ OTO ATEŞ: AÇIK [F]';
+        autoText.textContent = gamepadConnected ? 'OTO ATEŞ: AÇIK [R3]' : 'OTO ATEŞ: AÇIK [F]';
         autoText.classList.toggle('hidden', !autoFire);
       }
 
@@ -16882,7 +17069,7 @@
       const nameEl = document.getElementById('hudBossNoticeName');
       const subEl = document.getElementById('hudBossNoticeSub');
 
-      if (tagEl) tagEl.textContent = tagText || '⚠️ TEHLİKE DÜZEYİ: AZAMİ ⚠️';
+      if (tagEl) tagEl.textContent = tagText || 'TEHLİKE DÜZEYİ: AZAMİ';
       if (nameEl) nameEl.textContent = bossName || 'OMEGA DREADNOUGHT';
       if (subEl) subEl.textContent = subText || 'YAKLAŞAN TEHDİT TESPİT EDİLDİ';
 
@@ -16915,7 +17102,7 @@
       const subEl = document.getElementById('hudEventNoticeSub');
 
       if (tagEl) {
-        tagEl.textContent = tagText || '⚡ BİLDİRİM';
+        tagEl.textContent = tagText || 'BİLDİRİM';
         tagEl.style.color = colorHex;
         tagEl.style.textShadow = `0 0 6px ${colorHex}99`;
       }
@@ -19164,7 +19351,7 @@
       if (audio && typeof audio.playCardBan === 'function') audio.playCardBan();
       if (typeof triggerRumble === 'function') triggerRumble('medium');
       if (typeof window.showEventNotification === 'function') {
-        window.showEventNotification('🚫 YASAKLAMA', 'KART KOŞUDAN ÇIKARILDI', 'BU GELİŞTİRME BU KOŞUDA BİR DAHA ÇIKMAYACAK', '#ef4444', 2.2);
+        window.showEventNotification('YASAKLAMA', 'KART KOŞUDAN ÇIKARILDI', 'BU GELİŞTİRME BU KOŞUDA BİR DAHA ÇIKMAYACAK', '#ef4444', 2.2);
       }
       showUpgradeMenu();
     }
@@ -19322,11 +19509,11 @@
         const curTrail = meta.cosmetics.trailColor || 'default';
         const trailOptions = [
           { key: 'default', name: getT('trail_default', 'Gemiye Özel'), color: '#64748b' },
-          { key: 'cyan', name: getT('trail_cyan', 'Siber Mavi 🔷'), color: '#00f3ff' },
-          { key: 'violet', name: getT('trail_violet', 'Kozmik Mor 🟣'), color: '#c084fc' },
-          { key: 'orange', name: getT('trail_orange', 'Solar Alev 🔶'), color: '#fb923c' },
-          { key: 'matrix', name: getT('trail_matrix', 'Siber Matriks 🟩'), color: '#4ade80' },
-          { key: 'crimson', name: getT('trail_crimson', 'Kan Kırmızısı 🔴'), color: '#f87171' }
+          { key: 'cyan', name: getT('trail_cyan', 'Siber Mavi'), color: '#00f3ff' },
+          { key: 'violet', name: getT('trail_violet', 'Kozmik Mor'), color: '#c084fc' },
+          { key: 'orange', name: getT('trail_orange', 'Solar Alev'), color: '#fb923c' },
+          { key: 'matrix', name: getT('trail_matrix', 'Siber Matriks'), color: '#4ade80' },
+          { key: 'crimson', name: getT('trail_crimson', 'Kan Kırmızısı'), color: '#f87171' }
         ];
         trailContainer.innerHTML = '';
         trailOptions.forEach(opt => {
@@ -19572,10 +19759,10 @@
         if (owned) isDiscovered = true;
 
         const ready = !owned && entry.isReady();
-        const activeText = i18n ? i18n.t('codex_status_active', '● AKTİF (DEVREDE)') : '● AKTİF (DEVREDE)';
-        const readyText = i18n ? i18n.t('codex_status_ready', '★ HAZIR (BİRLEŞTİRİLEBİLİR)') : '★ HAZIR (BİRLEŞTİRİLEBİLİR)';
-        const lockedText = i18n ? i18n.t('codex_status_locked', '○ ŞEMA KİLİTLİ') : '○ ŞEMA KİLİTLİ';
-        const undiscoveredText = i18n ? i18n.t('codex_status_undiscovered', '🔒 GİZLİ PROTOKOL') : '🔒 GİZLİ PROTOKOL';
+        const activeText = i18n ? i18n.t('codex_status_active', 'AKTİF (DEVREDE)') : 'AKTİF (DEVREDE)';
+        const readyText = i18n ? i18n.t('codex_status_ready', 'HAZIR (BİRLEŞTİRİLEBİLİR)') : 'HAZIR (BİRLEŞTİRİLEBİLİR)';
+        const lockedText = i18n ? i18n.t('codex_status_locked', 'ŞEMA KİLİTLİ') : 'ŞEMA KİLİTLİ';
+        const undiscoveredText = i18n ? i18n.t('codex_status_undiscovered', 'GİZLİ PROTOKOL') : 'GİZLİ PROTOKOL';
         const statusText = !isDiscovered ? undiscoveredText : (owned ? activeText : (ready ? readyText : lockedText));
         const statusClass = owned ? 'active-in-run' : (ready ? 'ready-in-run' : (!isDiscovered ? 'undiscovered-card' : ''));
 
@@ -19773,13 +19960,13 @@
 
           const i18n = window.ZortexI18n;
           let btnClass = 'node-action-btn btn-locked';
-          let btnText = i18n ? i18n.t('node_locked', '🔒 KİLİTLİ') : '🔒 KİLİTLİ';
+          let btnText = i18n ? i18n.t('node_locked', 'KİLİTLİ') : 'KİLİTLİ';
           if (isUnlocked) {
             btnClass = 'node-action-btn btn-unlocked';
-            btnText = i18n ? i18n.t('node_active', '✅ AKTİF') : '✅ AKTİF';
+            btnText = i18n ? i18n.t('node_active', 'AKTİF') : 'AKTİF';
           } else if (canAfford) {
             btnClass = 'node-action-btn btn-buy';
-            const unlockWord = i18n ? i18n.t('node_unlock', '🧬 AÇ') : '🧬 AÇ';
+            const unlockWord = i18n ? i18n.t('node_unlock', 'AÇ') : 'AÇ';
             btnText = `${unlockWord} (${node.cost} TP)`;
           } else if (isAvailable) {
             btnClass = 'node-action-btn btn-locked';
@@ -19887,6 +20074,36 @@
        YENİ: AYARLAR (SETTINGS) ARAYÜZ YÖNETİMİ
        ============================================================== */
     let settingsReturnState = 'MENU';
+    let currentSettingsTab = 'audio';
+
+    function switchSettingsTab(tabName) {
+      const validTabs = ['audio', 'video', 'gameplay', 'accessibility'];
+      if (!validTabs.includes(tabName)) return;
+      currentSettingsTab = tabName;
+      const tabBtns = document.querySelectorAll('#settingsTabsBar .settings-tab-btn');
+      tabBtns.forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabName) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      GamepadUI.focusIndex = 0;
+      renderSettings();
+      if (typeof audio !== 'undefined' && audio && audio.playFocusTick) {
+        audio.playFocusTick();
+      }
+    }
+    window.switchSettingsTab = switchSettingsTab;
+
+    function cycleSettingsTab(dir = 1) {
+      const tabs = ['audio', 'video', 'gameplay', 'accessibility'];
+      let idx = tabs.indexOf(currentSettingsTab);
+      if (idx === -1) idx = 0;
+      const nextIdx = (idx + dir + tabs.length) % tabs.length;
+      switchSettingsTab(tabs[nextIdx]);
+    }
+    window.cycleSettingsTab = cycleSettingsTab;
 
     function applyAccessibilitySettings() {
       const cb = (gameSettings && gameSettings.colorblindMode) || 'none';
@@ -19910,6 +20127,9 @@
       applyCrtSetting();
       if (audio) {
         audio.setMasterVolume(gameSettings.masterVolume);
+        if (typeof audio.setSFXVolume === 'function') audio.setSFXVolume(gameSettings.sfxVolume);
+        if (typeof audio.setMusicVolume === 'function') audio.setMusicVolume(gameSettings.musicVolume);
+        if (typeof audio.setShipVolume === 'function') audio.setShipVolume(gameSettings.shipVolume);
       }
       applyAccessibilitySettings();
     }
@@ -19918,6 +20138,11 @@
       settingsReturnState = fromPause ? 'PAUSED' : 'MENU';
       gameState = 'SETTINGS';
       GamepadUI.focusIndex = 0;
+      currentSettingsTab = 'audio';
+      const tabBtns = document.querySelectorAll('#settingsTabsBar .settings-tab-btn');
+      tabBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === 'audio');
+      });
       renderSettings();
       if (fromPause) {
         document.getElementById('pauseOverlay').classList.add('hidden');
@@ -19950,30 +20175,76 @@
       const getT = (k, fb) => (i18n ? i18n.t(k, fb) : fb);
 
       const items = [
+        // === 1. AUDIO (SES) ===
         {
-          key: 'language',
-          name: getT('setting_language_name', '🌐 Arayüz Dili (Language)'),
-          desc: getT('setting_language_desc', 'Oyun içi tüm metinler, menüler, kartlar ve arayüz için geçerli dil.'),
-          getVal: () => {
-            const cur = (i18n ? i18n.currentLang : 'tr').toLowerCase();
-            if (cur === 'en') return 'ENGLISH (EN)';
-            if (cur === 'es') return 'ESPAÑOL (ES)';
-            if (cur === 'de') return 'DEUTSCH (DE)';
-            return 'TÜRKÇE (TR)';
-          },
-          toggle: () => {
-            if (i18n) {
-              i18n.toggleLanguage();
-              gameSettings.language = i18n.currentLang;
-              saveSettings();
-              renderSettings();
-            }
+          key: 'masterVolume',
+          category: 'audio',
+          type: 'slider',
+          name: getT('setting_mastervolume_name', 'Ana Ses Seviyesi'),
+          desc: getT('setting_mastervolume_desc', 'Tüm oyun sesleri, müzik ve efektler için ana ses şiddeti.'),
+          getVal: () => Math.round((gameSettings.masterVolume ?? 1.0) * 100),
+          onInput: (val) => {
+            const ratio = val / 100;
+            gameSettings.masterVolume = ratio;
+            audio.setMasterVolume(ratio);
+            saveSettings();
           }
         },
         {
+          key: 'sfxVolume',
+          category: 'audio',
+          type: 'slider',
+          name: getT('setting_sfxvolume_name', 'Silah ve Patlamalar'),
+          desc: getT('setting_sfxvolume_desc', 'Lazer atışları, patlamalar, vuruşlar ve düşman ses seviyesi.'),
+          getVal: () => Math.round((gameSettings.sfxVolume ?? 0.8) * 100),
+          onInput: (val) => {
+            const ratio = val / 100;
+            gameSettings.sfxVolume = ratio;
+            audio.setSFXVolume(ratio);
+            saveSettings();
+          },
+          onChange: () => {
+            if (audio.ctx && typeof audio.playPickup === 'function') audio.playPickup();
+          }
+        },
+        {
+          key: 'musicVolume',
+          category: 'audio',
+          type: 'slider',
+          name: getT('setting_musicvolume_name', 'Müzik Seviyesi'),
+          desc: getT('setting_musicvolume_desc', 'Synthwave arka plan müzikleri ve boss temaları ses şiddeti.'),
+          getVal: () => Math.round((gameSettings.musicVolume ?? 0.7) * 100),
+          onInput: (val) => {
+            const ratio = val / 100;
+            gameSettings.musicVolume = ratio;
+            audio.setMusicVolume(ratio);
+            saveSettings();
+          }
+        },
+        {
+          key: 'shipVolume',
+          category: 'audio',
+          type: 'slider',
+          name: getT('setting_shipvolume_name', 'Gemi ve Motor Sesleri'),
+          desc: getT('setting_shipvolume_desc', 'İyon iticiler, dash sıçramaları, decoy ve çapa yetenek sesleri.'),
+          getVal: () => Math.round((gameSettings.shipVolume ?? 0.8) * 100),
+          onInput: (val) => {
+            const ratio = val / 100;
+            gameSettings.shipVolume = ratio;
+            audio.setShipVolume(ratio);
+            saveSettings();
+          },
+          onChange: () => {
+            if (audio.ctx && typeof audio.playDash === 'function') audio.playDash();
+          }
+        },
+
+        // === 2. VIDEO (GÖRÜNTÜ) ===
+        {
           key: 'targetFPS',
-          name: getT('setting_fps_name', '⚡ Hedef Kare Hızı (FPS Sınırı)'),
-          desc: getT('setting_fps_desc', `OTOMATİK: Monitörünüzün en yüksek hızını (${detectedRefreshRate} Hz) kullanır. Diğer modlarla FPS sınırlandırılabilir.`),
+          category: 'video',
+          name: getT('setting_fps_name', 'Hedef Kare Hızı'),
+          desc: getT('setting_fps_desc', `OTOMATİK: Monitörünüzün en yüksek hızını (${detectedRefreshRate} Hz) kullanır. Diğer modlarla kare hızı sınırlandırılabilir.`),
           getVal: () => {
             const v = gameSettings.targetFPS;
             if (!v || v === 'auto') return `${getT('val_auto', 'OTOMATİK')} (${detectedRefreshRate} Hz)`;
@@ -19984,7 +20255,7 @@
             if (v === 144 || v === '144') return '144 FPS';
             if (v === 165 || v === '165') return '165 FPS';
             if (v === 240 || v === '240') return '240 FPS';
-            return getT('val_unlimited', 'SINIRSIZ (BENCHMARK)');
+            return getT('val_unlimited', 'SINIRSIZ');
           },
           toggle: () => {
             const order = ['auto', 30, 60, 90, 120, 144, 165, 240, 'unlimited'];
@@ -19995,7 +20266,8 @@
         },
         {
           key: 'showFps',
-          name: getT('setting_showfps_name', '📊 Canlı FPS Sayacı (HUD)'),
+          category: 'video',
+          name: getT('setting_showfps_name', 'Canlı Kare Hızı Sayacı'),
           desc: getT('setting_showfps_desc', 'Oyun esnasında ekranın üst köşesinde anlık kare hızını gösterir.'),
           getVal: () => (gameSettings.showFps !== false) ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
           toggle: () => {
@@ -20003,29 +20275,10 @@
           }
         },
         {
-          key: 'debugTelemetry',
-          name: getT('setting_debug_telemetry_name', '⚡ Geliştirici Telemetri / FX HUD (F8)'),
-          desc: getT('setting_debug_telemetry_desc', 'Köşede parçacık, mermi, düşman sayısı ve kare süresi gecikme istatistiklerini gösterir.'),
-          getVal: () => (window.ZortexFX && window.ZortexFX.debug && window.ZortexFX.debug.hudVisible) ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
-          toggle: () => {
-            if (window.ZortexFX && window.ZortexFX.debug) {
-              window.ZortexFX.debug.toggleDomHUD();
-            }
-          }
-        },
-        {
-          key: 'fullscreen',
-          name: getT('setting_fullscreen_name', '🖥️ Tam Ekran Modu (Fullscreen)'),
-          desc: getT('setting_fullscreen_desc', 'Tarayıcı sekmelerini gizleyerek tam ekran modunda çalıştırır.'),
-          getVal: () => Boolean(document.fullscreenElement) ? getT('val_fullscreen', 'TAM EKRAN') : getT('val_windowed', 'PENCERELİ'),
-          toggle: () => {
-            toggleFullscreen();
-          }
-        },
-        {
           key: 'graphicsQuality',
-          name: getT('setting_graphics_name', '🖥️ Grafik Kalitesi'),
-          desc: getT('setting_graphics_desc', 'DÜŞÜK (Hafif), ORTA (Optimize), YÜKSEK (144Hz Dengeli), ULTRA (Maksimum VFX).'),
+          category: 'video',
+          name: getT('setting_graphics_name', 'Grafik Kalitesi'),
+          desc: getT('setting_graphics_desc', 'DÜŞÜK (Hafif), ORTA (Optimize), YÜKSEK (144Hz Dengeli), ULTRA (Maksimum Görsel Efekt).'),
           getVal: () => {
             const q = gameSettings.graphicsQuality || 'high';
             return getT('val_' + q, q.toUpperCase());
@@ -20039,7 +20292,8 @@
         },
         {
           key: 'theme',
-          name: getT('setting_theme_name', '🎨 Oyun Teması'),
+          category: 'video',
+          name: getT('setting_theme_name', 'Oyun Teması'),
           desc: getT('setting_theme_desc', 'Cyberpunk (Mavi/Pembe), Matrix (Yeşil Siber), Blood Moon (Kırmızı Vahşi).'),
           getVal: () => {
             const t = THEMES[gameSettings.theme] || THEMES.cyberpunk;
@@ -20054,8 +20308,53 @@
           }
         },
         {
+          key: 'crtEnabled',
+          category: 'video',
+          name: getT('setting_crt_name', 'CRT Retro Tarama Çizgileri'),
+          desc: getT('setting_crt_desc', 'Nostaljik atari salonu tarama çizgileri overlay filtresi.'),
+          getVal: () => gameSettings.crtEnabled ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
+          toggle: () => {
+            gameSettings.crtEnabled = !gameSettings.crtEnabled;
+            crtEnabled = gameSettings.crtEnabled;
+            applyCrtSetting();
+          }
+        },
+        {
+          key: 'fullscreen',
+          category: 'video',
+          name: getT('setting_fullscreen_name', 'Tam Ekran'),
+          desc: getT('setting_fullscreen_desc', 'Tarayıcı pencerelerini gizleyerek tam ekran modunda çalıştırır.'),
+          getVal: () => Boolean(document.fullscreenElement) ? getT('val_fullscreen', 'TAM EKRAN') : getT('val_windowed', 'PENCERELİ'),
+          toggle: () => {
+            toggleFullscreen();
+          }
+        },
+        {
+          key: 'debugTelemetry',
+          category: 'video',
+          name: getT('setting_debug_telemetry_name', 'Geliştirici Telemetrisi'),
+          desc: getT('setting_debug_telemetry_desc', 'Köşede parçacık, mermi, düşman sayısı ve kare süresi gecikme istatistiklerini gösterir.'),
+          getVal: () => (window.ZortexFX && window.ZortexFX.debug && window.ZortexFX.debug.hudVisible) ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
+          toggle: () => {
+            if (window.ZortexFX && window.ZortexFX.debug) {
+              window.ZortexFX.debug.toggleDomHUD();
+            }
+          }
+        },
+
+        // === 3. GAMEPLAY (OYNANIŞ) ===
+        {
+          key: 'autoAim',
+          category: 'gameplay',
+          name: getT('setting_autoaim_name', 'Otomatik Hedef Alma Yardımı'),
+          desc: getT('setting_autoaim_desc', 'Nişan alırken en yakın düşmana hafif manyetik hedefleme.'),
+          getVal: () => gameSettings.autoAim ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
+          toggle: () => { gameSettings.autoAim = !gameSettings.autoAim; }
+        },
+        {
           key: 'screenShake',
-          name: getT('setting_screenshake_name', '📳 Ekran Sarsıntısı'),
+          category: 'gameplay',
+          name: getT('setting_screenshake_name', 'Ekran Sarsıntısı'),
           desc: getT('setting_screenshake_desc', 'Patlama ve darbelerde kamera sarsıntı şiddeti.'),
           getVal: () => {
             if (gameSettings.screenShake === 0) return getT('val_off', 'KAPALI');
@@ -20071,95 +20370,47 @@
         },
         {
           key: 'damageNumbers',
-          name: getT('setting_damagenumbers_name', '💥 Hasar Sayıları'),
+          category: 'gameplay',
+          name: getT('setting_damagenumbers_name', 'Hasar Sayıları'),
           desc: getT('setting_damagenumbers_desc', 'Düşmanlara verilen hasarın ve kritik vuruşların ekranda görünmesi.'),
           getVal: () => gameSettings.damageNumbers ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
           toggle: () => { gameSettings.damageNumbers = !gameSettings.damageNumbers; }
         },
         {
-          key: 'masterVolume',
-          name: getT('setting_mastervolume_name', '🔊 Ana Ses Seviyesi (Master)'),
-          desc: getT('setting_mastervolume_desc', 'Tüm oyun sesleri, müzik ve efektler için ana ses şiddeti.'),
-          getVal: () => `%${Math.round((gameSettings.masterVolume ?? 1.0) * 100)}`,
-          toggle: () => {
-            const steps = [1.0, 0.75, 0.5, 0.25, 0.0];
-            const cur = gameSettings.masterVolume ?? 1.0;
-            const idx = steps.findIndex(v => Math.abs(v - cur) < 0.05);
-            gameSettings.masterVolume = steps[(idx + 1) % steps.length];
-            audio.setMasterVolume(gameSettings.masterVolume);
-            saveSettings();
-          }
-        },
-        {
-          key: 'sfxVolume',
-          name: getT('setting_sfxvolume_name', '💥 Silah & Patlama Sesleri (SFX)'),
-          desc: getT('setting_sfxvolume_desc', 'Lazer atışları, patlamalar, vuruşlar ve düşman ses seviyesi.'),
-          getVal: () => `%${Math.round((gameSettings.sfxVolume ?? 0.8) * 100)}`,
-          toggle: () => {
-            const steps = [1.0, 0.8, 0.6, 0.4, 0.2, 0.0];
-            const cur = gameSettings.sfxVolume ?? 0.8;
-            const idx = steps.findIndex(v => Math.abs(v - cur) < 0.05);
-            gameSettings.sfxVolume = steps[(idx + 1) % steps.length];
-            audio.setSFXVolume(gameSettings.sfxVolume);
-            saveSettings();
-          }
-        },
-        {
-          key: 'musicVolume',
-          name: getT('setting_musicvolume_name', '🎵 Müzik Seviyesi (OST)'),
-          desc: getT('setting_musicvolume_desc', 'Synthwave arka plan müzikleri ve boss temaları ses şiddeti.'),
-          getVal: () => `%${Math.round((gameSettings.musicVolume ?? 0.7) * 100)}`,
-          toggle: () => {
-            const steps = [1.0, 0.8, 0.6, 0.4, 0.2, 0.0];
-            const cur = gameSettings.musicVolume ?? 0.7;
-            const idx = steps.findIndex(v => Math.abs(v - cur) < 0.05);
-            gameSettings.musicVolume = steps[(idx + 1) % steps.length];
-            audio.setMusicVolume(gameSettings.musicVolume);
-            saveSettings();
-          }
-        },
-        {
-          key: 'shipVolume',
-          name: getT('setting_shipvolume_name', '🚀 Gemi & Motor Sesleri (Engine)'),
-          desc: getT('setting_shipvolume_desc', 'İyon iticiler, dash sıçramaları, decoy ve çapa yetenek sesleri.'),
-          getVal: () => `%${Math.round((gameSettings.shipVolume ?? 0.8) * 100)}`,
-          toggle: () => {
-            const steps = [1.0, 0.8, 0.6, 0.4, 0.2, 0.0];
-            const cur = gameSettings.shipVolume ?? 0.8;
-            const idx = steps.findIndex(v => Math.abs(v - cur) < 0.05);
-            gameSettings.shipVolume = steps[(idx + 1) % steps.length];
-            audio.setShipVolume(gameSettings.shipVolume);
-            saveSettings();
-          }
-        },
-        {
-          key: 'crtEnabled',
-          name: getT('setting_crt_name', '📺 CRT Retro Tarama Çizgileri'),
-          desc: getT('setting_crt_desc', 'Nostaljik atari salonu tarama çizgileri overlay filtresi.'),
-          getVal: () => gameSettings.crtEnabled ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
-          toggle: () => {
-            gameSettings.crtEnabled = !gameSettings.crtEnabled;
-            crtEnabled = gameSettings.crtEnabled;
-            applyCrtSetting();
-          }
-        },
-        {
           key: 'rumbleEnabled',
-          name: getT('setting_rumble_name', '🎮 Titreşim (Rumble / Haptik)'),
+          category: 'gameplay',
+          name: getT('setting_rumble_name', 'Gamepad Titreşimi'),
           desc: getT('setting_rumble_desc', 'Desteklenen oyun kolları ve gamepadler için dokunsal titreşim.'),
           getVal: () => gameSettings.rumbleEnabled ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
           toggle: () => { gameSettings.rumbleEnabled = !gameSettings.rumbleEnabled; }
         },
+
+        // === 4. ACCESSIBILITY (ERİŞİLEBİLİRLİK) ===
         {
-          key: 'autoAim',
-          name: getT('setting_autoaim_name', '🎯 Otomatik Hedef Alma Yardımı'),
-          desc: getT('setting_autoaim_desc', 'Nişan alırken en yakın düşmana hafif manyetik hedefleme.'),
-          getVal: () => gameSettings.autoAim ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
-          toggle: () => { gameSettings.autoAim = !gameSettings.autoAim; }
+          key: 'language',
+          category: 'accessibility',
+          name: getT('setting_language_name', 'Arayüz Dili'),
+          desc: getT('setting_language_desc', 'Oyun içi tüm metinler, menüler, kartlar ve arayüz için geçerli dil.'),
+          getVal: () => {
+            const cur = (i18n ? i18n.currentLang : 'tr').toLowerCase();
+            if (cur === 'en') return 'ENGLISH';
+            if (cur === 'es') return 'ESPAÑOL';
+            if (cur === 'de') return 'DEUTSCH';
+            return 'TÜRKÇE';
+          },
+          toggle: () => {
+            if (i18n) {
+              i18n.toggleLanguage();
+              gameSettings.language = i18n.currentLang;
+              saveSettings();
+              renderSettings();
+            }
+          }
         },
         {
           key: 'colorblindMode',
-          name: getT('setting_colorblind_name', '👁️ Renk Körlüğü Filtresi'),
+          category: 'accessibility',
+          name: getT('setting_colorblind_name', 'Renk Körlüğü Filtresi'),
           desc: getT('setting_colorblind_desc', 'Renk körlüğü spektrumu için optimize edilmiş yüksek ayırt edilebilirlik filtresi.'),
           getVal: () => {
             const cur = gameSettings.colorblindMode || 'none';
@@ -20175,8 +20426,9 @@
         },
         {
           key: 'largeTextMode',
-          name: getT('setting_largetext_name', '🔍 Büyük Yazı & HUD Kontrastı'),
-          desc: getT('setting_largetext_desc', 'HUD ve arayüz yazı tiplerini büyüterek yüksek kontrastlı okunabilirlik sağlar.'),
+          category: 'accessibility',
+          name: getT('setting_largetext_name', 'Büyük Yazı ve Yüksek Kontrast'),
+          desc: getT('setting_largetext_desc', 'Arayüz yazı tiplerini büyüterek yüksek kontrastlı okunabilirlik sağlar.'),
           getVal: () => gameSettings.largeTextMode ? getT('val_on', 'AÇIK') : getT('val_off', 'KAPALI'),
           toggle: () => {
             gameSettings.largeTextMode = !gameSettings.largeTextMode;
@@ -20185,14 +20437,52 @@
         }
       ];
 
-      items.forEach(it => {
+      const filteredItems = items.filter(it => it.category === currentSettingsTab);
+
+      filteredItems.forEach(it => {
         const row = document.createElement('div');
         row.className = 'settings-item';
+
+        if (it.type === 'slider') {
+          const curVal = it.getVal();
+          const displayVal = curVal === 0 ? getT('val_off', 'KAPALI') : `%${curVal}`;
+          row.innerHTML = `
+            <div class="settings-item-info">
+              <div class="settings-item-name">${it.name}</div>
+              <div class="settings-item-desc">${it.desc}</div>
+            </div>
+            <div class="settings-slider-container">
+              <input type="range" class="settings-slider" min="0" max="100" step="1" value="${curVal}">
+              <span class="settings-slider-val">${displayVal}</span>
+            </div>
+          `;
+          const slider = row.querySelector('.settings-slider');
+          const valBadge = row.querySelector('.settings-slider-val');
+
+          const updateTrack = (v) => {
+            slider.style.background = `linear-gradient(to right, #00f3ff 0%, #00f3ff ${v}%, #0c162d ${v}%, #0c162d 100%)`;
+          };
+          updateTrack(curVal);
+
+          slider.oninput = (e) => {
+            const v = parseInt(e.target.value, 10);
+            updateTrack(v);
+            valBadge.textContent = v === 0 ? getT('val_off', 'KAPALI') : `%${v}`;
+            it.onInput(v);
+          };
+
+          if (it.onChange) {
+            slider.onchange = () => it.onChange();
+          }
+
+          list.appendChild(row);
+          return;
+        }
+
         const valText = it.getVal();
-        const onWord = getT('val_on', 'AÇIK');
-        const normWord = getT('val_normal', 'NORMAL');
-        const strongWord = getT('val_strong', 'GÜÇLÜ');
-        const isActive = valText === onWord || valText === normWord || valText === strongWord || valText.includes('%') || it.key === 'language';
+        const offWord = getT('val_off', 'KAPALI');
+        const isOff = valText === offWord;
+        const isActive = !isOff;
         row.innerHTML = `
           <div class="settings-item-info">
             <div class="settings-item-name">${it.name}</div>
