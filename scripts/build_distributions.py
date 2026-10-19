@@ -30,37 +30,41 @@ def zip_directory(src_dir, zip_path):
             for file in files:
                 full_path = os.path.join(root, file)
                 rel_path = os.path.relpath(full_path, src_dir)
-                zf.write(full_path, rel_path)
+                arcname = rel_path.replace(os.sep, "/")
+                zf.write(full_path, arcname)
 
 
-def build_web_zip(zip_path):
-    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED, compresslevel=6) as zf:
-        for item in WEB_INCLUDES:
-            target = os.path.join(ROOT_DIR, item)
-            if os.path.isfile(target):
-                zf.write(target, item)
-            elif os.path.isdir(target):
-                for root, _, files in os.walk(target):
-                    # Skip internal node/npm build packages inside vendor
-                    parts = root.split(os.sep)
-                    if "package" in parts:
-                        continue
-                    for file in files:
-                        ext = os.path.splitext(file)[1].lower()
-                        if ext in {".map", ".url", ".unitypackage", ".ini", ".txt"}:
-                            continue
-                        full_path = os.path.join(root, file)
-                        rel_path = os.path.relpath(full_path, ROOT_DIR)
-                        zf.write(full_path, rel_path)
+def sync_core_files_to_dist(dest_dir):
+    import shutil
+    os.makedirs(os.path.join(dest_dir, "js", "core"), exist_ok=True)
+    shutil.copy2(os.path.join(ROOT_DIR, "index.html"), os.path.join(dest_dir, "index.html"))
+    shutil.copy2(os.path.join(ROOT_DIR, "js", "core", "localization.js"), os.path.join(dest_dir, "js", "core", "localization.js"))
+    shutil.copy2(os.path.join(ROOT_DIR, "js", "core", "crazygames_sdk.js"), os.path.join(dest_dir, "js", "core", "crazygames_sdk.js"))
 
 
 def main():
     os.makedirs(DIST_DIR, exist_ok=True)
 
-    web_zip = os.path.join(DIST_DIR, "Zortex-Web-HTML5-v2.5.0.zip")
-    print(f"[*] Building Web HTML5 Bundle (itch.io & CrazyGames): {web_zip}")
-    build_web_zip(web_zip)
-    print(f"    [OK] Size: {os.path.getsize(web_zip) / (1024 * 1024):.2f} MB")
+    crazy_src = os.path.join(DIST_DIR, "crazygames_upload", "zortex")
+    itch_src = os.path.join(DIST_DIR, "itch_upload")
+
+    if os.path.isdir(crazy_src):
+        sync_core_files_to_dist(crazy_src)
+        web_zip = os.path.join(DIST_DIR, "Zortex-Web-HTML5-v2.5.0.zip")
+        print(f"[*] Building CrazyGames Bundle (<1000 files, POSIX slashes): {web_zip}")
+        zip_directory(crazy_src, web_zip)
+        with zipfile.ZipFile(web_zip, "r") as zf:
+            entry_count = len(zf.namelist())
+        print(f"    [OK] Size: {os.path.getsize(web_zip) / (1024 * 1024):.2f} MB, Entries: {entry_count}")
+
+    if os.path.isdir(itch_src):
+        sync_core_files_to_dist(itch_src)
+        itch_zip = os.path.join(DIST_DIR, "Zortex-itch-v2.5.0.zip")
+        print(f"[*] Building Itch.io Web Bundle (<1000 files, POSIX slashes): {itch_zip}")
+        zip_directory(itch_src, itch_zip)
+        with zipfile.ZipFile(itch_zip, "r") as zf:
+            entry_count = len(zf.namelist())
+        print(f"    [OK] Size: {os.path.getsize(itch_zip) / (1024 * 1024):.2f} MB, Entries: {entry_count}")
 
     if os.path.isdir(UNPACKED_DIR):
         win_zip = os.path.join(DIST_DIR, "Zortex-Windows-v2.5.0.zip")

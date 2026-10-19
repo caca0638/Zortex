@@ -53,6 +53,15 @@
       ctrl_pause: '<span class="key-badge">P / ESC</span> Oyunu Duraklat',
       ctrl_modal_title: 'SİBER KONTROLLER',
       close_btn: 'KAPAT',
+      ad_revive_btn: '⚡ REKLAM İZLE: DİRİL (%50 KALKAN)',
+      onboarding_title: 'SAVAŞ PROTOKOLÜ: KONTROLLER',
+      onboarding_start: 'SAVAŞA GİRMEK İÇİN TIKLA VEYA BİR TUŞA BAS',
+      onboard_move: 'Hareket',
+      onboard_aim: 'Nişan & Ateş',
+      onboard_dash: 'Hızlı Kaçış',
+      onboard_overdrive: 'Overdrive',
+      onboard_weapons: 'Silahlar',
+      onboard_pause: 'Duraklat',
 
       // Silah Evrimi Bannerı
       evo_banner_tag: 'SİLAH EVRİMİ',
@@ -470,6 +479,15 @@
       ctrl_pause: '<span class="key-badge">P / ESC</span> Pause Game',
       ctrl_modal_title: 'CYBER CONTROLS',
       close_btn: 'CLOSE',
+      ad_revive_btn: '⚡ WATCH AD: REVIVE (50% SHIELD)',
+      onboarding_title: 'COMBAT PROTOCOL: CONTROLS',
+      onboarding_start: 'CLICK OR PRESS ANY KEY TO ENGAGE',
+      onboard_move: 'Move',
+      onboard_aim: 'Aim & Fire',
+      onboard_dash: 'Dash',
+      onboard_overdrive: 'Overdrive',
+      onboard_weapons: 'Weapons',
+      onboard_pause: 'Pause',
 
       // Weapon Evolution Banner
       evo_banner_tag: 'WEAPON EVOLUTION',
@@ -887,6 +905,15 @@
       ctrl_pause: '<span class="key-badge">P / ESC</span> Pausar Juego',
       ctrl_modal_title: 'CONTROLES CIBERNÉTICOS',
       close_btn: 'CERRAR',
+      ad_revive_btn: '⚡ VER ANUNCIO: REVIVIR (50% ESCUDO)',
+      onboarding_title: 'PROTOCOLO DE COMBATE: CONTROLES',
+      onboarding_start: 'HAZ CLIC O PULSA CUALQUIER TECLA PARA COMBATIR',
+      onboard_move: 'Mover',
+      onboard_aim: 'Apuntar & Fuego',
+      onboard_dash: 'Esquivar',
+      onboard_overdrive: 'Overdrive',
+      onboard_weapons: 'Armas',
+      onboard_pause: 'Pausa',
 
       // Pancarta de Evolución de Arma
       evo_banner_tag: 'EVOLUCIÓN DE ARMA',
@@ -1304,6 +1331,15 @@
       ctrl_pause: '<span class="key-badge">P / ESC</span> Spiel Pausieren',
       ctrl_modal_title: 'CYBER-STEUERUNG',
       close_btn: 'SCHLIESSEN',
+      ad_revive_btn: '⚡ WERBUNG ANSEHEN: WIEDERBELEBEN (50% SCHILD)',
+      onboarding_title: 'KAMPFPROTOKOLL: STEUERUNG',
+      onboarding_start: 'KLICKEN ODER BELIEBIGE TASTE DRÜCKEN ZUM START',
+      onboard_move: 'Bewegen',
+      onboard_aim: 'Zielen & Feuern',
+      onboard_dash: 'Sprint',
+      onboard_overdrive: 'Overdrive',
+      onboard_weapons: 'Waffen',
+      onboard_pause: 'Pause',
 
       // Waffen-Evolutions-Banner
       evo_banner_tag: 'WAFFEN-EVOLUTION',
@@ -1683,11 +1719,11 @@
 
   class LocalizationEngine {
     constructor() {
-      let saved = 'tr';
+      let saved = 'en';
       try {
-        saved = localStorage.getItem('zortex_lang') || 'tr';
+        saved = localStorage.getItem('zortex_lang') || 'en';
       } catch (e) {}
-      if (!SUPPORTED_LANGS.includes(saved)) saved = 'tr';
+      if (!SUPPORTED_LANGS.includes(saved)) saved = 'en';
       this.currentLang = saved;
 
       // DOM hazır olduğunda otomatik uygula

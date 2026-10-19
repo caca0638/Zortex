@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>ZORTEX: CYBER SURVIVOR - 2D Cyberpunk Rogue-Lite</title>
   <!-- PIXI.JS v8 WebGL GPU Grafik Motoru & 2.5D Retro Arcade Mimari Paketi -->
   <script src="pixi.v8.min.js"></script>
+  <!-- CrazyGames Official SDK v2 -->
+  <script src="https://sdk.crazygames.com/crazygames-sdk-v2.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -1211,6 +1213,44 @@
       border-radius: 4px;
       font-weight: bold;
       font-size: 12px;
+      margin-right: 6px;
+    }
+
+    /* Quick In-Game Controls Onboarding Banner */
+    .gameplay-onboard-banner {
+      position: absolute;
+      bottom: 85px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(10, 16, 30, 0.9);
+      border: 1px solid rgba(0, 243, 255, 0.6);
+      border-radius: 8px;
+      padding: 8px 18px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      z-index: 999;
+      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(0, 243, 255, 0.25);
+      backdrop-filter: blur(6px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      font-size: 13px;
+      color: #e0f7ff;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .gameplay-onboard-banner.fade-out {
+      opacity: 0;
+      transform: translateX(-50%) translateY(12px);
+    }
+    .gameplay-onboard-banner .onboard-key {
+      background: #111d33;
+      border: 1px solid #00f3ff;
+      color: #00f3ff;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 11px;
       margin-right: 6px;
     }
 
@@ -3626,6 +3666,16 @@
       <div id="inventoryWeaponSlots" style="display:none;"></div>
     </div>
 
+    <!-- OYUN İÇİ KONTROLLER ONBOARDING BANNER'I -->
+    <div id="gameplayOnboardBanner" class="gameplay-onboard-banner hidden">
+      <div><span class="onboard-key">WASD</span><span data-i18n="onboard_move">Move</span></div>
+      <div><span class="onboard-key">MOUSE</span><span data-i18n="onboard_aim">Aim & Fire</span></div>
+      <div><span class="onboard-key">SPACE</span><span data-i18n="onboard_dash">Dash</span></div>
+      <div><span class="onboard-key">E</span><span data-i18n="onboard_overdrive">Overdrive</span></div>
+      <div><span class="onboard-key">1-4</span><span data-i18n="onboard_weapons">Weapons</span></div>
+      <div><span class="onboard-key">ESC/P</span><span data-i18n="onboard_pause">Pause</span></div>
+    </div>
+
     <!-- RETRO ATARI WEAPON SELECTOR HUD BAR -->
     <div id="weaponHudBar" class="hidden">
       <div class="weapon-hud-slot active" data-weapon="blaster" onclick="if(window.weaponManager) window.weaponManager.selectWeaponIndex(0);">
@@ -4167,6 +4217,7 @@
         &nbsp;•&nbsp; <span data-i18n="scrap_lbl">Toplam Hurda:</span> <span id="totalScrapGameOver" style="color: #ffb300; font-weight: bold;">0</span> 🔩
       </div>
 
+      <button id="adReviveBtn" class="btn" style="display: none; width: 100%; max-width: 380px; margin: 0 auto 12px auto; background: linear-gradient(135deg, #059669, #10b981); border: 1.5px solid #34d399; color: #fff; box-shadow: 0 0 16px rgba(16, 185, 129, 0.4); font-weight: 800; letter-spacing: 1px;" data-i18n="ad_revive_btn">⚡ REKLAM İZLE: DİRİL (%50 KALKAN)</button>
       <button id="restartBtn" class="btn" data-i18n="retry">TEKRAR DENE</button>
       <button id="menuFromGameOverBtn" class="btn btn-secondary" data-i18n="main_menu">ANA MENÜ / HANGAR</button>
       <div class="gamepad-prompt-bar">
@@ -4261,6 +4312,8 @@
   <script src="js/gameplay/zortex_meta_progression.js"></script>
   <!-- [CORE] Sol Dayalı Ana Menü ve İnteraktif Siber Uzay Showcase Sahnesi -->
   <script src="js/core/menu_showcase.js"></script>
+  <!-- [PLATFORM] CrazyGames SDK v2 Resilient Integration Proxy -->
+  <script src="js/core/crazygames_sdk.js"></script>
 
   <script>
     // [CORE] ZORTEX AAA CAMERA & TRAUMA SYSTEM EMBEDDED ENGINE (SONSUZ HARİTA & SIFIR-GECİKME TAKİP)
@@ -6782,11 +6835,17 @@
           window.ZortexPoolManager.registerSpritePool('particles', pixiParticlesContainer, null, 150, 2000);
         }
         if (window.ZortexAssetLoader) {
+          if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.loadingStart === 'function') {
+            window.ZortexCrazyGames.loadingStart();
+          }
           window.ZortexAssetLoader.init().then(() => {
             window.ZortexAssetLoader.preloadDefaultGameAssets().then(() => {
               if (typeof player !== 'undefined' && player && player.sprite && typeof getShipTexture === 'function') {
                 const nTex = getShipTexture(player.shipClassId);
                 if (nTex) player.sprite.texture = nTex;
+              }
+              if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.loadingStop === 'function') {
+                window.ZortexCrazyGames.loadingStop();
               }
             });
           });
@@ -14593,6 +14652,9 @@
             if (fightDur > 0 && fightDur <= 90.0) {
               runStats.bossKilledFast = true;
             }
+            if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.happytime === 'function') {
+              window.ZortexCrazyGames.happytime();
+            }
           }
           if (typeof player.addCombo === 'function') player.addCombo();
           const pCombo = (typeof player.combo === 'number' && !isNaN(player.combo)) ? player.combo : 0;
@@ -19564,10 +19626,29 @@
 
       gameState = 'PLAYING';
       window.gameState = gameState;
+      if (typeof player !== 'undefined' && player) player._revivedByAd = false;
+      if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.gameplayStart === 'function') {
+        window.ZortexCrazyGames.gameplayStart();
+      }
       const wBar = document.getElementById('weaponHudBar');
       if (wBar) wBar.classList.remove('hidden');
       const invBar = document.getElementById('inventory12SlotsBar');
       if (invBar) invBar.classList.remove('hidden');
+
+      // [ONBOARDING] Hızlı kontrol rehberi HUD ipucu
+      const onboardBanner = document.getElementById('gameplayOnboardBanner');
+      if (onboardBanner) {
+        onboardBanner.classList.remove('hidden', 'fade-out');
+        if (window.__onboardTimer) clearTimeout(window.__onboardTimer);
+        window.__onboardTimer = setTimeout(() => {
+          const b = document.getElementById('gameplayOnboardBanner');
+          if (b) {
+            b.classList.add('fade-out');
+            setTimeout(() => { if (b) b.classList.add('hidden'); }, 850);
+          }
+        }, 5500);
+      }
+
       if (window.inventoryManager) window.inventoryManager.reset();
       if (window.ChestSystem) window.ChestSystem.activeChests = [];
       if (window.timedEventsManager) window.timedEventsManager.reset();
@@ -19890,15 +19971,23 @@
       if (gameState === 'PLAYING') {
         gameState = 'PAUSED';
         window.gameState = gameState;
+        if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.gameplayStop === 'function') {
+          window.ZortexCrazyGames.gameplayStop();
+        }
         GamepadUI.focusIndex = 0;
         const gCanvas = document.getElementById('gameCanvas');
         if (gCanvas) gCanvas.style.filter = 'none';
         if (wBar) wBar.classList.add('hidden');
         if (invBar) invBar.classList.add('hidden');
+        const onboardBanner = document.getElementById('gameplayOnboardBanner');
+        if (onboardBanner) onboardBanner.classList.add('hidden');
         document.getElementById('pauseOverlay').classList.remove('hidden');
       } else if (gameState === 'PAUSED') {
         gameState = 'PLAYING';
         window.gameState = gameState;
+        if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.gameplayStart === 'function') {
+          window.ZortexCrazyGames.gameplayStart();
+        }
         lastTime = performance.now();
         lastFrameExecuteTime = performance.now();
         for (const k in keys) keys[k] = false;
@@ -21049,6 +21138,13 @@
       // Aynı karede birden fazla ölümcül vuruş gelirse ikinci kez çalışmasın
       if (gameState === 'GAMEOVER') return;
       gameState = 'GAMEOVER';
+      if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.gameplayStop === 'function') {
+        window.ZortexCrazyGames.gameplayStop();
+      }
+      const reviveBtn = document.getElementById('adReviveBtn');
+      if (reviveBtn) {
+        reviveBtn.style.display = (typeof player !== 'undefined' && player && !player._revivedByAd) ? 'block' : 'none';
+      }
       bossSpawned = false;
       if (typeof window !== 'undefined') window.bossSpawned = false;
       if (window.BiomeBossManager && typeof window.BiomeBossManager.reset === 'function') {
@@ -21126,6 +21222,8 @@
 
       const wBar = document.getElementById('weaponHudBar');
       if (wBar) wBar.classList.add('hidden');
+      const onboardBanner = document.getElementById('gameplayOnboardBanner');
+      if (onboardBanner) onboardBanner.classList.add('hidden');
       document.getElementById('gameOverOverlay').classList.remove('hidden');
     }
 
@@ -21137,7 +21235,42 @@
         startGame();
       }
     });
-    document.getElementById('restartBtn').addEventListener('click', startGame);
+    document.getElementById('restartBtn').addEventListener('click', () => {
+      if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.requestMidgameAd === 'function') {
+        window.ZortexCrazyGames.requestMidgameAd({
+          adFinished: () => startGame()
+        });
+      } else {
+        startGame();
+      }
+    });
+    const adReviveBtnEl = document.getElementById('adReviveBtn');
+    if (adReviveBtnEl) {
+      adReviveBtnEl.addEventListener('click', () => {
+        if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.requestRewardedAd === 'function') {
+          window.ZortexCrazyGames.requestRewardedAd({
+            onReward: () => {
+              if (typeof player !== 'undefined' && player) {
+                player._revivedByAd = true;
+                player.health = Math.round(player.maxHealth * 0.5);
+                player.shield = Math.round(player.maxShield * 0.5);
+                player.invulnerableTimer = 3.5;
+                gameState = 'PLAYING';
+                window.gameState = gameState;
+                document.getElementById('gameOverOverlay').classList.add('hidden');
+                const wBar = document.getElementById('weaponHudBar');
+                if (wBar) wBar.classList.remove('hidden');
+                if (window.ZortexCrazyGames) window.ZortexCrazyGames.gameplayStart();
+                if (audio) audio.setLowHealthMuffle(false);
+                if (window.textManager) {
+                  window.textManager.add('⚡ AD REVIVE ACTIVE! 3.5s INVULNERABLE', player.x, player.y - 30, '#10b981', 16, 1.5);
+                }
+              }
+            }
+          });
+        }
+      });
+    }
     document.getElementById('resumeBtn').addEventListener('click', togglePause);
     document.getElementById('restartFromPauseBtn').addEventListener('click', startGame);
     document.getElementById('pauseBtn').addEventListener('click', togglePause);
