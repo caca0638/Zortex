@@ -3607,7 +3607,7 @@
     <div class="hud-top-right">
       <div class="hud-top-right-header">
         <div id="hudModeHeatBadge">[ SEFER • NORMAL ]</div>
-        <button class="hud-tactical-btn" id="pauseBtn" title="Taktik Menü / Duraklat (ESC)">⏸️ MENÜ [ESC]</button>
+        <button class="hud-tactical-btn" id="pauseBtn" title="Pause Game (P)" data-i18n="hud_pause_btn">⏸️ PAUSE [P]</button>
       </div>
       <div id="hudScoreText" class="hud-score-text">SKOR: 0</div>
       <div class="hud-telemetry-pill">
@@ -3668,12 +3668,12 @@
 
     <!-- OYUN İÇİ KONTROLLER ONBOARDING BANNER'I -->
     <div id="gameplayOnboardBanner" class="gameplay-onboard-banner hidden">
-      <div><span class="onboard-key">WASD</span><span data-i18n="onboard_move">Move</span></div>
+      <div><span class="onboard-key">WASD / ZQSD</span><span data-i18n="onboard_move">Move</span></div>
       <div><span class="onboard-key">MOUSE</span><span data-i18n="onboard_aim">Aim & Fire</span></div>
       <div><span class="onboard-key">SPACE</span><span data-i18n="onboard_dash">Dash</span></div>
       <div><span class="onboard-key">E</span><span data-i18n="onboard_overdrive">Overdrive</span></div>
       <div><span class="onboard-key">1-4</span><span data-i18n="onboard_weapons">Weapons</span></div>
-      <div><span class="onboard-key">ESC/P</span><span data-i18n="onboard_pause">Pause</span></div>
+      <div><span class="onboard-key">P</span><span data-i18n="onboard_pause">Pause</span></div>
     </div>
 
     <!-- RETRO ATARI WEAPON SELECTOR HUD BAR -->
@@ -3803,7 +3803,7 @@
       <button id="startBtn" class="menu-start-primary-btn" type="button">
         <svg class="menu-icon menu-icon-lg" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
         <span class="btn-label" data-i18n="start_game">SEFERE BAŞLA</span>
-        <span class="start-btn-sub">// LOADOUT</span>
+        <span class="start-btn-sub">// DEPLOY</span>
       </button>
 
       <!-- Altı İkincil Menü Düğmesi (Aynı Boyutta, Çerçevesiz Metin Satırı, Hover Reticle & Sol Vurgu) -->
@@ -7138,8 +7138,8 @@
       if (gameState === 'PLAYING' && typeof player !== 'undefined' && player) {
         if (e.code === 'KeyF') autoFire = !autoFire;
         if (e.code === 'Space') player.dash();
-        if (e.code === 'KeyE') player.deployGravityAnchor();                 // [FAZ 4] Manyetik Çapa Modülü
-        if (e.code === 'KeyQ') player.triggerUltimate();                     // Aşırı Yükleme / Ultimate
+        if (e.code === 'KeyE' || e.code === 'KeyR') player.triggerUltimate();                 // Aşırı Yükleme / Ultimate (E / R)
+        if (e.code === 'KeyG' || e.code === 'KeyX') player.deployGravityAnchor();             // [FAZ 4] Manyetik Çapa Modülü (G / X)
         if (e.code === 'KeyC') player.deployDecoy();                         // Taktiksel Holo-Decoy aktif modülü
 
         // SİLAH SEÇİM TUŞLARI (1-6, Numpad 1-6, e.key 1-6)
@@ -11552,9 +11552,9 @@
             this._ghostDashHits = new Set();
           }
           let dx = 0, dy = 0;
-          if (keys['KeyW'] || keys['ArrowUp']) dy -= 1;
+          if (keys['KeyW'] || keys['KeyZ'] || keys['ArrowUp']) dy -= 1;
           if (keys['KeyS'] || keys['ArrowDown']) dy += 1;
-          if (keys['KeyA'] || keys['ArrowLeft']) dx -= 1;
+          if (keys['KeyA'] || keys['KeyQ'] || keys['ArrowLeft']) dx -= 1;
           if (keys['KeyD'] || keys['ArrowRight']) dx += 1;
           if (gamepadMoveX !== 0 || gamepadMoveY !== 0) {
             dx = gamepadMoveX;
@@ -12142,9 +12142,9 @@
             }
           }
         } else {
-          if (keys['KeyW'] || keys['ArrowUp']) moveY -= 1;
+          if (keys['KeyW'] || keys['KeyZ'] || keys['ArrowUp']) moveY -= 1;
           if (keys['KeyS'] || keys['ArrowDown']) moveY += 1;
-          if (keys['KeyA'] || keys['ArrowLeft']) moveX -= 1;
+          if (keys['KeyA'] || keys['KeyQ'] || keys['ArrowLeft']) moveX -= 1;
           if (keys['KeyD'] || keys['ArrowRight']) moveX += 1;
 
           if (gamepadMoveX !== 0 || gamepadMoveY !== 0) {
@@ -12841,7 +12841,7 @@
       // YENİ: Sınıfa göre özelleştirilmiş fütüristik gövde ve itici tasarımı
       drawShipMesh(ctx, mainColor) {
         const t = performance.now() / 1000;
-        const isMoving = (keys['KeyW'] || keys['KeyS'] || keys['KeyA'] || keys['KeyD'] ||
+        const isMoving = (keys['KeyW'] || keys['KeyZ'] || keys['KeyS'] || keys['KeyA'] || keys['KeyQ'] || keys['KeyD'] ||
                           keys['ArrowUp'] || keys['ArrowDown'] || keys['ArrowLeft'] || keys['ArrowRight'] ||
                           gamepadMoveX !== 0 || gamepadMoveY !== 0 || this.isDashing);
         const flicker = 0.8 + 0.2 * Math.sin(t * 35);
@@ -18779,7 +18779,7 @@
         if (pixiPlayerThrusters) {
           pixiPlayerThrusters.clear();
           if (player && (typeof gameState !== 'undefined' && (gameState === 'PLAYING' || gameState === 'UPGRADE'))) {
-            const isMoving = Boolean(keys['KeyW'] || keys['KeyS'] || keys['KeyA'] || keys['KeyD'] || (typeof gamepadAxes !== 'undefined' && Math.hypot(gamepadAxes.moveX || 0, gamepadAxes.moveY || 0) > 0.15) || player.isDashing);
+            const isMoving = Boolean(keys['KeyW'] || keys['KeyZ'] || keys['KeyS'] || keys['KeyA'] || keys['KeyQ'] || keys['KeyD'] || (typeof gamepadAxes !== 'undefined' && Math.hypot(gamepadAxes.moveX || 0, gamepadAxes.moveY || 0) > 0.15) || player.isDashing);
             const isDashing = player.isDashing;
             const t = performance.now() * 0.001;
 
@@ -21015,7 +21015,12 @@
         }
       ];
 
-      const filteredItems = items.filter(it => it.category === currentSettingsTab);
+      const isCrazyGamesOrIframe = (typeof window !== 'undefined' && (window.self !== window.top || (window.ZortexCrazyGames && window.ZortexCrazyGames.isAvailable)));
+      const filteredItems = items.filter(it => {
+        if (it.category !== currentSettingsTab) return false;
+        if (it.key === 'fullscreen' && isCrazyGamesOrIframe) return false;
+        return true;
+      });
 
       filteredItems.forEach(it => {
         const row = document.createElement('div');
@@ -21229,11 +21234,7 @@
 
     // UI Buttons Event Listeners
     document.getElementById('startBtn').addEventListener('click', () => {
-      if (window.ZortexMetaProgression && typeof window.ZortexMetaProgression.openRunSetup === 'function') {
-        window.ZortexMetaProgression.openRunSetup();
-      } else {
-        startGame();
-      }
+      startGame();
     });
     document.getElementById('restartBtn').addEventListener('click', () => {
       if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.requestMidgameAd === 'function') {

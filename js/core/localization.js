@@ -42,15 +42,15 @@
       menu_showcase_hint: 'Meteora tıkla • Parçala & Hurda Topla',
 
       // Kontroller İpuçları
-      ctrl_move: '<span class="key-badge">WASD / Oklar</span> Hareket',
+      ctrl_move: '<span class="key-badge">WASD / ZQSD / Oklar</span> Hareket',
       ctrl_aim: '<span class="key-badge">Mouse</span> Hedef Al / Ateş',
       ctrl_dash: '<span class="key-badge">Space / Sağ Tık</span> Siber Dash (Hızlı Kaçış)',
-      ctrl_overdrive: '<span class="key-badge">E / Q</span> Overdrive / Ultimate Lazer',
+      ctrl_overdrive: '<span class="key-badge">E / R</span> Overdrive / Ultimate Lazer',
       ctrl_decoy: '<span class="key-badge">C</span> Holo-Kopya (Hedef Şaşırtma)',
       ctrl_gamepad: '<span class="key-badge">Gamepad</span> Sol/Sağ Analog (Twin-Stick)',
       ctrl_autofire: '<span class="key-badge">F</span> Otomatik Ateş Aç/Kapat',
       ctrl_switch_weapon: '<span class="key-badge">1 - 4</span> Silah Değiştir (Açık Silahlar Arasında)',
-      ctrl_pause: '<span class="key-badge">P / ESC</span> Oyunu Duraklat',
+      ctrl_pause: '<span class="key-badge">P</span> Oyunu Duraklat',
       ctrl_modal_title: 'SİBER KONTROLLER',
       close_btn: 'KAPAT',
       ad_revive_btn: '⚡ REKLAM İZLE: DİRİL (%50 KALKAN)',
@@ -62,6 +62,7 @@
       onboard_overdrive: 'Overdrive',
       onboard_weapons: 'Silahlar',
       onboard_pause: 'Duraklat',
+      hud_pause_btn: '⏸️ DURAKLAT [P]',
 
       // Silah Evrimi Bannerı
       evo_banner_tag: 'SİLAH EVRİMİ',
@@ -468,15 +469,15 @@
       menu_showcase_hint: 'Click asteroid • Shatter & Collect Scrap',
 
       // Controls Hints
-      ctrl_move: '<span class="key-badge">WASD / Arrows</span> Movement',
+      ctrl_move: '<span class="key-badge">WASD / ZQSD / Arrows</span> Movement',
       ctrl_aim: '<span class="key-badge">Mouse</span> Aim / Fire',
       ctrl_dash: '<span class="key-badge">Space / Right Click</span> Cyber Dash (Evasion)',
-      ctrl_overdrive: '<span class="key-badge">E / Q</span> Overdrive / Ultimate Laser',
+      ctrl_overdrive: '<span class="key-badge">E / R</span> Overdrive / Ultimate Laser',
       ctrl_decoy: '<span class="key-badge">C</span> Holo-Decoy (Diversion)',
       ctrl_gamepad: '<span class="key-badge">Gamepad</span> Twin-Stick Analog',
       ctrl_autofire: '<span class="key-badge">F</span> Toggle Auto-Fire',
       ctrl_switch_weapon: '<span class="key-badge">1 - 4</span> Switch Weapon (Among Unlocked Weapons)',
-      ctrl_pause: '<span class="key-badge">P / ESC</span> Pause Game',
+      ctrl_pause: '<span class="key-badge">P</span> Pause Game',
       ctrl_modal_title: 'CYBER CONTROLS',
       close_btn: 'CLOSE',
       ad_revive_btn: '⚡ WATCH AD: REVIVE (50% SHIELD)',
@@ -488,6 +489,7 @@
       onboard_overdrive: 'Overdrive',
       onboard_weapons: 'Weapons',
       onboard_pause: 'Pause',
+      hud_pause_btn: '⏸️ PAUSE [P]',
 
       // Weapon Evolution Banner
       evo_banner_tag: 'WEAPON EVOLUTION',
@@ -894,15 +896,15 @@
       menu_showcase_hint: 'Clic en asteroide • Destruye y recolecta chatarra',
 
       // Consejos de Control
-      ctrl_move: '<span class="key-badge">WASD / Flechas</span> Moverse',
+      ctrl_move: '<span class="key-badge">WASD / ZQSD / Flechas</span> Moverse',
       ctrl_aim: '<span class="key-badge">Ratón</span> Apuntar / Disparar',
       ctrl_dash: '<span class="key-badge">Espacio / Clic Der.</span> Desplazamiento Ciber (Evasión)',
-      ctrl_overdrive: '<span class="key-badge">E / Q</span> Sobremarcha / Láser Definitivo',
+      ctrl_overdrive: '<span class="key-badge">E / R</span> Sobremarcha / Láser Definitivo',
       ctrl_decoy: '<span class="key-badge">C</span> Señuelo Holográfico (Distracción)',
       ctrl_gamepad: '<span class="key-badge">Mando</span> Dos Palancas (Twin-Stick)',
       ctrl_autofire: '<span class="key-badge">F</span> Alternar Disparo Automático',
       ctrl_switch_weapon: '<span class="key-badge">1 - 4</span> Cambiar Arma (Entre Armas Desbloqueadas)',
-      ctrl_pause: '<span class="key-badge">P / ESC</span> Pausar Juego',
+      ctrl_pause: '<span class="key-badge">P</span> Pausar Juego',
       ctrl_modal_title: 'CONTROLES CIBERNÉTICOS',
       close_btn: 'CERRAR',
       ad_revive_btn: '⚡ VER ANUNCIO: REVIVIR (50% ESCUDO)',
@@ -914,6 +916,7 @@
       onboard_overdrive: 'Overdrive',
       onboard_weapons: 'Armas',
       onboard_pause: 'Pausa',
+      hud_pause_btn: '⏸️ PAUSA [P]',
 
       // Pancarta de Evolución de Arma
       evo_banner_tag: 'EVOLUCIÓN DE ARMA',
@@ -1320,15 +1323,15 @@
       menu_showcase_hint: 'Klicke Meteorit • Zerstöre & Sammle Schrott',
 
       // Steuerungshinweise
-      ctrl_move: '<span class="key-badge">WASD / Pfeile</span> Bewegung',
+      ctrl_move: '<span class="key-badge">WASD / ZQSD / Pfeile</span> Bewegung',
       ctrl_aim: '<span class="key-badge">Maus</span> Zielen / Feuern',
       ctrl_dash: '<span class="key-badge">Leertaste / Rechtsklick</span> Cyber-Dash (Ausweichen)',
-      ctrl_overdrive: '<span class="key-badge">E / Q</span> Overdrive / Ultimativer Laser',
+      ctrl_overdrive: '<span class="key-badge">E / R</span> Overdrive / Ultimativer Laser',
       ctrl_decoy: '<span class="key-badge">C</span> Holo-Täuschkörper (Ablenkung)',
       ctrl_gamepad: '<span class="key-badge">Gamepad</span> Twin-Stick-Analog',
       ctrl_autofire: '<span class="key-badge">F</span> Dauerfeuer Umschalten',
       ctrl_switch_weapon: '<span class="key-badge">1 - 4</span> Waffe Wechseln (Aus Freigeschalteten Waffen)',
-      ctrl_pause: '<span class="key-badge">P / ESC</span> Spiel Pausieren',
+      ctrl_pause: '<span class="key-badge">P</span> Spiel Pausieren',
       ctrl_modal_title: 'CYBER-STEUERUNG',
       close_btn: 'SCHLIESSEN',
       ad_revive_btn: '⚡ WERBUNG ANSEHEN: WIEDERBELEBEN (50% SCHILD)',
@@ -1340,6 +1343,7 @@
       onboard_overdrive: 'Overdrive',
       onboard_weapons: 'Waffen',
       onboard_pause: 'Pause',
+      hud_pause_btn: '⏸️ PAUSE [P]',
 
       // Waffen-Evolutions-Banner
       evo_banner_tag: 'WAFFEN-EVOLUTION',
@@ -1719,11 +1723,21 @@
 
   class LocalizationEngine {
     constructor() {
-      let saved = 'en';
+      let saved = null;
       try {
-        saved = localStorage.getItem('zortex_lang') || 'en';
+        saved = localStorage.getItem('zortex_lang');
       } catch (e) {}
-      if (!SUPPORTED_LANGS.includes(saved)) saved = 'en';
+
+      if (!saved || !SUPPORTED_LANGS.includes(saved)) {
+        if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.getPreferredLanguage === 'function') {
+          saved = window.ZortexCrazyGames.getPreferredLanguage();
+        } else if (typeof navigator !== 'undefined' && navigator.language) {
+          const navLang = navigator.language.slice(0, 2).toLowerCase();
+          saved = SUPPORTED_LANGS.includes(navLang) ? navLang : 'en';
+        } else {
+          saved = 'en';
+        }
+      }
       this.currentLang = saved;
 
       // DOM hazır olduğunda otomatik uygula

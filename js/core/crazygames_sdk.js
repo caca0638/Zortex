@@ -51,6 +51,19 @@
       }
     }
 
+    getPreferredLanguage() {
+      try {
+        let lang = 'en';
+        if (typeof navigator !== 'undefined' && navigator.language) {
+          lang = navigator.language.slice(0, 2).toLowerCase();
+        }
+        const supported = ['tr', 'en', 'es', 'de'];
+        return supported.includes(lang) ? lang : 'en';
+      } catch (e) {
+        return 'en';
+      }
+    }
+
     loadingStart() {
       try {
         if (this.sdk && this.sdk.game && typeof this.sdk.game.loadingStart === 'function') {
