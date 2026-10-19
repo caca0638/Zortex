@@ -3758,7 +3758,7 @@
 
       <!-- Altı İkincil Menü Düğmesi (Aynı Boyutta, Çerçevesiz Metin Satırı, Hover Reticle & Sol Vurgu) -->
       <nav class="menu-secondary-list" aria-label="İkincil Menü">
-        <button id="neuralMatrixBtn" class="menu-line-btn" type="button" onclick="if(window.ZortexMetaProgression) { window.ZortexMetaProgression.openRunSetup(); setTimeout(() => document.querySelector('[data-tab=\'chips\']')?.click(), 50); }">
+        <button id="neuralMatrixBtn" class="menu-line-btn" type="button" onclick="if(window.ZortexMetaProgression && typeof window.ZortexMetaProgression.openRunSetup === 'function') { window.ZortexMetaProgression.openRunSetup('chips'); }">
           <span class="line-btn-left">
             <svg class="menu-icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/></svg>
             <span class="btn-label">NÖRAL YONGA MATRİSİ</span>
