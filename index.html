@@ -7993,7 +7993,7 @@
     }
 
     // Game Variables
-    let gameState = 'PROFILE'; // PROFILE, MENU, HANGAR, TECH_TREE, ACHIEVEMENTS, SETTINGS, PLAYING, UPGRADE, PAUSED, GAMEOVER
+    let gameState = 'MENU'; // MENU, HANGAR, TECH_TREE, ACHIEVEMENTS, SETTINGS, PLAYING, UPGRADE, PAUSED, GAMEOVER, PROFILE
     Object.defineProperty(window, 'gameState', {
       get() { return gameState; },
       set(v) { gameState = v; },
@@ -19626,6 +19626,9 @@
 
       gameState = 'PLAYING';
       window.gameState = gameState;
+      if (typeof window !== 'undefined') window.focus();
+      const gCanvasFocus = document.getElementById('gameCanvas');
+      if (gCanvasFocus && typeof gCanvasFocus.focus === 'function') gCanvasFocus.focus();
       if (typeof player !== 'undefined' && player) player._revivedByAd = false;
       if (window.ZortexCrazyGames && typeof window.ZortexCrazyGames.gameplayStart === 'function') {
         window.ZortexCrazyGames.gameplayStart();
@@ -21481,8 +21484,14 @@
       window.ZortexI18n.applyToDOM();
     }
 
-    // Kullanıcı İsteği: Oyun açıldığında Ana Menüden önce "PROFİL SEÇ / OLUŞTUR" ekranı gelsin
-    openProfileMenu();
+    // CrazyGames & Web Standart: Doğrudan Ana Menüye in (Max 1 click to gameplay)
+    loadAllProfiles();
+    updateActiveProfileUI();
+    gameState = 'MENU';
+    const profileOverlayEl = document.getElementById('profileOverlay');
+    if (profileOverlayEl) profileOverlayEl.classList.add('hidden');
+    const menuOverlayEl = document.getElementById('menuOverlay');
+    if (menuOverlayEl) menuOverlayEl.classList.remove('hidden');
 
     // [FX] ZortexFX Başlatma Kancası
     if (window.ZortexFX && typeof window.ZortexFX.init === 'function') {
